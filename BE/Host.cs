@@ -8,7 +8,7 @@ namespace BE
 {
     public class Host
     {
-        private int hostKey;
+        private long hostKey;
         private string privateName;
         private string familyName;
         private string phoneNumber;
@@ -17,7 +17,7 @@ namespace BE
         private int bankAccountNumber;
         private bool collectionClearance;
         //properties
-        public int HostKey
+        public long HostKey
         {
             get { return hostKey; }
             set { hostKey = value; }

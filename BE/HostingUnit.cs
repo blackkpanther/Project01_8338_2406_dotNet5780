@@ -8,7 +8,7 @@ namespace BE
 {
    public class HostingUnit
     {
-        private int hostingUnitKey;
+        private long hostingUnitKey;
         private Host owner;
         private string hostringUnitName;
         private bool[,] diary;
@@ -16,7 +16,7 @@ namespace BE
 
         //properties:
 
-        public int HostingUnitKey
+        public long HostingUnitKey
         {
             get { return hostingUnitKey; }
             set { hostingUnitKey = value; }

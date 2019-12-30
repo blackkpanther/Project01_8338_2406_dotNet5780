@@ -10,19 +10,33 @@ namespace DAL
 {
     public interface Idal
     {
+        #region GuestRequest
         void AddGuestRequest(GuestRequest request);
         void UpdateGuestRequest(ref GuestRequest request, Enums.Status status);
-        void AddHostingUnit(HostingUnit unit);
+#endregion
+        
+        #region HostingUnit
+void AddHostingUnit(HostingUnit unit);
         void UpdateHostingUnit(ref HostingUnit unit, bool[,] diary);
         void DeleteHostingUnit(HostingUnit unit);
-        void AddOrder(Order order);
+#endregion
+        
+        #region Order
+void AddOrder(Order order);
         void UpdateOrder(ref Order order, Enums.Status status);
-        List<HostingUnit> GetHostingUnitList();
+#endregion      
+  
+        #region Lists
+List<HostingUnit> GetHostingUnitList();
         List<GuestRequest> GetGuestRequestList();
         List<Order> GetOrderList();
         List<BankBranch> GetBankBranchList();
-        GuestRequest CheckGuestRequest(int key);
-        HostingUnit CheckHostingUnit(int key);
-        Order CheckOrder(int key);
+      #endregion
+  
+#region AssistingMethods
+GuestRequest CheckGuestRequest(long key);
+        HostingUnit CheckHostingUnit(long key);
+        Order CheckOrder(long key);
+        #endregion
     }
 }

@@ -30,24 +30,26 @@ namespace BL
 
         public void Ibl.AddOrder(Order order)
         {
-            if ()
-                throw new Exception("hosting unit already booked");
+            HostingUnit u=CheckHostingUnit(order.HostingUnitKey);
+            GuestRequest g=CheckGuestRequest(order.GuestRequestKey);
+           if(u.Diary[g.EntryDate.Day,g.EntryDate.Month]||u.Diary[g.ReleaseDate.Day,g.ReleaseDate.Month])
+                throw new Exception("Hosting unit already booked");
             IDAL.AddOrder(order);
         }
 
-        public GuestRequest Ibl.CheckGuestRequest(int key)
+        public GuestRequest Ibl.CheckGuestRequest(long key)
         {
-            throw new NotImplementedException();
+            return IDAL.CheckGuestRequest(key);
         }
 
-        public HostingUnit CheckHostingUnit(int key)
+        public HostingUnit Ibl.CheckHostingUnit(long key)
         {
-            throw new NotImplementedException();
+            return IDAL.CheckHostingUnit(key);
         }
 
-        public Order CheckOrder(int key)
+        public Order Ibl.CheckOrder(long key)
         {
-            throw new NotImplementedException();
+           return IDAL.CheckOrder(key);
         }
 
         public void Ibl.DeleteHostingUnit(HostingUnit unit)
@@ -89,12 +91,16 @@ namespace BL
 
         public void UpdateOrder(ref Order order, Enums.Status status)
         {
-            if (!order.HostingUnitKey.owner.collectionClearance)
-                throw new Exception("אין הרשאה");
+            HostingUnit u=CheckHostingUnit(order.HostingUnitKey);
+            GuestRequest g=CheckGuestRequest(order.GuestRequestKey);
+            if (!g.Signed)
+                throw new Exception("No standing order confirmation");//אין הרשאת חיוב
             if (order.Status == Enums.Status.Treated)
-                throw new Exception("Order already closed");
-            if (status == Enums.Status.MailSent)
+                throw new Exception("Order already closed");//ההזמנה כבר סגורה
+if (status == Enums.Status.MailSent)
+              {
                 //print
+              }
                 if (status == Enums.Status.Treated)
                 {
                     //amla

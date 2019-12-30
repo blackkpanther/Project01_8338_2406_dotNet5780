@@ -17,7 +17,7 @@ namespace DAL
             // כאן מאתחלים את כל הרשימות שיש לנו
         }
 
-
+          #region GuestRequest
         void Idal.AddGuestRequest(GuestRequest request)
         {
             if (CheckGuestRequest(request.GuestRequestKey) != null)
@@ -29,7 +29,9 @@ namespace DAL
         {
             request.Status = status;
         }
+        #endregion
 
+          #region HostingUnit
         void Idal.AddHostingUnit(HostingUnit unit)
         {
             if (CheckHostingUnit(unit.HostingUnitKey) != null)
@@ -49,6 +51,9 @@ namespace DAL
                 throw new /*NonExistingUnit*/Exception("Hosting unit does not exist");
             DataSource.HostingUnitList.RemoveAll(item => item.HostingUnitKey == unit.HostingUnitKey);
         }
+        #endregion
+
+          #region Order
         void Idal.AddOrder(Order order)
         {
             if (CheckOrder(order.OrderKey) != null)
@@ -60,7 +65,9 @@ namespace DAL
         {
             order.Status = status;
         }
+        #endregion
 
+          #region Lists
         List<HostingUnit> Idal.GetHostingUnitList()
         {
             return DataSource.HostingUnitList.Select(item => item).ToList();
@@ -79,17 +86,21 @@ namespace DAL
         {
             return DataSource.BankBranchList.Select(item => item).ToList();
         }
-        GuestRequest Idal.CheckGuestRequest(int key)
+        #endregion
+
+          #region AssistingMethods
+        GuestRequest Idal.CheckGuestRequest(long key)
         {
             return DataSource.GuestRequestList.Find(item => item.GuestRequestKey == key);
         }
-        HostingUnit Idal.CheckHostingUnit(int key)
+        HostingUnit Idal.CheckHostingUnit(long key)
         {
             return DataSource.HostingUnitList.Find(item => item.HostingUnitKey == key);
         }
-        Order Idal.CheckOrder(int key)
+        Order Idal.CheckOrder(long key)
         {
             return DataSource.OrderList.Find(item => item.OrderKey == key);
         }
+        #endregion
     }
 }

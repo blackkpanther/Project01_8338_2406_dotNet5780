@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-   public class GuestRequest//git test
+   public class GuestRequest
     {
-        private int guestRequestKey;
+        private long guestRequestKey;
         private string privateName;
         private string familyName;
         private string mailAddress;
@@ -16,20 +16,21 @@ namespace BE
         private DateTime registrationDate;
         private DateTime entryDate;
         private DateTime releaseDate;
-        private Enums.Area area;//enum!!!
-        private Enums.SubArea subArea;//enum!!
-        private Enums.Typ type;//enum!!
+        private Enums.Area area;
+        private Enums.SubArea subArea;
+        private Enums.Typ type;
         private int adults;
         private int children;
         private Enums.Option pool;
         private Enums.Option jacuzzi;
         private Enums.Option garden;
-        private Enums.Option childrensAttractions;
+        private Enums.Option childrensAttractions
+        private  bool signed;//הרשאה לחיוב חשבון בנק
 
 
         //properties:
 
-        public int GuestRequestKey
+        public long GuestRequestKey
         {
             get;
             set;
@@ -114,7 +115,11 @@ namespace BE
             get { return childrensAttractions; }
             set { childrensAttractions = value; }
         }
-
+public  bool Signed
+{
+            get{return signed;}
+            set{signed=value;}
+}
 
         public override string ToString()
         {

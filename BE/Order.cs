@@ -8,24 +8,24 @@ namespace BE
 {
     public class Order
     {
-        private int hostingUnitKey;
-        private int guestRequestKey;
-        private int orderKey;
+        private long hostingUnitKey;
+        private long guestRequestKey;
+        private long orderKey;
         private Enums.Status status;
         private DateTime createDate;
         private DateTime orderDate;
         //properties
-        public int HostingUnitKey
+        public long HostingUnitKey
         {
             get { return hostingUnitKey; }
             set { hostingUnitKey = value; }
         }
-        public int GuestRequestKey
+        public long GuestRequestKey
         {
             get { return guestRequestKey; }
             set { guestRequestKey = value; }
         }
-        public int OrderKey
+        public long OrderKey
         {
             get { return orderKey; }
             set { orderKey = value; }
