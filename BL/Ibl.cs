@@ -7,7 +7,7 @@ using BE;
 
 namespace BL
 {
-    class Ibl
+    public interface Ibl
     {
         void AddGuestRequest(GuestRequest request);
         void UpdateGuestRequest(ref GuestRequest request, Enums.Status status);
