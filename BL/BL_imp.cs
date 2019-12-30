@@ -34,6 +34,11 @@ namespace BL
             throw new NotImplementedException();
         }
 
+        public List<HostingUnit> AvailableHostingUnits(DateTime date, int n)
+        {
+            throw new NotImplementedException();
+        }
+
         public GuestRequest CheckGuestRequest(int key)
         {
             throw new NotImplementedException();
@@ -70,6 +75,36 @@ namespace BL
         }
 
         public List<Order> GetOrderList()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int NumberOfDays(DateTime date1, DateTime date2)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int NumberOfDays(DateTime date)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int NumberOfInvites(GuestRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int NumberOfInvites(HostingUnit unit)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Order> NumberOfOrders(int days)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<GuestRequest> Requests()
         {
             throw new NotImplementedException();
         }
