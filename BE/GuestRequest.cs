@@ -24,7 +24,7 @@ namespace BE
         private Enums.Option pool;
         private Enums.Option jacuzzi;
         private Enums.Option garden;
-        private Enums.Option childrensAttractions
+        private Enums.Option childrensAttractions;
         private  bool signed;//הרשאה לחיוב חשבון בנק
 
 

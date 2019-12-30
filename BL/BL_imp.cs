@@ -30,9 +30,9 @@ namespace BL
 
         public void Ibl.AddOrder(Order order)
         {
-            HostingUnit u=CheckHostingUnit(order.HostingUnitKey);
-            GuestRequest g=CheckGuestRequest(order.GuestRequestKey);
-           if(u.Diary[g.EntryDate.Day,g.EntryDate.Month]||u.Diary[g.ReleaseDate.Day,g.ReleaseDate.Month])
+            HostingUnit u = CheckHostingUnit(order.HostingUnitKey);
+            GuestRequest g = CheckGuestRequest(order.GuestRequestKey);
+            if (u.Diary[g.EntryDate.Day, g.EntryDate.Month] || u.Diary[g.ReleaseDate.Day, g.ReleaseDate.Month])
                 throw new Exception("Hosting unit already booked");
             IDAL.AddOrder(order);
         }
@@ -49,7 +49,7 @@ namespace BL
 
         public Order Ibl.CheckOrder(long key)
         {
-           return IDAL.CheckOrder(key);
+            return IDAL.CheckOrder(key);
         }
 
         public void Ibl.DeleteHostingUnit(HostingUnit unit)
@@ -91,22 +91,22 @@ namespace BL
 
         public void UpdateOrder(ref Order order, Enums.Status status)
         {
-            HostingUnit u=CheckHostingUnit(order.HostingUnitKey);
-            GuestRequest g=CheckGuestRequest(order.GuestRequestKey);
+            HostingUnit u = CheckHostingUnit(order.HostingUnitKey);
+            GuestRequest g = CheckGuestRequest(order.GuestRequestKey);
             if (!g.Signed)
                 throw new Exception("No standing order confirmation");//אין הרשאת חיוב
             if (order.Status == Enums.Status.Treated)
                 throw new Exception("Order already closed");//ההזמנה כבר סגורה
-if (status == Enums.Status.MailSent)
-              {
+            if (status == Enums.Status.MailSent)
+            {
                 //print
-              }
-                if (status == Enums.Status.Treated)
-                {
-                    //amla
-                    //matriza
-                    //statuses
-                }
+            }
+            if (status == Enums.Status.Treated)
+            {
+                //amla
+                //matriza
+                //statuses
+            }
             IDAL.UpdateOrder(order, status);
         }
         public List<HostingUnit> Ibl.AvailableHostingUnits(DateTime date, int n)
