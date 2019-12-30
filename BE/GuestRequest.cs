@@ -12,7 +12,7 @@ namespace BE
         private string privateName;
         private string familyName;
         private string mailAddress;
-        private Enums.Status status;// ENUM לבדוק אם לעשות 
+        private Enums.Status status; 
         private DateTime registrationDate;
         private DateTime entryDate;
         private DateTime releaseDate;

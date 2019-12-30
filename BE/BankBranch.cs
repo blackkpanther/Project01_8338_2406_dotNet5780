@@ -13,7 +13,19 @@ namespace BE
         private int branchNumber;
         private string branchAddress;
         private Enums.SubArea branchCity;
-     
+
+        //constructors
+      //  public BankBranch() { }
+        public BankBranch( int bankNumber1, Enums.BankName bankName1, int branchNumber1, string branchAddress1 , Enums.SubArea branchCity1)
+        {
+        bankNumber= bankNumber1;
+        bankName= bankName1;
+        branchNumber=  branchNumber1;
+        branchAddress=  branchAddress1;
+        branchCity= branchCity1;
+
+        }
+
         //properties:
 
         public int BankNumber
@@ -46,7 +58,6 @@ namespace BE
         {
             return "Bank account no.: "+this.bankNumber + " Bank name: " + this.bankName + " Branch no.: " + this.branchNumber + " Branch address: " + this.branchAddress + " City: " + this.branchCity;
         }
-        //constructor
-        public BankBranch() { }
+      
     }
 }

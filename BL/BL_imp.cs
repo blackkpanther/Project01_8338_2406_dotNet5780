@@ -16,30 +16,26 @@ namespace BL
             IDAL = DAL.FactoryDAL.GetFactory();
         }
 
-        public void AddGuestRequest(GuestRequest request)
+        public void Ibl.AddGuestRequest(GuestRequest request)
         {
             if (request.EntryDate >= request.ReleaseDate)
-
-
-                throw new NotImplementedException();
+                throw new Exception("Entry date has to be at least one day before release date");
+            IDAL.AddGuestRequest(request);
         }
 
-        public void AddHostingUnit(HostingUnit unit)
+        public void Ibl.AddHostingUnit(HostingUnit unit)
         {
-            throw new NotImplementedException();
+            IDAL.AddHostingUnit(unit);
         }
 
-        public void AddOrder(Order order)
+        public void Ibl.AddOrder(Order order)
         {
-            throw new NotImplementedException();
+            if ()
+                throw new Exception("hosting unit already booked");
+            IDAL.AddOrder(order);
         }
 
-        public List<HostingUnit> AvailableHostingUnits(DateTime date, int n)
-        {
-            throw new NotImplementedException();
-        }
-
-        public GuestRequest CheckGuestRequest(int key)
+        public GuestRequest Ibl.CheckGuestRequest(int key)
         {
             throw new NotImplementedException();
         }
@@ -54,9 +50,11 @@ namespace BL
             throw new NotImplementedException();
         }
 
-        public void DeleteHostingUnit(HostingUnit unit)
+        public void Ibl.DeleteHostingUnit(HostingUnit unit)
         {
-            throw new NotImplementedException();
+            if (קיימת הזמנה פתוחה)
+               throw new Exception("Unable to delete hosting unit");
+            IDAL.DeleteHostingUnit(unit);
         }
 
         public List<BankBranch> GetBankBranchList()
@@ -79,49 +77,61 @@ namespace BL
             throw new NotImplementedException();
         }
 
-        public int NumberOfDays(DateTime date1, DateTime date2)
+        public void Ibl.UpdateGuestRequest(ref GuestRequest request, Enums.Status status)
         {
-            throw new NotImplementedException();
+            IDAL.UpdateGuestRequest(request, status);
         }
 
-        public int NumberOfDays(DateTime date)
+        public void Ibl.UpdateHostingUnit(ref HostingUnit unit, bool[,] diary)
         {
-            throw new NotImplementedException();
-        }
-
-        public int NumberOfInvites(GuestRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int NumberOfInvites(HostingUnit unit)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Order> NumberOfOrders(int days)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<GuestRequest> Requests()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateGuestRequest(ref GuestRequest request, Enums.Status status)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateHostingUnit(ref HostingUnit unit, bool[,] diary)
-        {
-            throw new NotImplementedException();
+            IDAL.UpdateHostingUnit(unit, diary);
         }
 
         public void UpdateOrder(ref Order order, Enums.Status status)
         {
-            throw new NotImplementedException();
+            if (!order.HostingUnitKey.owner.collectionClearance)
+                throw new Exception("אין הרשאה");
+            if (order.Status == Enums.Status.Treated)
+                throw new Exception("Order already closed");
+            if (status == Enums.Status.MailSent)
+                //print
+                if (status == Enums.Status.Treated)
+                {
+                    //amla
+                    //matriza
+                    //statuses
+                }
+            IDAL.UpdateOrder(order, status);
         }
+        public List<HostingUnit> Ibl.AvailableHostingUnits(DateTime date, int n)
+        {
+
+        }
+        public int Ibl.NumberOfDays(DateTime date1, DateTime date2 = 0)
+        {
+            if (date2 == 0)
+                return Math.Abs(DateTime.Now - date1);
+            return Math.Abs(date1 - date2);
+        }
+        public List<Order> Ibl.NumberOfOrders(int days)
+        {
+
+        }
+        public List<GuestRequest> Ibl.Requests()
+        {
+
+        }
+        public int Ibl.NumberOfInvites(GuestRequest request)
+        {
+
+        }
+        public int Ibl.NumberOfInvites(HostingUnit unit)
+        {
+
+        }
+
+
     }
+
+
 }
