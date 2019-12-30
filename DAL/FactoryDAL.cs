@@ -8,10 +8,17 @@ namespace DAL
 {
     public class FactoryDAL
     {
-        public static Idal getDal()
-        {
-            return Dal_imp.Instance;
 
+        static Idal instance = null;
+
+        public static Idal GetFactory()
+        {
+            if (instance == null)
+                instance = new Dal_imp();
+            return instance;
         }
+
+
+
     }
 }

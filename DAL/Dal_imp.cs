@@ -9,26 +9,18 @@ using DS;
 namespace DAL
 {
     public class Dal_imp : Idal
-    {  
-      //Singleton
-        private static Dal_imp instance;
+    {
+        //Singleton
 
-        public static Dal_imp Instance
+        public Dal_imp()
         {
-            get
-            {
-                if (instance == null)
-                    instance = new Dal_imp();
-                return instance;
-            }
+            // כאן מאתחלים את כל הרשימות שיש לנו
         }
 
-        private Dal_imp() { }
-    
 
         void Idal.AddGuestRequest(GuestRequest request)
         {
-            if (CheckGuestRequest(request.GuestRequestKey))
+            if (CheckGuestRequest(request.GuestRequestKey) != null)
                 throw new /*DuplicateRequest*/Exception("Request already submitted");
             DataSource.GuestRequestList.Add(request.Clone());
         }
@@ -40,7 +32,7 @@ namespace DAL
 
         void Idal.AddHostingUnit(HostingUnit unit)
         {
-            if (CheckHostingUnit(unit.HostingUnitKey))
+            if (CheckHostingUnit(unit.HostingUnitKey) != null)
                 throw new /*DuplicateUnit*/Exception("Hosting unit already added");
             DataSource.HostingUnitList.Add(unit.Clone());
         }
@@ -53,13 +45,13 @@ namespace DAL
         }
         void Idal.DeleteHostingUnit(HostingUnit unit)
         {
-            if (!CheckHostingUnit(unit.HostingUnitKey))
+            if (CheckHostingUnit(unit.HostingUnitKey) == null)
                 throw new /*NonExistingUnit*/Exception("Hosting unit does not exist");
             DataSource.HostingUnitList.RemoveAll(item => item.HostingUnitKey == unit.HostingUnitKey);
         }
         void Idal.AddOrder(Order order)
         {
-            if (CheckOrder(order.OrderKey))
+            if (CheckOrder(order.OrderKey) != null)
                 throw new /*DuplicateOrder*/Exception("Orderalready submitted");
             DataSource.OrderList.Add(order.Clone());
         }

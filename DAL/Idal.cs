@@ -10,7 +10,7 @@ namespace DAL
 {
     public interface Idal
     {
-       void AddGuestRequest(GuestRequest request);
+        void AddGuestRequest(GuestRequest request);
         void UpdateGuestRequest(ref GuestRequest request, Enums.Status status);
         void AddHostingUnit(HostingUnit unit);
         void UpdateHostingUnit(ref HostingUnit unit, bool[,] diary);
