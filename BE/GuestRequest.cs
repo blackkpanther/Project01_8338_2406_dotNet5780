@@ -12,7 +12,7 @@ namespace BE
         private string privateName;
         private string familyName;
         private string mailAddress;
-        private bool status;// ENUM לבדוק אם לעשות 
+        private Enums.Status status;// ENUM לבדוק אם לעשות 
         private DateTime registrationDate;
         private DateTime entryDate;
         private DateTime releaseDate;
@@ -49,7 +49,7 @@ namespace BE
             get { return mailAddress; }
             set { mailAddress = value; }
         }
-        public bool Status
+        public Enums.Status Status
         {
             get { return status; }
             set { status = value; }
