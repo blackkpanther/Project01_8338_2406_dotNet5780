@@ -13,6 +13,15 @@ namespace BE
         private string hostringUnitName;
         private bool[,] diary;
         private Enums.SubArea subArea;// *
+        private Enums.Area area;
+        private Enums.Type type;
+        private int adults;
+        private int children;
+        private Enums.Option pool;
+        private Enums.Option jacuzzi;
+        private Enums.Option garden;
+        private Enums.Option childrensAttractions;
+        private long pricePerNight;// *
 
         //properties:
 
@@ -41,6 +50,51 @@ namespace BE
             get { return subArea; }
             set { subArea = value; }
         }
+         public Enums.Area Area
+        {
+            get { return area; }
+            set { area = value; }
+        }
+        public Enums.Type Type
+        {
+            get { return type; }
+            set { type = value; }
+        }
+        public int Adults
+        {
+            get { return adults; }
+            set { adults = value; }
+        }
+        public int Children
+        {
+            get { return children; }
+            set { children = value; }
+        }
+        public Enums.Option Pool
+        {
+            get { return pool; }
+            set { pool = value; }
+        }
+        public Enums.Option Jacuzzi
+        {
+            get { return jacuzzi; }
+            set { jacuzzi = value; }
+        }
+        public Enums.Option Garden
+        {
+            get { return garden; }
+            set { garden = value;  }
+        }
+        public Enums.Option ChildrensAttractions
+        {
+            get { return childrensAttractions; }
+            set { childrensAttractions = value; }
+        }
+        public long PricePerNight
+            {
+            get{return pricePerNight;}
+            set{pricePerNight=value;}
+            }
 
         //printing method
         public override string ToString()

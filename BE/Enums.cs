@@ -34,7 +34,7 @@ namespace BE
 
         }
 
-        public enum Typ
+        public enum Type
         {
             Zimmer,
             Hotel,
@@ -68,7 +68,7 @@ namespace BE
 
         public enum Status
         {
-            treated,
+            Treated,
             NotTreated,
             MailSent,
             ClosedLackOfResponse,

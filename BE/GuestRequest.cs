@@ -18,7 +18,7 @@ namespace BE
         private DateTime releaseDate;
         private Enums.Area area;
         private Enums.SubArea subArea;
-        private Enums.Typ type;
+        private Enums.Type type;
         private int adults;
         private int children;
         private Enums.Option pool;
@@ -80,7 +80,7 @@ namespace BE
             get { return subArea; }
             set { subArea = value; }
         }
-        public Enums.Typ Type
+        public Enums.Type Type
         {
             get { return type; }
             set { type = value; }

@@ -14,6 +14,7 @@ namespace BE
         private Enums.Status status;
         private DateTime createDate;
         private DateTime orderDate;
+        private long fee; // * הצעת מחיר
         //properties
         public long HostingUnitKey
         {
@@ -45,6 +46,12 @@ namespace BE
             get { return orderDate; }
             set { orderDate = value; }
         }
+        public long Fee
+     {
+get{return fee;}
+            set{fee=value;}
+            }
+
         //printing method
         public override string ToString()
         {

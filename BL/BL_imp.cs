@@ -73,13 +73,17 @@ namespace BL
                 throw new Exception("Order already closed");//ההזמנה כבר סגורה
             if (status == Enums.Status.MailSent)
             {
-                //print
+                Console.WriteLine("Email sent");
             }
             if (status == Enums.Status.Treated)
             {
-                //amla
-                //matriza
-                //statuses
+                order.Fee=order.Fee+10*(g.ReleaseDate.Day-g.EntryDate.Day);///הוספת עמלה של 10 ש"ח ללילה לתשלום הסופי
+                for(int j=g.EntryDate.Month;j<=g.ReleaseDate.Month;j++)                
+                     for(int i=g.EntryDate.Day;i<=g.ReleaseDate.Day;i++)
+                         u.Diary[i,j]=true;  
+                IDAL.UpdateHostingUnit(u,u.Diary);//עדכון היומן
+                IDAL.UpdateGuestRequest(g,Enums.Status.treated);///עדכון סטטוס בקשת הלקוח
+              //לעדכן גם את כל ההזמנות של הלקוח!!!          
             }
             IDAL.UpdateOrder(order, status);
         }
@@ -92,53 +96,52 @@ namespace BL
         #region Lists
         List<BankBranch> Ibl.GetBankBranchList()
         {
-            throw new NotImplementedException();
+           return IDAL.GetBankBranchList();
         }
         List<GuestRequest> Ibl.GetGuestRequestList()
         {
-            throw new NotImplementedException();
+            return IDAL.GetGuestRequestList();
         }
         List<HostingUnit> Ibl.GetHostingUnitList()
         {
-            throw new NotImplementedException();
+          return IDAL.GetHostingUnitList();
         }
         List<Order> Ibl.GetOrderList()
         {
-            throw new NotImplementedException();
+          return IDAL.GetOrderList();
         }
         List<HostingUnit> Ibl.AvailableHostingUnits(DateTime date, int n)
         {
-            throw new NotImplementedException();
+         throw new NotImplementedException();
         }
         List<Order> Ibl.NumberOfOrders(int days)
         {
             throw new NotImplementedException();
         }
-        List<GuestRequest> Ibl.Requests()
+        List<GuestRequest> Ibl.GetRequests(Func<GuestRequest,bool> func)
         {
-            throw new NotImplementedException();
+            return IDAL.GetGuestRequestList(p);
         }
         #endregion
 
         #region AssistingMethods
-        public int NumberOfDays(DateTime date1, DateTime date2 )
+        public int NumberOfDays(DateTime date1, DateTime date2=null )
         {
-            if (date2 == null)
+            if (date2==null)
                 return Math.Abs( DateTime.Now.Day - date1.Day);
             return Math.Abs(date1.Day - date2.Day);
         }
         int Ibl.NumberOfInvites(GuestRequest request)
         {
-            throw new NotImplementedException();
+            var count=(GetOrderList().Count(item=> item.GuestRequestKey==request.GuestRequestKey));
+return count;
         }
         int Ibl.NumberOfInvites(HostingUnit unit)
         {
-            throw new NotImplementedException();
+            var count=(GetOrderList().Count(item=>item.HostingUnitKey==unit.HostingUnitKey&&(item.Status==Enums.Status.MailSent||item.Status==Enums.Status.Treated)));
+            return count;
         }
         #endregion
-
-
-
 
     }
 

@@ -35,7 +35,7 @@ namespace BL
         List<Order> GetOrderList();
         List<HostingUnit> AvailableHostingUnits(DateTime date, int n);
         List<Order> NumberOfOrders(int days);
-        List<GuestRequest> Requests();
+        List<GuestRequest> GetRequests(bool);
         #endregion
 
         #region AssistingMethods

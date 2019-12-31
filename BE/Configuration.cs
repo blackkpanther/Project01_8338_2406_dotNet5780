@@ -16,13 +16,14 @@ namespace BE
         private static long serialHostKey = 10000000;
         private static long serialHostingUnitKey = 10000000;
         private static long serialOrderKey = 20000000;
+        private static int serviceCharge;//עמלה
 
         public static int GetNewSerialBankNumber() { return serialBankNumber++; }
         public static long GetNewSerialGuestRequestKey() { return serialGuestRequestKey++; }
         public static long GetNewSerialHostKey() { return serialHostKey++; }
         public static long GetNewSerialHostingUnitKey() { return serialHostingUnitKey++; }
         public static long GetNewSerialOrderKey() { return serialOrderKey++; }
-
+        public static int GetServiceCharge(){return serviceCharge; }
 
     }
 }
