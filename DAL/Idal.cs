@@ -13,30 +13,27 @@ namespace DAL
         #region GuestRequest
         void AddGuestRequest(GuestRequest request);
         void UpdateGuestRequest(ref GuestRequest request, Enums.Status status);
-#endregion
-        
+        GuestRequest CheckGuestRequest(long key);
+        #endregion
+
         #region HostingUnit
-void AddHostingUnit(HostingUnit unit);
+        void AddHostingUnit(HostingUnit unit);
         void UpdateHostingUnit(ref HostingUnit unit, bool[,] diary);
         void DeleteHostingUnit(HostingUnit unit);
-#endregion
-        
+        HostingUnit CheckHostingUnit(long key);
+        #endregion
+
         #region Order
-void AddOrder(Order order);
+        void AddOrder(Order order);
         void UpdateOrder(ref Order order, Enums.Status status);
-#endregion      
-  
+        Order CheckOrder(long key);
+        #endregion
+
         #region Lists
-List<HostingUnit> GetHostingUnitList();
+        List<HostingUnit> GetHostingUnitList();
         List<GuestRequest> GetGuestRequestList();
         List<Order> GetOrderList();
         List<BankBranch> GetBankBranchList();
-      #endregion
-  
-#region AssistingMethods
-GuestRequest CheckGuestRequest(long key);
-        HostingUnit CheckHostingUnit(long key);
-        Order CheckOrder(long key);
         #endregion
     }
 }

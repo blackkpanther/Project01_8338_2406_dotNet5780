@@ -16,19 +16,46 @@ namespace BL
             IDAL = DAL.FactoryDAL.GetFactory();
         }
 
-        public void Ibl.AddGuestRequest(GuestRequest request)
+        #region GustRequest
+        void Ibl.AddGuestRequest(GuestRequest request)
         {
             if (request.EntryDate >= request.ReleaseDate)
                 throw new Exception("Entry date has to be at least one day before release date");
             IDAL.AddGuestRequest(request);
         }
-
-        public void Ibl.AddHostingUnit(HostingUnit unit)
+        void Ibl.UpdateGuestRequest(ref GuestRequest request, Enums.Status status)
+        {
+            IDAL.UpdateGuestRequest(request, status);
+        }
+        GuestRequest Ibl.CheckGuestRequest(long key)
+        {
+            return IDAL.CheckGuestRequest(key);
+        }
+        #endregion
+        
+        #region HostingUnit
+        void Ibl.AddHostingUnit(HostingUnit unit)
         {
             IDAL.AddHostingUnit(unit);
         }
+        void Ibl.DeleteHostingUnit(HostingUnit unit)
+        {
+            if (קיימת הזמנה פתוחה)
+               throw new Exception("Unable to delete hosting unit");
+            IDAL.DeleteHostingUnit(unit);
+        }
+        void Ibl.UpdateHostingUnit(ref HostingUnit unit, bool[,] diary)
+        {
+            IDAL.UpdateHostingUnit(unit, diary);
+        }
+        HostingUnit Ibl.CheckHostingUnit(long key)
+        {
+            return IDAL.CheckHostingUnit(key);
+        }
+        #endregion
 
-        public void Ibl.AddOrder(Order order)
+        #region Order
+        void Ibl.AddOrder(Order order)
         {
             HostingUnit u = CheckHostingUnit(order.HostingUnitKey);
             GuestRequest g = CheckGuestRequest(order.GuestRequestKey);
@@ -36,60 +63,7 @@ namespace BL
                 throw new Exception("Hosting unit already booked");
             IDAL.AddOrder(order);
         }
-
-        public GuestRequest Ibl.CheckGuestRequest(long key)
-        {
-            return IDAL.CheckGuestRequest(key);
-        }
-
-        public HostingUnit Ibl.CheckHostingUnit(long key)
-        {
-            return IDAL.CheckHostingUnit(key);
-        }
-
-        public Order Ibl.CheckOrder(long key)
-        {
-            return IDAL.CheckOrder(key);
-        }
-
-        public void Ibl.DeleteHostingUnit(HostingUnit unit)
-        {
-            if (קיימת הזמנה פתוחה)
-               throw new Exception("Unable to delete hosting unit");
-            IDAL.DeleteHostingUnit(unit);
-        }
-
-        public List<BankBranch> GetBankBranchList()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<GuestRequest> GetGuestRequestList()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<HostingUnit> GetHostingUnitList()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Order> GetOrderList()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Ibl.UpdateGuestRequest(ref GuestRequest request, Enums.Status status)
-        {
-            IDAL.UpdateGuestRequest(request, status);
-        }
-
-        public void Ibl.UpdateHostingUnit(ref HostingUnit unit, bool[,] diary)
-        {
-            IDAL.UpdateHostingUnit(unit, diary);
-        }
-
-        public void UpdateOrder(ref Order order, Enums.Status status)
+        void Ibl.UpdateOrder(ref Order order, Enums.Status status)
         {
             HostingUnit u = CheckHostingUnit(order.HostingUnitKey);
             GuestRequest g = CheckGuestRequest(order.GuestRequestKey);
@@ -109,32 +83,61 @@ namespace BL
             }
             IDAL.UpdateOrder(order, status);
         }
-        public List<HostingUnit> Ibl.AvailableHostingUnits(DateTime date, int n)
+        Order Ibl.CheckOrder(long key)
         {
-
+            return IDAL.CheckOrder(key);
         }
-        public int Ibl.NumberOfDays(DateTime date1, DateTime date2 = 0)
+        #endregion
+
+        #region Lists
+        List<BankBranch> Ibl.GetBankBranchList()
+        {
+            throw new NotImplementedException();
+        }
+        List<GuestRequest> Ibl.GetGuestRequestList()
+        {
+            throw new NotImplementedException();
+        }
+        List<HostingUnit> Ibl.GetHostingUnitList()
+        {
+            throw new NotImplementedException();
+        }
+        List<Order> Ibl.GetOrderList()
+        {
+            throw new NotImplementedException();
+        }
+        List<HostingUnit> Ibl.AvailableHostingUnits(DateTime date, int n)
+        {
+            throw new NotImplementedException();
+        }
+        List<Order> Ibl.NumberOfOrders(int days)
+        {
+            throw new NotImplementedException();
+        }
+        List<GuestRequest> Ibl.Requests()
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
+        #region AssistingMethods
+        public int NumberOfDays(DateTime date1, DateTime date2 )
         {
             if (date2 == 0)
                 return Math.Abs(DateTime.Now - date1);
             return Math.Abs(date1 - date2);
         }
-        public List<Order> Ibl.NumberOfOrders(int days)
+        int Ibl.NumberOfInvites(GuestRequest request)
         {
-
+            throw new NotImplementedException();
         }
-        public List<GuestRequest> Ibl.Requests()
+        int Ibl.NumberOfInvites(HostingUnit unit)
         {
-
+            throw new NotImplementedException();
         }
-        public int Ibl.NumberOfInvites(GuestRequest request)
-        {
+        #endregion
 
-        }
-        public int Ibl.NumberOfInvites(HostingUnit unit)
-        {
 
-        }
 
 
     }

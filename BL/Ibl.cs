@@ -9,26 +9,40 @@ namespace BL
 {
     public interface Ibl
     {
- 
+        #region GuestRequest
+        void AddGuestRequest(GuestRequest request);
+        void UpdateGuestRequest(ref GuestRequest request, Enums.Status status);
+        GuestRequest CheckGuestRequest(long key);
+        #endregion
+
+        #region HostingUnit
         void AddHostingUnit(HostingUnit unit);
-        void UpdateHostingUnit(ref HostingUnit unit, bool[,] diary);
         void DeleteHostingUnit(HostingUnit unit);
+        void UpdateHostingUnit(ref HostingUnit unit, bool[,] diary);
+        HostingUnit CheckHostingUnit(long key);
+        #endregion
+
+        #region Order
         void AddOrder(Order order);
         void UpdateOrder(ref Order order, Enums.Status status);
-        List<HostingUnit> GetHostingUnitList();
-        List<GuestRequest> GetGuestRequestList();
-        List<Order> GetOrderList();
-        List<BankBranch> GetBankBranchList();
-         List<HostingUnit> AvailableHostingUnits(DateTime date, int n);
-  List<Order> NumberOfOrders(int days);
-        List<GuestRequest> Requests();      
- GuestRequest CheckGuestRequest(long key);
-        HostingUnit CheckHostingUnit(long key);
         Order CheckOrder(long key);
-        int NumberOfDays(DateTime date1, DateTime date2 = 0);
+        #endregion
+
+        #region Lists
+        List<BankBranch> GetBankBranchList();
+        List<GuestRequest> GetGuestRequestList();
+        List<HostingUnit> GetHostingUnitList();
+        List<Order> GetOrderList();
+        List<HostingUnit> AvailableHostingUnits(DateTime date, int n);
+        List<Order> NumberOfOrders(int days);
+        List<GuestRequest> Requests();
+        #endregion
+
+        #region AssistingMethods
+        int NumberOfDays(DateTime date1, DateTime date2);
         int NumberOfInvites(GuestRequest request);
         int NumberOfInvites(HostingUnit unit);
-
+        #endregion
 
     }
 }
