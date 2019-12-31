@@ -25,7 +25,7 @@ namespace BL
         }
         void Ibl.UpdateGuestRequest(ref GuestRequest request, Enums.Status status)
         {
-            IDAL.UpdateGuestRequest(request, status);
+            IDAL.UpdateGuestRequest( request, status);
         }
         GuestRequest Ibl.CheckGuestRequest(long key)
         {
@@ -40,13 +40,13 @@ namespace BL
         }
         void Ibl.DeleteHostingUnit(HostingUnit unit)
         {
-            if (קיימת הזמנה פתוחה)
+            //if (קיימת הזמנה פתוחה)
                throw new Exception("Unable to delete hosting unit");
-            IDAL.DeleteHostingUnit(unit);
+          //  IDAL.DeleteHostingUnit(unit);
         }
         void Ibl.UpdateHostingUnit(ref HostingUnit unit, bool[,] diary)
         {
-            IDAL.UpdateHostingUnit(unit, diary);
+            IDAL.UpdateHostingUnit( unit , diary);
         }
         HostingUnit Ibl.CheckHostingUnit(long key)
         {
@@ -123,9 +123,9 @@ namespace BL
         #region AssistingMethods
         public int NumberOfDays(DateTime date1, DateTime date2 )
         {
-            if (date2 == 0)
-                return Math.Abs(DateTime.Now - date1);
-            return Math.Abs(date1 - date2);
+            if (date2 == null)
+                return Math.Abs( DateTime.Now.Day - date1.Day);
+            return Math.Abs(date1.Day - date2.Day);
         }
         int Ibl.NumberOfInvites(GuestRequest request)
         {
