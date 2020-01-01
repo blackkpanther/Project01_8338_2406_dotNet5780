@@ -38,6 +38,13 @@ namespace BL
         List<GuestRequest> GetRequests(bool);
         #endregion
 
+        #region Groups
+        public IEnumerable<IGrouping<Enums.Area,GuestRequest>> GroupRequestsByArea();
+        public IEnumerable<IGrouping<int,GuestRequest>> GroupRequestsByNumOfGuests();
+        public IEnumerable<IGrouping<int,Host>> GroupHostsByNumOfUnits();
+        public IEnumerable<IGrouping<Enums.Area,HostingUnit>> GroupUnitsByArea();
+        #endregion
+
         #region AssistingMethods
         int NumberOfDays(DateTime date1, DateTime date2);
         int NumberOfInvites(GuestRequest request);

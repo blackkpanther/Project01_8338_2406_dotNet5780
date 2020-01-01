@@ -86,6 +86,10 @@ namespace DAL
         {
             return DataSource.BankBranchList.Select(item => item).ToList();
         }
+        List<Host> GetHostList()
+            {
+return DataSource.HostList.Select(item => item).ToList();
+            }
         #endregion
 
           #region AssistingMethods

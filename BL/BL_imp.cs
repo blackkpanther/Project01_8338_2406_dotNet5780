@@ -40,9 +40,10 @@ namespace BL
         }
         void Ibl.DeleteHostingUnit(HostingUnit unit)
         {
-            //if (קיימת הזמנה פתוחה)
-               throw new Exception("Unable to delete hosting unit");
-          //  IDAL.DeleteHostingUnit(unit);
+            Order o=IDAL.GetOrderList().Find(item => item.HostingUnitKey == unit.HostingUnitKey);
+            if (0!=null)
+               throw new Exception("Unable to delete hosting unit because of ongoing order");
+         IDAL.DeleteHostingUnit(unit);
         }
         void Ibl.UpdateHostingUnit(ref HostingUnit unit, bool[,] diary)
         {
@@ -122,6 +123,37 @@ namespace BL
         {
             return IDAL.GetGuestRequestList(p);
         }
+        #endregion
+
+        #region Groups
+        public IEnumerable<IGrouping<Enums.Area,GuestRequest>> GroupRequestsByArea()
+            {
+IEnumerable<IGrouping<Enums.Area,GuestRequest>> gByA;
+gByA=from item in IDAL.GetGuestRequestList()
+     group item by item.Area;
+            return gByA;
+            }
+        public IEnumerable<IGrouping<int,GuestRequest>> GroupRequestsByNumOfGuests()
+            {
+IEnumerable<IGrouping<int,GuestRequest>> gByNum;
+gByNum=from item in IDAL.GetGuestRequestList()
+     group item by (item.Adults+item.Children);
+            return gByNum;
+}
+        public IEnumerable<IGrouping<int,Host>> GroupHostsByNumOfUnits()
+            {
+IEnumerable<IGrouping<int,Host>> gByU;
+gByU=from item in IDAL.GetHostList()
+     group item by item.NumOfUnits;
+            return gByU;
+}
+        public IEnumerable<IGrouping<Enums.Area,HostingUnit>> GroupUnitsByArea()
+            {
+IEnumerable<IGrouping<Enums.Area,HostingUnit>> gByA;
+gByA=from item in IDAL.GetHostingUnitList()
+     group item by item.Area;
+            return gByA;
+}
         #endregion
 
         #region AssistingMethods

@@ -16,6 +16,8 @@ namespace BE
         private BankBranch bankBranchDetails;
         private int bankAccountNumber;
         private bool collectionClearance;
+   private int numOfUnits;//*
+
         //properties
         public long HostKey
         {
@@ -57,6 +59,11 @@ namespace BE
             get { return collectionClearance; }
             set { collectionClearance = value; }
         }
+         public int NumOfUnits
+            {
+get{return numOfUnits;}
+            set{numOfUnits=value;}
+            }
         //printing method
         public override string ToString()
         {

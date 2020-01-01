@@ -34,6 +34,7 @@ namespace DAL
         List<GuestRequest> GetGuestRequestList();
         List<Order> GetOrderList();
         List<BankBranch> GetBankBranchList();
+        List<Host> GetHostList();
         #endregion
     }
 }

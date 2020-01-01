@@ -17,7 +17,9 @@ namespace DS
 
         public static List<BankBranch> BankBranchList = new List<BankBranch>();
 
-        public DataSource()
+        public static List<Host> HostList=new List<Host>();
+      
+  public DataSource()
         {
             OrderList = new List<Order>();
 
@@ -26,6 +28,8 @@ namespace DS
             HostingUnitList = new List<HostingUnit>();
 
             BankBranchList = new List<BankBranch>();
+
+            HostList=new List<Host>();
         }
                      
     }
