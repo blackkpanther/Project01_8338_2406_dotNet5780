@@ -16,7 +16,7 @@ namespace BE
 
         //constructors
       //  public BankBranch() { }
-        public BankBranch( int bankNumber1, Enums.BankName bankName1, int branchNumber1, string branchAddress1 , Enums.SubArea branchCity1)
+     /*   public BankBranch( int bankNumber1, Enums.BankName bankName1, int branchNumber1, string branchAddress1 , Enums.SubArea branchCity1)
         {
         bankNumber= bankNumber1;
         bankName= bankName1;
@@ -24,7 +24,7 @@ namespace BE
         branchAddress=  branchAddress1;
         branchCity= branchCity1;
 
-        }
+        }*/
 
         //properties:
 

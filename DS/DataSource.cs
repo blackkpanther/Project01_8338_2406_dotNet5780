@@ -16,5 +16,17 @@ namespace DS
         public static List<HostingUnit> HostingUnitList = new List<HostingUnit>();
 
         public static List<BankBranch> BankBranchList = new List<BankBranch>();
+
+        public DataSource()
+        {
+            OrderList = new List<Order>();
+
+            GuestRequestList = new List<GuestRequest>();
+
+            HostingUnitList = new List<HostingUnit>();
+
+            BankBranchList = new List<BankBranch>();
+        }
+                     
     }
 }
