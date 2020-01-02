@@ -17,10 +17,6 @@ namespace PL
             var HostList = ListOfHost();
             var GuestRequestKeyList = ListOfGuestRequest();
             var HostingUnitList = ListOfHostingUnit();
-
-
-
-
         }
 
         static IEnumerable<Host> ListOfHost()
@@ -99,7 +95,7 @@ namespace PL
                      ReleaseDate= new DateTime(2021,2,4),
                      Area = Enums.Area.Center,
                      SubArea = Enums.SubArea.Ashdod,
-                     Type = Enums.Typ.Camping,
+                     Type = Enums.Type.Camping,
                      Adults = 1,
                      Children =1,
                      Pool = Enums.Option.possible,
@@ -120,7 +116,7 @@ namespace PL
                      ReleaseDate= new DateTime(2021,2,5),
                      Area = Enums.Area.Center,
                      SubArea = Enums.SubArea.Ashdod,
-                     Type = Enums.Typ.Camping,
+                     Type = Enums.Type.Camping,
                      Adults = 2,
                      Children =2,
                      Pool = Enums.Option.possible,
@@ -141,7 +137,7 @@ namespace PL
                      ReleaseDate= new DateTime(2021,2,4),
                      Area = Enums.Area.Center,
                      SubArea = Enums.SubArea.Ashdod,
-                     Type = Enums.Typ.Camping,
+                     Type = Enums.Type.Camping,
                      Adults = 3,
                      Children =3,
                      Pool = Enums.Option.possible,
@@ -189,7 +185,7 @@ namespace PL
                 {
                     HostingUnitKey=100000001,
                     Owner=new Host
-                                   {
+                   {
                     HostKey = 10000001,
                     PrivateName = "A",
                     FamilyName = "AA",
@@ -212,9 +208,7 @@ namespace PL
 
 
                 },
-
-
-                 new HostingUnit
+                new HostingUnit
                 {
                     HostingUnitKey=100000001,
                     Owner=new Host
@@ -241,8 +235,6 @@ namespace PL
 
 
                 }
-
-
             };
 
 
@@ -252,6 +244,9 @@ namespace PL
 
 
         }
+
+
+
 
     }
 
