@@ -14,9 +14,12 @@ namespace PL
         static void Main(string[] args)
         {
             Ibl bl = FactoryBL.GetFactory();
+
+
             var HostList = ListOfHost();
             var GuestRequestKeyList = ListOfGuestRequest();
             var HostingUnitList = ListOfHostingUnit();
+            var OrderList = ListOfOrder();
         }
 
         static IEnumerable<Host> ListOfHost()
@@ -232,20 +235,50 @@ namespace PL
                     HostringUnitName="aa",
                     Diary=null,//לבדוק!!!!
                SubArea=Enums.SubArea.Dimona
-
-
                 }
             };
-
-
-
-
-
-
-
         }
 
+        static IEnumerable<Order> ListOfOrder()
+        {
+            return new List<Order>
+            {
+                 new Order
+                 {
+                     HostingUnitKey=100000001,
+                     GuestRequestKey=100000001,
+                     OrderKey =100000001,
+                     Status= Enums.Status.MailSent,
+                     CreateDate= new DateTime(2021,2,2),
+                     OrderDate=new DateTime(2021,2,7),
+                     Fee= 65
+                 },
+                 new Order
+                 {
+                     HostingUnitKey=100000001,
+                     GuestRequestKey=100000001,
+                     OrderKey =100000001,
+                     Status= Enums.Status.MailSent,
+                     CreateDate= new DateTime(2021,2,2),
+                     OrderDate=new DateTime(2021,2,7),
+                     Fee= 65
+                 },
+                 new Order
+                 {
+                     HostingUnitKey=100000001,
+                     GuestRequestKey=100000001,
+                     OrderKey =100000001,
+                     Status= Enums.Status.MailSent,
+                     CreateDate= new DateTime(2021,2,2),
+                     OrderDate=new DateTime(2021,2,7),
+                     Fee= 65
+                 }
 
+
+
+
+            };
+        }
 
 
     }

@@ -35,14 +35,14 @@ namespace BL
         List<Order> GetOrderList();
         List<HostingUnit> AvailableHostingUnits(DateTime date, int n);
         List<Order> NumberOfOrders(int days);
-        List<GuestRequest> GetRequests(bool);
+        List<GuestRequest> GetRequests(bool x);
         #endregion
 
         #region Groups
-        public IEnumerable<IGrouping<Enums.Area,GuestRequest>> GroupRequestsByArea();
-        public IEnumerable<IGrouping<int,GuestRequest>> GroupRequestsByNumOfGuests();
-        public IEnumerable<IGrouping<int,Host>> GroupHostsByNumOfUnits();
-        public IEnumerable<IGrouping<Enums.Area,HostingUnit>> GroupUnitsByArea();
+        IEnumerable<IGrouping<Enums.Area,GuestRequest>> GroupRequestsByArea();
+        IEnumerable<IGrouping<int,GuestRequest>> GroupRequestsByNumOfGuests();
+        IEnumerable<IGrouping<int,Host>> GroupHostsByNumOfUnits();
+        IEnumerable<IGrouping<Enums.Area,HostingUnit>> GroupUnitsByArea();
         #endregion
 
         #region AssistingMethods
