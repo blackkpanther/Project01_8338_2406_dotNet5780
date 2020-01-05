@@ -17,46 +17,46 @@ namespace BL
         }
 
         #region GustRequest
-       public void Ibl.AddGuestRequest(GuestRequest request)
+      void Ibl.AddGuestRequest(GuestRequest request)
         {
             if (request.EntryDate >= request.ReleaseDate)
                 throw new Exception("Entry date has to be at least one day before release date");
             IDAL.AddGuestRequest(request);
         }
-      public  void Ibl.UpdateGuestRequest(ref GuestRequest request, Enums.Status status)
+      void Ibl.UpdateGuestRequest(ref GuestRequest request, Enums.Status status)
         {
             IDAL.UpdateGuestRequest( request , status);
         }
-     public   GuestRequest Ibl.CheckGuestRequest(long key)
+      GuestRequest Ibl.CheckGuestRequest(long key)
         {
             return IDAL.CheckGuestRequest(key);
         }
         #endregion
         
         #region HostingUnit
-        public void Ibl.AddHostingUnit(HostingUnit unit)
+        void Ibl.AddHostingUnit(HostingUnit unit)
         {
             IDAL.AddHostingUnit(unit);
         }
-        public void Ibl.DeleteHostingUnit(HostingUnit unit)
+        void Ibl.DeleteHostingUnit(HostingUnit unit)
         {
             Order o=IDAL.GetOrderList().Find(item => item.HostingUnitKey == unit.HostingUnitKey);
             if (o!=null)
                throw new Exception("Unable to delete hosting unit because of ongoing order");
          IDAL.DeleteHostingUnit(unit);
         }
-        public void Ibl.UpdateHostingUnit(ref HostingUnit unit, bool[,] diary)
+        void Ibl.UpdateHostingUnit(ref HostingUnit unit, bool[,] diary)
         {
             IDAL.UpdateHostingUnit( unit , diary);
         }
-        public HostingUnit Ibl.CheckHostingUnit(long key)
+        HostingUnit Ibl.CheckHostingUnit(long key)
         {
             return IDAL.CheckHostingUnit(key);
         }
         #endregion
 
         #region Order
-        public void Ibl.AddOrder(Order order)
+         void Ibl.AddOrder(Order order)
         {
             HostingUnit u = CheckHostingUnit(order.HostingUnitKey);
             GuestRequest g = CheckGuestRequest(order.GuestRequestKey);
@@ -64,7 +64,7 @@ namespace BL
                 throw new Exception("Hosting unit already booked");
             IDAL.AddOrder(order);
         }
-        public void Ibl.UpdateOrder(ref Order order, Enums.Status status)
+        void Ibl.UpdateOrder(ref Order order, Enums.Status status)
         {
             HostingUnit u = CheckHostingUnit(order.HostingUnitKey);
             GuestRequest g = CheckGuestRequest(order.GuestRequestKey);
@@ -88,38 +88,38 @@ namespace BL
             }
             IDAL.UpdateOrder(order, status);
         }
-       public Order Ibl.CheckOrder(long key)
+        Order Ibl.CheckOrder(long key)
         {
             return IDAL.CheckOrder(key);
         }
         #endregion
 
         #region Lists
-     public   List<BankBranch> Ibl.GetBankBranchList()
+     List<BankBranch> Ibl.GetBankBranchList()
         {
            return IDAL.GetBankBranchList();
         }
-    public    List<GuestRequest> Ibl.GetGuestRequestList()
+    List<GuestRequest> Ibl.GetGuestRequestList()
         {
             return IDAL.GetGuestRequestList();
         }
-      public  List<HostingUnit> Ibl.GetHostingUnitList()
+       List<HostingUnit> Ibl.GetHostingUnitList()
         {
           return IDAL.GetHostingUnitList();
         }
-     public   List<Order> Ibl.GetOrderList()
+     List<Order> Ibl.GetOrderList()
         {
           return IDAL.GetOrderList();
         }
-    public    List<HostingUnit> Ibl.AvailableHostingUnits(DateTime date, int n)
+     List<HostingUnit> Ibl.AvailableHostingUnits(DateTime date, int n)
         {
          throw new NotImplementedException();
         }
-     public   List<Order> Ibl.NumberOfOrders(int days)
+      List<Order> Ibl.NumberOfOrders(int days)
         {
             throw new NotImplementedException();
         }
-   public    List<GuestRequest> Ibl.GetRequestsOfType(Func<BE.GuestRequest, bool> predicate = null)
+    List<GuestRequest> Ibl.GetRequestsOfType(Func<BE.GuestRequest, bool> predicate = null)
           {  
             if(predicate==null)
             return IDAL.GetGuestRequestList.AsEnumerable().Select(t => t.Clone());
@@ -128,28 +128,28 @@ namespace BL
         #endregion
 
         #region Groups
-       public IEnumerable<IGrouping<Enums.Area,GuestRequest>> GroupRequestsByArea()
+        IEnumerable<IGrouping<Enums.Area,GuestRequest>> Ibl.GroupRequestsByArea()
             {
 IEnumerable<IGrouping<Enums.Area,GuestRequest>> gByA;
 gByA=from item in IDAL.GetGuestRequestList()
      group item by item.Area;
             return gByA;
             }
-       public IEnumerable<IGrouping<int,GuestRequest>> GroupRequestsByNumOfGuests()
+        IEnumerable<IGrouping<int,GuestRequest>> Ibl.GroupRequestsByNumOfGuests()
             {
 IEnumerable<IGrouping<int,GuestRequest>> gByNum;
 gByNum=from item in IDAL.GetGuestRequestList()
      group item by (item.Adults+item.Children);
             return gByNum;
 }
-       public IEnumerable<IGrouping<int,Host>> GroupHostsByNumOfUnits()
+       IEnumerable<IGrouping<int,Host>> Ibl.GroupHostsByNumOfUnits()
             {
 IEnumerable<IGrouping<int,Host>> gByU;
 gByU=from item in IDAL.GetHostList()
      group item by item.NumOfUnits;
             return gByU;
 }
-       public      IEnumerable<IGrouping<Enums.Area,HostingUnit>> GroupUnitsByArea()
+           IEnumerable<IGrouping<Enums.Area,HostingUnit>> Ibl.GroupUnitsByArea()
             {
 IEnumerable<IGrouping<Enums.Area,HostingUnit>> gByA;
 gByA=from item in IDAL.GetHostingUnitList()
@@ -159,25 +159,38 @@ gByA=from item in IDAL.GetHostingUnitList()
         #endregion
 
         #region AssistingMethods
-        public int NumberOfDays(DateTime date1, DateTime date2=null )
+        int NumberOfDays(DateTime date1, DateTime date2=null )
         {
             if (date2==null)
                 return Math.Abs( DateTime.Now.Day - date1.Day);
             return Math.Abs(date1.Day - date2.Day);
         }
-       public  int Ibl.NumberOfInvites(GuestRequest request)
+       int Ibl.NumberOfInvites(GuestRequest request)
         {
             var count=(GetOrderList().Count(item=> item.GuestRequestKey==request.GuestRequestKey));
 return count;
         }
-       public  int Ibl.NumberOfInvites(HostingUnit unit)
+        int Ibl.NumberOfInvites(HostingUnit unit)
         {
             var count=(GetOrderList().Count(item=>item.HostingUnitKey==unit.HostingUnitKey&&(item.Status==Enums.Status.MailSent||item.Status==Enums.Status.Treated)));
             return count;
         }
         #endregion
 
+
+        public List<GuestRequest> termOfRequest(GuestRequestDelegate requestDelegate)
+        {
+
+            return IDAL.GetGuestRequestList().Where(item => (requestDelegate));
+        }
+        static public bool BPool(GuestRequest guestRequest)
+        {
+            if (guestRequest.Pool == Enums.Option.Necessary || guestRequest.Pool == Enums.Option.possible)
+                return true;
+            return false;
+
+        }
     }
-
-
+    public delegate bool GuestRequestDelegate(GuestRequest guestRequest);
+    
 }
