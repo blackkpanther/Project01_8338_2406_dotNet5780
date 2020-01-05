@@ -35,7 +35,7 @@ namespace BL
         List<Order> GetOrderList();
         List<HostingUnit> AvailableHostingUnits(DateTime date, int n);
         List<Order> NumberOfOrders(int days);
-        IEnumerable<GuestRequest> GetRequestsOfType(Func<BE.Test, bool> predicate = null );
+        IEnumerable<GuestRequest> GetRequestsOfType(Func<BE.GuestRequest, bool> predicate = null );
         #endregion
 
         #region Groups
