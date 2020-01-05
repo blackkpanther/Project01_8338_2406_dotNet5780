@@ -18,34 +18,34 @@ namespace DAL
         }
 
           #region GuestRequest
-        void Idal.AddGuestRequest(GuestRequest request)
+      public  void Idal.AddGuestRequest(GuestRequest request)
         {
             if (CheckGuestRequest(request.GuestRequestKey) != null)
                 throw new /*DuplicateRequest*/Exception("Request already submitted");
             DataSource.GuestRequestList.Add(request.Clone());
         }
 
-        void Idal.UpdateGuestRequest(ref GuestRequest request, Enums.Status status)
+      public  void Idal.UpdateGuestRequest(ref GuestRequest request, Enums.Status status)
         {
             request.Status = status;
         }
         #endregion
 
           #region HostingUnit
-        void Idal.AddHostingUnit(HostingUnit unit)
+        public void Idal.AddHostingUnit(HostingUnit unit)
         {
             if (CheckHostingUnit(unit.HostingUnitKey) != null)
                 throw new /*DuplicateUnit*/Exception("Hosting unit already added");
             DataSource.HostingUnitList.Add(unit.Clone());
         }
 
-        void Idal.UpdateHostingUnit(ref HostingUnit unit, bool[,] diary)
+       public void Idal.UpdateHostingUnit(ref HostingUnit unit, bool[,] diary)
         {
             if (diary.Length != 12 * 31)
                 throw new /*WrongDiary*/Exception("Wrong format for diary");
             unit.Diary = diary;
         }
-        void Idal.DeleteHostingUnit(HostingUnit unit)
+       public void Idal.DeleteHostingUnit(HostingUnit unit)
         {
             if (CheckHostingUnit(unit.HostingUnitKey) == null)
                 throw new /*NonExistingUnit*/Exception("Hosting unit does not exist");
@@ -54,54 +54,54 @@ namespace DAL
         #endregion
 
           #region Order
-        void Idal.AddOrder(Order order)
+        public void Idal.AddOrder(Order order)
         {
             if (CheckOrder(order.OrderKey) != null)
                 throw new /*DuplicateOrder*/Exception("Orderalready submitted");
             DataSource.OrderList.Add(order.Clone());
         }
 
-        void Idal.UpdateOrder(ref Order order, Enums.Status status)
+        public void Idal.UpdateOrder(ref Order order, Enums.Status status)
         {
             order.Status = status;
         }
         #endregion
 
           #region Lists
-        List<HostingUnit> Idal.GetHostingUnitList()
+        public List<HostingUnit> Idal.GetHostingUnitList()
         {
             return DataSource.HostingUnitList.Select(item => item).ToList();
         }
 
-        List<GuestRequest> Idal.GetGuestRequestList()
+       public List<GuestRequest> Idal.GetGuestRequestList()
         {
             return DataSource.GuestRequestList.Select(item => item).ToList();
         }
 
-        List<Order> Idal.GetOrderList()
+       public List<Order> Idal.GetOrderList()
         {
             return DataSource.OrderList.Select(item => item).ToList();
         }
-        List<BankBranch> Idal.GetBankBranchList()
+       public List<BankBranch> Idal.GetBankBranchList()
         {
             return DataSource.BankBranchList.Select(item => item).ToList();
         }
-        List<Host> GetHostList()
+       public List<Host> GetHostList()
             {
 return DataSource.HostList.Select(item => item).ToList();
             }
         #endregion
 
           #region AssistingMethods
-        GuestRequest Idal.CheckGuestRequest(long key)
+       public GuestRequest Idal.CheckGuestRequest(long key)
         {
             return DataSource.GuestRequestList.Find(item => item.GuestRequestKey == key);
         }
-        HostingUnit Idal.CheckHostingUnit(long key)
+     public   HostingUnit Idal.CheckHostingUnit(long key)
         {
             return DataSource.HostingUnitList.Find(item => item.HostingUnitKey == key);
         }
-        Order Idal.CheckOrder(long key)
+       public Order Idal.CheckOrder(long key)
         {
             return DataSource.OrderList.Find(item => item.OrderKey == key);
         }
