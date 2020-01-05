@@ -14,15 +14,93 @@ namespace PL
         static void Main(string[] args)
         {
             Ibl bl = FactoryBL.GetFactory();
-
-
-            var HostList = ListOfHost();
-            var GuestRequestKeyList = ListOfGuestRequest();
+            
+            //var HostList = ListOfHost();
+            var GuestRequestList = ListOfGuestRequest();
             var HostingUnitList = ListOfHostingUnit();
             var OrderList = ListOfOrder();
+            #region delete
+            Host H1 = HostList.ElementAt(0);
+            GuestRequest G1 = GuestRequestList.ElementAt(0);
+            HostingUnit H11 = HostingUnitList.ElementAt(0);
+            Order O1 = OrderList.ElementAt(0);
+            #endregion
+            #region update
+            Host H2 = HostList.ElementAt(1);
+            GuestRequest G2 = GuestRequestList.ElementAt(1);
+            HostingUnit H22 = HostingUnitList.ElementAt(1);
+            Order O2 = OrderList.ElementAt(1);
+            #endregion
+            #region printTest before
+            foreach (var item in bl.GetGuestRequestList())
+            {
+                Console.WriteLine(item.ToString() + "\n");
+            }
+            foreach (var item in bl.GetHostingUnitList())
+            {
+                Console.WriteLine(item.ToString() + "\n");
+            }
+            foreach (var item in bl.GetOrderList())
+            {
+                Console.WriteLine(item.ToString() + "\n");
+            }
+            #endregion
+            #region add
+            /*   Console.WriteLine("\n Add host\n");
+            for (int i = 0; i < HostList.Count(); i++)
+            {
+                try
+                {
+                    bl.AddHost(HostList.ElementAt(i));
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }*/
+            Console.WriteLine("\nGuest request Add\n");
+            for (int i = 0; i < GuestRequestList.Count(); i++)
+            {
+                try
+                {
+                    bl.AddGuestRequest(GuestRequestList.ElementAt(i));
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }
+            Console.WriteLine("\nHosting unit Add\n");
+            for (int i = 0; i < HostingUnitList.Count(); i++)
+            {
+                try
+                {
+                    bl.AddHostingUnit(HostingUnitList.ElementAt(i));
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }
+            Console.WriteLine("\nOrder Add\n");
+            for (int i = 0; i < OrderList.Count(); i++)
+            {
+                try
+                {
+                    bl.AddOrder(OrderList.ElementAt(i));
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+
+            }
+
+            #endregion
+
         }
 
-        static IEnumerable<Host> ListOfHost()
+        /*static IEnumerable<Host> ListOfHost()
         {
             return new List<Host>
             {
@@ -81,7 +159,7 @@ namespace PL
                     CollectionClearance = true
                 }
                   };
-        }
+        }*/
         static IEnumerable<GuestRequest> ListOfGuestRequest()
         {
             return new List<GuestRequest>
@@ -152,7 +230,6 @@ namespace PL
             };
 
         }
-
         static IEnumerable<HostingUnit> ListOfHostingUnit()
         {
             return new List<HostingUnit>
@@ -238,7 +315,6 @@ namespace PL
                 }
             };
         }
-
         static IEnumerable<Order> ListOfOrder()
         {
             return new List<Order>
@@ -273,10 +349,6 @@ namespace PL
                      OrderDate=new DateTime(2021,2,7),
                      Fee= 65
                  }
-
-
-
-
             };
         }
 
