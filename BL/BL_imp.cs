@@ -25,7 +25,7 @@ namespace BL
         }
       public  void Ibl.UpdateGuestRequest(ref GuestRequest request, Enums.Status status)
         {
-            IDAL.UpdateGuestRequest( request, status);
+            IDAL.UpdateGuestRequest( request , status);
         }
      public   GuestRequest Ibl.CheckGuestRequest(long key)
         {
