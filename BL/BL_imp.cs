@@ -41,7 +41,7 @@ namespace BL
         public void Ibl.DeleteHostingUnit(HostingUnit unit)
         {
             Order o=IDAL.GetOrderList().Find(item => item.HostingUnitKey == unit.HostingUnitKey);
-            if (0!=null)
+            if (o!=null)
                throw new Exception("Unable to delete hosting unit because of ongoing order");
          IDAL.DeleteHostingUnit(unit);
         }
