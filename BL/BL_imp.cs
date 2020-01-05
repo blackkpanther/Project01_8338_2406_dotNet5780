@@ -74,6 +74,7 @@ namespace BL
                 throw new Exception("Order already closed");//ההזמנה כבר סגורה
             if (status == Enums.Status.MailSent)
             {
+                order.EmailSent=DateTime.Now;
                 Console.WriteLine("Email sent");
             }
             if (status == Enums.Status.Treated)
@@ -113,17 +114,29 @@ namespace BL
         }
      List<HostingUnit> Ibl.AvailableHostingUnits(DateTime date, int n)
         {
-         throw new NotImplementedException();
+        return Ibl.GetUnitsOfType(u=>u.Diary[date.Month,date.Day]);
         }
       List<Order> Ibl.NumberOfOrders(int days)
         {
-            throw new NotImplementedException();
+          return Ibl.GetOrdersOfType(order=>((DateTime.Now-order.CreateDate)>=days)||((DateTime.Now-order.EmailSent)>=days));
         }
     List<GuestRequest> Ibl.GetRequestsOfType(Func<BE.GuestRequest, bool> predicate = null)
           {  
             if(predicate==null)
-            return IDAL.GetGuestRequestList.AsEnumerable().Select(t => t.Clone());
+            return IDAL.GetGuestRequestList.AsEnumerable().Select(g => g.Clone());
             return IDAL.GetGuestRequestList.Where(predicate).Select(g => g.Clone());
+        }
+        List<HostingUnit> Ibl.GetUnitsOfType(Func<BE.HostingUnit, bool> predicate = null)
+          {  
+            if(predicate==null)
+            return IDAL.GetHostingUnitList.AsEnumerable().Select(u =>u.Clone());
+            return IDAL.GetHostingUnitList.Where(predicate).Select(u =>u.Clone());
+        }
+        List<Order> Ibl.GetOrdersOfType(Func<BE.Order, bool> predicate = null)
+          {  
+            if(predicate==null)
+            return IDAL.GetOrderList.AsEnumerable().Select(o =>o.Clone());
+            return IDAL.GetorderList.Where(predicate).Select(o =>o.Clone());
         }
         #endregion
 

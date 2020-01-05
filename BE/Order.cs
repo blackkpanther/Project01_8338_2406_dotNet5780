@@ -14,6 +14,7 @@ namespace BE
         private Enums.Status status;
         private DateTime createDate;
         private DateTime orderDate;
+        private DateTime emailSent;//*date email was sent to client
         private long fee; // * הצעת מחיר
         //properties
         public long HostingUnitKey
@@ -46,6 +47,11 @@ namespace BE
             get { return orderDate; }
             set { orderDate = value; }
         }
+        public  DateTime EmailSent
+            {
+get{return emailSent;}
+            set{emailSent=value;}
+}
         public long Fee
      {
 get{return fee;}
