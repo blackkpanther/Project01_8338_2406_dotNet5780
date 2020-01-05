@@ -41,7 +41,7 @@ namespace BL
         void Ibl.DeleteHostingUnit(HostingUnit unit)
         {
             Order o=IDAL.GetOrderList().Find(item => item.HostingUnitKey == unit.HostingUnitKey);
-            if (0!=null)
+            if (o!=null)
                throw new Exception("Unable to delete hosting unit because of ongoing order");
          IDAL.DeleteHostingUnit(unit);
         }
@@ -177,7 +177,20 @@ return count;
         }
         #endregion
 
+
+        public List<GuestRequest> termOfRequest(GuestRequestDelegate requestDelegate)
+        {
+
+            return IDAL.GetGuestRequestList().Where(item => (requestDelegate));
+        }
+        static public bool BPool(GuestRequest guestRequest)
+        {
+            if (guestRequest.Pool == Enums.Option.Necessary || guestRequest.Pool == Enums.Option.possible)
+                return true;
+            return false;
+
+        }
     }
-
-
+    public delegate bool GuestRequestDelegate(GuestRequest guestRequest);
+    
 }

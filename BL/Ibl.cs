@@ -13,6 +13,7 @@ namespace BL
         void AddGuestRequest(GuestRequest request);
         void UpdateGuestRequest(ref GuestRequest request, Enums.Status status);
         GuestRequest CheckGuestRequest(long key);
+       
         #endregion
 
         #region HostingUnit
@@ -35,6 +36,7 @@ namespace BL
         List<Order> GetOrderList();
         List<HostingUnit> AvailableHostingUnits(DateTime date, int n);
         List<Order> NumberOfOrders(int days);
+        List<GuestRequest> termOfRequest(GuestRequestDelegate requestDelegate);
         IEnumerable<GuestRequest> GetRequestsOfType(Func<BE.GuestRequest, bool> predicate = null );
         #endregion
 
