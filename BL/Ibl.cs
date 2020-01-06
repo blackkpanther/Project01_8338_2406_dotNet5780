@@ -37,7 +37,7 @@ namespace BL
         List<HostingUnit> AvailableHostingUnits(DateTime date, int n);
         List<Order> NumberOfOrders(int days);
         //List<GuestRequest> termOfRequest(GuestRequestDelegate requestDelegate);
-        IEnumerable<GuestRequest> GetRequestsOfType(Func<BE.GuestRequest, bool> predicate = null );
+        List<GuestRequest> GetRequestsOfType(Func<BE.GuestRequest, bool> predicate = null );
         List<HostingUnit> GetUnitsOfType(Func<BE.HostingUnit, bool> predicate = null);
        List<Order> GetOrdersOfType(Func<BE.Order, bool> predicate = null);
         #endregion

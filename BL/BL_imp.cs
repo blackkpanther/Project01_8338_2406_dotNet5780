@@ -114,32 +114,36 @@ namespace BL
         }
         List<HostingUnit> Ibl.AvailableHostingUnits(DateTime date, int n)
         {
-            return Ibl.GetUnitsOfType(u => u.Diary[date.Month, date.Day]);
+            List<HostingUnit> tempList = IDAL.GetHostingUnitList();
+            return tempList.Where(u => u.Diary[date.Month, date.Day]).ToList();
         }
         List<Order> Ibl.NumberOfOrders(int days)
         {
-            return Ibl.GetOrdersOfType(order => ((DateTime.Now.Day - order.CreateDate.Day) >= days) || ((DateTime.Now.Day - order.EmailSent.Day) >= days));
+            List<Order> tempList = IDAL.GetOrderList();
+            return tempList.Where(order => ((DateTime.Now.Day - order.CreateDate.Day) >= days) || ((DateTime.Now.Day - order.EmailSent.Day) >= days)).ToList();
         }
 
-
-        // List<GuestRequest> Ibl.GetRequestsOfType
-        public IEnumerable<GuestRequest> GetRequestsOfType(Func<BE.GuestRequest, bool> predicate = null)
+        /* public IEnumerable<GuestRequest> GetRequestsOfType*/
+        List<GuestRequest> Ibl.GetRequestsOfType(Func<BE.GuestRequest, bool> predicate = null)
         {
+            List<GuestRequest> tempList = IDAL.GetGuestRequestList();
             if (predicate == null)
-                return IDAL.GetGuestRequestList.AsEnumerable().Select(g => g.Clone());
-            return IDAL.GetGuestRequestList.Where(predicate).Select(g => g.Clone());
+                return tempList.AsEnumerable().Select(g => g.Clone());
+            return tempList.Where(predicate).Select(g => g.Clone());
         }
         List<HostingUnit> Ibl.GetUnitsOfType(Func<BE.HostingUnit, bool> predicate = null)
         {
+            List<HostingUnit> tempList = IDAL.GetHostingUnitList();
             if (predicate == null)
-                return IDAL.GetHostingUnitList.AsEnumerable().Select(u => u.Clone());
-            return IDAL.GetHostingUnitList.Where(predicate).Select(u => u.Clone());
+                return tempList.AsEnumerable().Select(u => u.Clone());
+            return tempList.Where(predicate).Select(u => u.Clone());
         }
         List<Order> Ibl.GetOrdersOfType(Func<BE.Order, bool> predicate = null)
         {
+            List<Order> tempList = IDAL.GetOrderList();
             if (predicate == null)
-                return IDAL.GetOrderList.AsEnumerable().Select(o => o.Clone());
-            return IDAL.GetOrderList.Where(predicate).Select(o => o.Clone());
+                return tempList.AsEnumerable().Select(o => o.Clone());
+            return tempList.Where(predicate).Select(o => o.Clone());
         }
         #endregion
 
@@ -183,12 +187,14 @@ namespace BL
         }
         int Ibl.NumberOfInvites(GuestRequest request)
         {
-            var count = (GetOrderList().Count(item => item.GuestRequestKey == request.GuestRequestKey));
+            List<Order> tempList = IDAL.GetOrderList();
+            var count = (tempList.Count(item => item.GuestRequestKey == request.GuestRequestKey));
             return count;
         }
         int Ibl.NumberOfInvites(HostingUnit unit)
         {
-            var count = (GetOrderList().Count(item => item.HostingUnitKey == unit.HostingUnitKey && (item.Status == Enums.Status.MailSent || item.Status == Enums.Status.Treated)));
+            List<Order> tempList = IDAL.GetOrderList();
+            var count = (tempList.Count(item => item.HostingUnitKey == unit.HostingUnitKey && (item.Status == Enums.Status.MailSent || item.Status == Enums.Status.Treated)));
             return count;
         }
         #endregion
