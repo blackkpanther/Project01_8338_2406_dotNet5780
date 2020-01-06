@@ -125,23 +125,23 @@ namespace BL
         }
 
         /* public IEnumerable<GuestRequest> GetRequestsOfType*/
-        List<GuestRequest> Ibl.GetRequestsOfType(Func<BE.GuestRequest, bool> predicate = null)
+        IEnumerable<GuestRequest> Ibl.GetRequestsOfType(Func<BE.GuestRequest, bool> predicate = null)
         {
-            List<GuestRequest> tempList = IDAL.GetGuestRequestList();
+            IEnumerable<GuestRequest> tempList = IDAL.GetGuestRequestList();
             if (predicate == null)
                 return tempList.AsEnumerable().Select(g => g.Clone());
             return tempList.Where(predicate).Select(g => g.Clone());
         }
-        List<HostingUnit> Ibl.GetUnitsOfType(Func<BE.HostingUnit, bool> predicate = null)
+       IEnumerable<HostingUnit> Ibl.GetUnitsOfType(Func<BE.HostingUnit, bool> predicate = null)
         {
-            List<HostingUnit> tempList = IDAL.GetHostingUnitList();
+            IEnumerable<HostingUnit> tempList = IDAL.GetHostingUnitList();
             if (predicate == null)
                 return tempList.AsEnumerable().Select(u => u.Clone());
             return tempList.Where(predicate).Select(u => u.Clone());
         }
-        List<Order> Ibl.GetOrdersOfType(Func<BE.Order, bool> predicate = null)
+        IEnumerable<Order> Ibl.GetOrdersOfType(Func<BE.Order, bool> predicate = null)
         {
-            List<Order> tempList = IDAL.GetOrderList();
+            IEnumerable<Order> tempList = IDAL.GetOrderList();
             if (predicate == null)
                 return tempList.AsEnumerable().Select(o => o.Clone());
             return tempList.Where(predicate).Select(o => o.Clone());
