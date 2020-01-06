@@ -21,9 +21,9 @@ namespace PL
             var OrderList = ListOfOrder();
             #region delete
            // Host H1 = HostList.ElementAt(0);
-            GuestRequest G1 = GuestRequestList.ElementAt(0);
+           // GuestRequest G1 = GuestRequestList.ElementAt(0);
             HostingUnit H11 = HostingUnitList.ElementAt(0);
-            Order O1 = OrderList.ElementAt(0);
+           // Order O1 = OrderList.ElementAt(0);
             #endregion
             #region update
            // Host H2 = HostList.ElementAt(1);
@@ -31,7 +31,7 @@ namespace PL
             HostingUnit H22 = HostingUnitList.ElementAt(1);
             Order O2 = OrderList.ElementAt(1);
             #endregion
-            #region printTest before
+            #region printTest before add
             foreach (var item in bl.GetGuestRequestList())
             {
                 Console.WriteLine(item.ToString() + "\n");
@@ -95,9 +95,115 @@ namespace PL
                 }
 
             }
-             #endregion
+            #endregion
 
+            #region printTest before update
+            foreach (var item in bl.GetGuestRequestList())
+            {
+                Console.WriteLine(item.ToString() + "\n");
+            }
+            foreach (var item in bl.GetHostingUnitList())
+            {
+                Console.WriteLine(item.ToString() + "\n");
+            }
+            foreach (var item in bl.GetOrderList())
+            {
+                Console.WriteLine(item.ToString() + "\n");
+            }
+            #endregion
+            #region update
+            /*   Console.WriteLine("\n update host\n");
+            for (int i = 0; i < HostList.Count(); i++)
+            {
+                try
+                {
+                    bl.UpdateHost(HostList.ElementAt(i));
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }*/
+            Console.WriteLine("\nGuest request Update \n");
+            for (int i = 0; i < GuestRequestList.Count(); i++)
+            {
+                try
+                {
+                    bl.UpdateGuestRequest(ref G2,G2.Status);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }
+            Console.WriteLine("\nHosting unit update\n");
+            for (int i = 0; i < HostingUnitList.Count(); i++)
+            {
+                try
+                {
+                    bl.UpdateHostingUnit(ref H22,H22.Diary);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }
+            Console.WriteLine("\nOrder update\n");
+            for (int i = 0; i < OrderList.Count(); i++)
+            {
+                try
+                {
+                    bl.UpdateOrder(ref O2, O2.Status);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+
+            }
+            #endregion
+            #region printTest after update
+            foreach (var item in bl.GetGuestRequestList())
+            {
+                Console.WriteLine(item.ToString() + "\n");
+            }
+            foreach (var item in bl.GetHostingUnitList())
+            {
+                Console.WriteLine(item.ToString() + "\n");
+            }
+            foreach (var item in bl.GetOrderList())
+            {
+                Console.WriteLine(item.ToString() + "\n");
+            }
+            #endregion
+            #region delete hostingUnit
+           try
+            {
+                string name = H11.HostringUnitName;
+                bl.DeleteHostingUnit(H11);
+                Console.WriteLine("unit: " + name + " deleted/n");
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine("unit didn't deleted/n");
+            }
+            //do it again to make sure it realy deleded
+            try
+            {
+                string name = H11.HostringUnitName;
+                bl.DeleteHostingUnit(H11);
+                Console.WriteLine("unit: " + name + " deleted/n");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine("unit didn't deleted/n");
+            }
+
+            #endregion
         }
+
 
         /*static IEnumerable<Host> ListOfHost()
         {
@@ -350,8 +456,6 @@ namespace PL
                  }
             };
         }
-
-
     }
 
 }
