@@ -20,13 +20,13 @@ namespace PL
             var HostingUnitList = ListOfHostingUnit();
             var OrderList = ListOfOrder();
             #region delete
-            Host H1 = HostList.ElementAt(0);
+           // Host H1 = HostList.ElementAt(0);
             GuestRequest G1 = GuestRequestList.ElementAt(0);
             HostingUnit H11 = HostingUnitList.ElementAt(0);
             Order O1 = OrderList.ElementAt(0);
             #endregion
             #region update
-            Host H2 = HostList.ElementAt(1);
+           // Host H2 = HostList.ElementAt(1);
             GuestRequest G2 = GuestRequestList.ElementAt(1);
             HostingUnit H22 = HostingUnitList.ElementAt(1);
             Order O2 = OrderList.ElementAt(1);
@@ -95,8 +95,7 @@ namespace PL
                 }
 
             }
-
-            #endregion
+             #endregion
 
         }
 
