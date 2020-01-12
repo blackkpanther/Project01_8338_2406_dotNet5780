@@ -9,7 +9,7 @@ using DAL;
 using DS;
 namespace PL
 {
-    class Program
+    class Program//
     {
         static void Main(string[] args)
         {
