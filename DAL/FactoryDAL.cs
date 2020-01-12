@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DAL
 {
-    public class FactoryDAL
+    public class FactoryDAL//
     {
 
         static Idal instance = null;
