@@ -125,26 +125,26 @@ namespace BL
         }
 
         /* public IEnumerable<GuestRequest> GetRequestsOfType*/
-        IEnumerable<GuestRequest> Ibl.GetRequestsOfType(Func<BE.GuestRequest, bool> predicate = null)
+        List<GuestRequest> Ibl.GetRequestsOfType(Func<BE.GuestRequest, bool> predicate = null)
         {
-            IEnumerable<GuestRequest> tempList = IDAL.GetGuestRequestList();
+            List<GuestRequest> tempList = IDAL.GetGuestRequestList();
             if (predicate == null)
-                return tempList.AsEnumerable().Select(g => g.Clone());
-            return tempList.Where(predicate).Select(g => g.Clone());
+                return tempList.AsEnumerable().Select(g => g.Clone()).ToList();
+            return tempList.Where(predicate).Select(g => g.Clone()).ToList();
         }
-       IEnumerable<HostingUnit> Ibl.GetUnitsOfType(Func<BE.HostingUnit, bool> predicate = null)
+       List<HostingUnit> Ibl.GetUnitsOfType(Func<BE.HostingUnit, bool> predicate = null)
         {
-            IEnumerable<HostingUnit> tempList = IDAL.GetHostingUnitList();
+            List<HostingUnit> tempList = IDAL.GetHostingUnitList();
             if (predicate == null)
-                return tempList.AsEnumerable().Select(u => u.Clone());
-            return tempList.Where(predicate).Select(u => u.Clone());
+                return tempList.AsEnumerable().Select(u => u.Clone()).ToList();
+            return tempList.Where(predicate).Select(u => u.Clone()).ToList();
         }
-        IEnumerable<Order> Ibl.GetOrdersOfType(Func<BE.Order, bool> predicate = null)
+        List<Order> Ibl.GetOrdersOfType(Func<BE.Order, bool> predicate = null)
         {
-            IEnumerable<Order> tempList = IDAL.GetOrderList();
+            List<Order> tempList = IDAL.GetOrderList();
             if (predicate == null)
-                return tempList.AsEnumerable().Select(o => o.Clone());
-            return tempList.Where(predicate).Select(o => o.Clone());
+                return tempList.AsEnumerable().Select(o => o.Clone()).ToList();
+            return tempList.Where(predicate).Select(o => o.Clone()).ToList();
         }
         #endregion
 
