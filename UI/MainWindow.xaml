@@ -44,8 +44,8 @@
             <DockPanel Grid.Row="1" Grid.ColumnSpan="2" Margin="0,1,0.4,733.4" Grid.RowSpan="2" Background="White">
                 <Menu DockPanel.Dock="Top" VerticalAlignment="Center">
                     <MenuItem Header="Option" FontFamily="Segoe UI Black" Margin="15,0,0,0" FontSize="12">
-                        <MenuItem Header="option1" />
-                        <MenuItem Header="option2" />
+                        <MenuItem Header="option1" Click="MenuItem_Click_OpenAnotherWindow"/>
+                        <MenuItem Header="option2" Click="MenuItem_Click_OpenAnotherWindow"/>
                     </MenuItem>
                 </Menu>
             </DockPanel>
