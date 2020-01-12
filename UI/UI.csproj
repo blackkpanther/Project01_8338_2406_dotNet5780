@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{38F404A9-B6D4-4DB0-9CD4-5A94C34D1864}</ProjectGuid>
+    <ProjectGuid>{889C9C8F-26EA-467B-A327-B6CF27CFCC25}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>UI</RootNamespace>
     <AssemblyName>UI</AssemblyName>
@@ -14,8 +14,12 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+<<<<<<< HEAD
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+=======
+>>>>>>> Revert "Merge branch 'master' of https://github.com/blackkpanther/Project01_8338_2406_dotNet5780"
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -74,12 +78,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="MainWindowGuest.xaml.cs">
       <DependentUpon>MainWindowGuest.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindowHost.xaml.cs">
       <DependentUpon>MainWindowHost.xaml</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
+=======
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -97,11 +104,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+>>>>>>> Revert "Merge branch 'master' of https://github.com/blackkpanther/Project01_8338_2406_dotNet5780"
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -111,9 +118,6 @@
       <Project>{5a4b0d8c-06fc-45e5-89e6-cf4ba05b8f88}</Project>
       <Name>BL</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
