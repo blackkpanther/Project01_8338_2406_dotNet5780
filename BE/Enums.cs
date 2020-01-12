@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-  public class  Enums
+  public class Enums
     {
         // GuestRequest:
         public enum Area
