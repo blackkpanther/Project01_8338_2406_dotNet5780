@@ -24,7 +24,7 @@ namespace BE
         private long pricePerNight;// *
 
         //properties:
-        //jvjhfjfjh
+
         public long HostingUnitKey
         {
             get { return hostingUnitKey; }
