@@ -18,9 +18,9 @@
                 <GradientStop Offset="1" Color="LightBlue"/>
             </LinearGradientBrush>
             <LinearGradientBrush x:Key="ButtonsColorWhenMouseOver">
-                <GradientStop Offset="0" Color="LightGreen"/>
+                <GradientStop Offset="0" Color="LightSkyBlue"/>
                 <GradientStop Offset="0.5" Color="LightBlue"/>
-                <GradientStop Offset="1" Color="LightGreen"/>
+                <GradientStop Offset="1" Color="LightSkyBlue"/>
             </LinearGradientBrush>
             <Style TargetType="Button">
                 <Setter Property="Background" Value="#fff"/>
@@ -51,7 +51,7 @@
                             </Setter.Value>
                         </Setter>
                         <Setter Property="Foreground" Value="DarkBlue"/>
-                        <Setter Property="FontSize" Value="14"/>
+                        <Setter Property="FontSize" Value="40"/>
                         <Setter Property="FontWeight" Value="ExtraBlack"/>
                     </Trigger>
                 </Style.Triggers>
