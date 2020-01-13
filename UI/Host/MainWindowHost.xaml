@@ -1,4 +1,4 @@
-﻿<Window x:Class="UI.MainWindow"
+﻿<Window x:Class="UI.MainWindowHost"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,8 +6,8 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="460"  WindowStyle="None" FlowDirection="LeftToRight" AllowsTransparency="True" BorderBrush="Transparent" WindowStartupLocation="CenterScreen" Background="Transparent">
-    
+        Title="MainWindowHost" Height="720" Width="460" WindowStyle="None" FlowDirection="LeftToRight" AllowsTransparency="True" BorderBrush="Transparent" WindowStartupLocation="CenterScreen" Background="Transparent">
+
     <Border BorderThickness="3" BorderBrush="Transparent" Background="Transparent" CornerRadius="25,25,0,0">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -20,7 +20,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Border  CornerRadius="20" Grid.ColumnSpan="2" Background="#0066cc" Margin="0,0,-0.4,16.4" Grid.RowSpan="2">
-                <TextBlock Text="Finding a vacation" Margin="21,14,261.4,18" FontSize="16" FontFamily="Segoe UI Black"/>
+                <TextBlock Text="Finding a vacation" Margin="21,14,265.4,18" FontSize="16" FontFamily="Segoe UI Black"/>
             </Border>
             <StackPanel x:Name="ManageButtonStackPanel" Orientation="Horizontal" HorizontalAlignment="Right"  Grid.Column="1" Width="110" Margin="0,10,10,0">
                 <Button Click="Button_Click_MinimizeWindow" Width="30" Height="30" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="White" BorderBrush="Blue" Foreground="Blue"  MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave">
@@ -39,23 +39,22 @@
                     </Button.Content>
                 </Button>
             </StackPanel>
-            
+
             <DockPanel Grid.Row="1" Grid.ColumnSpan="2" Background="White">
-                <Menu DockPanel.Dock="Top" VerticalAlignment="Center">
+                <!--Menu DockPanel.Dock="Top" VerticalAlignment="Center">
                     <MenuItem Header="Option" FontFamily="Segoe UI Black" Margin="15,0,0,0" FontSize="12">
                         <MenuItem Header="option1" />
                         <MenuItem Header="option2" />
                     </MenuItem>
-                </Menu>
+                </-->
             </DockPanel>
             <Border Grid.ColumnSpan="2" Grid.Row="2" CornerRadius="0,0,25,25" Background="LightBlue"  />
 
             <Border Grid.Row="2" Grid.ColumnSpan="2" BorderThickness="5" BorderBrush="White" CornerRadius="20" Margin="20,20,20,20" Background="White">
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="300">
-                    <Button Content="Im a guest" Margin="20" Click="Button_Click_ImGuest" Height="120" />
-                    <Button Content="Im a host" Margin="20"  Click="Button_Click_ImHost" Height="120"/>
-
-
+                    <Button Content="New unit" Margin="20"  Click="Button_Click_NewUnit" Height="120" />
+                    <Button Content="My units" Margin="20"  Click="Button_Click_MyUnits" Height="120"/>
+                    <Button Content="All orders" Margin="20" Click="Button_Click_AllOrders" Height="120"/>
                 </StackPanel>
             </Border>
         </Grid>

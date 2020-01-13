@@ -6,8 +6,8 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="MainWindowGuest" Height="720" Width="460"  WindowStyle="None" FlowDirection="LeftToRight" AllowsTransparency="True" Background="Transparent">
-    <Border BorderThickness="3" BorderBrush="Black" Background="Transparent" CornerRadius="25,25,0,0">
+        Title="MainWindowGuest" Height="680" Width="460"  WindowStyle="None" WindowStartupLocation="Manual" Left="0" Top="0" BorderBrush="Transparent" FlowDirection="LeftToRight" AllowsTransparency="True" Background="Transparent">
+    <Border BorderThickness="3" Background="Transparent" CornerRadius="25,25,0,0">
 
         <Grid>
             <Button Click="Button_Click_CloseWindow" Width="Auto" Height="Auto" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="White" BorderBrush="Blue" Foreground="Blue" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" Margin="345,40,47.6,605.6">

@@ -23,6 +23,12 @@ namespace UI
         public MainWindowGuest()
         {
             InitializeComponent();
+
+          /*  this.WindowStartupLocation = WindowStartupLocation.Manual;
+            this.Left = System.Windows.SystemParameters.WorkArea.Width - this.Width;
+            this.Top = System.Windows.SystemParameters.WorkArea.Height - this.Height;
+          */
+
         }
         private void Button_MouseEnter(object sender, MouseEventArgs e)
         {
