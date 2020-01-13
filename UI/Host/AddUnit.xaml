@@ -6,7 +6,9 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="AddUnit" Height="720" Width="460" WindowStartupLocation="CenterScreen" WindowStyle="None" FlowDirection="LeftToRight" AllowsTransparency="True" Background="Transparent">
+        Title="AddUnit" 
+        WindowStartupLocation="{StaticResource WSL}"
+        Style="{StaticResource ResourceKey=pageDefault}" >
     <Border BorderThickness="3" BorderBrush="Black" Background="Transparent" CornerRadius="25,25,0,0">
         <Grid>
 

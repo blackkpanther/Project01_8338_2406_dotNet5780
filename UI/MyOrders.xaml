@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:UI"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
        mc:Ignorable="d"
-        Title="MyOrders" Height="450" Width="800">
+        Title="MyOrders" 
+        WindowStartupLocation="{StaticResource WSL}"
+        Style="{StaticResource ResourceKey=pageDefault}" >
     <Grid>
         <Button Click="Button_Click_CloseWindow" Width="Auto" Height="Auto" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="White" BorderBrush="Blue" Foreground="Blue" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" Margin="277,208,146.6,46">
             <Button.Content>
