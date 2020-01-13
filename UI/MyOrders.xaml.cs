@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace UI
 {
     /// <summary>
-    /// Interaction logic for MainWindowGuest.xaml
+    /// Interaction logic for MyOrders.xaml
     /// </summary>
-    public partial class MainWindowGuest : Window
+    public partial class MyOrders : Window
     {
-        public MainWindowGuest()
+        public MyOrders()
         {
             InitializeComponent();
         }
@@ -37,18 +36,6 @@ namespace UI
         private void Button_Click_CloseWindow(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }
-        private void Button_Click_NewSearch(object sender, RoutedEventArgs e)
-        {
-            AddGuestRequest secondWindow = new AddGuestRequest();
-            secondWindow.Show();
-        }
-        private void Button_Click_MyOrders(object sender, RoutedEventArgs e)
-        {
-            MyOrders secondWindow = new MyOrders();
-            secondWindow.Show();
-
-
         }
     }
 }
