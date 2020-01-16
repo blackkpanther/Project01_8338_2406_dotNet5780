@@ -15,5 +15,6 @@
                 <materialDesign:PackIcon Kind="WindowClose" Height="108" Width="163" Background="Black" />
             </Button.Content>
         </Button>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="104,96,0,0" VerticalAlignment="Top" Width="225" Height="130"/>
     </Grid>
 </Window>

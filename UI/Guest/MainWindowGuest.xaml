@@ -24,6 +24,7 @@
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="300">
                     <Button Content="New search" Margin="20" Click="Button_Click_NewSearch" Height="120" />
                     <Button Content="My orders" Margin="20"  Click="Button_Click_MyOrders" Height="120"/>
+                   
                 </StackPanel>
             </Border>
         </Grid>

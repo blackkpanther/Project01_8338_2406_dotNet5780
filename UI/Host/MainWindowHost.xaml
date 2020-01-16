@@ -52,6 +52,7 @@
             </DockPanel>
             <Border Grid.ColumnSpan="2" Grid.Row="2" CornerRadius="0,0,25,25" Background="LightBlue"  />
 
+            
             <Border Grid.Row="2" Grid.ColumnSpan="2" BorderThickness="5" BorderBrush="White" CornerRadius="20" Margin="20,20,20,20" Background="White">
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="300">
                     <Button Content="New unit" Margin="20"  Click="Button_Click_NewUnit" Height="120" />
@@ -59,6 +60,9 @@
                     <Button Content="All orders" Margin="20" Click="Button_Click_AllOrders" Height="120"/>
                 </StackPanel>
             </Border>
+            <!--Border Grid.Row="2" Grid.ColumnSpan="2" BorderThickness="5" Width="414" Height="593" BorderBrush="Black" CornerRadius="20" Margin="20,20,20,20" Background="White">
+                
+            </-->
         </Grid>
     </Border>
 </Window>

@@ -6,8 +6,11 @@
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
         Title="MyUnits"  WindowStartupLocation="{StaticResource WSL}"
-        Style="{StaticResource ResourceKey=pageDefault}" >
+        Style="{StaticResource ResourceKey=pageDefault}" Width="1500" >
     <Grid>
-        
+        <local:UserControl1 HorizontalAlignment="Left"  VerticalAlignment="Top" />
+        <local:UserControl1 HorizontalAlignment="Right"  VerticalAlignment="Top" />
+        <local:UserControl1 HorizontalAlignment="Center"  VerticalAlignment="Top" Height="710" Margin="520,10,465,0" Width="515" />
+
     </Grid>
 </Window>
