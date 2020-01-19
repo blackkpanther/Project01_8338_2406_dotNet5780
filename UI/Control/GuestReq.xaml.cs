@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace UI
+namespace UI.Control
 {
     /// <summary>
-    /// Interaction logic for Orders.xaml
+    /// Interaction logic for GuestReq.xaml
     /// </summary>
-    public partial class Orders : UserControl
+    public partial class GuestReq : UserControl
     {
-        public Orders()
+        public GuestReq()
         {
             InitializeComponent();
         }

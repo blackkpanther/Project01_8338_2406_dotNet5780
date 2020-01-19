@@ -64,9 +64,12 @@
                     <RowDefinition />
                 </Grid.RowDefinitions>
 
-                <Grid x:Name="GridMain" Grid.Row="1"  />
+                <Grid x:Name="GridMain" Grid.Row="1" >
+                   
 
-                
+                </Grid>
+
+
                 <materialDesign:ColorZone CornerRadius="25,25,0,0" Padding="16" materialDesign:ShadowAssist.ShadowDepth="Depth2" Mode="PrimaryMid" DockPanel.Dock="Top">
                     <Grid>
                         <Grid.ColumnDefinitions>

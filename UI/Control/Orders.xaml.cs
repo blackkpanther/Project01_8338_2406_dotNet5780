@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace UI
+namespace UI.Control
 {
     /// <summary>
-    /// Interaction logic for AddUnit.xaml
+    /// Interaction logic for Orders.xaml
     /// </summary>
-    public partial class AddUnit : Window
+    public partial class Orders : UserControl
     {
-        public AddUnit()
+        public Orders()
         {
             InitializeComponent();
         }

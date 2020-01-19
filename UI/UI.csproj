@@ -78,57 +78,37 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="UserControl\Orders.xaml.cs">
+    <Compile Include="Control\Orders.xaml.cs">
       <DependentUpon>Orders.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\GuestReq.xaml.cs">
+    <Compile Include="Control\GuestReq.xaml.cs">
       <DependentUpon>GuestReq.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\test.xaml.cs">
+      <DependentUpon>test.xaml</DependentUpon>
     </Compile>
     <Compile Include="Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\UserControl1.xaml.cs">
+    <Compile Include="Control\Units.xaml.cs">
+      <DependentUpon>Units.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\UserControl1.xaml.cs">
       <DependentUpon>UserControl1.xaml</DependentUpon>
     </Compile>
-    <Page Include="UserControl\Orders.xaml">
+    <Page Include="Control\Orders.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControl\GuestReq.xaml">
+    <Page Include="Control\GuestReq.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Guest\AddGuestRequest.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Host\AddUnit.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="Guest\AddGuestRequest.xaml.cs">
-      <DependentUpon>AddGuestRequest.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Host\AddUnit.xaml.cs">
-      <DependentUpon>AddUnit.xaml</DependentUpon>
-    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="Guest\MainWindowGuest.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Host\MainWindowHost.xaml">
+    <Page Include="Control\test.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -136,36 +116,20 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MyOrders.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Host\MyUnits.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControl\UserControl1.xaml">
+    <Page Include="Control\Units.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\UserControl1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Guest\MainWindowGuest.xaml.cs">
-      <DependentUpon>MainWindowGuest.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Host\MainWindowHost.xaml.cs">
-      <DependentUpon>MainWindowHost.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MyOrders.xaml.cs">
-      <DependentUpon>MyOrders.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Host\MyUnits.xaml.cs">
-      <DependentUpon>MyUnits.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

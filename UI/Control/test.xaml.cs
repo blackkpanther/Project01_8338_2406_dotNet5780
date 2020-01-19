@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace UI
+namespace UI.Control
 {
     /// <summary>
-    /// Interaction logic for AddGuestRequest.xaml
+    /// Interaction logic for test.xaml
     /// </summary>
-    public partial class AddGuestRequest : Window
+    public partial class test : UserControl
     {
-        public AddGuestRequest()
+        public test()
         {
             InitializeComponent();
         }

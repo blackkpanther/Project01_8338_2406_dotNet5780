@@ -10,18 +10,21 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace UI
+namespace UI.Control
 {
     /// <summary>
-    /// Interaction logic for MyUnits.xaml
+    /// Interaction logic for UserControl1.xaml
     /// </summary>
-    public partial class MyUnits : Window
+    public partial class UserControl1 : UserControl
     {
-        public MyUnits()
+        public UserControl1()
         {
             InitializeComponent();
         }
+
+        
     }
 }
