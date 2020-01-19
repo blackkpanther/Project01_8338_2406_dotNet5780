@@ -5,8 +5,26 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UI.MiniControl"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="100" d:DesignWidth="400">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
             
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <TextBox x:Name="UnitName" HorizontalAlignment="Left" Grid.Row="0" Text="{Binding Path=HostringUnitName}" Background="LightBlue"/>
+        <TextBox x:Name="SubArea" HorizontalAlignment="Left" Grid.Row="1" Text="{Binding Path=SubArea}" Background="LightBlue"/>
+        <TextBox x:Name="type" HorizontalAlignment="Left" Grid.Row="1" Text="{Binding Path=Area}" Background="LightBlue"/>
+        <TextBox x:Name="pool" HorizontalAlignment="Left" Grid.Row="1" Text="{Binding Path=Pool}" Background="LightBlue"/>
+        <TextBox x:Name="price" HorizontalAlignment="Left" Grid.Row="1" Text="{Binding Path=PricePerNight}" Background="LightBlue"/>
+k
+
+
+
+
     </Grid>
 </UserControl>
