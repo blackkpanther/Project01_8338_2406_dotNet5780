@@ -17,7 +17,7 @@
             <Style x:Key="pageDefault"  >
                 <Setter Property="Control.Background" Value="Transparent"/>
                 <Setter Property="Control.BorderBrush" Value="Transparent"/>
-                <Setter Property="Window.Height" Value="720"/>
+                <Setter Property="Window.Height" Value="800"/>
                 <Setter Property="Window.Width" Value="460"/>
                 <Setter Property="Window.WindowStyle" Value="None"/>
                 <Setter Property="Window.FlowDirection" Value="LeftToRight"/>

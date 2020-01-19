@@ -23,14 +23,14 @@
             <materialDesign:DrawerHost.LeftDrawerContent >
                 <Border Background="LightBlue"  CornerRadius="25,0,0,25">
 
-                    <DockPanel MinWidth="212" Background="Transparent"  >
+                    <DockPanel MinWidth="212" Background="Transparent"   >
 
                         <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" Background="Transparent"   DockPanel.Dock="Top"
                               HorizontalAlignment="Right" Margin="16" 
                               IsChecked="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}" />
                         <Menu Background="Transparent" >
 
-                            <Menu.ItemsPanel>
+                            <Menu.ItemsPanel >
                                 <ItemsPanelTemplate >
                                     <VirtualizingStackPanel />
                                 </ItemsPanelTemplate>
@@ -42,9 +42,9 @@
                                 <!--אולי לחלק לאורחים ומארחים-->
                                 <MenuItem Header="Remove user" />
                                 <!--אולי לחלק להסרת host\guest\unit-->
-                            </MenuItem>
-                            <MenuItem Header="Host">
-                                <MenuItem Header="Add unit" />
+                            </MenuItem >
+                            <MenuItem Header="Host" >
+                                <MenuItem Header="Add unit" Click="Button_Click_AddUnit"/>
                                 <MenuItem Header="orders" />
                                 <MenuItem Header="something" />
                             </MenuItem>
@@ -64,7 +64,9 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition />
                 </Grid.RowDefinitions>
-
+                <Border Grid.Row="1"  >
+                    <local:UserControl1 HorizontalAlignment="Left"  VerticalAlignment="Top" />
+                </Border>
                 <materialDesign:ColorZone CornerRadius="25,25,0,0" Padding="16" materialDesign:ShadowAssist.ShadowDepth="Depth2" Mode="PrimaryMid" DockPanel.Dock="Top">
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -95,5 +97,7 @@
 
             </Grid>
         </materialDesign:DrawerHost>
+   
     </Border>
+   
 </Window>
