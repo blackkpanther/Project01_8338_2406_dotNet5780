@@ -8,10 +8,24 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Style="{StaticResource ResourceKey=pageDefault}">
     <Grid>
-        <Border  BorderThickness="5" Width="414" Height="593" BorderBrush="Black" CornerRadius="20,20,20,20" Margin="20,20,20,20" Background="White">
-             <TextBlock Text="guestreq" Width="200" Height="400" />
+        <Border  BorderThickness="5" Width="450" Height="700" BorderBrush="Transparent" CornerRadius="20,20,20,20" Margin="4,58,6,2" Background="White">
+          
         </Border>
-
-
+        <Label Content="First Name:" Margin="39,93,296,633" ></Label>
+        <TextBox Text="hhhh"></TextBox>
+        <Label Content="Last Name:" Margin="39,127,282,599"></Label>
+        <Label Content="Email Address:" Margin="39,161,267,565"></Label>
+        <Label Content="Entry date:" Margin="39,195,296,531"></Label>
+        <Label Content="Release date:" Margin="39,229,282,494"></Label>
+        <Label Content="Area:" Margin="39,266,282,457"></Label>
+        <Label Content="Sub Area:" Margin="39,303,282,420"></Label>
+        <Label Content="Home Type:" Margin="39,340,282,383"></Label>
+        <Label Content="Number of Adults:" Margin="39,377,230,344"></Label>
+        <Label Content="Number of Children:" Margin="39,416,210,310"></Label>
+       <Label Content="Pool:" Margin="39,450,357,273"></Label>
+        <Label Content="Jaccuzi:" Margin="39,487,327,237"></Label>
+        <Label Content="Garden:" Margin="39,523,333,202"></Label>
+        <Label Content="Children's Attractions:" Margin="39,558,187,167"></Label>
+        <Button x:Name="newrequest" Content="Search" Height="Auto" Margin="172,661,172,61" FontSize="20" BorderBrush="Transparent"/>
     </Grid>
 </UserControl>

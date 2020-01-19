@@ -37,20 +37,20 @@
                                 </ItemsPanelTemplate>
                             </Menu.ItemsPanel>
                             <MenuItem Header="Admin" >
-                                <MenuItem Header="View all orders" Name="AdminOrders" Click="SelectionChanged" />
-                                <MenuItem Header="View all units" Name="AdminUnits" Click="SelectionChanged" />
-                                <MenuItem Header="View all users" Name="AdminUsers" Click="SelectionChanged"/>
+                                <MenuItem Header="View All Orders" Name="AdminOrders" Click="SelectionChanged" />
+                                <MenuItem Header="View All Units" Name="AdminUnits" Click="SelectionChanged" />
+                                <MenuItem Header="View All Users" Name="AdminUsers" Click="SelectionChanged"/>
                                 <!--אולי לחלק לאורחים ומארחים-->
-                                <MenuItem Header="Remove user" Name="AdminRemove" Click="SelectionChanged"/>
+                                <MenuItem Header="Remove User" Name="AdminRemove" Click="SelectionChanged"/>
                                 <!--אולי לחלק להסרת host\guest\unit-->
                             </MenuItem >
                             <MenuItem Header="Host" >
-                                <MenuItem Header="Add unit" Name="AddUnit"  Click="SelectionChanged" />
-                                <MenuItem Header="orders" Name="HostOrders" Click="SelectionChanged" />
+                                <MenuItem Header="Add Unit" Name="AddUnit"  Click="SelectionChanged" />
+                                <MenuItem Header="Orders" Name="HostOrders" Click="SelectionChanged" />
                                 <MenuItem Header="something" Name="HostSomething" Click="SelectionChanged"/>
                             </MenuItem>
                             <MenuItem Header="Guest">
-                                <MenuItem Header="GuestReq" Name="GuestReq" Click="SelectionChanged" />
+                                <MenuItem Header="New Search" Name="GuestReq" Click="SelectionChanged" />
                                 <MenuItem Header="Orders" Name="GuestOrder" Click="SelectionChanged"/>
                                 <MenuItem Header="something" Name="GuestSomething" Click="SelectionChanged"/>
                             </MenuItem>

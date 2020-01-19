@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    public class BankBranch//mfhmjf
+    public class BankBranch
     {
         private int bankNumber;
         private Enums.BankName bankName;
