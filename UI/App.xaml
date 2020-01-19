@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:UI"
-             StartupUri="MainWindow.xaml">
+             StartupUri="Menu.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -13,7 +13,8 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.LightBlue.xaml" />
             </ResourceDictionary.MergedDictionaries>
            
-            <Style x:Key="pageDefault">
+            
+            <Style x:Key="pageDefault"  >
                 <Setter Property="Control.Background" Value="Transparent"/>
                 <Setter Property="Control.BorderBrush" Value="Transparent"/>
                 <Setter Property="Window.Height" Value="720"/>
@@ -24,8 +25,15 @@
                 <Setter Property="Window.FontFamily" Value="Segoe UI Black"/>
                 <Setter Property="Window.FontSize" Value="20"/>
                
-            </Style>
+                <Style.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="25"/>
+                        <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}"/>
+                    </Style>
+                </Style.Resources>
 
+            </Style>
+<!-->
             <Style x:Key="ColumnGrid" TargetType="ColumnDefinition">
                 <Setter Property="Width" Value="*"/>
                 <Setter Property="Width" Value="*"/>
@@ -35,6 +43,9 @@
                 <Setter Property="Height" Value="40"/>
                 <Setter Property="Height" Value="*"/>
             </Style>
+           < -->
+           
+      
             <WindowStartupLocation x:Key="WSL">CenterScreen</WindowStartupLocation>
          
             <LinearGradientBrush x:Key="ButtonsColor">

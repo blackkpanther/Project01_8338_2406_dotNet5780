@@ -8,13 +8,14 @@
        mc:Ignorable="d"
         Title="MyOrders" 
         WindowStartupLocation="{StaticResource WSL}"
-        Style="{StaticResource ResourceKey=pageDefault}" >
+        Style="{StaticResource ResourceKey=pageDefault}"  >
     <Grid>
         <Button Click="Button_Click_CloseWindow" Width="Auto" Height="Auto" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="White" BorderBrush="Blue" Foreground="Blue" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" Margin="277,208,146.6,46">
             <Button.Content>
                 <materialDesign:PackIcon Kind="WindowClose" Height="108" Width="163" Background="Black" />
             </Button.Content>
         </Button>
+
         <Button Content="Button" HorizontalAlignment="Left" Margin="104,96,0,0" VerticalAlignment="Top" Width="225" Height="130"/>
     </Grid>
 </Window>

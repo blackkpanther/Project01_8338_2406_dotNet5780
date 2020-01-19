@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
         Title="MainWindowHost"
@@ -21,6 +23,8 @@
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+           
+            
             <Border  CornerRadius="20" Grid.ColumnSpan="2" Background="#0066cc" Margin="0,0,-0.4,16.4" Grid.RowSpan="2">
                 <TextBlock Text="Finding a vacation" Margin="21,14,265.4,18" FontSize="16" FontFamily="Segoe UI Black"/>
             </Border>
