@@ -6,16 +6,43 @@
         xmlns:local="clr-namespace:UI"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
        mc:Ignorable="d"
-        Title="MyOrders" 
+        Title="MyOrders"
         WindowStartupLocation="{StaticResource WSL}"
-        Style="{StaticResource ResourceKey=pageDefault}"  >
-    <Grid>
-        <Button Click="Button_Click_CloseWindow" Width="Auto" Height="Auto" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="White" BorderBrush="Blue" Foreground="Blue" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" Margin="277,208,146.6,46">
-            <Button.Content>
-                <materialDesign:PackIcon Kind="WindowClose" Height="108" Width="163" Background="Black" />
-            </Button.Content>
-        </Button>
+               Style="{StaticResource ResourceKey=pageDefault}" Width="460" Height="720">
+	<Grid>
+		<TextBox x:Name="Order" Width="250" Margin="-11,0,221,660" RenderTransformOrigin="0.5,0.5">
+		</TextBox>
+		<Button Content="Search" Name="search" ClickMode="Press" Margin="234,-29,1,643" Width="225" Height="Auto" RenderTransformOrigin="0.936,0.543"/>
 
-        <Button Content="Button" HorizontalAlignment="Left" Margin="104,96,0,0" VerticalAlignment="Top" Width="225" Height="130"/>
-    </Grid>
+		<DataGrid ItemsSource="{Binding}"
+           HorizontalAlignment="Left"
+VerticalAlignment="Top" RowHeight="30" ColumnWidth="100" GridLinesVisibility="Vertical" HeadersVisibility="All" IsReadOnly="True" HorizontalScrollBarVisibility="Visible"
+VerticalScrollBarVisibility="Visible" SelectionMode="Extended"
+                 x:Name="OrderList" ScrollViewer.CanContentScroll="False" Width="460" Height="670" Margin="0,50,0,0">
+			<DataGrid.RowStyle>
+				<Style TargetType="DataGridRow" BasedOn="{StaticResource {x:Type DataGridRow}}">
+					<Style.Triggers>
+						<Trigger Property="IsSelected" Value="True">
+							<Setter Property="Background" Value="LightSkyBlue"/>
+						</Trigger>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter Property="Background" Value="DarkBlue"/>
+						</Trigger>
+					</Style.Triggers>
+				</Style>
+			</DataGrid.RowStyle>
+			<DataGrid.CellStyle>
+				<Style TargetType="DataGridCell" BasedOn="{StaticResource {x:Type DataGridCell}}">
+					<Style.Triggers>
+						<Trigger Property="IsSelected" Value="True">
+							<Setter Property="Background" Value="Transparent"/>
+						</Trigger>
+					</Style.Triggers>
+				</Style>
+			</DataGrid.CellStyle>
+			<Label Name = "nameLabel" Margin = "2">Unit Name:</Label>
+			<Label Name = "AreaLabel" Margin = "2" Grid.Row = "1">Area:</Label>
+
+		</DataGrid>
+	</Grid>
 </Window>
