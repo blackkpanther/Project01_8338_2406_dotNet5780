@@ -8,7 +8,7 @@
            d:DesignHeight="450" d:DesignWidth="800" Style="{StaticResource ResourceKey=pageDefault}">
     <Grid>
 
-        <Button Content="Search" Name="search" ClickMode="Press" Margin="234,-29,1,643" Width="225" Height="Auto" RenderTransformOrigin="0.936,0.543"/>
+        <Button Content="Search" Name="search" ClickMode="Press" Margin="234,-29,1,715" Width="225" Height="Auto" RenderTransformOrigin="0.936,0.543"/>
 
         <DataGrid ItemsSource="{Binding}" HorizontalAlignment="Left" VerticalAlignment="Top" RowHeight="30" ColumnWidth="100" GridLinesVisibility="Vertical" HeadersVisibility="All" 
                   IsReadOnly="True" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" SelectionMode="Extended"

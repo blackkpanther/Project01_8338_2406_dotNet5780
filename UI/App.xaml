@@ -24,30 +24,33 @@
                 <Setter Property="Window.AllowsTransparency" Value="True"/>
                 <Setter Property="Window.FontFamily" Value="Segoe UI Black"/>
                 <Setter Property="Window.FontSize" Value="20"/>
-               
                 <Style.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="25"/>
                         <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}"/>
                     </Style>
+                    
+                    
                 </Style.Resources>
 
             </Style>
-<!-->
-            <Style x:Key="ColumnGrid" TargetType="ColumnDefinition">
-                <Setter Property="Width" Value="*"/>
-                <Setter Property="Width" Value="*"/>
-            </Style>
-            <Style x:Key="RowGrid" TargetType="RowDefinition" >
-                <Setter Property="Height" Value="40"/>
-                <Setter Property="Height" Value="40"/>
-                <Setter Property="Height" Value="*"/>
-            </Style>
-           < -->
-           
+
       
             <WindowStartupLocation x:Key="WSL">CenterScreen</WindowStartupLocation>
-         
+
+            <!--Style TargetType="Button">
+                
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{StaticResource ButtonsColor}" CornerRadius="15" >
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                
+            </>
             <LinearGradientBrush x:Key="ButtonsColor">
                 <GradientStop Offset="0" Color="LightBlue"/>
                 <GradientStop Offset="0.5" Color="LightSkyBlue"/>
@@ -58,13 +61,8 @@
                 <GradientStop Offset="0.5" Color="LightBlue"/>
                 <GradientStop Offset="1" Color="LightSkyBlue"/>
             </LinearGradientBrush>
-            <!--Border Grid.ColumnSpan="2" Grid.Row="2" CornerRadius="0,0,25,25" Background="LightBlue"  />
-
-            <Style x:Key="outBorder">
-                <Setter Property="Control.Background" Value="LightBlue"/>
-              <Setter Property="
-            </Style>-->
-            <Style TargetType="Button">
+          
+            <Style TargetType="Button" x:Key="first">
                 <Setter Property="Background" Value="#fff"/>
                 <Setter Property="Foreground" Value="#000"/>
                 <Setter Property="FontSize" Value="30"/>
@@ -97,7 +95,7 @@
                         <Setter Property="FontWeight" Value="ExtraBlack"/>
                     </Trigger>
                 </Style.Triggers>
-            </Style>
+            </Style-->
 
         </ResourceDictionary>
     </Application.Resources>
