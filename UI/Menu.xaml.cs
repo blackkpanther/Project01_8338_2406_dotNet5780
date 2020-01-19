@@ -48,5 +48,71 @@ namespace UI
             else
                 SystemCommands.MaximizeWindow(this);
         }
+        /* private void Button_Click_AddUnit(object sender, RoutedEventArgs e)
+         {
+           if(jj.Visibility==Visibility.Hidden)
+             { jj.Visibility = Visibility.Visible; }
+                   //Binding closePanel =new Binding{};
+         }
+         private void Button_Click_GuestReq(object sender, RoutedEventArgs e)
+         {
+             if (GuestReq.Visibility == Visibility.Hidden)
+             { GuestReq.Visibility = Visibility.Visible; }
+
+         }*/
+        private void SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            UserControl usc = null;
+            GridMain.Children.Clear();
+
+           // switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
+           switch (((MenuItem)((MenuItem)sender)).Name)
+            {
+                case "AdminOrders":
+                    usc = new Orders();
+                    GridMain.Children.Add(usc);
+                    break;
+                case "AdminUnits":
+                    usc = new UserControl1();
+                    GridMain.Children.Add(usc);
+                    break;
+                case "AdminUsers":
+                    usc = new UserControl1();
+                    GridMain.Children.Add(usc);
+                    break;
+                case "AdminRemove":
+                    usc = new UserControl1();
+                    GridMain.Children.Add(usc);
+                    break;
+                case "AddUnit":
+                    usc = new UserControl1();
+                    GridMain.Children.Add(usc);
+                    break;
+                case "HostOrders":
+                    usc = new Orders();
+                    GridMain.Children.Add(usc);
+                    break;
+                case "HostSomething":
+                    usc = new UserControl1();
+                    GridMain.Children.Add(usc);
+                    break;
+                case "GuestReq":
+                    usc = new GuestReq();
+                    GridMain.Children.Add(usc);
+                    break;
+                case "GuestOrder":
+                    usc = new Orders();
+                    GridMain.Children.Add(usc);
+                    break;
+                case "GuestSomething":
+                    usc = new UserControl1();
+                    GridMain.Children.Add(usc);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+
     }
 }

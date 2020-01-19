@@ -21,41 +21,40 @@
     <Border CornerRadius="25" Background="White">
         <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}" Background="Transparent">
             <materialDesign:DrawerHost.LeftDrawerContent >
-                <Border Background="LightBlue"  CornerRadius="25,0,0,25">
+                <Border  CornerRadius="25,0,0,25">
 
                     <DockPanel MinWidth="212" Background="Transparent"   >
 
-                        <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" Background="Transparent"   DockPanel.Dock="Top"
+                        <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" 
+                              DockPanel.Dock="Top"
                               HorizontalAlignment="Right" Margin="16" 
                               IsChecked="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}" />
-                        <Menu Background="Transparent" >
+                        <Menu >
 
                             <Menu.ItemsPanel >
                                 <ItemsPanelTemplate >
                                     <VirtualizingStackPanel />
                                 </ItemsPanelTemplate>
                             </Menu.ItemsPanel>
-                            <MenuItem Header="Admin" Background="Transparent">
-                                <MenuItem Header="View all orders" />
-                                <MenuItem Header="View all units" />
-                                <MenuItem Header="View all users" />
+                            <MenuItem Header="Admin" >
+                                <MenuItem Header="View all orders" Name="AdminOrders" Click="SelectionChanged" />
+                                <MenuItem Header="View all units" Name="AdminUnits" Click="SelectionChanged" />
+                                <MenuItem Header="View all users" Name="AdminUsers" Click="SelectionChanged"/>
                                 <!--אולי לחלק לאורחים ומארחים-->
-                                <MenuItem Header="Remove user" />
+                                <MenuItem Header="Remove user" Name="AdminRemove" Click="SelectionChanged"/>
                                 <!--אולי לחלק להסרת host\guest\unit-->
                             </MenuItem >
                             <MenuItem Header="Host" >
-                                <MenuItem Header="Add unit" Click="Button_Click_AddUnit"/>
-                                <MenuItem Header="orders" />
-                                <MenuItem Header="something" />
+                                <MenuItem Header="Add unit" Name="AddUnit"  Click="SelectionChanged" />
+                                <MenuItem Header="orders" Name="HostOrders" Click="SelectionChanged" />
+                                <MenuItem Header="something" Name="HostSomething" Click="SelectionChanged"/>
                             </MenuItem>
                             <MenuItem Header="Guest">
-                                <MenuItem Header="GuestReq" />
-                                <MenuItem Header="Orders" />
-                                <MenuItem Header="something" />
+                                <MenuItem Header="GuestReq" Name="GuestReq" Click="SelectionChanged" />
+                                <MenuItem Header="Orders" Name="GuestOrder" Click="SelectionChanged"/>
+                                <MenuItem Header="something" Name="GuestSomething" Click="SelectionChanged"/>
                             </MenuItem>
-
                         </Menu>
-
                     </DockPanel>
                 </Border>
             </materialDesign:DrawerHost.LeftDrawerContent>
@@ -64,9 +63,10 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <Border Grid.Row="1"  >
-                    <local:UserControl1 HorizontalAlignment="Left"  VerticalAlignment="Top" />
-                </Border>
+
+                <Grid x:Name="GridMain" Grid.Row="1"  />
+
+                
                 <materialDesign:ColorZone CornerRadius="25,25,0,0" Padding="16" materialDesign:ShadowAssist.ShadowDepth="Depth2" Mode="PrimaryMid" DockPanel.Dock="Top">
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -97,7 +97,7 @@
 
             </Grid>
         </materialDesign:DrawerHost>
-   
+
     </Border>
-   
+
 </Window>
