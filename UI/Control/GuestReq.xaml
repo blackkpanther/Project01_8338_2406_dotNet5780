@@ -9,8 +9,11 @@
              d:DesignHeight="450" d:DesignWidth="800" Style="{StaticResource ResourceKey=pageDefault}">
     <Grid>
         <Border  BorderThickness="5" Width="414" Height="593" BorderBrush="Black" CornerRadius="20,20,20,20" Margin="20,20,20,20" Background="White">
-             <TextBlock Text="guestreq" Width="200" Height="400" />
+            <StackPanel>
+            <TextBlock Text="guestreq" Width="200" Height="400" />
+                   </StackPanel>
         </Border>
+        
 
 
     </Grid>

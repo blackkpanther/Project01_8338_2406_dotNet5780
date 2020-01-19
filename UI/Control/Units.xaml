@@ -10,7 +10,7 @@
         <TextBox x:Name="Order" Width="250"  RenderTransformOrigin="0.5,0.5">
         </TextBox>
         <Button Content="Search" Name="search" ClickMode="Press" HorizontalAlignment="Right" VerticalAlignment="Top" RenderTransformOrigin="0.936,0.543" Height="45" Margin="0,5,5,0" Width="140"/>
-        <DataGrid ItemsSource="{Binding}" HorizontalAlignment="Left" VerticalAlignment="Top" RowHeight="30" ColumnWidth="100" GridLinesVisibility="Vertical" 
+        <DataGrid ItemsSource="{Binding HostingUnit }" HorizontalAlignment="Left" VerticalAlignment="Top" RowHeight="30" ColumnWidth="100" GridLinesVisibility="Vertical" 
                   HeadersVisibility="All" IsReadOnly="True" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" SelectionMode="Extended"
                  x:Name="OrderList" ScrollViewer.CanContentScroll="False" Width="460" Height="670" Margin="0,50,0,0">
             <DataGrid.RowStyle>
