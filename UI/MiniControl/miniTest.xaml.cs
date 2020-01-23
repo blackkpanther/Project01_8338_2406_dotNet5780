@@ -13,18 +13,20 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace UI.Control
+namespace UI.MiniControl
 {
     /// <summary>
-    /// Interaction logic for Units.xaml
+    /// Interaction logic for miniTest.xaml
     /// </summary>
-    public partial class Units : UserControl
+    public partial class miniTest : UserControl
     {
-        public Units()
+        public miniTest()
         {
             InitializeComponent();
-            this.DataContext = this;
+           
         }
+
+
 
     }
 }

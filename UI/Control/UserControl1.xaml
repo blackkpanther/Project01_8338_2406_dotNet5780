@@ -6,11 +6,12 @@
               xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:UI"
              mc:Ignorable="d" 
-             d:DesignHeight="593" d:DesignWidth="414" Style="{StaticResource ResourceKey=pageDefault}">
+             d:DesignHeight="593" d:DesignWidth="414"  Style="{StaticResource ResourceKey=UserControlPageDefault}">
     <Grid >
 
         <Border>
             <TextBlock Text="fhvbdkfb" FontSize="90" />
+            
         </Border>
 
 

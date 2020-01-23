@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BE;
 
 namespace UI.MiniControl
 {
@@ -19,10 +20,110 @@ namespace UI.MiniControl
     /// Interaction logic for Unit.xaml
     /// </summary>
     public partial class Unit : UserControl
+
     {
-        public Unit()
+        /*
+        int imageIndex;
+        Viewbox vbImage;
+        Image MyImage;
+        private Calendar MyCalendar;
+        public HostingUnit CurrentHostingUnit { get; set; }
+        public Unit(HostingUnit hostUnit)
         {
+            vbImage = new Viewbox();
             InitializeComponent();
+            this.CurrentHostingUnit = hostUnit;
+
+            UserControlGrid.DataContext = hostUnit;
+            MyCalendar = CreateCalendar();
+            vbCalendar.Child = null;
+            vbCalendar.Child = MyCalendar;
+            SetBlackOutDates();
+
+            imageIndex = 0;
+            vbImage.Width = 75;
+            vbImage.Height = 75;
+            vbImage.Stretch = Stretch.Fill;
+            UserControlGrid.Children.Add(vbImage);
+            Grid.SetColumn(vbImage, 2);
+            Grid.SetRow(vbImage, 0);
+            vbImage.MouseUp += vbImage_MouseUp;
+            vbImage.MouseEnter += vbImage_MouseEnter;
+            vbImage.MouseLeave += vbImage_MouseLeave;
+            MyImage = CreateViewImage();
+            vbImage.Child = null;
+            vbImage.Child = MyImage;
         }
+        private Image CreateViewImage()
+        {
+            Image dynamicImage = new Image();
+            BitmapImage bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri(@CurrentHostingUnit.Uri);
+            bitmap.EndInit();
+
+            //Set Image.Source
+            dynamicImage.Source = bitmap;
+
+            //Add Image to Window
+            return dynamicImage;
+        }
+        private Calendar CreateCalendar()
+        {
+            Calendar MonthlyCalendar = new Calendar
+            {
+                Name = "MonthlyCalendar",
+                DisplayMode = CalendarMode.Month,
+                SelectionMode = CalendarSelectionMode.SingleRange,
+                IsTodayHighlighted = true
+            };
+            return MonthlyCalendar;
+        }
+        private void SetBlackOutDates()
+        {
+            foreach (DateTime date in CurrentHostingUnit.AllOrders)
+            {
+                MyCalendar.BlackoutDates.Add(new CalendarDateRange(date));
+            }
+        }
+
+
+        private void BtOrder_Click_1(object sender, RoutedEventArgs e)
+        {
+            List<DateTime> myList = MyCalendar.SelectedDates.ToList();
+            MyCalendar = CreateCalendar();
+            vbCalendar.Child = null;
+            vbCalendar.Child = MyCalendar;
+            AddCurrentList(myList);
+            SetBlackOutDates();
+        }
+
+        private void AddCurrentList(List<DateTime> tList)
+        {
+            foreach (DateTime d in tList)
+            {
+                CurrentHostingUnit.AllOrders.Add(d);
+            }
+        }
+
+        private void vbImage_MouseLeave(object sender, MouseEventArgs e)
+        {
+            vbImage.Width = 75;
+            vbImage.Height = 75;
+        }
+        private void vbImage_MouseEnter(object sender, MouseEventArgs e)
+        {
+            vbImage.Width = this.Width / 3;
+            vbImage.Height = this.Height;
+        }
+        private void vbImage_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            vbImage.Child = null;
+            imageIndex =
+           (imageIndex + CurrentHostingUnit.Uris.Count - 1) % CurrentHostingUnit.Uris.Count;
+            MyImage = CreateViewImage();
+            vbImage.Child = MyImage;
+        }*/
     }
 }
+    

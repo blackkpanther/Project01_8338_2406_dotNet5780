@@ -6,25 +6,17 @@
              xmlns:local="clr-namespace:UI.MiniControl"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="400">
-    <Grid>
+    <Grid Name ="UserControlGrid">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="*"/>
-            
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="2*"/>
-        </Grid.RowDefinitions>
-        <TextBox x:Name="UnitName" HorizontalAlignment="Left" Grid.Row="0" Text="{Binding Path=HostringUnitName}" Background="LightBlue"/>
-        <TextBox x:Name="SubArea" HorizontalAlignment="Left" Grid.Row="1" Text="{Binding Path=SubArea}" Background="LightBlue"/>
-        <TextBox x:Name="type" HorizontalAlignment="Left" Grid.Row="1" Text="{Binding Path=Area}" Background="LightBlue"/>
-        <TextBox x:Name="pool" HorizontalAlignment="Left" Grid.Row="1" Text="{Binding Path=Pool}" Background="LightBlue"/>
-        <TextBox x:Name="price" HorizontalAlignment="Left" Grid.Row="1" Text="{Binding Path=PricePerNight}" Background="LightBlue"/>
-k
-
-
-
-
+        <TextBox Name="tbUnitName" HorizontalAlignment="Left" Height="28" Margin="38,32,0,0" TextWrapping="Wrap" Text="{Binding Path=UnitName}" VerticalAlignment="Top" Width="189" FontFamily="Segoe UI" FontSize="18"/>
+        <Label Content="מספר חדרים" HorizontalAlignment="Left" Margin="118,79,0,0" VerticalAlignment="Top" FontFamily="Segoe UI" FontSize="18"/>
+        <TextBox Name="tbRooms" HorizontalAlignment="Left" Height="31" Margin="40,82,0,0" TextWrapping="Wrap" Text="{Binding Path=Rooms}" VerticalAlignment="Top" Width="68"/>
+        <CheckBox Name="IsSwimingPool" Content="בריכה" HorizontalAlignment="Left" Margin="38,134,0,0" VerticalAlignment="Top" IsChecked="{Binding Path=IsSwimingPool}" Height="36" Width="109" FontFamily="Segoe UI" FontSize="18"/>
+        <Viewbox Name="vbCalendar" Grid.Column="1" HorizontalAlignment="Left" Height="140" Margin="60.6,10,0,0" VerticalAlignment="Top" Width="140" Stretch="Fill"/>
+        <!--Button Name="btOrder" Content="הזמן" Grid.Column="1" HorizontalAlignment="Left" Margin="60.6,159,0,0" VerticalAlignment="Top" Width="140" Click="BtOrder_Click_1" FontFamily="Segoe UI" FontSize="18"/-->
     </Grid>
 </UserControl>

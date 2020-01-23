@@ -16,7 +16,49 @@ namespace BE
         private BankBranch bankBranchDetails;
         private int bankAccountNumber;
         private bool collectionClearance;
-   private int numOfUnits;//*
+        private int numOfUnits;//*
+
+        //constructor
+      public Host(Host host)
+        {
+
+            HostKey = 10000001;
+            PrivateName = "A";
+            FamilyName = "AA";
+            PhoneNumber = "0000000000";
+            MailAddress = "aaa@gmail.com";
+            BankBranchDetails = new BankBranch
+            {
+                BankNumber = 1,
+                BankName = Enums.BankName.BankLeumi,
+                BranchNumber = 111,
+                BranchAddress = "aaaa aaaa",
+                BranchCity = Enums.SubArea.Afula
+            };
+            BankAccountNumber = 111;
+            CollectionClearance = true;
+               
+        }
+        public Host()
+        {
+
+            HostKey = 10000001;
+            PrivateName = "A";
+            FamilyName = "AA";
+            PhoneNumber = "0000000000";
+            MailAddress = "aaa@gmail.com";
+            BankBranchDetails = new BankBranch
+            {
+                BankNumber = 1,
+                BankName = Enums.BankName.BankLeumi,
+                BranchNumber = 111,
+                BranchAddress = "aaaa aaaa",
+                BranchCity = Enums.SubArea.Afula
+            };
+            BankAccountNumber = 111;
+            CollectionClearance = true;
+
+        }
 
         //properties
         public long HostKey
@@ -69,6 +111,6 @@ get{return numOfUnits;}
         {
             return "Host ID: " + this.hostKey + " Name: " + this.privateName + " " + this.familyName + " Phone no.: " + this.phoneNumber + " Email address: " + this.mailAddress + " Bank account information: " + this.bankBranchDetails.ToString() + " Collection clearance: " + this.collectionClearance;
         }
-        public Host() { }
+       // public Host() { }
     }
 }

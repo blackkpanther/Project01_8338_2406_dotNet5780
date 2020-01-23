@@ -10,21 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace UI.Control
 {
     /// <summary>
-    /// Interaction logic for Units.xaml
+    /// Interaction logic for login.xaml
     /// </summary>
-    public partial class Units : UserControl
+    public partial class login : Window
     {
-        public Units()
+        public login()
         {
             InitializeComponent();
-            this.DataContext = this;
         }
-
     }
 }

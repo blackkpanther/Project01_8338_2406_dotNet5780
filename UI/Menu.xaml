@@ -42,6 +42,7 @@
                                 <MenuItem Header="View All Users" Name="AdminUsers" Click="SelectionChanged"/>
                                 <!--אולי לחלק לאורחים ומארחים-->
                                 <MenuItem Header="Remove User" Name="AdminRemove" Click="SelectionChanged"/>
+                                <MenuItem Header="test" Name="testUserControl" Click="SelectionChanged"/>
                                 <!--אולי לחלק להסרת host\guest\unit-->
                             </MenuItem >
                             <MenuItem Header="Host" >
@@ -65,8 +66,7 @@
                 </Grid.RowDefinitions>
 
                 <Grid x:Name="GridMain" Grid.Row="1" >
-                   
-
+                    
                 </Grid>
 
 

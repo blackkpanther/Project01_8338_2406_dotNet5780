@@ -78,6 +78,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Control\Hosts.xaml.cs">
+      <DependentUpon>Hosts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\login.xaml.cs">
+      <DependentUpon>login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Control\Orders.xaml.cs">
       <DependentUpon>Orders.xaml</DependentUpon>
     </Compile>
@@ -96,6 +102,14 @@
     <Compile Include="Control\UserControl1.xaml.cs">
       <DependentUpon>UserControl1.xaml</DependentUpon>
     </Compile>
+    <Page Include="Control\Hosts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Control\Orders.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -113,6 +127,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Menu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MiniControl\HostMini.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MiniControl\miniTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -134,6 +156,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MiniControl\HostMini.xaml.cs">
+      <DependentUpon>HostMini.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MiniControl\miniTest.xaml.cs">
+      <DependentUpon>miniTest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MiniControl\Unit.xaml.cs">
       <DependentUpon>Unit.xaml</DependentUpon>
     </Compile>

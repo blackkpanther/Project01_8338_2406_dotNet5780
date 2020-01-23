@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BE;
 
 namespace UI
 {
@@ -19,6 +20,7 @@ namespace UI
     /// </summary>
     public partial class Menu : Window
     {
+
         public Menu()
         {
             InitializeComponent();
@@ -57,6 +59,8 @@ namespace UI
            // switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
            switch (((MenuItem)((MenuItem)sender)).Name)
             {
+                
+                   
                 case "AdminOrders":
                     usc = new Control.Orders();
                     GridMain.Children.Add(usc);
@@ -66,7 +70,7 @@ namespace UI
                     GridMain.Children.Add(usc);
                     break;
                 case "AdminUsers":
-                    usc = new Control.UserControl1();
+                    usc = new Control.Hosts();
                     GridMain.Children.Add(usc);
                     break;
                 case "AdminRemove":
@@ -95,6 +99,11 @@ namespace UI
                     break;
                 case "GuestSomething":
                     usc = new Control.UserControl1();
+                    GridMain.Children.Add(usc);
+                    break;
+                case "testUserControl":
+                    //usc = new MiniControl.miniTest();
+                    usc = new Control.test();
                     GridMain.Children.Add(usc);
                     break;
                 default:

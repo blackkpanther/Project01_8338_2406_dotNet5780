@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Globalization;
 
 namespace BE
 {
@@ -22,6 +23,8 @@ namespace BE
         private Enums.Option garden;
         private Enums.Option childrensAttractions;
         private long pricePerNight;// *
+        private string uri;// "https://img.mako.co.il/2014/10/13/asnbsdnsn05_c.jpg",
+        private Calendar Calendar;
 
         //properties:
 
@@ -95,7 +98,11 @@ namespace BE
             get{return pricePerNight;}
             set{pricePerNight=value;}
             }
-
+        public string Uri
+        {
+            get { return uri; }
+            set { uri = value; }
+        }
         //printing method
         public override string ToString()
         {
