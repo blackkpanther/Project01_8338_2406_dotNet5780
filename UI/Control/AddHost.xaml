@@ -46,7 +46,10 @@
 
                     <Label Content="collectionClearance:"  />
                     <TextBox Text="{Binding Path=CollectionClearance, Mode=OneWayToSource}"  />
-
+                    <ComboBox Name="collectionClearance" SelectedValue="{Binding CollectionClearance, Mode=OneWayToSource}">
+                        <ComboBoxItem Content="True" IsSelected="True"/>
+                        <ComboBoxItem Content="False" IsSelected="False"/>
+                    </ComboBox>
                     <Label Content="numOfUnits"  />
                     <TextBox Text="{Binding Path=NumOfUnits, Mode=OneWayToSource}"  />
 

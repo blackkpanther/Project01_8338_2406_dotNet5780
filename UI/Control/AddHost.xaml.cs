@@ -28,14 +28,8 @@ namespace UI.Control
         {
             InitializeComponent();
             bl = FactoryBL.GetFactory();
-            this.CurrentHost.BankBranchDetails= new BankBranch
-            {
-                BankNumber = 1,
-                BankName = Enums.BankName.BankLeumi,
-                BranchNumber = 111,
-                BranchAddress = "aaaa aaaa",
-                BranchCity = Enums.SubArea.Afula
-            };
+           // this.CurrentHost.BankBranchDetails = new BankBranch();
+           
 
             this.DataContext = CurrentHost;
             MainGrid.DataContext = CurrentHost;

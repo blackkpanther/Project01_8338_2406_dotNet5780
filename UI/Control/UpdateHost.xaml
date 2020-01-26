@@ -43,11 +43,11 @@
                 
                     <Label Content="bankAccountNumber:" />
                     <TextBox Text="{Binding Path=BankAccountNumber, Mode=TwoWay}" />
-                
-               
                     <Label Content="collectionClearance:"  />
-                    <TextBox Text="{Binding Path=CollectionClearance, Mode=TwoWay}"  />
-               
+                    <DockPanel>
+                           <CheckBox Content="True"/>
+                           <CheckBox Content="False"/>
+                    </DockPanel>
                     <Label Content="numOfUnits"  />
                     <TextBox Text="{Binding Path=NumOfUnits, Mode=TwoWay}"  />
                 

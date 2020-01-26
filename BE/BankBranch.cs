@@ -9,7 +9,14 @@
         private Enums.SubArea branchCity;
 
         //constructors
-        //  public BankBranch() { }
+          public BankBranch()
+        {
+            BankNumber = 1;
+            BankName = Enums.BankName.BankLeumi;
+            BranchNumber = 111;
+            BranchAddress = "aaaa aaaa";
+            BranchCity = Enums.SubArea.Afula;
+            }
         /*   public BankBranch( int bankNumber1, Enums.BankName bankName1, int branchNumber1, string branchAddress1 , Enums.SubArea branchCity1)
            {
            bankNumber= bankNumber1;
