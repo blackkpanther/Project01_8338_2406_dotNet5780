@@ -15,110 +15,6 @@ namespace DAL
 {
     class DAL_XML : Idal
     {
-        public void AddGuestRequest(GuestRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void AddHost(Host host)
-        {
-            var list = LoadFromXML<List<Host>>(hostPath);
-            Host addHost = (from h in list where h.HostKey == host.HostKey select h).FirstOrDefault();
-            if (addHost != null)
-                throw new Exception("This host key is already exist");
-            list.Add(addHost);
-            SaveToXML<List<Host>>(list, hostPath);
-        }
-
-        public void AddHostingUnit(HostingUnit unit)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void AddOrder(Order order)
-        {
-            throw new NotImplementedException();
-        }
-
-        public GuestRequest CheckGuestRequest(long key)
-        {
-            throw new NotImplementedException();
-        }
-
-        public HostingUnit CheckHostingUnit(long key)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Order CheckOrder(long key)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteHost(Host host)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteHostingUnit(HostingUnit unit)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<BankBranch> GetBankBranchList()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<GuestRequest> GetGuestRequestList()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Host GetHost(long hostKey)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<HostingUnit> GetHostingUnitList()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Host> GetHostList()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Host> GetHosts()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Order> GetOrderList()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateGuestRequest(ref GuestRequest request, Enums.Status status)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateHost(Host host)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateHostingUnit(ref HostingUnit unit, bool[,] diary)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateOrder(ref Order order, Enums.Status status)
-        {
-            throw new NotImplementedException();
-        }
 
         private XElement hostsFile, guestsFile, ordersFile, unitsFile, guestsReqFile;
         string hostPath = "Hosts.xml";
@@ -151,6 +47,13 @@ namespace DAL
             else
                 LoadData(ordersPath);
 
+            if (!System.IO.File.Exists(guestsReqPath))
+            {
+                SaveToXML(new List<GuestRequest>(), guestsReqPath);
+            }
+            else
+                LoadData(guestsReqPath);
+
             if (!System.IO.File.Exists(unitPath))
             {
                 SaveToXML(new List<HostingUnit>(), unitPath);
@@ -158,12 +61,7 @@ namespace DAL
             else
                 LoadData(unitPath);
 
-            if (!System.IO.File.Exists(guestsReqPath))
-            {
-                SaveToXML(new List<GuestRequest>(), guestsReqPath);
-            }
-            else
-                LoadData(unitPath);
+            
         }
 
 
@@ -186,22 +84,22 @@ namespace DAL
             return result;
         }
 
-        private void LoadData(string person)
+        private void LoadData(string being)
         {
             try
             {
-                switch (person)
+                switch (being)
                 {
-                    case "Guest.xml":
+                    case "Guests.xml":
                         guestsFile = XElement.Load(guestPath);
                         break;
-                    case "Order.xml":
+                    case "Orders.xml":
                         ordersFile = XElement.Load(ordersPath);
                         break;
-                    case "Host.xml":
+                    case "Hosts.xml":
                         hostsFile = XElement.Load(hostPath);
                         break;
-                    case "Unit.xml":
+                    case "Units.xml":
                         unitsFile = XElement.Load(unitPath);
                         break;
                     case "GuestsReq.xml":
@@ -217,6 +115,165 @@ namespace DAL
             }
         }
         #endregion
+        public void AddGuestRequest(GuestRequest request)
+        {
+            var list = LoadFromXML<List<GuestRequest>>(guestsReqPath);
+            list.Add(request);
+            SaveToXML<List<GuestRequest>>(list, guestsReqPath);
+        }
+
+        public void AddHost(Host host)
+        {
+            var list = LoadFromXML<List<Host>>(hostPath);
+            list.Add(host);
+            SaveToXML<List<Host>>(list, hostPath);
+        }
+
+        public void AddHostingUnit(HostingUnit unit)
+        {
+            var list = LoadFromXML<List<HostingUnit>>(unitPath);
+            list.Add(unit);
+            //SaveToXML<List<Host>>(list, unitPath);
+        }
+
+        public void AddOrder(Order order)
+        {
+            var list = LoadFromXML<List<Order>>(ordersPath);
+            list.Add(order);
+            SaveToXML<List<Order>>(list, ordersPath);
+        }
+
+        public GuestRequest CheckGuestRequest(long key)
+        {
+            throw new NotImplementedException();
+        }
+
+        public HostingUnit CheckHostingUnit(long key)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Order CheckOrder(long key)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteHost(Host host)
+        {
+            var list = LoadFromXML<List<Host>>(hostPath);
+            list.Remove(host);
+            SaveToXML<List<Host>>(list, hostPath);
+        }
+
+        public void DeleteHostingUnit(HostingUnit unit)
+        {
+            var list = LoadFromXML<List<HostingUnit>>(unitPath);
+            list.Remove(unit);
+            SaveToXML<List<HostingUnit>>(list, unitPath);
+        }
+
+        //public List<BankBranch> GetBankBranchList()
+        //{
+        //    List<BankBranch> b = LoadFromXML<List<BankBranch>>(bankPath);/////////////////ADD THE PATH TO BankBranch FILE!!!!
+        //    if (b == null)
+        //        throw new Exception("This File is empty");
+        //    return b;
+        //}
+
+        public List<GuestRequest> GetGuestRequestList()
+        {
+            List<GuestRequest> gr = LoadFromXML<List<GuestRequest>>(guestsReqPath);
+            if (gr == null)
+                throw new Exception("This File is empty");
+            return gr;
+        }
+
+        public Host GetHost(long hostKey)
+        {
+            var list = LoadFromXML<List<Host>>(hostPath);
+            Host host = (from h in list where h.HostKey == hostKey select h).FirstOrDefault();
+            if (host == null)
+                throw new Exception("The host you're trying to get doesn't exist");
+            return host;
+        }
+
+        public List<HostingUnit> GetHostingUnitList()
+        {
+            List<HostingUnit> units = LoadFromXML<List<HostingUnit>>(unitPath);
+            if (units == null)
+                throw new Exception("This File is empty");
+            return units;
+        }
+
+        public List<Host> GetHosts()
+        {
+            List<Host> hosts = LoadFromXML<List<Host>>(hostPath);
+            if (hosts == null)
+                throw new Exception("This File is empty");
+            return hosts;
+        }
+
+
+        public List<Order> GetOrderList()
+        {
+            List<Order> orders = LoadFromXML<List<Order>>(ordersPath);
+            if (orders == null)
+                throw new Exception("This File is empty");
+            return orders;
+        }
+
+        public void UpdateGuestRequest(GuestRequest gRequest)
+        {
+            var list = LoadFromXML<List<GuestRequest>>(guestsReqPath);
+            GuestRequest upDate = (from gr in list where gr.GuestRequestKey == gRequest.GuestRequestKey select gr).FirstOrDefault();
+            if (upDate == null)
+                throw new Exception("The request you're trying to upDate doesn't exist");
+
+            list.Remove(upDate);//delete the old req
+            list.Add(gRequest);//insert the update req
+            SaveToXML<List<GuestRequest>>(list, guestsReqPath);
+        }
+
+        public void UpdateHost(Host host)
+        {
+            var list = LoadFromXML<List<Host>>(hostPath);
+            Host upDate = (from h in list where h.HostKey == host.HostKey select h).FirstOrDefault();
+            if (upDate == null)
+                throw new Exception("The host you're trying to upDate doesn't exist");
+
+            list.Remove(upDate);//delete the old host
+            list.Add(host);//insert the update host
+            SaveToXML<List<Host>>(list, hostPath);
+        }
+
+        public void UpdateHostingUnit(HostingUnit unit)
+        {
+            var list = LoadFromXML<List<HostingUnit>>(unitPath);
+            HostingUnit upDate = (from u in list where u.HostingUnitKey == unit.HostingUnitKey select u).FirstOrDefault();
+            if (upDate == null)
+                throw new Exception("The unit you're trying to upDate doesn't exist");
+
+            list.Remove(upDate);//delete the old unit
+            list.Add(unit);//insert the update unit
+            SaveToXML<List<HostingUnit>>(list, unitPath);
+        }
+
+        public void UpdateOrder(Order order)
+        {
+            var list = LoadFromXML<List<Order>>(ordersPath);
+            Order upDate = (from o in list where o.OrderKey == order.OrderKey select o).FirstOrDefault();
+            if (upDate == null)
+                throw new Exception("The order you're trying to upDate doesn't exist");
+
+            list.Remove(upDate);//delete the old order
+            list.Add(order);//insert the update order
+            SaveToXML<List<Order>>(list, ordersPath);
+        }
+
+        public List<BankBranch> GetBankBranchList()
+        {
+            throw new NotImplementedException();
+        }
     }
     //class DAL_XML
     //{

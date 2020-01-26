@@ -31,9 +31,10 @@ namespace DAL
             DataSource.GuestRequestList.Add(request.Clone());
         }
 
-        void Idal.UpdateGuestRequest(ref GuestRequest request, Enums.Status status)
+        void Idal.UpdateGuestRequest(GuestRequest request)
         {
-            request.Status = status;
+            DataSource.GuestRequestList.Remove((from item in DataSource.GuestRequestList where item.GuestRequestKey == request.GuestRequestKey select item).FirstOrDefault());
+            DataSource.GuestRequestList.Add(request);
         }
         #endregion
 
@@ -76,11 +77,10 @@ namespace DAL
             DataSource.HostingUnitList.Add(unit.Clone());
         }
 
-        void Idal.UpdateHostingUnit(ref HostingUnit unit, bool[,] diary)
+        void Idal.UpdateHostingUnit(HostingUnit unit)
         {
-            if (diary.Length != 12 * 31)
-                throw new /*WrongDiary*/Exception("Wrong format for diary");
-            unit.Diary = diary;
+            DataSource.HostingUnitList.Remove((from item in DataSource.HostingUnitList where item.HostingUnitKey == unit.HostingUnitKey select item).FirstOrDefault());
+            DataSource.HostingUnitList.Add(unit);
         }
         void Idal.DeleteHostingUnit(HostingUnit unit)
         {
@@ -98,9 +98,10 @@ namespace DAL
             DataSource.OrderList.Add(order.Clone());
         }
 
-        void Idal.UpdateOrder(ref Order order, Enums.Status status)
+        void Idal.UpdateOrder(Order order)
         {
-            order.Status = status;
+            DataSource.OrderList.Remove((from item in DataSource.OrderList where item.OrderKey == order.OrderKey select item).FirstOrDefault());
+            DataSource.OrderList.Add(order);
         }
         #endregion
 
@@ -123,10 +124,7 @@ namespace DAL
         {
             return DataSource.BankBranchList.Select(item => item).ToList();
         }
-        List<Host> Idal.GetHostList()
-        {
-            return DataSource.HostList.Select(item => item).ToList();
-        }
+        
         #endregion
 
         #region AssistingMethods

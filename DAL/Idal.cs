@@ -7,7 +7,7 @@ namespace DAL
     {
         #region GuestRequest
         void AddGuestRequest(GuestRequest request);
-        void UpdateGuestRequest(ref GuestRequest request, Enums.Status status);
+        void UpdateGuestRequest(GuestRequest request);
         GuestRequest CheckGuestRequest(long key);
         #endregion
 
@@ -20,14 +20,14 @@ namespace DAL
         #endregion
         #region HostingUnit
         void AddHostingUnit(HostingUnit unit);
-        void UpdateHostingUnit(ref HostingUnit unit, bool[,] diary);
+        void UpdateHostingUnit(HostingUnit unit);
         void DeleteHostingUnit(HostingUnit unit);
         HostingUnit CheckHostingUnit(long key);
         #endregion
 
         #region Order
         void AddOrder(Order order);
-        void UpdateOrder(ref Order order, Enums.Status status);
+        void UpdateOrder(Order order);
         Order CheckOrder(long key);
         #endregion
 
@@ -36,7 +36,7 @@ namespace DAL
         List<GuestRequest> GetGuestRequestList();
         List<Order> GetOrderList();
         List<BankBranch> GetBankBranchList();
-        List<Host> GetHostList();
+      
         #endregion
     }
 }

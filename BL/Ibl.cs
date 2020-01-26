@@ -9,7 +9,7 @@ namespace BL
     {
         #region GuestRequest
         void AddGuestRequest(GuestRequest request);
-        void UpdateGuestRequest(ref GuestRequest request, Enums.Status status);
+        void UpdateGuestRequest(GuestRequest request);
         GuestRequest CheckGuestRequest(long key);
 
         #endregion
@@ -25,13 +25,13 @@ namespace BL
         #region HostingUnit
         void AddHostingUnit(HostingUnit unit);
         void DeleteHostingUnit(HostingUnit unit);
-        void UpdateHostingUnit(ref HostingUnit unit, bool[,] diary);
+        void UpdateHostingUnit(HostingUnit unit);
         HostingUnit CheckHostingUnit(long key);
         #endregion
 
         #region Order
         void AddOrder(Order order);
-        void UpdateOrder(ref Order order, Enums.Status status);
+        void UpdateOrder(Order order);
         Order CheckOrder(long key);
         #endregion
 

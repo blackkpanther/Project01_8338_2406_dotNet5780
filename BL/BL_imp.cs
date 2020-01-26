@@ -58,9 +58,9 @@ namespace BL
                 throw new Exception("Entry date has to be at least one day before release date");
             IDAL.AddGuestRequest(request);
         }
-        void Ibl.UpdateGuestRequest(ref GuestRequest request, Enums.Status status)
+        void Ibl.UpdateGuestRequest(GuestRequest request)
         {
-            IDAL.UpdateGuestRequest(ref request, status);
+            IDAL.UpdateGuestRequest(request);
         }
        GuestRequest Ibl.CheckGuestRequest(long key)
         {
@@ -125,9 +125,9 @@ namespace BL
                 throw new Exception("Unable to delete hosting unit because of ongoing order");
             IDAL.DeleteHostingUnit(unit);
         }
-        void Ibl.UpdateHostingUnit(ref HostingUnit unit, bool[,] diary)
+        void Ibl.UpdateHostingUnit(HostingUnit unit)
         {
-            IDAL.UpdateHostingUnit(ref unit, diary);
+            IDAL.UpdateHostingUnit(unit);
         }
         HostingUnit Ibl.CheckHostingUnit(long key)
         {
@@ -144,7 +144,7 @@ namespace BL
                 throw new Exception("Hosting unit already booked");
             IDAL.AddOrder(order);
         }
-        void Ibl.UpdateOrder(ref Order order, Enums.Status status)
+        void Ibl.UpdateOrder(Order order)
         {
             HostingUnit u = IDAL.CheckHostingUnit(order.HostingUnitKey);
             GuestRequest g = IDAL.CheckGuestRequest(order.GuestRequestKey);
@@ -152,22 +152,23 @@ namespace BL
                 throw new Exception("No standing order confirmation");//אין הרשאת חיוב
             if (order.Status == Enums.Status.Treated)
                 throw new Exception("Order already closed");//ההזמנה כבר סגורה
-            if (status == Enums.Status.MailSent)
+            if (order.Status == Enums.Status.MailSent)
             {
                 order.EmailSent = DateTime.Now;
                 Console.WriteLine("Email sent");
             }
-            if (status == Enums.Status.Treated)
+            if (order.Status == Enums.Status.Treated)
             {
                 order.Fee = order.Fee + 10 * (g.ReleaseDate.Day - g.EntryDate.Day);///הוספת עמלה של 10 ש"ח ללילה לתשלום הסופי
                 for (int j = g.EntryDate.Month; j <= g.ReleaseDate.Month; j++)
                     for (int i = g.EntryDate.Day; i <= g.ReleaseDate.Day; i++)
                         u.Diary[i, j] = true;
-                IDAL.UpdateHostingUnit(ref u, u.Diary);//עדכון היומן
-                IDAL.UpdateGuestRequest(ref g, Enums.Status.Treated);///עדכון סטטוס בקשת הלקוח
+                g.Status = Enums.Status.Treated;
+                IDAL.UpdateHostingUnit(u);//עדכון היומן
+                IDAL.UpdateGuestRequest(g);///עדכון סטטוס בקשת הלקוח
               //לעדכן גם את כל ההזמנות של הלקוח!!!          
             }
-            IDAL.UpdateOrder(ref order, status);
+            IDAL.UpdateOrder(order);
         }
         Order Ibl.CheckOrder(long key)
         {
@@ -245,7 +246,7 @@ namespace BL
         IEnumerable<IGrouping<int, Host>> Ibl.GroupHostsByNumOfUnits()
         {
             IEnumerable<IGrouping<int, Host>> gByU;
-            gByU = from item in IDAL.GetHostList()
+            gByU = from item in IDAL.GetHosts()
                    group item by item.NumOfUnits;
             return gByU;
         }

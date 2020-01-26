@@ -8,7 +8,7 @@
         public static Idal GetFactory()
         {
             if (instance == null)
-                instance = new Dal_imp();
+                instance = new DAL_XML();
             return instance;
         }
 
