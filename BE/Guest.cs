@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace BE
 {
@@ -9,7 +11,7 @@ namespace BE
         private string privateName;
         private string familyName;
         private string mailAddress;
-        private long bankAcoountNumber;
+        private long bankAccountNumber;
 
         public string PrivateName
         {
@@ -28,9 +30,13 @@ namespace BE
         }
         public long BankAccountNumber
         {
-            get { return bankAcoountNumber; }
-            set { bankAcoountNumber = value; }
+            get { return bankAccountNumber; }
+            set { bankAccountNumber = value; }
+        }
+
+        public override string ToString()
+        {
+            return "First Name: " + privateName + " Last Name: " + familyName + " Email: " + mailAddress + " BankAccount Number: " + bankAccountNumber;
         }
     }
 }
-
