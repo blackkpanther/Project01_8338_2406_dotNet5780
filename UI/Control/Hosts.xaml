@@ -18,8 +18,7 @@
                     </Grid>
                 </ScrollViewer>
             </Border>
-            
-                <Button x:Name="AddHost" Content="Add Host" Width="200" Height="30" Click="AddHost_Click" VerticalAlignment="Bottom" />
+            <Button x:Name="AddHost" Content="Add Host" Width="200" Height="30" Click="AddHost_Click" VerticalAlignment="Bottom" />
             
         </StackPanel>
 

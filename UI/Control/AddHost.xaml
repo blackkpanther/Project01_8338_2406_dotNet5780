@@ -56,7 +56,7 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            <Button x:Name="AddHost" Content="AddHost" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8" Width="100" Height="40" Click="AddHost_Click"/>
+                            <Button x:Name="Addhost" Content="AddHost" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8" Width="100" Height="40" Click="AddHost_Click"/>
                             <Button x:Name="Cancel" Content="Cancel" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8" Width="100" Height="40" Click="Cancel_Click"/>
                         </Grid>
                     </DockPanel>
