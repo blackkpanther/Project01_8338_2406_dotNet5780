@@ -12,10 +12,10 @@
           public BankBranch()
         {
             BankNumber = 1;
-            BankName = Enums.BankName.BankLeumi;
+            BankName = "Leumi";
             BranchNumber = 111;
             BranchAddress = "aaaa aaaa";
-            BranchCity = Enums.SubArea.Afula;
+            BranchCity = "Afula";
             }
         /*   public BankBranch( int bankNumber1, Enums.BankName bankName1, int branchNumber1, string branchAddress1 , Enums.SubArea branchCity1)
            {
