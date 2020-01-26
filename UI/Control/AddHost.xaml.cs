@@ -31,10 +31,10 @@ namespace UI.Control
             this.CurrentHost.BankBranchDetails= new BankBranch
             {
                 BankNumber = 1,
-                BankName = Enums.BankName.BankLeumi,
+                BankName = "Leumi",
                 BranchNumber = 111,
                 BranchAddress = "aaaa aaaa",
-                BranchCity = Enums.SubArea.Afula
+                BranchCity = "Afula"
             };
 
             this.DataContext = CurrentHost;

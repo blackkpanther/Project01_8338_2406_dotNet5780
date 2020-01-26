@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using BE;
 using System.Xml.Serialization;
 using System.Net;
+using System.ComponentModel;
 
 namespace DAL
 {
@@ -23,7 +24,11 @@ namespace DAL
         string ordersPath = "Orders.xml";
         string unitPath = "Units.xml";
         string guestsReqPath = "GuestsReq.xml";
-        string bankPath = "snifim_dnld_he.xml";
+        string bankPath = @"BranchXML.xml";
+        
+        List<BankBranch> branches = new List<BankBranch>();
+        BackgroundWorker worker = new BackgroundWorker();
+
 
 
         public DAL_XML()
@@ -86,11 +91,11 @@ namespace DAL
             return result;
         }
 
-        private void LoadData(string being)
+        private void LoadData(string path)
         {
             try
             {
-                switch (being)
+                switch (path)
                 {
                     case "Guests.xml":
                         guestsFile = XElement.Load(guestPath);
@@ -119,23 +124,72 @@ namespace DAL
                 throw new Exception("File upload problem");
             }
 
-            const string xmlLocalPath = @"atm.xml";
-            WebClient wc = new WebClient();
-            try
-            {
-                string xmlServerPath = @"http://www.boi.org.il/he/BankingSupervision/BanksAndBranchLocations/Lists/BoiBankBranchesDocs/atm.xml";
-                wc.DownloadFile(xmlServerPath, xmlLocalPath);
-            }
-            catch (Exception)
-            {
-                string xmlServerPath = @"http://www.jct.ac.il/~coshri/atm.xml";
-                wc.DownloadFile(xmlServerPath, xmlLocalPath);
-            }
-            finally
-            {
-                wc.Dispose();
-            }
+            //worker.DoWork += w_doWork;
+            //worker.RunWorkerAsync();
+
         }
+
+        //public void w_doWork(object sender, DoWorkEventArgs e)
+        //{
+        //    if (bankFile.IsEmpty)
+        //    {
+        //        const string xmlLocalPath = @"atm.xml";
+        //        WebClient wc = new WebClient();
+        //        try
+        //        {
+        //            string xmlServerPath =
+        //           @"http://www.boi.org.il/he/BankingSupervision/BanksAndBranchLocations/Lists/BoiBankBranchesDocs/atm.xml";
+        //            wc.DownloadFile(xmlServerPath, xmlLocalPath);
+        //        }
+        //        catch (Exception)
+        //        {
+        //            string xmlServerPath = @"http://www.jct.ac.il/~coshri/atm.xml";
+        //            wc.DownloadFile(xmlServerPath, xmlLocalPath);
+        //        }
+        //        finally
+        //        {
+        //            wc.Dispose();
+        //        }
+        //        if (!File.Exists(xmlLocalPath))
+        //        {
+        //            throw new Exception("File upload problem");
+        //        }
+        //        bankFile = LoadData(bankPath);
+        //        foreach (var item in bankFile.Elements())
+        //        {
+        //            branches.Add(new BankBranch()
+        //            {
+        //                BranchAddress = item.Element("כתובת_ה-ATM").value,
+        //                BankNumber = item.Element("קוד_בנק").Value,
+        //                BankName = item.Element("שם_בנק").Value,
+        //                BranchCity = item.Element("ישוב").value,
+        //                BranchNumber = item.Element("קוד_סניף").value
+        //            };)
+        //        }
+        //    }
+        //    else
+        //    {
+        //        foreach (itme in bankFile.Elements())
+        //        {
+        //            branches.Add(new BankBranch()
+        //            {
+        //                BranchAddress = item.Element("כתובת_ה-ATM").value,
+        //                BankNumber = item.Element("קוד_בנק").value,
+        //                BankName = item.Element("שם_בנק").value,
+        //                BranchCity = item.Element("ישוב").value,
+        //                BranchNumber = item.Element("קוד_סניף").value
+        //            };)
+        //        }
+        //    }
+        //    branches = branches.GroupBy(x => x.BranchNumber).Select(y => y.FirstOrDefault()).ToList();
+        //}
+
+        private void CreateFiles(XElement root, string s, string path)
+        {
+            root = new XElement(s);
+            root.Save(path);
+        }
+
         #endregion
         public void AddGuestRequest(GuestRequest request)
         {
@@ -294,10 +348,34 @@ namespace DAL
 
         public List<BankBranch> GetBankBranchList()
         {
-            List<BankBranch> branch = LoadFromXML<List<BankBranch>>(bankPath);
-            if (branch == null)
-                throw new Exception("This File is empty");
-            return branch;
+            return new List<BankBranch>()
+            {
+                new BankBranch()
+                {
+                    BankName="Citibank N.A",
+                    BankNumber=22,
+                    BranchAddress="דרך מנחם בגין 121 מגדל עזריאלי שרונה",
+                    BranchCity="תל אביב -יפו",
+                    BranchNumber=1
+                },
+
+                new BankBranch()
+                {
+                    BankNumber = 1,
+                    BankName = "Leumi",
+                    BranchNumber = 111,
+                    BranchAddress = "aaaa aaaa",
+                    BranchCity = "Afula"
+                },
+                new BankBranch()
+                {
+                    BankName="SBI State Bank of India",
+                    BankNumber=39,
+                    BranchAddress="זבוטינסקי 3 3",
+                    BranchCity="רמת גן",
+                    BranchNumber=1
+                }
+            };
         }
 
 

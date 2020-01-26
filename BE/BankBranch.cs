@@ -3,10 +3,10 @@
     public class BankBranch
     {
         private int bankNumber;
-        private Enums.BankName bankName;
+        private string bankName;
         private int branchNumber;
         private string branchAddress;
-        private Enums.SubArea branchCity;
+        private string branchCity;
 
         //constructors
         //  public BankBranch() { }
@@ -35,7 +35,7 @@
             get { return bankNumber; }
             set { bankNumber = value; }
         }
-        public Enums.BankName BankName
+        public string BankName
         {
             get { return bankName; }
             set { bankName = value; }
@@ -50,7 +50,7 @@
             get { return branchAddress; }
             set { branchAddress = value; }
         }
-        public Enums.SubArea BranchCity
+        public string BranchCity
         {
             get { return branchCity; }
             set { branchCity = value; }

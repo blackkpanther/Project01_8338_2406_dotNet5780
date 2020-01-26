@@ -31,10 +31,10 @@ namespace BL
                     BankBranchDetails = new BankBranch
                     {
                         BankNumber = 1,
-                        BankName = Enums.BankName.BankLeumi,
+                        BankName = "Leumi",
                         BranchNumber = 111,
                         BranchAddress = "aaaa aaaa",
-                        BranchCity = Enums.SubArea.Afula
+                        BranchCity = "Afula"
                     },
                     BankAccountNumber = 111,
                     CollectionClearance = true,
@@ -50,10 +50,10 @@ namespace BL
                     BankBranchDetails = new BankBranch
                     {
                         BankNumber = 1,
-                        BankName = Enums.BankName.BankLeumi,
+                        BankName = "Leumi",
                         BranchNumber = 111,
                         BranchAddress = "aaaa aaaa",
-                        BranchCity = Enums.SubArea.Afula
+                        BranchCity = "Afula"
                     },
                     BankAccountNumber = 111,
                     CollectionClearance = true,
@@ -69,10 +69,10 @@ namespace BL
                     BankBranchDetails = new BankBranch
                     {
                         BankNumber = 1,
-                        BankName = Enums.BankName.BankLeumi,
+                        BankName = "Leumi",
                         BranchNumber = 111,
                         BranchAddress = "aaaa aaaa",
-                        BranchCity = Enums.SubArea.Afula
+                        BranchCity = "Afula"
                     },
                     BankAccountNumber = 111,
                     CollectionClearance = true,
@@ -88,10 +88,10 @@ namespace BL
                     BankBranchDetails = new BankBranch
                     {
                         BankNumber = 1,
-                        BankName = Enums.BankName.BankLeumi,
+                        BankName = "Leumi",
                         BranchNumber = 111,
                         BranchAddress = "aaaa aaaa",
-                        BranchCity = Enums.SubArea.Afula
+                        BranchCity = "Afula"
                     },
                     BankAccountNumber = 111,
                     CollectionClearance = true,
