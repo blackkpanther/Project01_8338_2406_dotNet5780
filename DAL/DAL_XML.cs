@@ -10,18 +10,20 @@ using System.Threading;
 using System.Threading.Tasks;
 using BE;
 using System.Xml.Serialization;
+using System.Net;
 
 namespace DAL
 {
     class DAL_XML : Idal
     {
 
-        private XElement hostsFile, guestsFile, ordersFile, unitsFile, guestsReqFile;
+        private XElement hostsFile, guestsFile, ordersFile, unitsFile, guestsReqFile, bankFile;
         string hostPath = "Hosts.xml";
         string guestPath = "Guests.xml";
         string ordersPath = "Orders.xml";
         string unitPath = "Units.xml";
         string guestsReqPath = "GuestsReq.xml";
+        string bankPath = "snifim_dnld_he.xml";
 
 
         public DAL_XML()
@@ -105,6 +107,9 @@ namespace DAL
                     case "GuestsReq.xml":
                         guestsReqFile = XElement.Load(guestsReqPath);
                         break;
+                    case "snifim_dnld_he.xml":
+                        bankFile = XElement.Load(bankPath);
+                        break;
                     default:
                         throw new Exception("File upload problem");
                 }
@@ -112,6 +117,23 @@ namespace DAL
             catch
             {
                 throw new Exception("File upload problem");
+            }
+
+            const string xmlLocalPath = @"atm.xml";
+            WebClient wc = new WebClient();
+            try
+            {
+                string xmlServerPath = @"http://www.boi.org.il/he/BankingSupervision/BanksAndBranchLocations/Lists/BoiBankBranchesDocs/atm.xml";
+                wc.DownloadFile(xmlServerPath, xmlLocalPath);
+            }
+            catch (Exception)
+            {
+                string xmlServerPath = @"http://www.jct.ac.il/~coshri/atm.xml";
+                wc.DownloadFile(xmlServerPath, xmlLocalPath);
+            }
+            finally
+            {
+                wc.Dispose();
             }
         }
         #endregion
@@ -272,8 +294,18 @@ namespace DAL
 
         public List<BankBranch> GetBankBranchList()
         {
-            throw new NotImplementedException();
+            List<BankBranch> branch = LoadFromXML<List<BankBranch>>(bankPath);
+            if (branch == null)
+                throw new Exception("This File is empty");
+            return branch;
         }
+
+
+        #region Bank
+
+        
+
+        #endregion
     }
     //class DAL_XML
     //{
