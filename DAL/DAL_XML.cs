@@ -120,7 +120,7 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        private XElement hostsFile, File, childFile, contractFile;
+        private XElement hostsFile, guestsFile, ordersFile, unitsFile, guestsReqFile;
         string hostPath = "Hosts.xml";
         string guestPath = "Guests.xml";
         string ordersPath = "Orders.xml";
@@ -128,7 +128,7 @@ namespace DAL
         string guestsReqPath = "GuestsReq.xml";
 
 
-        public DAL_XML_imp()
+        public DAL_XML()
         {
             if (!System.IO.File.Exists(hostPath))
             {
@@ -192,17 +192,20 @@ namespace DAL
             {
                 switch (person)
                 {
-                    case "Mother.xml":
-                        File = XElement.Load(guestPath);
+                    case "Guest.xml":
+                        guestsFile = XElement.Load(guestPath);
                         break;
-                    case "Child.xml":
-                        childFile = XElement.Load(ordersPath);
+                    case "Order.xml":
+                        ordersFile = XElement.Load(ordersPath);
                         break;
-                    case "Nanny.xml":
+                    case "Host.xml":
                         hostsFile = XElement.Load(hostPath);
                         break;
-                    case "Contract.xml":
-                        contractFile = XElement.Load(unitPath);
+                    case "Unit.xml":
+                        unitsFile = XElement.Load(unitPath);
+                        break;
+                    case "GuestsReq.xml":
+                        guestsReqFile = XElement.Load(guestsReqPath);
                         break;
                     default:
                         throw new Exception("File upload problem");
