@@ -49,8 +49,8 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                    <Button x:Name="Update" Content="Update" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="20"/>
-                    <Button x:Name="Delete" Content="Delete" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="20" Click="Delete_Click"/>
+                        <Button x:Name="Update" Content="Update" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8" Width="100" Height="20" Click="SelectionChangedUpdate"/>
+                    <Button x:Name="Delete" Content="Delete" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8" Width="100" Height="20" Click="Delete_Click"/>
                     </Grid>
                 </DockPanel>
             </StackPanel>

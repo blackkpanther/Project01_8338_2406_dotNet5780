@@ -1,6 +1,17 @@
-﻿using System.Windows;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using BE;
 
 namespace UI
 {
@@ -9,11 +20,11 @@ namespace UI
     /// </summary>
     public partial class Menu : Window
     {
-
+        
         public Menu()
         {
             InitializeComponent();
-
+           
         }
         private void Button_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -40,17 +51,17 @@ namespace UI
             else
                 SystemCommands.MaximizeWindow(this);
         }
-
-        private void SelectionChanged(object sender, RoutedEventArgs e)
+        
+        public void SelectionChanged(object sender, RoutedEventArgs e)
         {
             UserControl usc = null;
             GridMain.Children.Clear();
 
-            // switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
-            switch (((MenuItem)((MenuItem)sender)).Name)
+           // switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
+           switch (((MenuItem)((MenuItem)sender)).Name)
             {
-
-
+                
+                   
                 case "AdminOrders":
                     usc = new Control.Orders();
                     GridMain.Children.Add(usc);
@@ -100,6 +111,7 @@ namespace UI
                     usc = new Control.test();
                     GridMain.Children.Add(usc);
                     break;
+               
                 default:
                     break;
             }

@@ -2,6 +2,8 @@
 using BL;
 using System.Collections.Generic;
 using System.Windows.Controls;
+using System.Windows;
+
 
 namespace UI.Control
 {
@@ -21,9 +23,7 @@ namespace UI.Control
             bl = FactoryBL.GetFactory();
              HostsList = bl.GetHosts();
            // HostsList = new List<Host>();
-
-            
-           
+          
             for (int i = 0; i < HostsList.Count; i++)
             {
                 currentHost = HostsList[i];
@@ -41,6 +41,10 @@ namespace UI.Control
 
         }
 
-
+        private void AddHost_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            Window AddHost = new Control.AddHost();
+            AddHost.Show();
+        }
     }
 }

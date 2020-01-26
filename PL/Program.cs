@@ -175,7 +175,7 @@ namespace PL
             #region delete hostingUnit
             try
             {
-                string name = H11.HostringUnitName;
+                string name = H11.UnitName;
                 bl.DeleteHostingUnit(H11);
                 Console.WriteLine("unit: " + name + " deleted/n");
             }
@@ -187,7 +187,7 @@ namespace PL
             //do it again to make sure it realy deleded
             try
             {
-                string name = H11.HostringUnitName;
+                string name = H11.UnitName;
                 bl.DeleteHostingUnit(H11);
                 Console.WriteLine("unit: " + name + " deleted/n");
             }
@@ -356,7 +356,7 @@ namespace PL
                     BankAccountNumber = 111,
                     CollectionClearance = true
                 },
-                    HostringUnitName="aa",
+                    UnitName="aa",
                     Diary=null,//לבדוק!!!!
                SubArea=Enums.SubArea.Dimona
 
@@ -383,7 +383,7 @@ namespace PL
                     BankAccountNumber = 111,
                     CollectionClearance = true
                 },
-                    HostringUnitName="aa",
+                    UnitName="aa",
                     Diary=null,//לבדוק!!!!
                SubArea=Enums.SubArea.Dimona
 
@@ -410,7 +410,7 @@ namespace PL
                     BankAccountNumber = 111,
                     CollectionClearance = true
                 },
-                    HostringUnitName="aa",
+                    UnitName="aa",
                     Diary=null,//לבדוק!!!!
                SubArea=Enums.SubArea.Dimona
                 }
