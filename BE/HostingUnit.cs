@@ -91,15 +91,15 @@ namespace BE
             set { childrensAttractions = value; }
         }
         public long PricePerNight
-        {
-            get { return pricePerNight; }
-            set { pricePerNight = value; }
-        }
+            {
+            get{return pricePerNight;}
+            set{pricePerNight=value;}
+            }
         /*public string Uri
-        {
-            get { return uri; }
-            set { uri = value; }
-        }*/
+{
+get { return uri; }
+set { uri = value; }
+}*/
         //printing method
         public override string ToString()
         {

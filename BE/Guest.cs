@@ -32,9 +32,9 @@
         {
             return "First Name: " + privateName + " Last Name: " + familyName + " Email: " + mailAddress + " BankAccount Number: " + bankAccountNumber;
         }
-        public override string ToString()
-        {
-            return "guest ";
-        }
+        //public override string ToString()
+        //{
+        //    return "guest ";
+        //}
     }
 }

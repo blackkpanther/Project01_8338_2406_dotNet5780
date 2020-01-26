@@ -1,8 +1,10 @@
-﻿using BE;
-using DAL;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Linq;
+using System.Threading.Tasks;
+using BE;
+using DAL;
 
 namespace BL
 {
@@ -13,11 +15,44 @@ namespace BL
         public BL_imp()
         {
             IDAL = DAL.FactoryDAL.GetFactory();
-            //  InitList(); בשביל לבדוק לאתחל רשימות משתמשים
+            InitList();// בשביל לבדוק לאתחל רשימות משתמשים
+        }
+        void InitList() // פונקציית אתחול
+        {
+            try
+            {
+                IDAL.AddHost(new Host
+                {
+                    HostKey = 10000001,
+                    PrivateName = "Accccccc",
+                    FamilyName = "AA",
+                    PhoneNumber = "0000000000",
+                    MailAddress = "aaa@gmail.com",
+                    BankBranchDetails = new BankBranch
+                    {
+                        BankNumber = 1,
+                        BankName = Enums.BankName.BankLeumi,
+                        BranchNumber = 111,
+                        BranchAddress = "aaaa aaaa",
+                        BranchCity = Enums.SubArea.Afula
+                    },
+                    BankAccountNumber = 111,
+                    CollectionClearance = true,
+
+                });
+
+
+
+            }
+            catch(Exception e)
+            {
+
+            }
+        
         }
 
-        #region GustRequest
-        void Ibl.AddGuestRequest(GuestRequest request)
+            #region GustRequest
+            void Ibl.AddGuestRequest(GuestRequest request)
         {
             if (request.EntryDate >= request.ReleaseDate)
                 throw new Exception("Entry date has to be at least one day before release date");
@@ -27,7 +62,7 @@ namespace BL
         {
             IDAL.UpdateGuestRequest(ref request, status);
         }
-        GuestRequest Ibl.CheckGuestRequest(long key)
+       GuestRequest Ibl.CheckGuestRequest(long key)
         {
             return IDAL.CheckGuestRequest(key);
         }
@@ -36,7 +71,7 @@ namespace BL
         #region Host
         void Ibl.DeleteHost(Host host)
         {
-            var temp = (from item in IDAL.GetHosts() where item.HostKey == host.HostKey select item).FirstOrDefault();
+            var temp= (from item in IDAL.GetHosts() where item.HostKey == host.HostKey select item).FirstOrDefault();
             if (temp != null)
             {
                 IDAL.DeleteHost(host);
@@ -53,7 +88,7 @@ namespace BL
                         throw new Exception("ERROR: This key number is alrady exist.\n");
             }
             IDAL.AddHost(host);
-
+            
 
         }
         void Ibl.UpdateHost(Host host)
@@ -68,7 +103,7 @@ namespace BL
         }
         List<Host> Ibl.GetHosts()
         {
-            return IDAL.GetHosts();
+           return IDAL.GetHosts();   
         }
 
         Host Ibl.GetHost(long hostKey)
@@ -176,7 +211,7 @@ namespace BL
                 return tempList.AsEnumerable().Select(g => g.Clone());
             return tempList.Where(predicate).Select(g => g.Clone());
         }
-        IEnumerable<HostingUnit> Ibl.GetUnitsOfType(Func<BE.HostingUnit, bool> predicate = null)
+       IEnumerable<HostingUnit> Ibl.GetUnitsOfType(Func<BE.HostingUnit, bool> predicate = null)
         {
             IEnumerable<HostingUnit> tempList = IDAL.GetHostingUnitList();
             if (predicate == null)
@@ -243,7 +278,7 @@ namespace BL
             return count;
         }
 
-
+      
         #endregion
 
 
@@ -260,6 +295,6 @@ namespace BL
 
          }*/
     }
-    // public delegate bool GuestRequestDelegate(GuestRequest guestRequest);
+   // public delegate bool GuestRequestDelegate(GuestRequest guestRequest);
 
 }
