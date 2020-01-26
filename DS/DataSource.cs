@@ -1,9 +1,5 @@
-﻿using System;
+﻿using BE;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BE;
 
 namespace DS
 {
@@ -18,9 +14,9 @@ namespace DS
 
         public static List<BankBranch> BankBranchList = new List<BankBranch>();
 
-        public static List<Host> HostList=new List<Host>();
-      
-  public DataSource()
+        public static List<Host> HostList = new List<Host>();
+
+        public DataSource()
         {
             OrderList = new List<Order>();
             GeustList = new List<Guest>();
@@ -30,8 +26,8 @@ namespace DS
 
             BankBranchList = new List<BankBranch>();
 
-            HostList=new List<Host>();
+            HostList = new List<Host>();
         }
-                     
+
     }
 }

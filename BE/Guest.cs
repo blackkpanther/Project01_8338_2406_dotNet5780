@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace BE
+﻿namespace BE
 {
-   public class Guest
+    public class Guest
     {
         private string privateName;
         private string familyName;

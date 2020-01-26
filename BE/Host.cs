@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace BE
+﻿namespace BE
 {
     public class Host
     {
@@ -18,7 +12,7 @@ namespace BE
         private bool collectionClearance;
         private int numOfUnits;//*
 
-       
+
         //properties
         public long HostKey
         {

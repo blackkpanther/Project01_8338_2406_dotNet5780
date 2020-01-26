@@ -1,18 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BE
 {
-   public class GuestRequest
+    public class GuestRequest
     {
         private long guestRequestKey;
         private string privateName;
         private string familyName;
         private string mailAddress;
-        private Enums.Status status; 
+        private Enums.Status status;
         private DateTime registrationDate;
         private DateTime entryDate;
         private DateTime releaseDate;
@@ -25,7 +21,7 @@ namespace BE
         private Enums.Option jacuzzi;
         private Enums.Option garden;
         private Enums.Option childrensAttractions;
-        private  bool signed;//הרשאה לחיוב חשבון בנק
+        private bool signed;//הרשאה לחיוב חשבון בנק
 
 
         //properties:
@@ -108,18 +104,18 @@ namespace BE
         public Enums.Option Garden
         {
             get { return garden; }
-            set { garden = value;  }
+            set { garden = value; }
         }
         public Enums.Option ChildrensAttractions
         {
             get { return childrensAttractions; }
             set { childrensAttractions = value; }
         }
-public  bool Signed
-{
-            get{return signed;}
-            set{signed=value;}
-}
+        public bool Signed
+        {
+            get { return signed; }
+            set { signed = value; }
+        }
 
         public override string ToString()
         {

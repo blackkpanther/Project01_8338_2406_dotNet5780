@@ -1,9 +1,7 @@
-﻿using System;
+﻿using BE;
+using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
-using System.Threading.Tasks;
-using BE;
 
 namespace BL
 {
@@ -45,16 +43,16 @@ namespace BL
         List<HostingUnit> AvailableHostingUnits(DateTime date, int n);
         List<Order> NumberOfOrders(int days);
         //List<GuestRequest> termOfRequest(GuestRequestDelegate requestDelegate);
-       IEnumerable<GuestRequest> GetRequestsOfType(Func<BE.GuestRequest, bool> predicate = null );
+        IEnumerable<GuestRequest> GetRequestsOfType(Func<BE.GuestRequest, bool> predicate = null);
         IEnumerable<HostingUnit> GetUnitsOfType(Func<BE.HostingUnit, bool> predicate = null);
-       IEnumerable<Order> GetOrdersOfType(Func<BE.Order, bool> predicate = null);
+        IEnumerable<Order> GetOrdersOfType(Func<BE.Order, bool> predicate = null);
         #endregion
 
         #region Groups
-        IEnumerable<IGrouping<Enums.Area,GuestRequest>> GroupRequestsByArea();
-        IEnumerable<IGrouping<int,GuestRequest>> GroupRequestsByNumOfGuests();
-        IEnumerable<IGrouping<int,Host>> GroupHostsByNumOfUnits();
-        IEnumerable<IGrouping<Enums.Area,HostingUnit>> GroupUnitsByArea();
+        IEnumerable<IGrouping<Enums.Area, GuestRequest>> GroupRequestsByArea();
+        IEnumerable<IGrouping<int, GuestRequest>> GroupRequestsByNumOfGuests();
+        IEnumerable<IGrouping<int, Host>> GroupHostsByNumOfUnits();
+        IEnumerable<IGrouping<Enums.Area, HostingUnit>> GroupUnitsByArea();
         #endregion
 
         #region AssistingMethods

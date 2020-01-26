@@ -1,12 +1,8 @@
-﻿using System;
+﻿using BE;
+using BL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BE;
-using BL;
-using DAL;
-using DS;
 namespace PL
 {
     class Program//
@@ -14,19 +10,19 @@ namespace PL
         static void Main(string[] args)
         {
             Ibl bl = FactoryBL.GetFactory();
-            
+
             //var HostList = ListOfHost();
             var GuestRequestList = ListOfGuestRequest();
             var HostingUnitList = ListOfHostingUnit();
             var OrderList = ListOfOrder();
             #region delete
-           // Host H1 = HostList.ElementAt(0);
-           // GuestRequest G1 = GuestRequestList.ElementAt(0);
+            // Host H1 = HostList.ElementAt(0);
+            // GuestRequest G1 = GuestRequestList.ElementAt(0);
             HostingUnit H11 = HostingUnitList.ElementAt(0);
-           // Order O1 = OrderList.ElementAt(0);
+            // Order O1 = OrderList.ElementAt(0);
             #endregion
             #region update
-           // Host H2 = HostList.ElementAt(1);
+            // Host H2 = HostList.ElementAt(1);
             GuestRequest G2 = GuestRequestList.ElementAt(1);
             HostingUnit H22 = HostingUnitList.ElementAt(1);
             Order O2 = OrderList.ElementAt(1);
@@ -129,7 +125,7 @@ namespace PL
             {
                 try
                 {
-                    bl.UpdateGuestRequest(ref G2,G2.Status);
+                    bl.UpdateGuestRequest(ref G2, G2.Status);
                 }
                 catch (Exception e)
                 {
@@ -141,7 +137,7 @@ namespace PL
             {
                 try
                 {
-                    bl.UpdateHostingUnit(ref H22,H22.Diary);
+                    bl.UpdateHostingUnit(ref H22, H22.Diary);
                 }
                 catch (Exception e)
                 {
@@ -177,13 +173,13 @@ namespace PL
             }
             #endregion
             #region delete hostingUnit
-           try
+            try
             {
                 string name = H11.HostringUnitName;
                 bl.DeleteHostingUnit(H11);
                 Console.WriteLine("unit: " + name + " deleted/n");
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 Console.WriteLine("unit didn't deleted/n");

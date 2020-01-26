@@ -1,18 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using BE;
+using System;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using BE;
 
 namespace UI.MiniControl
 {
@@ -24,8 +15,8 @@ namespace UI.MiniControl
         int imageIndex;
         Viewbox vbImage;
         Image MyImage;
-        public  HostingUnit CurrentUnit { get; set; }
-      
+        public HostingUnit CurrentUnit { get; set; }
+
         public UnitMini(HostingUnit unit)
         {
             vbImage = new Viewbox();

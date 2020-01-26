@@ -1,18 +1,6 @@
-﻿using System;
+﻿using BE;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using BE;
 
 namespace UI.Control
 {
@@ -53,14 +41,14 @@ namespace UI.Control
                 UnitName = "aa",
                 Diary = null,//לבדוק!!!!
                 SubArea = Enums.SubArea.Dimona,
-                Type=Enums.Type.Apartment,
-                Adults=4,
-                Children=5,
-                Pool=Enums.Option.possible,
-                Jacuzzi= Enums.Option.possible,
-                Garden= Enums.Option.possible,
-                ChildrensAttractions= Enums.Option.possible,
-                PricePerNight=300,
+                Type = Enums.Type.Apartment,
+                Adults = 4,
+                Children = 5,
+                Pool = Enums.Option.possible,
+                Jacuzzi = Enums.Option.possible,
+                Garden = Enums.Option.possible,
+                ChildrensAttractions = Enums.Option.possible,
+                PricePerNight = 300,
                 Uris = new List<string>
                         {
                            "https://q-ak.bstatic.com/images/hotel/max1024x768/194/194305766.jpg",
@@ -85,7 +73,7 @@ namespace UI.Control
                 MainGrid.RowDefinitions.Add(row);
 
                 MiniControl.UnitMini unitMini = new MiniControl.UnitMini(HostingUnitsList[i]);
-               MainGrid.Children.Add(unitMini);
+                MainGrid.Children.Add(unitMini);
                 Grid.SetRow(unitMini, i);
             }
 

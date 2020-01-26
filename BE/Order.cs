@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BE
 {
@@ -47,16 +43,16 @@ namespace BE
             get { return orderDate; }
             set { orderDate = value; }
         }
-        public  DateTime EmailSent
-            {
-get{return emailSent;}
-            set{emailSent=value;}
-}
+        public DateTime EmailSent
+        {
+            get { return emailSent; }
+            set { emailSent = value; }
+        }
         public long Fee
-     {
-get{return fee;}
-            set{fee=value;}
-            }
+        {
+            get { return fee; }
+            set { fee = value; }
+        }
 
         //printing method
         public override string ToString()

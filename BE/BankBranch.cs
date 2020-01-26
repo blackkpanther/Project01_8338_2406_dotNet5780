@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace BE
+﻿namespace BE
 {
     public class BankBranch
     {
@@ -26,15 +20,15 @@ namespace BE
 
            }*/
 
-      /*  public BankBranch()
-        {
-            bankNumber = 10;
-            bankName = Enums.BankName.BankHapoalim;
-            branchNumber = 10;
-            branchAddress = "aa10";
-            branchCity = Enums.SubArea.Afula;
-        }*/
-            //properties:
+        /*  public BankBranch()
+          {
+              bankNumber = 10;
+              bankName = Enums.BankName.BankHapoalim;
+              branchNumber = 10;
+              branchAddress = "aa10";
+              branchCity = Enums.SubArea.Afula;
+          }*/
+        //properties:
 
         public int BankNumber
         {
@@ -64,8 +58,8 @@ namespace BE
         //printing method
         public override string ToString()
         {
-            return "Bank account no.: "+this.bankNumber + " Bank name: " + this.bankName + " Branch no.: " + this.branchNumber + " Branch address: " + this.branchAddress + " City: " + this.branchCity;
+            return "Bank account no.: " + this.bankNumber + " Bank name: " + this.bankName + " Branch no.: " + this.branchNumber + " Branch address: " + this.branchAddress + " City: " + this.branchCity;
         }
-      
+
     }
 }

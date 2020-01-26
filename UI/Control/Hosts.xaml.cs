@@ -1,19 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using BE;
+﻿using BE;
 using BL;
+using System.Collections.Generic;
+using System.Windows.Controls;
 
 namespace UI.Control
 {
@@ -25,10 +13,10 @@ namespace UI.Control
         Ibl bl;
         public List<Host> HostsList { get; set; }
         private Host currentHost;
-        
+
         public Hosts()
         {
-           
+
             InitializeComponent();
             bl = FactoryBL.GetFactory();
             // HostsList = bl.GetHosts();

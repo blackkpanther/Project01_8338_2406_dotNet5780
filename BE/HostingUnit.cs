@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Globalization;
 
 namespace BE
 {
-   public class HostingUnit
+    public class HostingUnit
     {
         private long hostingUnitKey;
         private Host owner;
@@ -54,7 +50,7 @@ namespace BE
             get { return subArea; }
             set { subArea = value; }
         }
-         public Enums.Area Area
+        public Enums.Area Area
         {
             get { return area; }
             set { area = value; }
@@ -87,7 +83,7 @@ namespace BE
         public Enums.Option Garden
         {
             get { return garden; }
-            set { garden = value;  }
+            set { garden = value; }
         }
         public Enums.Option ChildrensAttractions
         {
@@ -95,10 +91,10 @@ namespace BE
             set { childrensAttractions = value; }
         }
         public long PricePerNight
-            {
-            get{return pricePerNight;}
-            set{pricePerNight=value;}
-            }
+        {
+            get { return pricePerNight; }
+            set { pricePerNight = value; }
+        }
         /*public string Uri
         {
             get { return uri; }

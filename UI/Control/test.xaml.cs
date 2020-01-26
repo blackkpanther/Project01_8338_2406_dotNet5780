@@ -1,18 +1,6 @@
-﻿using System;
+﻿using BE;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using BE;
 
 namespace UI.Control
 {
@@ -22,7 +10,7 @@ namespace UI.Control
     public partial class test : UserControl
     {
         public List<Host> HostsList { get; set; }
-        private Host currentHost ;
+        private Host currentHost;
 
         public test()
         {
@@ -50,7 +38,7 @@ namespace UI.Control
             //InitializeTest();
             for (int i = 0; i < 6; i++)//רק לבדיקה
             {
-                HostsList.Add( currentHost);
+                HostsList.Add(currentHost);
             }
 
             for (int i = 0; i < 6; i++)
@@ -70,14 +58,14 @@ namespace UI.Control
         }
         protected void InitializeTest()
         {
-                       
-           /* for (int i = 0; i < 6; i++)
-            {
-                RowDefinition row = new RowDefinition();
-                row.MinHeight = 120;
-                MainGrid.RowDefinitions.Add(row);
 
-            }*/
+            /* for (int i = 0; i < 6; i++)
+             {
+                 RowDefinition row = new RowDefinition();
+                 row.MinHeight = 120;
+                 MainGrid.RowDefinitions.Add(row);
+
+             }*/
             //MainGrid.Children.Clear();
             /*for (int i =0; i<6;i++)
             {
@@ -93,7 +81,7 @@ namespace UI.Control
                 MainGrid.Children.Add(miniTes1t);
                 Grid.SetRow(miniTes1t, i);
             }*/
-           
+
             //Grid.SetRow(miniTes1t, 0);
 
 

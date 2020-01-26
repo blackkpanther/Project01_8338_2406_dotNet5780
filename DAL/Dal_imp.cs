@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-using BE;
+﻿using BE;
 using DS;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DAL
 {
@@ -19,16 +17,16 @@ namespace DAL
         public Dal_imp()
         {
             allHosts = new List<Host>();
-            allUnits=new List<HostingUnit>();
-            allGusts=new List<Guest>();
-            allOrders=new List<Order>();
+            allUnits = new List<HostingUnit>();
+            allGusts = new List<Guest>();
+            allOrders = new List<Order>();
 
         }
 
         #region GuestRequest
         void Idal.AddGuestRequest(GuestRequest request)
         {
-               if (CheckGuestRequest(request.GuestRequestKey) != null)
+            if (CheckGuestRequest(request.GuestRequestKey) != null)
                 throw new /*DuplicateRequest*/Exception("Request already submitted");
             DataSource.GuestRequestList.Add(request.Clone());
         }
@@ -61,8 +59,8 @@ namespace DAL
         }
         Host Idal.GetHost(long hostKey)
         {
-            
-         var temp = (from item in DataSource.HostList where item.HostKey == hostKey select item).FirstOrDefault();
+
+            var temp = (from item in DataSource.HostList where item.HostKey == hostKey select item).FirstOrDefault();
             if (temp != null)
                 return temp;
             else
@@ -136,10 +134,10 @@ namespace DAL
         {
             return DataSource.GuestRequestList.Find(item => item.GuestRequestKey == guestRequestKey);
         }
-       /* GuestRequest Idal.CheckGuestRequest(long key)
-        {
-            return DataSource.GuestRequestList.Find(item => item.GuestRequestKey == key);
-        }*/
+        /* GuestRequest Idal.CheckGuestRequest(long key)
+         {
+             return DataSource.GuestRequestList.Find(item => item.GuestRequestKey == key);
+         }*/
         public HostingUnit CheckHostingUnit(long key)
         {
             return DataSource.HostingUnitList.Find(item => item.HostingUnitKey == key);
