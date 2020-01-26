@@ -99,11 +99,14 @@ namespace BE
             get{return pricePerNight;}
             set{pricePerNight=value;}
             }
+
+        public string HostringUnitName { get; set; }
+
         /*public string Uri
-        {
-            get { return uri; }
-            set { uri = value; }
-        }*/
+{
+get { return uri; }
+set { uri = value; }
+}*/
         //printing method
         public override string ToString()
         {

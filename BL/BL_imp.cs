@@ -15,11 +15,44 @@ namespace BL
         public BL_imp()
         {
             IDAL = DAL.FactoryDAL.GetFactory();
-          //  InitList(); בשביל לבדוק לאתחל רשימות משתמשים
+            InitList();// בשביל לבדוק לאתחל רשימות משתמשים
+        }
+        void InitList() // פונקציית אתחול
+        {
+            try
+            {
+                IDAL.AddHost(new Host
+                {
+                    HostKey = 10000001,
+                    PrivateName = "Accccccc",
+                    FamilyName = "AA",
+                    PhoneNumber = "0000000000",
+                    MailAddress = "aaa@gmail.com",
+                    BankBranchDetails = new BankBranch
+                    {
+                        BankNumber = 1,
+                        BankName = Enums.BankName.BankLeumi,
+                        BranchNumber = 111,
+                        BranchAddress = "aaaa aaaa",
+                        BranchCity = Enums.SubArea.Afula
+                    },
+                    BankAccountNumber = 111,
+                    CollectionClearance = true,
+
+                });
+
+
+
+            }
+            catch(Exception e)
+            {
+
+            }
+        
         }
 
-        #region GustRequest
-        void Ibl.AddGuestRequest(GuestRequest request)
+            #region GustRequest
+            void Ibl.AddGuestRequest(GuestRequest request)
         {
             if (request.EntryDate >= request.ReleaseDate)
                 throw new Exception("Entry date has to be at least one day before release date");
