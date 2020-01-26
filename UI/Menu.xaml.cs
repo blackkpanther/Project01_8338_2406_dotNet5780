@@ -20,10 +20,11 @@ namespace UI
     /// </summary>
     public partial class Menu : Window
     {
-
+        
         public Menu()
         {
             InitializeComponent();
+           
         }
         private void Button_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -109,6 +110,7 @@ namespace UI
                 default:
                     break;
             }
+            toggleButton.IsChecked = false;
         }
 
 

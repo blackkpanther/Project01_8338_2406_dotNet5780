@@ -11,7 +11,7 @@ namespace BE
     {
         private long hostingUnitKey;
         private Host owner;
-        private string hostringUnitName;
+        private string unitName;
         private bool[,] diary;
         private Enums.SubArea subArea;// *
         private Enums.Area area;
@@ -23,7 +23,8 @@ namespace BE
         private Enums.Option garden;
         private Enums.Option childrensAttractions;
         private long pricePerNight;// *
-        private string uri;// "https://img.mako.co.il/2014/10/13/asnbsdnsn05_c.jpg",
+        public List<string> Uris { get; set; }
+        // private string uri;// "https://img.mako.co.il/2014/10/13/asnbsdnsn05_c.jpg",
         private Calendar Calendar;
 
         //properties:
@@ -38,10 +39,10 @@ namespace BE
             get;
             set;
         }
-        public string HostringUnitName
+        public string UnitName
         {
-            get { return hostringUnitName; }
-            set { hostringUnitName = value; }
+            get { return unitName; }
+            set { unitName = value; }
         }
         public bool[,] Diary
         {
@@ -98,15 +99,15 @@ namespace BE
             get{return pricePerNight;}
             set{pricePerNight=value;}
             }
-        public string Uri
+        /*public string Uri
         {
             get { return uri; }
             set { uri = value; }
-        }
+        }*/
         //printing method
         public override string ToString()
         {
-            return "Hosting unit key: " + this.hostingUnitKey + " Owner: " + this.owner.PrivateName + " " + this.owner.FamilyName + " Hosting unit name: " + this.hostringUnitName + " Diary: " + this.diary;
+            return "Hosting unit key: " + this.hostingUnitKey + " Owner: " + this.owner.PrivateName + " " + this.owner.FamilyName + " Hosting unit name: " + this.UnitName + " Diary: " + this.diary;
         }
         public HostingUnit() { }
     }

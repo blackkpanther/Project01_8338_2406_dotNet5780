@@ -20,63 +20,23 @@ namespace UI.MiniControl
     /// </summary>
     public partial class HostMini : UserControl
     {
-        private BE.Host host;
 
-        //private BE.Host host1 { get; set; }
-        //private BE.Host a = new BE.Host();
-
-
-        // public HostMini CurrentHostMini { get; set; }
         public Host CurrentHost { get; set; }
-      
+
         public HostMini(Host host)
         {
-            //InitializeComponent();
             InitializeComponent();
-            InitializeHostMini(host);
-                                       
-        }
-
-        public HostMini(BE.Host host)
-        {
-            this.host = host;
-        }
-
-        private void InitializeComponent()
-        {
-            throw new NotImplementedException("gvjgvkh");
-        }
-
-        /*public HostMini(BE.Host host)
-         {
-
-             this.host1 = host;
-         }
-         public HostMini()
-         {
-
-             this.host1 = a;
-         }*/
-
-        private void InitializeHostMini(Host host)
-        {
             this.CurrentHost = host;
-        }
 
+            this.DataContext = CurrentHost;
+            MainGrid.DataContext = CurrentHost;
+
+
+
+        }
+        
+        
 
 
     }
 }
-
-/* {
-*  this.DataContext = this;
-* 
-* private long hostKey;
-private string privateName;
-private string familyName;
-private string phoneNumber;
-private string mailAddress;
-private BankBranch bankBranchDetails;
-private int bankAccountNumber;
-private bool collectionClearance;
-private int numOfUnits;}*/

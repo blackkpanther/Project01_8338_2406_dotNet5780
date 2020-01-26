@@ -3,11 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:UI.MiniControl"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Width="300" Height="100" Style="{StaticResource ResourceKey=UserControlPageDefault}">
-    <Grid>
+    <Grid x:Name="miniTestGrid">
+        <StackPanel>
         <TextBlock Text="test" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-
+            <DockPanel Width="250" Name="dp">
+                <TextBlock Text="name" FontSize="10" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="PName" Text="{Binding Path=PrivateName }" HorizontalAlignment="Center" TextWrapping="Wrap" FontSize="10"  Width="56" Height="15" />
+            </DockPanel>
+        </StackPanel>
     </Grid>
 </UserControl>

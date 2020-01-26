@@ -3,41 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:UI.Control"
              mc:Ignorable="d" 
-               d:DesignHeight="450" d:DesignWidth="800"  Style="{StaticResource ResourceKey=UserControlPageDefault}">
+               d:DesignHeight="450" d:DesignWidth="800" Style="{StaticResource ResourceKey=UserControlPageDefault}"  >
     <Grid>
-        <TextBox x:Name="Order" Width="250"  RenderTransformOrigin="0.5,0.5">
-        </TextBox>
-        <Button Content="Search" Name="search" ClickMode="Press" HorizontalAlignment="Right" VerticalAlignment="Top" RenderTransformOrigin="0.936,0.543" Height="45" Margin="0,5,5,0" Width="140"/>
-        <DataGrid ItemsSource="{Binding HostingUnit }" HorizontalAlignment="Left" VerticalAlignment="Top" RowHeight="30" ColumnWidth="100" GridLinesVisibility="Vertical" 
-                  HeadersVisibility="All" IsReadOnly="True" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" SelectionMode="Extended"
-                 x:Name="OrderList" ScrollViewer.CanContentScroll="False" Width="460" Height="670" Margin="0,50,0,0">
-            <DataGrid.RowStyle>
-                <Style TargetType="DataGridRow" BasedOn="{StaticResource {x:Type DataGridRow}}">
-                    <Style.Triggers>
-                        <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" Value="LightSkyBlue"/>
-                        </Trigger>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="DarkBlue"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </DataGrid.RowStyle>
-            <DataGrid.CellStyle>
-                <Style TargetType="DataGridCell" BasedOn="{StaticResource {x:Type DataGridCell}}">
-                    <Style.Triggers>
-                        <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" Value="Transparent"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </DataGrid.CellStyle>
-            <Label Name = "nameLabel" Margin = "2">Unit Name:</Label>
-            <Label Name = "AreaLabel" Margin = "2" Grid.Row = "1">Area:</Label>
+        <StackPanel>
+            <TextBlock Text="Admin UserName"  HorizontalAlignment="Center" VerticalAlignment="Top" Height="60"></TextBlock>
 
-        </DataGrid>
+            <Border BorderBrush="Black" BorderThickness="1" Height="570" Width="400" >
+                <ScrollViewer Height="550">
+                    <Grid x:Name="MainGrid" >
 
+                    </Grid>
+                </ScrollViewer>
+            </Border>
+        </StackPanel>
     </Grid>
 </UserControl>

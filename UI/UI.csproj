@@ -138,7 +138,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MiniControl\Unit.xaml">
+    <Page Include="MiniControl\UnitMini.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -162,8 +162,8 @@
     <Compile Include="MiniControl\miniTest.xaml.cs">
       <DependentUpon>miniTest.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MiniControl\Unit.xaml.cs">
-      <DependentUpon>Unit.xaml</DependentUpon>
+    <Compile Include="MiniControl\UnitMini.xaml.cs">
+      <DependentUpon>UnitMini.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

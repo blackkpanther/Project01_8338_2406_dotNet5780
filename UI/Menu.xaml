@@ -22,10 +22,8 @@
         <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}" Background="Transparent">
             <materialDesign:DrawerHost.LeftDrawerContent >
                 <Border  CornerRadius="25,0,0,25">
-
                     <DockPanel MinWidth="212" Background="Transparent"   >
-
-                        <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" 
+                        <ToggleButton x:Name="toggleButton" Style="{StaticResource MaterialDesignHamburgerToggleButton}" 
                               DockPanel.Dock="Top"
                               HorizontalAlignment="Right" Margin="16" 
                               IsChecked="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}" />
@@ -37,12 +35,12 @@
                                 </ItemsPanelTemplate>
                             </Menu.ItemsPanel>
                             <MenuItem Header="Admin" >
-                                <MenuItem Header="View All Orders" Name="AdminOrders" Click="SelectionChanged" />
+                                <MenuItem Header="View All Orders" Name="AdminOrders" Click="SelectionChanged"  />
                                 <MenuItem Header="View All Units" Name="AdminUnits" Click="SelectionChanged" />
-                                <MenuItem Header="View All Users" Name="AdminUsers" Click="SelectionChanged"/>
+                                <MenuItem Header="View All Host" Name="AdminUsers" Click="SelectionChanged"/>
                                 <!--אולי לחלק לאורחים ומארחים-->
                                 <MenuItem Header="Remove User" Name="AdminRemove" Click="SelectionChanged"/>
-                                <MenuItem Header="test" Name="testUserControl" Click="SelectionChanged"/>
+                                <MenuItem Header="test" Name="testUserControl" Click="SelectionChanged"  />
                                 <!--אולי לחלק להסרת host\guest\unit-->
                             </MenuItem >
                             <MenuItem Header="Host" >
@@ -66,7 +64,7 @@
                 </Grid.RowDefinitions>
 
                 <Grid x:Name="GridMain" Grid.Row="1" >
-                    
+                   
                 </Grid>
 
 
@@ -94,10 +92,8 @@
                                 </Button.Content>
                             </Button>
                         </StackPanel>
-
                     </Grid>
                 </materialDesign:ColorZone>
-
             </Grid>
         </materialDesign:DrawerHost>
 

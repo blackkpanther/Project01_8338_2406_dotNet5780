@@ -18,6 +18,7 @@ namespace BE
         private bool collectionClearance;
         private int numOfUnits;//*
 
+        /*
         //constructor
       public Host(Host host)
         {
@@ -39,7 +40,7 @@ namespace BE
             CollectionClearance = true;
                
         }
-        public Host()
+       public Host()
         {
 
             HostKey = 10000001;
@@ -59,6 +60,7 @@ namespace BE
             CollectionClearance = true;
 
         }
+        */
 
         //properties
         public long HostKey
@@ -101,16 +103,24 @@ namespace BE
             get { return collectionClearance; }
             set { collectionClearance = value; }
         }
-         public int NumOfUnits
+        public int NumOfUnits
+        {
+            get { return numOfUnits; }
+            set { numOfUnits = value; }
+        }
+
+        public string FullName
+        {
+            get
             {
-get{return numOfUnits;}
-            set{numOfUnits=value;}
+                return this.familyName + " " + this.privateName;
             }
+        }
         //printing method
         public override string ToString()
         {
             return "Host ID: " + this.hostKey + " Name: " + this.privateName + " " + this.familyName + " Phone no.: " + this.phoneNumber + " Email address: " + this.mailAddress + " Bank account information: " + this.bankBranchDetails.ToString() + " Collection clearance: " + this.collectionClearance;
         }
-       // public Host() { }
+        // public Host() { }
     }
 }

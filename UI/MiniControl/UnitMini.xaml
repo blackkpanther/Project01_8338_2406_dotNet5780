@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="UI.MiniControl.UnitMini"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:UI.MiniControl"
+             mc:Ignorable="d" 
+             d:DesignHeight="250" d:DesignWidth="400" Style="{StaticResource ResourceKey=UserControlPageDefault}" Height="200" Width="400" FontSize="10">
+
+    <Grid x:Name="MainGrid" Width="380" HorizontalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.RowSpan="2">
+            <DockPanel>
+                <Label Content="hostingUnitKey"/>
+                <TextBlock Text="{Binding Path=HostingUnitKey}"/>
+            </DockPanel>
+            <DockPanel>
+                <Label Content="owner name"/>
+                <TextBlock Text="{Binding Path=Owner.FullName}"/>
+            </DockPanel>
+            <DockPanel>
+                <Label Content="Unit Name"/>
+                <TextBlock Text="{Binding Path=UnitName}"/>
+            </DockPanel>
+            <DockPanel>
+                <Label Content="SubArea, Area "/>
+                <TextBlock Text="{Binding Path=SubArea}"/>
+                <TextBlock Text=", "/>
+                <TextBlock Text="{Binding Path=Area}"/>
+            </DockPanel>
+            <DockPanel>
+                <Label Content="type"/>
+                <TextBlock Text="{Binding Path=Type}"/>
+            </DockPanel>
+            <DockPanel>
+                <Label Content="Max Adults" MinWidth="50"/>
+                <TextBlock Text="{Binding Path=Adults}" MinWidth="50" />
+                <Label Content="Max Children" MinWidth="50"/>
+                <TextBlock Text="{Binding Path=Children}" MinWidth="50"/>
+            </DockPanel>
+            <DockPanel>
+                <Label Content="pool" MinWidth="50"/>
+                <TextBlock Text="{Binding Path=Pool}" MinWidth="50"/>
+                <Label Content="jacuzzi" MinWidth="50"/>
+                <TextBlock Text="{Binding Path=Jacuzzi}" MinWidth="50"/>
+            </DockPanel>
+            <DockPanel>
+                <Label Content="garden" MinWidth="50"/>
+                <TextBlock Text="{Binding Path=Garden}" MinWidth="50"/>
+                <Label Content="childrensAttractions" MinWidth="50"/>
+                <TextBlock Text="{Binding Path=ChildrensAttractions}" MinWidth="50"/>
+            </DockPanel>
+
+        </StackPanel>
+        <Grid x:Name="imageGride" Grid.Row="0" Grid.Column="1">
+            
+        </Grid>
+        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Content="pricePerNight" HorizontalAlignment="Center" MinWidth="0"/>
+            <TextBlock Text="{Binding Path=PricePerNight}" HorizontalAlignment="Center"/>
+        </StackPanel>
+        
+    </Grid>
+</UserControl>

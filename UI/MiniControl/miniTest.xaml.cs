@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BE;
 
 namespace UI.MiniControl
 {
@@ -20,13 +21,23 @@ namespace UI.MiniControl
     /// </summary>
     public partial class miniTest : UserControl
     {
-        public miniTest()
+
+
+        public Host CurrentHost  { get; set;}
+       
+
+        public miniTest(Host host)
         {
-            InitializeComponent();
-           
+
+           InitializeComponent();
+            this.CurrentHost = host;
+            
+            this.DataContext = CurrentHost;
+            miniTestGrid.DataContext = CurrentHost;
+
+
         }
 
-
-
+       
     }
 }
