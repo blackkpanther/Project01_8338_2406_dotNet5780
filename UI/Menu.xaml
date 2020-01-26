@@ -38,10 +38,11 @@
                                 <MenuItem Header="View All Orders" Name="AdminOrders" Click="SelectionChanged"  />
                                 <MenuItem Header="View All Units" Name="AdminUnits" Click="SelectionChanged" />
                                 <MenuItem Header="View All Host" Name="AdminUsers" Click="SelectionChanged"/>
-                                <!--אולי לחלק לאורחים ומארחים-->
-                                <MenuItem Header="Remove User" Name="AdminRemove" Click="SelectionChanged"/>
+                                <MenuItem Header="Remove Host" Name="AdminRemoveHost" Click="SelectionChanged"/>
+                                <MenuItem Header="Remove Unit" Name="AdminRemoveUnit" Click="SelectionChanged"/>
+                                <MenuItem Header="Remove Guest" Name="AdminRemoveGust" Click="SelectionChanged"/>
                                 <MenuItem Header="test" Name="testUserControl" Click="SelectionChanged"  />
-                                <!--אולי לחלק להסרת host\guest\unit-->
+                                
                             </MenuItem >
                             <MenuItem Header="Host" >
                                 <MenuItem Header="Add Unit" Name="AddUnit"  Click="SelectionChanged" />

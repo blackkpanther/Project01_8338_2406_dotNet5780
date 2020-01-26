@@ -60,7 +60,7 @@ namespace DAL
             HostingUnit target = new HostingUnit();
             target.Diary = original.Diary;
             target.HostingUnitKey = original.HostingUnitKey;
-            target.HostringUnitName = original.HostringUnitName;
+            target.UnitName = original.UnitName;
             target.Owner = original.Owner;
             target.SubArea = original.SubArea;
             return target;

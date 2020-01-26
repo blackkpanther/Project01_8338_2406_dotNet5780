@@ -36,8 +36,8 @@ namespace UI.MiniControl
 
 
             imageIndex = 0;
-            vbImage.Width = 75;
-            vbImage.Height = 75;
+            vbImage.Width = 100;
+            vbImage.Height = 90;
             vbImage.Stretch = Stretch.Fill;
             imageGride.Children.Add(vbImage);
             Grid.SetColumn(vbImage, 2);
