@@ -16,6 +16,13 @@ namespace DAL
         GuestRequest CheckGuestRequest(long key);
         #endregion
 
+        #region Host
+        void DeleteHost(Host host);
+        void UpdateHost(Host host);
+        void AddHost(Host host);
+        List<Host> GetHosts();
+        Host GetHost(long hostKey);
+        #endregion
         #region HostingUnit
         void AddHostingUnit(HostingUnit unit);
         void UpdateHostingUnit(ref HostingUnit unit, bool[,] diary);

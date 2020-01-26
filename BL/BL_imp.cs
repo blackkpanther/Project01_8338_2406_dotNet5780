@@ -10,11 +10,12 @@ namespace BL
 {
     public class BL_imp : Ibl
     {
-        DAL.Idal IDAL;
+        Idal IDAL;
 
         public BL_imp()
         {
             IDAL = DAL.FactoryDAL.GetFactory();
+          //  InitList(); בשביל לבדוק לאתחל רשימות משתמשים
         }
 
         #region GustRequest
@@ -32,6 +33,51 @@ namespace BL
         {
             return IDAL.CheckGuestRequest(key);
         }
+        #endregion
+
+        #region Host
+        void Ibl.DeleteHost(Host host)
+        {
+            var temp= (from item in IDAL.GetHosts() where item.HostKey == host.HostKey select item).FirstOrDefault();
+            if (temp != null)
+            {
+                IDAL.DeleteHost(host);
+            }
+            else
+                throw new Exception("The host you try to delete doesn't exsit/n");
+        }
+        void Ibl.AddHost(Host host)
+        {
+            if (IDAL.GetHosts() != null)
+            {
+                foreach (Host h in IDAL.GetHosts())
+                    if (h.HostKey == host.HostKey)
+                        throw new Exception("ERROR: This key number is alrady exist.\n");
+            }
+            IDAL.AddHost(host);
+            
+
+        }
+        void Ibl.UpdateHost(Host host)
+        {
+            var temp = (from item in IDAL.GetHosts() where item.HostKey == host.HostKey select item).FirstOrDefault();
+            if (temp != null)
+            {
+                IDAL.UpdateHost(host);
+            }
+            else
+                throw new Exception("The host you try to update doesn't exsit/n");
+        }
+        List<Host> Ibl.GetHosts()
+        {
+           return IDAL.GetHosts();   
+        }
+
+        Host Ibl.GetHost(long hostKey)
+        {
+            return IDAL.GetHost(hostKey);
+        }
+
         #endregion
 
         #region HostingUnit
@@ -198,21 +244,23 @@ namespace BL
             var count = (tempList.Count(item => item.HostingUnitKey == unit.HostingUnitKey && (item.Status == Enums.Status.MailSent || item.Status == Enums.Status.Treated)));
             return count;
         }
+
+      
         #endregion
 
 
-       /* public List<GuestRequest> termOfRequest(GuestRequestDelegate requestDelegate)
-        {
+        /* public List<GuestRequest> termOfRequest(GuestRequestDelegate requestDelegate)
+         {
 
-            return IDAL.GetGuestRequestList().Where(item => (requestDelegate));
-        }
-        static public bool BPool(GuestRequest guestRequest)
-        {
-            if (guestRequest.Pool == Enums.Option.Necessary || guestRequest.Pool == Enums.Option.possible)
-                return true;
-            return false;
+             return IDAL.GetGuestRequestList().Where(item => (requestDelegate));
+         }
+         static public bool BPool(GuestRequest guestRequest)
+         {
+             if (guestRequest.Pool == Enums.Option.Necessary || guestRequest.Pool == Enums.Option.possible)
+                 return true;
+             return false;
 
-        }*/
+         }*/
     }
    // public delegate bool GuestRequestDelegate(GuestRequest guestRequest);
 

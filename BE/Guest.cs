@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    class Guest
+   public class Guest
     {
         private string privateName;
         private string familyName;
@@ -37,6 +37,10 @@ namespace BE
         public override string ToString()
         {
             return "First Name: " + privateName + " Last Name: " + familyName + " Email: " + mailAddress + " BankAccount Number: " + bankAccountNumber;
+        }
+        public override string ToString()
+        {
+            return "guest ";
         }
     }
 }

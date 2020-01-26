@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BE;
+using BL;
 
 namespace UI.Control
 {
@@ -21,12 +22,18 @@ namespace UI.Control
     /// </summary>
     public partial class Hosts : UserControl
     {
+        Ibl bl;
         public List<Host> HostsList { get; set; }
         private Host currentHost;
-
+        
         public Hosts()
         {
+           
+            InitializeComponent();
+            bl = FactoryBL.GetFactory();
+            // HostsList = bl.GetHosts();
             HostsList = new List<Host>();
+
             currentHost = new Host//לבדיקה
             //אחרי :למחוק שורה ולבדוק אם צריך constructor
             {
@@ -47,8 +54,6 @@ namespace UI.Control
                 CollectionClearance = true,
 
             };
-            InitializeComponent();
-
             for (int i = 0; i < 6; i++)//רק לבדיקה
             {
                 HostsList.Add(currentHost);

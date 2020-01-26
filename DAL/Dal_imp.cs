@@ -12,9 +12,17 @@ namespace DAL
     {
         //Singleton
 
+        private List<Host> allHosts;
+        private List<HostingUnit> allUnits;
+        private List<Guest> allGusts;
+        private List<Order> allOrders;
         public Dal_imp()
         {
-            // כאן מאתחלים את כל הרשימות שיש לנו
+            allHosts = new List<Host>();
+            allUnits=new List<HostingUnit>();
+            allGusts=new List<Guest>();
+            allOrders=new List<Order>();
+
         }
 
         #region GuestRequest
@@ -31,6 +39,37 @@ namespace DAL
         }
         #endregion
 
+        #region Host
+        void Idal.UpdateHost(Host host)
+        {
+            DataSource.HostList.Remove((from item in DataSource.HostList where item.HostKey == host.HostKey select item).FirstOrDefault());
+            DataSource.HostList.Add(host);
+        }
+        void Idal.AddHost(Host host)
+        {
+            DataSource.HostList.Add(host);
+
+        }
+        void Idal.DeleteHost(Host host)
+        {
+            DataSource.HostList.Remove(host);
+
+        }
+        List<Host> Idal.GetHosts()
+        {
+            return DataSource.HostList;
+        }
+        Host Idal.GetHost(long hostKey)
+        {
+            
+         var temp = (from item in DataSource.HostList where item.HostKey == hostKey select item).FirstOrDefault();
+            if (temp != null)
+                return temp;
+            else
+                throw new Exception("The host you try to find doesn't exsit/n");
+        }
+
+        #endregion
         #region HostingUnit
         void Idal.AddHostingUnit(HostingUnit unit)
         {

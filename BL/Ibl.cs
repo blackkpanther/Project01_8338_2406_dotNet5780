@@ -13,9 +13,17 @@ namespace BL
         void AddGuestRequest(GuestRequest request);
         void UpdateGuestRequest(ref GuestRequest request, Enums.Status status);
         GuestRequest CheckGuestRequest(long key);
-       
+
         #endregion
 
+        #region Host
+        void DeleteHost(Host host);
+        void UpdateHost(Host host);
+        void AddHost(Host host);
+        List<Host> GetHosts();
+        Host GetHost(long hostKey);
+
+        #endregion
         #region HostingUnit
         void AddHostingUnit(HostingUnit unit);
         void DeleteHostingUnit(HostingUnit unit);

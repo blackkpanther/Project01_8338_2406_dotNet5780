@@ -70,7 +70,11 @@ namespace UI
                     usc = new Control.Units();
                     GridMain.Children.Add(usc);
                     break;
-                case "AdminUsers":
+                case "AdminHost":
+                    usc = new Control.Hosts();
+                    GridMain.Children.Add(usc);
+                    break;
+                case "AdminGuest":
                     usc = new Control.Hosts();
                     GridMain.Children.Add(usc);
                     break;

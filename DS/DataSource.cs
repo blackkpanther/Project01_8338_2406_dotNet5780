@@ -11,6 +11,7 @@ namespace DS
     {
         public static List<Order> OrderList = new List<Order>();
 
+        public static List<Guest> GeustList = new List<Guest>();
         public static List<GuestRequest> GuestRequestList = new List<GuestRequest>();
 
         public static List<HostingUnit> HostingUnitList = new List<HostingUnit>();
@@ -22,7 +23,7 @@ namespace DS
   public DataSource()
         {
             OrderList = new List<Order>();
-
+            GeustList = new List<Guest>();
             GuestRequestList = new List<GuestRequest>();
 
             HostingUnitList = new List<HostingUnit>();

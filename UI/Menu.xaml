@@ -37,7 +37,8 @@
                             <MenuItem Header="Admin" >
                                 <MenuItem Header="View All Orders" Name="AdminOrders" Click="SelectionChanged"  />
                                 <MenuItem Header="View All Units" Name="AdminUnits" Click="SelectionChanged" />
-                                <MenuItem Header="View All Host" Name="AdminUsers" Click="SelectionChanged"/>
+                                <MenuItem Header="View All Hosts" Name="AdminHost" Click="SelectionChanged"/>
+                                <MenuItem Header="View All Guests" Name="AdminGuest" Click="SelectionChanged"/>
                                 <MenuItem Header="Remove Host" Name="AdminRemoveHost" Click="SelectionChanged"/>
                                 <MenuItem Header="Remove Unit" Name="AdminRemoveUnit" Click="SelectionChanged"/>
                                 <MenuItem Header="Remove Guest" Name="AdminRemoveGust" Click="SelectionChanged"/>
