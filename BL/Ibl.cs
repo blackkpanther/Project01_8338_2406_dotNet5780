@@ -7,11 +7,19 @@ namespace BL
 {
     public interface Ibl
     {
+        #region Guest
+        void AddGuest(Guest guest);
+        void UpdateGuest(Guest guest);
+        void DeleteGuest(Guest guest);
+        List<Guest> GetGuests();
+        Guest GetGuest(long guestKey);
+        #endregion
+
         #region GuestRequest
         void AddGuestRequest(GuestRequest request);
         void UpdateGuestRequest(GuestRequest request);
-        GuestRequest CheckGuestRequest(long key);
-
+        List<GuestRequest> GetGuestRequestList();
+        GuestRequest GetGuestRequest(long gustReqKey);
         #endregion
 
         #region Host
@@ -20,26 +28,26 @@ namespace BL
         void AddHost(Host host);
         List<Host> GetHosts();
         Host GetHost(long hostKey);
-
         #endregion
+
         #region HostingUnit
         void AddHostingUnit(HostingUnit unit);
-        void DeleteHostingUnit(HostingUnit unit);
         void UpdateHostingUnit(HostingUnit unit);
-        HostingUnit CheckHostingUnit(long key);
+        void DeleteHostingUnit(HostingUnit unit);
+        List<HostingUnit> GetHostingUnits();
+        HostingUnit GetHostingUnit(long hostingUnitKey);
         #endregion
 
         #region Order
         void AddOrder(Order order);
         void UpdateOrder(Order order);
-        Order CheckOrder(long key);
+        void DeleteOrder(Order order);
+        List<Order> GetOrderList();
+        Order GetOrder(long horderKey);
         #endregion
 
         #region Lists
         List<BankBranch> GetBankBranchList();
-        List<GuestRequest> GetGuestRequestList();
-        List<HostingUnit> GetHostingUnitList();
-        List<Order> GetOrderList();
         List<HostingUnit> AvailableHostingUnits(DateTime date, int n);
         List<Order> NumberOfOrders(int days);
         //List<GuestRequest> termOfRequest(GuestRequestDelegate requestDelegate);

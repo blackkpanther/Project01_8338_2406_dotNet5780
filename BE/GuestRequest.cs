@@ -5,9 +5,10 @@ namespace BE
     public class GuestRequest
     {
         private long guestRequestKey;
-        private string privateName;
-        private string familyName;
-        private string mailAddress;
+       private Guest Guest { get; set; }
+        //private string privateName;
+        //private string familyName;
+        //private string mailAddress;
         private Enums.Status status;
         private DateTime registrationDate;
         private DateTime entryDate;

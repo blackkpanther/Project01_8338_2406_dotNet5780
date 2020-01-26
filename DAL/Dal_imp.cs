@@ -9,13 +9,14 @@ namespace DAL
     public class Dal_imp : Idal
     {
         //Singleton
-
+        private List<Guest> allGuest;
         private List<Host> allHosts;
         private List<HostingUnit> allUnits;
         private List<Guest> allGusts;
         private List<Order> allOrders;
         public Dal_imp()
         {
+            allGuest = new List<Guest>();
             allHosts = new List<Host>();
             allUnits = new List<HostingUnit>();
             allGusts = new List<Guest>();
@@ -23,20 +24,58 @@ namespace DAL
 
         }
 
+        #region Guest
+        void Idal.AddGuest(Guest guest)
+        {
+            DataSource.GuestList.Add(guest);
+        }
+        void Idal.UpdateGuest(Guest guest)
+        {
+            DataSource.GuestList.Remove(guest);
+            DataSource.GuestList.Add(guest);
+        }
+        void Idal.DeleteGuest(Guest guest)
+        {
+            DataSource.GuestList.Remove(guest);
+        }
+        List<Guest> Idal.GetGuests()
+        {
+            return DataSource.GuestList;
+        }
+        Guest Idal.GetGuest(long guestKey)
+        {
+            var temp = (from item in DataSource.GuestList where item.GuestKey == guestKey select item).FirstOrDefault();
+            if (temp != null)
+                return temp;
+            else
+                throw new Exception("The guest you try to find doesn't exsit/n");
+        }
+        #endregion
         #region GuestRequest
         void Idal.AddGuestRequest(GuestRequest request)
         {
-            if (CheckGuestRequest(request.GuestRequestKey) != null)
-                throw new /*DuplicateRequest*/Exception("Request already submitted");
-            DataSource.GuestRequestList.Add(request.Clone());
+             DataSource.GuestRequestList.Add(request.Clone());
         }
 
         void Idal.UpdateGuestRequest(GuestRequest request)
         {
-            DataSource.GuestRequestList.Remove((from item in DataSource.GuestRequestList where item.GuestRequestKey == request.GuestRequestKey select item).FirstOrDefault());
+            DataSource.GuestRequestList.Remove(request);
             DataSource.GuestRequestList.Add(request);
         }
+        List<GuestRequest> Idal.GetGuestRequestList()
+        {
+            return DataSource.GuestRequestList;
+        }
+        GuestRequest Idal.GetGuestRequest(long gustReqKey)
+        {
+            var temp = (from item in DataSource.GuestRequestList where item.GuestRequestKey == gustReqKey select item).FirstOrDefault();
+            if (temp != null)
+                return temp;
+            else
+                throw new Exception("The guestReq you try to find doesn't exsit/n");
+        }
         #endregion
+
 
         #region Host
         void Idal.UpdateHost(Host host)
@@ -72,8 +111,6 @@ namespace DAL
         #region HostingUnit
         void Idal.AddHostingUnit(HostingUnit unit)
         {
-            if (CheckHostingUnit(unit.HostingUnitKey) != null)
-                throw new /*DuplicateUnit*/Exception("Hosting unit already added");
             DataSource.HostingUnitList.Add(unit.Clone());
         }
 
@@ -84,66 +121,63 @@ namespace DAL
         }
         void Idal.DeleteHostingUnit(HostingUnit unit)
         {
-            if (CheckHostingUnit(unit.HostingUnitKey) == null)
-                throw new /*NonExistingUnit*/Exception("Hosting unit does not exist");
-            DataSource.HostingUnitList.RemoveAll(item => item.HostingUnitKey == unit.HostingUnitKey);
+            DataSource.HostingUnitList.Remove(unit);
+        }
+        List<HostingUnit> Idal.GetHostingUnits()
+        {
+            return DataSource.HostingUnitList;
+        }
+        HostingUnit Idal.GetHostingUnit(long hostingUnitKey)
+        {
+            var temp = (from item in DataSource.HostingUnitList where item.HostingUnitKey == hostingUnitKey select item).FirstOrDefault();
+            if (temp != null)
+                return temp;
+            else
+                throw new Exception("The unit you try to find doesn't exsit/n");
         }
         #endregion
 
         #region Order
         void Idal.AddOrder(Order order)
         {
-            if (CheckOrder(order.OrderKey) != null)
-                throw new /*DuplicateOrder*/Exception("Orderalready submitted");
-            DataSource.OrderList.Add(order.Clone());
+                DataSource.OrderList.Add(order.Clone());
         }
 
         void Idal.UpdateOrder(Order order)
         {
-            DataSource.OrderList.Remove((from item in DataSource.OrderList where item.OrderKey == order.OrderKey select item).FirstOrDefault());
+            DataSource.OrderList.Remove(order);
             DataSource.OrderList.Add(order);
         }
-        #endregion
 
-        #region Lists
-        List<HostingUnit> Idal.GetHostingUnitList()
+        void Idal.DeleteOrder(Order order)
         {
-            return DataSource.HostingUnitList.Select(item => item).ToList();
-        }
-
-        List<GuestRequest> Idal.GetGuestRequestList()
-        {
-            return DataSource.GuestRequestList.Select(item => item).ToList();
+            DataSource.OrderList.Remove(order);
         }
 
         List<Order> Idal.GetOrderList()
         {
-            return DataSource.OrderList.Select(item => item).ToList();
+            return DataSource.OrderList;
         }
+         Order Idal.GetOrder(long orderKey)
+        {
+            var temp = (from item in DataSource.OrderList where item.OrderKey == orderKey select item).FirstOrDefault();
+            if (temp != null)
+                return temp;
+            else
+                throw new Exception("The order you try to find doesn't exsit/n");
+        }
+        #endregion
+
+        #region bank
+
+
         List<BankBranch> Idal.GetBankBranchList()
         {
             return DataSource.BankBranchList.Select(item => item).ToList();
         }
-        
+
         #endregion
 
-        #region AssistingMethods
-        public GuestRequest CheckGuestRequest(long guestRequestKey)
-        {
-            return DataSource.GuestRequestList.Find(item => item.GuestRequestKey == guestRequestKey);
-        }
-        /* GuestRequest Idal.CheckGuestRequest(long key)
-         {
-             return DataSource.GuestRequestList.Find(item => item.GuestRequestKey == key);
-         }*/
-        public HostingUnit CheckHostingUnit(long key)
-        {
-            return DataSource.HostingUnitList.Find(item => item.HostingUnitKey == key);
-        }
-        public Order CheckOrder(long key)
-        {
-            return DataSource.OrderList.Find(item => item.OrderKey == key);
-        }
-        #endregion
+        
     }
 }

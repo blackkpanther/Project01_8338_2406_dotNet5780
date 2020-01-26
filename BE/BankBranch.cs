@@ -3,20 +3,20 @@
     public class BankBranch
     {
         private int bankNumber;
-        private string bankName;
+        private Enums.BankName bankName;
         private int branchNumber;
         private string branchAddress;
-        private string branchCity;
+        private Enums.SubArea branchCity;
 
         //constructors
-          public BankBranch()
-        {
-            BankNumber = 1;
-            BankName = "Leumi";
-            BranchNumber = 111;
-            BranchAddress = "aaaa aaaa";
-            BranchCity = "Afula";
-            }
+        //  public BankBranch()
+        //{
+        //    BankNumber = 1;
+        //    BankName = Enums.BankName.BankLeumi;
+        //    BranchNumber = 111;
+        //    BranchAddress = "aaaa aaaa";
+        //    BranchCity = Enums.SubArea.Afula;
+        //    }
         /*   public BankBranch( int bankNumber1, Enums.BankName bankName1, int branchNumber1, string branchAddress1 , Enums.SubArea branchCity1)
            {
            bankNumber= bankNumber1;
@@ -42,7 +42,7 @@
             get { return bankNumber; }
             set { bankNumber = value; }
         }
-        public string BankName
+        public Enums.BankName BankName
         {
             get { return bankName; }
             set { bankName = value; }
@@ -57,7 +57,7 @@
             get { return branchAddress; }
             set { branchAddress = value; }
         }
-        public string BranchCity
+        public Enums.SubArea BranchCity
         {
             get { return branchCity; }
             set { branchCity = value; }
