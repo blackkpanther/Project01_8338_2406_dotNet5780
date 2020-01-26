@@ -19,35 +19,14 @@ namespace UI.Control
 
             InitializeComponent();
             bl = FactoryBL.GetFactory();
-            // HostsList = bl.GetHosts();
-            HostsList = new List<Host>();
+             HostsList = bl.GetHosts();
+           // HostsList = new List<Host>();
 
-            currentHost = new Host//לבדיקה
-            //אחרי :למחוק שורה ולבדוק אם צריך constructor
+            
+           
+            for (int i = 0; i < HostsList.Count; i++)
             {
-                HostKey = 10000001,
-                PrivateName = "Accccccc",
-                FamilyName = "AA",
-                PhoneNumber = "0000000000",
-                MailAddress = "aaa@gmail.com",
-                BankBranchDetails = new BankBranch
-                {
-                    BankNumber = 1,
-                    BankName = Enums.BankName.BankLeumi,
-                    BranchNumber = 111,
-                    BranchAddress = "aaaa aaaa",
-                    BranchCity = Enums.SubArea.Afula
-                },
-                BankAccountNumber = 111,
-                CollectionClearance = true,
-
-            };
-            for (int i = 0; i < 6; i++)//רק לבדיקה
-            {
-                HostsList.Add(currentHost);
-            }
-            for (int i = 0; i < 6; i++)
-            {
+                currentHost = HostsList[i];
                 RowDefinition row = new RowDefinition();
                 row.MinHeight = 120;
 

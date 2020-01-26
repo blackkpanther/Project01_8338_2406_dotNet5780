@@ -24,6 +24,63 @@ namespace BL
                 IDAL.AddHost(new Host
                 {
                     HostKey = 10000001,
+                    PrivateName = "1Accccccc",
+                    FamilyName = "AA",
+                    PhoneNumber = "0000000000",
+                    MailAddress = "aaa@gmail.com",
+                    BankBranchDetails = new BankBranch
+                    {
+                        BankNumber = 1,
+                        BankName = Enums.BankName.BankLeumi,
+                        BranchNumber = 111,
+                        BranchAddress = "aaaa aaaa",
+                        BranchCity = Enums.SubArea.Afula
+                    },
+                    BankAccountNumber = 111,
+                    CollectionClearance = true,
+
+                });
+                IDAL.AddHost(new Host
+                {
+                    HostKey = 10000002,
+                    PrivateName = "2Accccccc",
+                    FamilyName = "AA",
+                    PhoneNumber = "0000000000",
+                    MailAddress = "aaa@gmail.com",
+                    BankBranchDetails = new BankBranch
+                    {
+                        BankNumber = 1,
+                        BankName = Enums.BankName.BankLeumi,
+                        BranchNumber = 111,
+                        BranchAddress = "aaaa aaaa",
+                        BranchCity = Enums.SubArea.Afula
+                    },
+                    BankAccountNumber = 111,
+                    CollectionClearance = true,
+
+                });
+                IDAL.AddHost(new Host
+                {
+                    HostKey = 10000003,
+                    PrivateName = "3Accccccc",
+                    FamilyName = "AA",
+                    PhoneNumber = "0000000000",
+                    MailAddress = "aaa@gmail.com",
+                    BankBranchDetails = new BankBranch
+                    {
+                        BankNumber = 1,
+                        BankName = Enums.BankName.BankLeumi,
+                        BranchNumber = 111,
+                        BranchAddress = "aaaa aaaa",
+                        BranchCity = Enums.SubArea.Afula
+                    },
+                    BankAccountNumber = 111,
+                    CollectionClearance = true,
+
+                });
+                IDAL.AddHost(new Host
+                {
+                    HostKey = 10000004,
                     PrivateName = "Accccccc",
                     FamilyName = "AA",
                     PhoneNumber = "0000000000",
@@ -40,8 +97,6 @@ namespace BL
                     CollectionClearance = true,
 
                 });
-
-
 
             }
             catch(Exception e)
