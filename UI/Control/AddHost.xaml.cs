@@ -28,7 +28,9 @@ namespace UI.Control
         {
             InitializeComponent();
             bl = FactoryBL.GetFactory();
-           // this.CurrentHost.BankBranchDetails = new BankBranch();
+            // this.CurrentHost.BankBranchDetails = new BankBranch();
+            this.banks.ItemsSource = bl.GetBankBranchList();
+            this.banks.DisplayMemberPath = "BankName";
            
 
             this.DataContext = CurrentHost;
@@ -53,6 +55,11 @@ namespace UI.Control
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void banks_Selected(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
