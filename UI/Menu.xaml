@@ -40,7 +40,7 @@
                                 <MenuItem Header="View All Hosts" Name="AdminHost" Click="SelectionChanged"/>
                                 <MenuItem Header="View All Guests" Name="AdminGuest" Click="SelectionChanged"/>
                                 <MenuItem Header="test" Name="testUserControl" Click="SelectionChanged"  />
-                                
+
                             </MenuItem >
                             <MenuItem Header="Host" >
                                 <MenuItem Header="View All Units" Name="AddUnit"  Click="SelectionChanged" />
@@ -61,7 +61,27 @@
                 </Grid.RowDefinitions>
 
                 <Grid x:Name="GridMain" Grid.Row="1" >
-                   
+                    <Label Content="Your next VACATION" FontSize="50" Margin="13,229,-214,191.2" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-38.934"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <materialDesign:PackIcon Kind="PalmTree" Height="426" Width="272" RenderTransformOrigin="0.5,0.5"  >
+                        <materialDesign:PackIcon.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-33.802"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </materialDesign:PackIcon.RenderTransform>
+                    </materialDesign:PackIcon>
+
                 </Grid>
 
 

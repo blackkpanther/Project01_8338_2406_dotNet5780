@@ -23,8 +23,7 @@ namespace UI.Control
     {
         Ibl bl;
         public Host CurrentHost { get; set; }
-
-        public AddHost()
+                public AddHost()
         {
             InitializeComponent();
             bl = FactoryBL.GetFactory();
@@ -60,7 +59,7 @@ namespace UI.Control
 
         private void banks_Selected(object sender, RoutedEventArgs e)
         {
-
+            
         }
     }
 }
