@@ -25,7 +25,7 @@ namespace DAL
         string unitPath = "Units.xml";
         string guestsReqPath = "GuestsReq.xml";
         //string bankPath = @"BranchXML.xml";
-        
+
         List<BankBranch> branches = new List<BankBranch>();
         //BackgroundWorker worker = new BackgroundWorker();
 
@@ -68,7 +68,7 @@ namespace DAL
             //else
             //    LoadData(unitPath);
 
-            
+
         }
 
 
@@ -472,7 +472,7 @@ namespace DAL
             };
         }
 
-       
+
 
         public void Clean()
         {
@@ -481,28 +481,28 @@ namespace DAL
         }
         public void DailyUpdate()//
         {
-            List<GuestRequest> oldRequests = new List<GuestRequest>();
             try
             {
-                if (guestsReqFile.IsEmpty)
-                    throw new Exception(" ");
-            }
-            catch
-            {
-                oldRequests = GetGuestRequestList();
-                oldRequests = oldRequests.GroupBy(x => ((DateTime.Now.Day - x.RegistrationDate.Day)) > 30);
+                List<GuestRequest> oldRequests = GetGuestRequestList();
+                oldRequests.Where(req => ((DateTime.Now.Day - req.RegistrationDate.Day) > 30));
+    
                 foreach (var item in oldRequests)
                 {
                     oldRequests.Remove(item);
                 }
             }
+            catch
+            {
+
+                if (guestsReqFile.IsEmpty)
+                    throw new Exception("no old req");
+            }
             Thread.Sleep(1440000);
         }
-        #region Bank
 
-
-        
     }
+}
+
     //class DAL_XML
     //{
     //    //Roots and paths of the files
@@ -904,5 +904,4 @@ namespace DAL
     //        return request;
     //    }
     //    #endregion
-    //}
-}
+    //
