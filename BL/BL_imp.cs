@@ -97,7 +97,191 @@ namespace BL
                     CollectionClearance = true,
 
                 });
-
+                IDAL.AddHostingUnit(new HostingUnit
+                {
+                    HostingUnitKey = 100000001,
+                   UnitName="aa",
+                   Adults=3,
+                   Children=6,
+                   SubArea=Enums.SubArea.Afula,
+                   Area=Enums.Area.Center,
+                   Pool=Enums.Option.possible,
+                   Jacuzzi=Enums.Option.possible,
+                    Owner = new Host
+                    {
+                        HostKey = 10000001,
+                        PrivateName = "A",
+                        FamilyName = "AA",
+                        PhoneNumber = "0000000000",
+                        MailAddress = "aaa@gmail.com",
+                        BankBranchDetails = new BankBranch
+                        {
+                            BankNumber = 1,
+                            BankName = "Leumi",
+                            BranchNumber = 111,
+                            BranchAddress = "aaaa aaaa",
+                            BranchCity = "Afula"
+                        },
+                        BankAccountNumber = 111,
+                        CollectionClearance = true
+                    },
+                    PricePerNight = 300,
+                    Uris = new List<string>
+                        {
+                           "https://q-ak.bstatic.com/images/hotel/max1024x768/194/194305766.jpg",
+                           "https://q-ak.bstatic.com/images/hotel/max1280x900/240/240310117.jpg",
+                           "https://q-ak.bstatic.com/images/hotel/max1280x900/193/193378835.jpg",
+                           "https://r-ak.bstatic.com/images/hotel/max1280x900/193/193379099.jpg"
+                        }
+                });
+                IDAL.AddHostingUnit(new HostingUnit
+                {
+                    HostingUnitKey = 100000002,
+                    UnitName = "aa",
+                    Adults = 3,
+                    Children = 6,
+                    SubArea = Enums.SubArea.Afula,
+                    Area = Enums.Area.Center,
+                    Pool = Enums.Option.possible,
+                    Jacuzzi = Enums.Option.possible,
+                    Owner = new Host
+                    {
+                        HostKey = 10000001,
+                        PrivateName = "A",
+                        FamilyName = "AA",
+                        PhoneNumber = "0000000000",
+                        MailAddress = "aaa@gmail.com",
+                        BankBranchDetails = new BankBranch
+                        {
+                            BankNumber = 1,
+                            BankName = "Leumi",
+                            BranchNumber = 111,
+                            BranchAddress = "aaaa aaaa",
+                            BranchCity = "Afula"
+                        },
+                        BankAccountNumber = 111,
+                        CollectionClearance = true
+                    },
+                    PricePerNight = 300,
+                    Uris = new List<string>
+                        {
+                           "https://q-ak.bstatic.com/images/hotel/max1024x768/194/194305766.jpg",
+                           "https://q-ak.bstatic.com/images/hotel/max1280x900/240/240310117.jpg",
+                           "https://q-ak.bstatic.com/images/hotel/max1280x900/193/193378835.jpg",
+                           "https://r-ak.bstatic.com/images/hotel/max1280x900/193/193379099.jpg"
+                        }
+                });
+                IDAL.AddHostingUnit(new HostingUnit
+                {
+                    HostingUnitKey = 100000003,
+                    UnitName = "aa",
+                    Adults = 3,
+                    Children = 6,
+                    SubArea = Enums.SubArea.Afula,
+                    Area = Enums.Area.Center,
+                    Pool = Enums.Option.possible,
+                    Jacuzzi = Enums.Option.possible,
+                    Owner = new Host
+                    {
+                        HostKey = 10000001,
+                        PrivateName = "A",
+                        FamilyName = "AA",
+                        PhoneNumber = "0000000000",
+                        MailAddress = "aaa@gmail.com",
+                        BankBranchDetails = new BankBranch
+                        {
+                            BankNumber = 1,
+                            BankName = "Leumi",
+                            BranchNumber = 111,
+                            BranchAddress = "aaaa aaaa",
+                            BranchCity = "Afula"
+                        },
+                        BankAccountNumber = 111,
+                        CollectionClearance = true
+                    },
+                    PricePerNight = 300,
+                    Uris = new List<string>
+                        {
+                           "https://q-ak.bstatic.com/images/hotel/max1024x768/194/194305766.jpg",
+                           "https://q-ak.bstatic.com/images/hotel/max1280x900/240/240310117.jpg",
+                           "https://q-ak.bstatic.com/images/hotel/max1280x900/193/193378835.jpg",
+                           "https://r-ak.bstatic.com/images/hotel/max1280x900/193/193379099.jpg"
+                        }
+                });
+                IDAL.AddHostingUnit(new HostingUnit
+                {
+                    HostingUnitKey = 100000004,
+                    UnitName = "aa",
+                    Adults = 3,
+                    Children = 6,
+                    SubArea = Enums.SubArea.Afula,
+                    Area = Enums.Area.Center,
+                    Pool = Enums.Option.possible,
+                    Jacuzzi = Enums.Option.possible,
+                    Owner = new Host
+                    {
+                        HostKey = 10000001,
+                        PrivateName = "A",
+                        FamilyName = "AA",
+                        PhoneNumber = "0000000000",
+                        MailAddress = "aaa@gmail.com",
+                        BankBranchDetails = new BankBranch
+                        {
+                            BankNumber = 1,
+                            BankName = "Leumi",
+                            BranchNumber = 111,
+                            BranchAddress = "aaaa aaaa",
+                            BranchCity = "Afula"
+                        },
+                        BankAccountNumber = 111,
+                        CollectionClearance = true
+                    },
+                    PricePerNight = 300,
+                    Uris = new List<string>
+                        {
+                           "https://q-ak.bstatic.com/images/hotel/max1024x768/194/194305766.jpg",
+                           "https://q-ak.bstatic.com/images/hotel/max1280x900/240/240310117.jpg",
+                           "https://q-ak.bstatic.com/images/hotel/max1280x900/193/193378835.jpg",
+                           "https://r-ak.bstatic.com/images/hotel/max1280x900/193/193379099.jpg"
+                        }
+                });
+                IDAL.AddHostingUnit(new HostingUnit
+                {
+                    HostingUnitKey = 100000005,
+                    UnitName = "aa",
+                    Adults = 3,
+                    Children = 6,
+                    SubArea = Enums.SubArea.Afula,
+                    Area = Enums.Area.Center,
+                    Pool = Enums.Option.possible,
+                    Jacuzzi = Enums.Option.possible,
+                    Owner = new Host
+                    {
+                        HostKey = 10000001,
+                        PrivateName = "A",
+                        FamilyName = "AA",
+                        PhoneNumber = "0000000000",
+                        MailAddress = "aaa@gmail.com",
+                        BankBranchDetails = new BankBranch
+                        {
+                            BankNumber = 1,
+                            BankName = "Leumi",
+                            BranchNumber = 111,
+                            BranchAddress = "aaaa aaaa",
+                            BranchCity = "Afula"
+                        },
+                        BankAccountNumber = 111,
+                        CollectionClearance = true
+                    },
+                     PricePerNight = 300,
+                    Uris = new List<string>
+                        {
+                           "https://q-ak.bstatic.com/images/hotel/max1024x768/194/194305766.jpg",
+                           "https://q-ak.bstatic.com/images/hotel/max1280x900/240/240310117.jpg",
+                           "https://q-ak.bstatic.com/images/hotel/max1280x900/193/193378835.jpg",
+                           "https://r-ak.bstatic.com/images/hotel/max1280x900/193/193379099.jpg"
+                        }
+                });
 
 
             }

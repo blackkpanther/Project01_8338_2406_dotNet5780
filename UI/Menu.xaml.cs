@@ -78,12 +78,8 @@ namespace UI
                     usc = new Control.Hosts();
                     GridMain.Children.Add(usc);
                     break;
-                case "AdminRemove":
-                    usc = new Control.UserControl1();
-                    GridMain.Children.Add(usc);
-                    break;
                 case "AddUnit":
-                    usc = new Control.UserControl1();
+                    usc = new Control.Units();
                     GridMain.Children.Add(usc);
                     break;
                 case "HostOrders":
@@ -100,10 +96,6 @@ namespace UI
                     break;
                 case "GuestOrder":
                     usc = new Control.Orders();
-                    GridMain.Children.Add(usc);
-                    break;
-                case "GuestSomething":
-                    usc = new Control.UserControl1();
                     GridMain.Children.Add(usc);
                     break;
                 case "testUserControl":
