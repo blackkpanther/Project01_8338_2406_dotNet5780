@@ -10,7 +10,10 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BE;
+using BL;
 
 namespace UI.Control
 {
@@ -19,9 +22,39 @@ namespace UI.Control
     /// </summary>
     public partial class AddUnit : Window
     {
-        public AddUnit()
+        Ibl bl;
+        public HostingUnit CurrentHostingUnit { get; set; }
+        public AddUnit(HostingUnit hostingUnit)
         {
-            InitializeComponent();
+            bl = FactoryBL.GetFactory();
+            this.CurrentHostingUnit = hostingUnit;
+            this.DataContext = CurrentHostingUnit;
+            MainGrid.DataContext = CurrentHostingUnit;
         }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                bl.AddHostingUnit(CurrentHostingUnit);
+                MessageBox.Show("UpDate Success!", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                Close();
+
+            }
+            catch (Exception error_str)
+            {
+                MessageBox.Show(error_str.Message, "add Failed!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+
+
+
+
+
     }
 }

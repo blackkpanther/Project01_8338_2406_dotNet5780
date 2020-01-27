@@ -474,7 +474,32 @@ namespace DAL
 
        
 
-       
+        public void Clean()
+        {
+            Thread t = new Thread(DailyUpdate);
+            t.Start();
+        }
+        public void DailyUpdate()//
+        {
+            List<GuestRequest> oldRequests = new List<GuestRequest>();
+            try
+            {
+                if (guestsReqFile.IsEmpty)
+                    throw new Exception(" ");
+            }
+            catch
+            {
+                oldRequests = GetGuestRequestList();
+                oldRequests = oldRequests.GroupBy(x => ((DateTime.Now.Day - x.RegistrationDate.Day)) > 30);
+                foreach (var item in oldRequests)
+                {
+                    oldRequests.Remove(item);
+                }
+            }
+            Thread.Sleep(1440000);
+        }
+        #region Bank
+
 
         
     }

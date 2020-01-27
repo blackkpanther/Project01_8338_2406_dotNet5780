@@ -3,10 +3,71 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:UI.Control"
         mc:Ignorable="d"
-        Title="AddUnit" Height="450" Width="800">
-    <Grid>
-        
+        Title="AddUnit" WindowStartupLocation="{StaticResource WSL}"
+        Style="{StaticResource ResourceKey=pageDefault}" >
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid  x:Name="MainGrid" Width="460" Height="760" HorizontalAlignment="Center">
+        <Border>
+        <StackPanel VerticalAlignment="Center">
+            <StackPanel>
+                <DockPanel>
+                    <Label Content="hostingUnitKey:"/>
+                    <TextBox Text="{Binding Path=HostingUnitKey, Mode=OneWayToSource}"/>
+                </DockPanel>
+                <DockPanel>
+                    <Label Content="owner name:"/>
+                        <TextBox Text="{Binding Path=Owner.FullName, Mode=OneWayToSource}"/>
+                </DockPanel>
+                <DockPanel>
+                    <Label Content="Unit Name:"/>
+                        <TextBox Text="{Binding Path=UnitName, Mode=OneWayToSource}"/>
+                </DockPanel>
+                <DockPanel>
+                    <Label Content="SubArea, Area: "/>
+                        <TextBox Text="{Binding Path=SubArea, Mode=OneWayToSource}"/>
+                    <TextBlock Text=", "/>
+                        <TextBox Text="{Binding Path=Area, Mode=OneWayToSource}"/>
+                </DockPanel>
+
+                <DockPanel>
+                    <Label Content="Max Adults:" MinWidth="50"/>
+                        <TextBox Text="{Binding Path=Adults, Mode=OneWayToSource}" MinWidth="50" />
+                    <Label Content="Max Children:" MinWidth="50"/>
+                        <TextBox Text="{Binding Path=Children, Mode=OneWayToSource}" MinWidth="50"/>
+                </DockPanel>
+                <DockPanel>
+                    <Label Content="pool:" MinWidth="50"/>
+                        <TextBox Text="{Binding Path=Pool, Mode=OneWayToSource}" MinWidth="50"/>
+                    <Label Content="jacuzzi:" MinWidth="50"/>
+                        <TextBox Text="{Binding Path=Jacuzzi, Mode=OneWayToSource}" MinWidth="50"/>
+                </DockPanel>
+
+
+
+            </StackPanel>
+            <DockPanel>
+                <Grid Height="80">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="Add_Unit" Content="Add Unit" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8" Width="100" Height="40" Click="Add_Click"/>
+                    <Button x:Name="Cancel" Content="Cancel" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8" Width="100" Height="40" Click="Cancel_Click"/>
+                </Grid>
+            </DockPanel>
+        </StackPanel>
+        </Border>
     </Grid>
 </Window>

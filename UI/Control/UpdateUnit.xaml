@@ -21,8 +21,43 @@
     <Grid x:Name="MainGrid" Width="460" Height="760" HorizontalAlignment="Center">
         <Border  >
             <Grid Width="420">
-                <StackPanel >
+                <StackPanel VerticalAlignment="Center">
+                    <StackPanel Grid.RowSpan="2">
+                        <DockPanel>
+                            <Label Content="hostingUnitKey:"/>
+                            <TextBlock Text="{Binding Path=HostingUnitKey, Mode=OneWay}"/>
+                        </DockPanel>
+                        <DockPanel>
+                            <Label Content="owner name:"/>
+                            <TextBox Text="{Binding Path=Owner.FullName, Mode=TwoWay}"/>
+                        </DockPanel>
+                        <DockPanel>
+                            <Label Content="Unit Name:"/>
+                            <TextBox Text="{Binding Path=UnitName, Mode=TwoWay}"/>
+                        </DockPanel>
+                        <DockPanel>
+                            <Label Content="SubArea, Area: "/>
+                            <TextBox Text="{Binding Path=SubArea, Mode=TwoWay}"/>
+                            <TextBlock Text=", "/>
+                            <TextBox Text="{Binding Path=Area, Mode=TwoWay}"/>
+                        </DockPanel>
 
+                        <DockPanel>
+                            <Label Content="Max Adults:" MinWidth="50"/>
+                            <TextBox Text="{Binding Path=Adults, Mode=TwoWay}" MinWidth="50" />
+                            <Label Content="Max Children:" MinWidth="50"/>
+                            <TextBox Text="{Binding Path=Children, Mode=TwoWay}" MinWidth="50"/>
+                        </DockPanel>
+                        <DockPanel>
+                            <Label Content="pool:" MinWidth="50"/>
+                            <TextBox Text="{Binding Path=Pool, Mode=TwoWay}" MinWidth="50"/>
+                            <Label Content="jacuzzi:" MinWidth="50"/>
+                            <TextBox Text="{Binding Path=Jacuzzi, Mode=TwoWay}" MinWidth="50"/>
+                        </DockPanel>
+                       
+
+
+                    </StackPanel>
                     <DockPanel>
                         <Grid Height="80">
                             <Grid.ColumnDefinitions>

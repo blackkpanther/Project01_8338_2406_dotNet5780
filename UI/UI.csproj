@@ -83,6 +83,9 @@
     <Compile Include="Control\AddHost.xaml.cs">
       <DependentUpon>AddHost.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Control\AddUnit.xaml.cs">
+      <DependentUpon>AddUnit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Control\Hosts.xaml.cs">
       <DependentUpon>Hosts.xaml</DependentUpon>
     </Compile>
@@ -101,6 +104,9 @@
     <Compile Include="Control\UpdateHost.xaml.cs">
       <DependentUpon>UpdateHost.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Control\UpdateUnit.xaml.cs">
+      <DependentUpon>UpdateUnit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
     </Compile>
@@ -113,6 +119,10 @@
     <Page Include="Control\AddHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\AddUnit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Control\Hosts.xaml">
       <SubType>Designer</SubType>
@@ -141,6 +151,10 @@
     <Page Include="Control\UpdateHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\UpdateUnit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Menu.xaml">
       <SubType>Designer</SubType>
