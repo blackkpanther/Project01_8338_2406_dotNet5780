@@ -32,12 +32,12 @@ namespace UI.Control
             MainGrid.DataContext = CurrentHostingUnit;
         }
 
-        private void Add_Click(object sender, RoutedEventArgs e)
+        private void AddUnit_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 bl.AddHostingUnit(CurrentHostingUnit);
-                MessageBox.Show("UpDate Success!", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("add Success!", "", MessageBoxButton.OK, MessageBoxImage.Information);
                 Close();
 
             }

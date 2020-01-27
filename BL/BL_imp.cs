@@ -555,6 +555,49 @@ namespace BL
                    group item by item.Area;
             return gByA;
         }
+
+        IEnumerable<IGrouping<Host, HostingUnit>> Ibl.GroupUnitsByHost()
+        {
+            IEnumerable<IGrouping<Host, HostingUnit>> gByH;
+            gByH = from item in IDAL.GetHostingUnits()
+                   group item by item.Owner;
+            return gByH;
+        }
+        IEnumerable<IGrouping<Enums.Option, GuestRequest>> Ibl.GroupRequestByPool()
+        {
+            IEnumerable<IGrouping<Enums.Option, GuestRequest>> gByP;
+            gByP = from item in IDAL.GetGuestRequestList()
+                   group item by item.Pool;
+            return gByP;
+        }
+        IEnumerable<IGrouping<DateTime, Order>> Ibl.GroupOrdersByCreationDate()
+        {
+            IEnumerable<IGrouping<DateTime, Order>> gByD;
+            gByD = from item in IDAL.GetOrderList()
+                   group item by item.CreateDate;
+            return gByD;
+        }
+        IEnumerable<IGrouping<Guest, GuestRequest>> Ibl.GroupRequestsByGuest()
+        {
+            IEnumerable<IGrouping<Guest, GuestRequest>> gByG;
+            gByG = from item in IDAL.GetGuestRequestList()
+                   group item by item.Guest;
+            return gByG;
+        }
+        IEnumerable<IGrouping<Enums.Status, Order>> Ibl.GroupOrdersByStatus()
+        {
+            IEnumerable<IGrouping<Enums.Status, Order>> gByS;
+            gByS = from item in IDAL.GetOrderList()
+                   group item by item.Status;
+            return gByS;
+        }
+        IEnumerable<IGrouping<Enums.Type, HostingUnit>> Ibl.GroupUnitsByType()
+        {
+            IEnumerable<IGrouping<Enums.Type, HostingUnit>> gByT;
+            gByT = from item in IDAL.GetHostingUnits()
+                   group item by item.Type;
+            return gByT;
+        }
         #endregion
 
         #region AssistingMethods

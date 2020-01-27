@@ -63,7 +63,7 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="Add_Unit" Content="Add Unit" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8" Width="100" Height="40" Click="Add_Click"/>
+                    <Button x:Name="Add_Unit" Content="Add Unit" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8" Width="100" Height="40" Click="AddUnit_Click"/>
                     <Button x:Name="Cancel" Content="Cancel" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8" Width="100" Height="40" Click="Cancel_Click"/>
                 </Grid>
             </DockPanel>

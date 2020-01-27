@@ -42,7 +42,7 @@ namespace UI.Control
 
         private void AddUnit_Click(object sender, RoutedEventArgs e)
         {
-            Window AddUnit = new Control.AddUnit();
+            Window AddUnit = new Control.AddUnit(currentHostingUnit);
             AddUnit.Show();
         }
     }
