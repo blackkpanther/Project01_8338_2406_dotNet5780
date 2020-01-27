@@ -41,7 +41,7 @@
 
 
                     <Label Content="bankAccountNumber:" />
-                    <ComboBox Name="banks" SelectedItem="{Binding Path=BankAccountNumber, Mode=OneWayToSource}"></ComboBox>
+                    <ComboBox Name="banks" SelectedItem="{Binding Path=BankAccountNumber, Mode=OneWayToSource}" SelectionChanged="banks_SelectionChanged"></ComboBox>
 
 
                     <Label Content="collectionClearance:"  />

@@ -22,6 +22,7 @@ namespace UI.Control
     public partial class AddHost : Window
     {
         Ibl bl;
+        BankBranch bank;
         public Host CurrentHost { get; set; }
 
         public AddHost()
@@ -30,7 +31,8 @@ namespace UI.Control
             bl = FactoryBL.GetFactory();
             //this.CurrentHost.BankBranchDetails = new BankBranch();
             this.banks.ItemsSource = bl.GetBankBranchList();
-             this.banks.DisplayMemberPath = "BankName";
+            this.banks.DisplayMemberPath = "BankName";
+            this.banks.SelectedValue = "BankNumber";
            
 
             this.DataContext = CurrentHost;
@@ -58,9 +60,11 @@ namespace UI.Control
             Close();
         }
 
-        private void banks_Selected(object sender, RoutedEventArgs e)
+        private void banks_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            //bank = (BE.BankBranch)this.banks_SelectionChanged.SelectedItem;
+            //CurrentHost.BankAccountNumber = bank.BankNumber;
+            //this.DataContext = CurrentHost;
         }
     }
 }

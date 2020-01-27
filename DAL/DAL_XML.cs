@@ -61,12 +61,12 @@ namespace DAL
             else
                 LoadData(guestsReqPath);
 
-            //if (!System.IO.File.Exists(unitPath))
-            //{
-            //    SaveToXML(new List<HostingUnit>(), unitPath);
-            //}
-            //else
-            //    LoadData(unitPath);
+            if (!System.IO.File.Exists(unitPath))
+            {
+                SaveToXML(new List<HostingUnit>(), unitPath);
+            }
+            else
+                LoadData(unitPath);
 
 
         }
