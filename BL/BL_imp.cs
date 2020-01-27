@@ -10,6 +10,7 @@ namespace BL
 {
     public class BL_imp : Ibl
     {
+
         DAL.Idal IDAL;
 
         public BL_imp()
@@ -116,12 +117,12 @@ namespace BL
         List<HostingUnit> Ibl.AvailableHostingUnits(DateTime date, int n)
         {
             List<HostingUnit> tempList = IDAL.GetHostingUnitList();
-            return tempList.Where(u => u.Diary[date.Month, date.Day]).ToList();
+            return tempList.Where(u => u.Diary[date.Month, date.Day]).ToList();//linq
         }
         List<Order> Ibl.NumberOfOrders(int days)
         {
             List<Order> tempList = IDAL.GetOrderList();
-            return tempList.Where(order => ((DateTime.Now.Day - order.CreateDate.Day) >= days) || ((DateTime.Now.Day - order.EmailSent.Day) >= days)).ToList();
+            return tempList.Where(order => ((DateTime.Now.Day - order.CreateDate.Day) >= days) || ((DateTime.Now.Day - order.EmailSent.Day) >= days)).ToList();//linq+lambda
         }
 
         /* public IEnumerable<GuestRequest> GetRequestsOfType*/
@@ -129,22 +130,22 @@ namespace BL
         {
             IEnumerable<GuestRequest> tempList = IDAL.GetGuestRequestList();
             if (predicate == null)
-                return tempList.AsEnumerable().Select(g => g.Clone());
-            return tempList.Where(predicate).Select(g => g.Clone());
+                return tempList.AsEnumerable().Select(g => g.Clone());//linq
+            return tempList.Where(predicate).Select(g => g.Clone());//linq
         }
-       IEnumerable<HostingUnit> Ibl.GetUnitsOfType(Func<BE.HostingUnit, bool> predicate = null)
+       IEnumerable<HostingUnit> Ibl.GetUnitsOfType(Func<BE.HostingUnit, bool> predicate = null)//predicate
         {
             IEnumerable<HostingUnit> tempList = IDAL.GetHostingUnitList();
             if (predicate == null)
                 return tempList.AsEnumerable().Select(u => u.Clone());
             return tempList.Where(predicate).Select(u => u.Clone());
         }
-        IEnumerable<Order> Ibl.GetOrdersOfType(Func<BE.Order, bool> predicate = null)
+        IEnumerable<Order> Ibl.GetOrdersOfType(Func<BE.Order, bool> predicate = null)//predicate
         {
             IEnumerable<Order> tempList = IDAL.GetOrderList();
             if (predicate == null)
-                return tempList.AsEnumerable().Select(o => o.Clone());
-            return tempList.Where(predicate).Select(o => o.Clone());
+                return tempList.AsEnumerable().Select(o => o.Clone());//linq
+            return tempList.Where(predicate).Select(o => o.Clone());//linq
         }
         #endregion
 
@@ -177,6 +178,56 @@ namespace BL
                    group item by item.Area;
             return gByA;
         }
+
+        IEnumerable<IGrouping<Host, HostingUnit>> Ibl.GroupUnitsByHost()
+        {
+            IEnumerable<IGrouping<Host, HostingUnit>> gByH;
+            gByH = from item in IDAL.GetHostingUnitList()
+                   group item by item.Owner;
+            return gByH;
+        }
+        IEnumerable<IGrouping<Enums.Option,GuestRequest>> Ibl.GroupRequestByPool()
+        {
+            IEnumerable<IGrouping<Enums.Option, GuestRequest>> gByP;
+            gByP = from item in IDAL.GetGuestRequestList()
+                   group item by item.Pool;
+            return gByP;
+        }
+        IEnumerable<IGrouping<DateTime, Order>> Ibl.GroupOrdersByCreationDate()
+        {
+            IEnumerable<IGrouping<DateTime, Order>> gByD;
+            gByD = from item in IDAL.GetOrderList()
+                   group item by item.CreateDate;
+            return gByD;
+        }
+        IEnumerable<IGrouping<string,GuestRequest>> Ibl.GroupRequestsByName()
+        {
+            IEnumerable<IGrouping<string, GuestRequest> > gByN;
+            gByN = from item in IDAL.GetGuestRequestList()
+                   group item by item.FamilyName;
+            return gByN;
+        }
+        IEnumerable<IGrouping<string, GuestRequest>> Ibl.GroupRequestsByName()
+        {
+            IEnumerable<IGrouping<string, GuestRequest>> gByN;
+            gByN = from item in IDAL.GetGuestRequestList()
+                   group item by item.FamilyName;
+            return gByN;
+        }
+        IEnumerable<IGrouping<Enums.Status, Order>> Ibl.GroupOrdersByStatus()
+        {
+            IEnumerable<IGrouping<Enums.Status, Order>> gByS;
+            gByS = from item in IDAL.GetOrderList()
+                   group item by item.Status;
+            return gByS;
+        }
+        IEnumerable<IGrouping<Enums.Type, HostingUnit>> Ibl.GroupUnitsByType()
+        {
+            IEnumerable<IGrouping<Enums.Type, HostingUnit>> gByT;
+            gByT = from item in IDAL.GetHostingUnitList()
+                   group item by item.Type;
+            return gByT;
+        }
         #endregion
 
         #region AssistingMethods
@@ -189,30 +240,37 @@ namespace BL
         int Ibl.NumberOfInvites(GuestRequest request)
         {
             List<Order> tempList = IDAL.GetOrderList();
-            var count = (tempList.Count(item => item.GuestRequestKey == request.GuestRequestKey));
+            var count = (tempList.Count(item => item.GuestRequestKey == request.GuestRequestKey));//lambda
             return count;
         }
         int Ibl.NumberOfInvites(HostingUnit unit)
         {
             List<Order> tempList = IDAL.GetOrderList();
-            var count = (tempList.Count(item => item.HostingUnitKey == unit.HostingUnitKey && (item.Status == Enums.Status.MailSent || item.Status == Enums.Status.Treated)));
+            var count = (tempList.Count(item => item.HostingUnitKey == unit.HostingUnitKey && (item.Status == Enums.Status.MailSent || item.Status == Enums.Status.Treated)));//lambda
             return count;
         }
         #endregion
 
 
-       /* public List<GuestRequest> termOfRequest(GuestRequestDelegate requestDelegate)
-        {
+        /* public List<GuestRequest> termOfRequest(GuestRequestDelegate requestDelegate)
+         {
 
-            return IDAL.GetGuestRequestList().Where(item => (requestDelegate));
+             return IDAL.GetGuestRequestList().Where(item => (requestDelegate));
+         }
+         static public bool BPool(GuestRequest guestRequest)
+         {
+             if (guestRequest.Pool == Enums.Option.Necessary || guestRequest.Pool == Enums.Option.possible)
+                 return true;
+             return false;
+
+         }*/
+
+        public Order oEmail;
+        public Order OEmail
+        {
+            get;
+            set;
         }
-        static public bool BPool(GuestRequest guestRequest)
-        {
-            if (guestRequest.Pool == Enums.Option.Necessary || guestRequest.Pool == Enums.Option.possible)
-                return true;
-            return false;
-
-        }*/
     }
    // public delegate bool GuestRequestDelegate(GuestRequest guestRequest);
 

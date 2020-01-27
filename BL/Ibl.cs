@@ -47,6 +47,12 @@ namespace BL
         IEnumerable<IGrouping<int,GuestRequest>> GroupRequestsByNumOfGuests();
         IEnumerable<IGrouping<int,Host>> GroupHostsByNumOfUnits();
         IEnumerable<IGrouping<Enums.Area,HostingUnit>> GroupUnitsByArea();
+        IEnumerable<IGrouping<Host, HostingUnit>> GroupUnitsByHost();
+        IEnumerable<IGrouping<Enums.Option, GuestRequest>> GroupRequestByPool();
+        IEnumerable<IGrouping<DateTime, Order>> GroupOrdersByCreationDate();
+        IEnumerable<IGrouping<string, GuestRequest>> GroupRequestsByName();
+        IEnumerable<IGrouping<Enums.Status, Order>> GroupOrdersByStatus();
+        IEnumerable<IGrouping<Enums.Type, HostingUnit>> GroupUnitsByType();
         #endregion
 
         #region AssistingMethods
