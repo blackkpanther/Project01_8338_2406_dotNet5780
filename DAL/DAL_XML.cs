@@ -25,9 +25,8 @@ namespace DAL
         string unitPath = "Units.xml";
         string guestsReqPath = "GuestsReq.xml";
         string bankPath = @"BranchXML.xml";
-
+        
         List<BankBranch> branches = new List<BankBranch>();
-      
         BackgroundWorker worker = new BackgroundWorker();
 
 
@@ -69,7 +68,7 @@ namespace DAL
             else
                 LoadData(unitPath);
 
-
+            
         }
 
 
@@ -220,21 +219,6 @@ namespace DAL
             SaveToXML<List<Order>>(list, ordersPath);
         }
 
-        public GuestRequest CheckGuestRequest(long key)
-        {
-            throw new NotImplementedException();
-        }
-
-        public HostingUnit CheckHostingUnit(long key)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Order CheckOrder(long key)
-        {
-            throw new NotImplementedException();
-        }
-
         public void DeleteHost(Host host)
         {
             var list = LoadFromXML<List<Host>>(hostPath);
@@ -379,33 +363,160 @@ namespace DAL
             };
         }
 
-        #region Bank
+        void Idal.AddGuest(Guest guest)
+        {
+            throw new NotImplementedException();
+        }
 
+        void Idal.UpdateGuest(Guest guest)
+        {
+            throw new NotImplementedException();
+        }
 
+        void Idal.DeleteGuest(Guest guest)
+        {
+            throw new NotImplementedException();
+        }
 
-        #endregion
-public void Clean()
+        List<Guest> Idal.GetGuests()
+        {
+            throw new NotImplementedException();
+        }
+
+        Guest Idal.GetGuest(long guestKey)
+        {
+            throw new NotImplementedException();
+        }
+
+        void Idal.AddGuestRequest(GuestRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        void Idal.UpdateGuestRequest(GuestRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<GuestRequest> Idal.GetGuestRequestList()
+        {
+            throw new NotImplementedException();
+        }
+
+        GuestRequest Idal.GetGuestRequest(long gustReqKey)
+        {
+            throw new NotImplementedException();
+        }
+
+        void Idal.DeleteHost(Host host)
+        {
+            throw new NotImplementedException();
+        }
+
+        void Idal.UpdateHost(Host host)
+        {
+            throw new NotImplementedException();
+        }
+
+        void Idal.AddHost(Host host)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<Host> Idal.GetHosts()
+        {
+            throw new NotImplementedException();
+        }
+
+        Host Idal.GetHost(long hostKey)
+        {
+            throw new NotImplementedException();
+        }
+
+        void Idal.AddHostingUnit(HostingUnit unit)
+        {
+            throw new NotImplementedException();
+        }
+
+        void Idal.UpdateHostingUnit(HostingUnit unit)
+        {
+            throw new NotImplementedException();
+        }
+
+        void Idal.DeleteHostingUnit(HostingUnit unit)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<HostingUnit> Idal.GetHostingUnits()
+        {
+            throw new NotImplementedException();
+        }
+
+        HostingUnit Idal.GetHostingUnit(long hostingUnitKey)
+        {
+            throw new NotImplementedException();
+        }
+
+        void Idal.AddOrder(Order order)
+        {
+            throw new NotImplementedException();
+        }
+
+        void Idal.UpdateOrder(Order order)
+        {
+            throw new NotImplementedException();
+        }
+
+        void Idal.DeleteOrder(Order order)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<Order> Idal.GetOrderList()
+        {
+            throw new NotImplementedException();
+        }
+
+        Order Idal.GetOrder(long horderKey)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<BankBranch> Idal.GetBankBranchList()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Clean()
         {
             Thread t = new Thread(DailyUpdate);
             t.Start();
         }
-        public void DailyUpdate()
-        { 
+        public void DailyUpdate()//
+        {
             List<GuestRequest> oldRequests = new List<GuestRequest>();
-            try {
+            try
+            {
                 if (guestsReqFile.IsEmpty)
                     throw new Exception(" ");
             }
             catch
             {
                 oldRequests = GetGuestRequestList();
-                oldRequests = oldRequests.GroupBy(x => (Convert.ToInt32.(DateTime.Now - x.RegistrationDate)) > 30);
+                oldRequests = oldRequests.GroupBy(x => ((DateTime.Now.Day - x.RegistrationDate.Day)) > 30);
                 foreach (var item in oldRequests)
                 {
                     oldRequests.Remove(item);
                 }
             }
             Thread.Sleep(1440000);
+        }
+        #region Bank
+
+
+
+        #endregion
     }
     //class DAL_XML
     //{

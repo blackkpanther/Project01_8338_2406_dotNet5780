@@ -1,0 +1,71 @@
+﻿<Window x:Class="UI.Control.AddHost"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI.Control"
+        mc:Ignorable="d"
+        Title="AddHost"   WindowStartupLocation="{StaticResource WSL}"
+        Style="{StaticResource ResourceKey=pageDefault}" >
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid x:Name="MainGrid" Width="460" Height="760" HorizontalAlignment="Center">
+        <Border  >
+            <Grid Width="420">
+                <StackPanel 
+               VerticalAlignment="Center"  >
+                    <Label/>
+
+                    <Label Content="privateName:" />
+                    <TextBox Text="{Binding Path=PrivateName, Mode=OneWayToSource}" />
+
+
+                    <Label Content="familyName;"/>
+                    <TextBox Text="{Binding Path=FamilyName, Mode=OneWayToSource}" />
+
+
+                    <Label Content="phoneNumber:"  />
+                    <TextBox Text="{Binding Path=PhoneNumber, Mode=OneWayToSource}" />
+
+
+                    <Label Content="mailAddress:"/>
+                    <TextBox Text="{Binding Path=MailAddress, Mode=OneWayToSource}"  />
+
+
+                    <Label Content="bankAccountNumber:" />
+                    <TextBox Text="{Binding Path=BankAccountNumber, Mode=OneWayToSource}" />
+                    <ComboBox Name="banks" SelectedItem="{Binding BankBranchDetails}"></ComboBox>
+
+
+                    <Label Content="collectionClearance:"  />
+                    <TextBox Text="{Binding Path=CollectionClearance, Mode=OneWayToSource}"  />
+                    <ComboBox Name="collectionClearance" SelectedValue="{Binding CollectionClearance, Mode=OneWayToSource}">
+                        <ComboBoxItem Content="True" IsSelected="True"/>
+                        <ComboBoxItem Content="False" IsSelected="False"/>
+                    </ComboBox>
+                    <Label Content="numOfUnits"  />
+                    <TextBox Text="{Binding Path=NumOfUnits, Mode=OneWayToSource}"  />
+
+                    <DockPanel>
+                        <Grid Height="80">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Button x:Name="Addhost" Content="AddHost" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8" Width="100" Height="40" Click="AddHost_Click"/>
+                            <Button x:Name="Cancel" Content="Cancel" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8" Width="100" Height="40" Click="Cancel_Click"/>
+                        </Grid>
+                    </DockPanel>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

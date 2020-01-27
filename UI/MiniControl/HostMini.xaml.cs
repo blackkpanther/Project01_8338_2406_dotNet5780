@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BE;
+using BL;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using BE;
 namespace UI.MiniControl
 {
     /// <summary>
@@ -20,13 +9,14 @@ namespace UI.MiniControl
     /// </summary>
     public partial class HostMini : UserControl
     {
-
+        Ibl bl;
         public Host CurrentHost { get; set; }
 
         public HostMini(Host host)
         {
             InitializeComponent();
-            this.CurrentHost = host;
+            bl = FactoryBL.GetFactory();
+            CurrentHost = bl.GetHost(host.HostKey); //host;
 
             this.DataContext = CurrentHost;
             MainGrid.DataContext = CurrentHost;
@@ -34,9 +24,18 @@ namespace UI.MiniControl
 
 
         }
-        
-        
 
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            bl.DeleteHost(CurrentHost);
+
+        }
+
+        private void SelectionChangedUpdate(object sender, RoutedEventArgs e)
+        {
+            Window UpdateHost = new Control.UpdateHost(CurrentHost);
+            UpdateHost.Show();
+        }
 
     }
 }

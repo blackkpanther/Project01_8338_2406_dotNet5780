@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BE
 {
-   public class GuestRequest
+    public class GuestRequest
     {
         private long guestRequestKey;
-        private string privateName;
-        private string familyName;
-        private string mailAddress;
-        private Enums.Status status; 
+        private Guest guest;
+        //private string privateName;
+        //private string familyName;
+        //private string mailAddress;
+        private Enums.Status status;
         private DateTime registrationDate;
         private DateTime entryDate;
         private DateTime releaseDate;
@@ -25,31 +22,36 @@ namespace BE
         private Enums.Option jacuzzi;
         private Enums.Option garden;
         private Enums.Option childrensAttractions;
-        private  bool signed;//הרשאה לחיוב חשבון בנק
+        private bool signed;//הרשאה לחיוב חשבון בנק
 
 
         //properties:
 
+            public Guest Guest1
+        {
+            get { return guest; }
+            set { guest = value; }
+        }
         public long GuestRequestKey
         {
             get;
             set;
         }
-        public string PrivateName
-        {
-            get { return privateName; }
-            set { privateName = value; }
-        }
-        public string FamilyName
-        {
-            get { return familyName; }
-            set { familyName = value; }
-        }
-        public string MailAddress
-        {
-            get { return mailAddress; }
-            set { mailAddress = value; }
-        }
+        //public string PrivateName
+        //{
+        //    get { return privateName; }
+        //    set { privateName = value; }
+        //}
+        //public string FamilyName
+        //{
+        //    get { return familyName; }
+        //    set { familyName = value; }
+        //}
+        //public string MailAddress
+        //{
+        //    get { return mailAddress; }
+        //    set { mailAddress = value; }
+        //}
         public Enums.Status Status
         {
             get { return status; }
@@ -108,23 +110,23 @@ namespace BE
         public Enums.Option Garden
         {
             get { return garden; }
-            set { garden = value;  }
+            set { garden = value; }
         }
         public Enums.Option ChildrensAttractions
         {
             get { return childrensAttractions; }
             set { childrensAttractions = value; }
         }
-public  bool Signed
-{
-            get{return signed;}
-            set{signed=value;}
-}
+        public bool Signed
+        {
+            get { return signed; }
+            set { signed = value; }
+        }
 
         public override string ToString()
         {
-            return " GuestRequestKey: " + GuestRequestKey + ", privateName: " + privateName
-            + ", FamilyName: " + FamilyName + ", MailAddress: " + MailAddress + ", Status: " + Status
+            return " GuestRequestKey: " + GuestRequestKey + /*", privateName: " + privateName
+            + ", FamilyName: " + FamilyName + ", MailAddress: " + MailAddress +*/ "Guest: " + Guest1.ToString()+ ", Status: " + Status
             + ",  RegistrationDate: " + RegistrationDate + ", EntryDate: " + EntryDate + ", ReleaseDate: "
             + ReleaseDate + ",  Area: " + Area + ",   SubArea: " + SubArea + ",  Type: " + Type
             + ",   Adults: " + Adults + ", Children: " + Children + ",    Pool: " + Pool + ",  Jacuzzi: "

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-
-namespace DAL
+﻿namespace DAL
 {
     public class FactoryDAL
     {
@@ -14,7 +8,8 @@ namespace DAL
         public static Idal GetFactory()
         {
             if (instance == null)
-                instance = new Dal_imp();
+                instance = new DAL_XML();
+                //instance = new Dal_imp();
             return instance;
         }
 

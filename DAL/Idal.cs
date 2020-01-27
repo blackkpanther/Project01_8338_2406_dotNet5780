@@ -1,40 +1,53 @@
-﻿using System;
+﻿using BE;
 using System.Collections.Generic;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-using BE;
-using DS;
 
 namespace DAL
 {
     public interface Idal
     {
+        #region Guest
+        void AddGuest(Guest guest);
+        void UpdateGuest(Guest guest);
+        void DeleteGuest(Guest guest);
+        List<Guest> GetGuests() ;
+        Guest GetGuest(long guestKey);
+        #endregion
+
         #region GuestRequest
         void AddGuestRequest(GuestRequest request);
-        void UpdateGuestRequest(ref GuestRequest request, Enums.Status status);
-        GuestRequest CheckGuestRequest(long key);
+        void UpdateGuestRequest(GuestRequest request);
+        List<GuestRequest> GetGuestRequestList();
+        GuestRequest GetGuestRequest(long gustReqKey);
+        #endregion
+
+        #region Host
+        void DeleteHost(Host host);
+        void UpdateHost(Host host);
+        void AddHost(Host host);
+        List<Host> GetHosts();
+        Host GetHost(long hostKey);
         #endregion
 
         #region HostingUnit
         void AddHostingUnit(HostingUnit unit);
-        void UpdateHostingUnit(ref HostingUnit unit, bool[,] diary);
+        void UpdateHostingUnit(HostingUnit unit);
         void DeleteHostingUnit(HostingUnit unit);
-        HostingUnit CheckHostingUnit(long key);
+        List<HostingUnit> GetHostingUnits();
+        HostingUnit GetHostingUnit(long hostingUnitKey);
         #endregion
 
         #region Order
         void AddOrder(Order order);
-        void UpdateOrder(ref Order order, Enums.Status status);
-        Order CheckOrder(long key);
+        void UpdateOrder(Order order);
+        void DeleteOrder(Order order);
+        List<Order> GetOrderList();
+        Order GetOrder(long horderKey);
         #endregion
 
-        #region Lists
-        List<HostingUnit> GetHostingUnitList();
-        List<GuestRequest> GetGuestRequestList();
-        List<Order> GetOrderList();
+        #region bank
+
         List<BankBranch> GetBankBranchList();
-        List<Host> GetHostList();
+      
         #endregion
     }
 }

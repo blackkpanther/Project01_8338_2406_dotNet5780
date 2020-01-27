@@ -1,17 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace BE
+﻿namespace BE
 {
-    class Guest
+    public class Guest
     {
-        private string privateName;
+        private long guestKey;
         private string familyName;
+        private string privateName;
         private string mailAddress;
         private long bankAccountNumber;
+
+        public long GuestKey
+            {
+            get { return guestKey; }
+            set { guestKey = value; }
+        }
 
         public string PrivateName
         {
@@ -38,5 +39,9 @@ namespace BE
         {
             return "First Name: " + privateName + " Last Name: " + familyName + " Email: " + mailAddress + " BankAccount Number: " + bankAccountNumber;
         }
+        //public override string ToString()
+        //{
+        //    return "guest ";
+        //}
     }
 }

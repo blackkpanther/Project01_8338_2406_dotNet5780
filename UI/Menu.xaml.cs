@@ -52,7 +52,7 @@ namespace UI
                 SystemCommands.MaximizeWindow(this);
         }
         
-        private void SelectionChanged(object sender, RoutedEventArgs e)
+        public void SelectionChanged(object sender, RoutedEventArgs e)
         {
             UserControl usc = null;
             GridMain.Children.Clear();
@@ -70,16 +70,16 @@ namespace UI
                     usc = new Control.Units();
                     GridMain.Children.Add(usc);
                     break;
-                case "AdminUsers":
+                case "AdminHost":
                     usc = new Control.Hosts();
                     GridMain.Children.Add(usc);
                     break;
-                case "AdminRemove":
-                    usc = new Control.UserControl1();
+                case "AdminGuest":
+                    usc = new Control.Hosts();
                     GridMain.Children.Add(usc);
                     break;
                 case "AddUnit":
-                    usc = new Control.UserControl1();
+                    usc = new Control.Units();
                     GridMain.Children.Add(usc);
                     break;
                 case "HostOrders":
@@ -98,15 +98,12 @@ namespace UI
                     usc = new Control.Orders();
                     GridMain.Children.Add(usc);
                     break;
-                case "GuestSomething":
-                    usc = new Control.UserControl1();
-                    GridMain.Children.Add(usc);
-                    break;
                 case "testUserControl":
                     //usc = new MiniControl.miniTest();
                     usc = new Control.test();
                     GridMain.Children.Add(usc);
                     break;
+               
                 default:
                     break;
             }

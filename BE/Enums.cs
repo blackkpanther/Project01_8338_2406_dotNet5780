@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace BE
+﻿namespace BE
 {
-  public class Enums
+    public class Enums
     {
         // GuestRequest:
         public enum Area
@@ -61,7 +55,7 @@ namespace BE
             BankMizrahi,
             InternationalBank,
             DiscountBank,
-            
+
         }
 
         //Order:

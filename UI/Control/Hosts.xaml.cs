@@ -1,18 +1,9 @@
-﻿using System;
+﻿using BE;
+using BL;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using BE;
+using System.Windows;
+
 
 namespace UI.Control
 {
@@ -21,40 +12,21 @@ namespace UI.Control
     /// </summary>
     public partial class Hosts : UserControl
     {
+        Ibl bl;
         public List<Host> HostsList { get; set; }
         private Host currentHost;
 
         public Hosts()
         {
-            HostsList = new List<Host>();
-            currentHost = new Host//לבדיקה
-            //אחרי :למחוק שורה ולבדוק אם צריך constructor
-            {
-                HostKey = 10000001,
-                PrivateName = "Accccccc",
-                FamilyName = "AA",
-                PhoneNumber = "0000000000",
-                MailAddress = "aaa@gmail.com",
-                BankBranchDetails = new BankBranch
-                {
-                    BankNumber = 1,
-                    BankName = Enums.BankName.BankLeumi,
-                    BranchNumber = 111,
-                    BranchAddress = "aaaa aaaa",
-                    BranchCity = Enums.SubArea.Afula
-                },
-                BankAccountNumber = 111,
-                CollectionClearance = true,
 
-            };
             InitializeComponent();
-
-            for (int i = 0; i < 6; i++)//רק לבדיקה
+            bl = FactoryBL.GetFactory();
+             HostsList = bl.GetHosts();
+           // HostsList = new List<Host>();
+          
+            for (int i = 0; i < HostsList.Count; i++)
             {
-                HostsList.Add(currentHost);
-            }
-            for (int i = 0; i < 6; i++)
-            {
+                currentHost = HostsList[i];
                 RowDefinition row = new RowDefinition();
                 row.MinHeight = 120;
 
@@ -69,6 +41,10 @@ namespace UI.Control
 
         }
 
-
+        private void AddHost_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            Window AddHost = new Control.AddHost();
+            AddHost.Show();
+        }
     }
 }

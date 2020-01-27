@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Globalization;
 
 namespace BE
 {
-   public class HostingUnit
+    public class HostingUnit
     {
         private long hostingUnitKey;
         private Host owner;
@@ -23,11 +19,18 @@ namespace BE
         private Enums.Option garden;
         private Enums.Option childrensAttractions;
         private long pricePerNight;// *
-        public List<string> Uris { get; set; }
+        public List<string> Uris{ get; set; }
         // private string uri;// "https://img.mako.co.il/2014/10/13/asnbsdnsn05_c.jpg",
         private Calendar Calendar;
-
+        //public List<string> Uris { get { return Uris; } set { Uris = value; } }
         //properties:
+
+        //public List<string> Uris
+        //{
+        //    get { return uris; }
+        //    set { uris = value; }
+
+        //}
 
         public long HostingUnitKey
         {
@@ -54,7 +57,7 @@ namespace BE
             get { return subArea; }
             set { subArea = value; }
         }
-         public Enums.Area Area
+        public Enums.Area Area
         {
             get { return area; }
             set { area = value; }
@@ -87,7 +90,7 @@ namespace BE
         public Enums.Option Garden
         {
             get { return garden; }
-            set { garden = value;  }
+            set { garden = value; }
         }
         public Enums.Option ChildrensAttractions
         {
@@ -95,15 +98,15 @@ namespace BE
             set { childrensAttractions = value; }
         }
         public long PricePerNight
-            {
-            get{return pricePerNight;}
-            set{pricePerNight=value;}
-            }
-        /*public string Uri
         {
-            get { return uri; }
-            set { uri = value; }
-        }*/
+            get { return pricePerNight; }
+            set { pricePerNight = value; }
+        }
+        /*public string Uri
+{
+get { return uri; }
+set { uri = value; }
+}*/
         //printing method
         public override string ToString()
         {
