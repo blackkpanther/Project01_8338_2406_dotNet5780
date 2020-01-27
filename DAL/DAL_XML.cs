@@ -24,7 +24,7 @@ namespace DAL
         string ordersPath = "Orders.xml";
         string unitPath = "Units.xml";
         string guestsReqPath = "GuestsReq.xml";
-        //string bankPath = @"BranchXML.xml";
+        string bankPath = @"BranchXML.xml";
         
         List<BankBranch> branches = new List<BankBranch>();
         BackgroundWorker worker = new BackgroundWorker();
@@ -61,12 +61,12 @@ namespace DAL
             else
                 LoadData(guestsReqPath);
 
-            //if (!System.IO.File.Exists(unitPath))
-            //{
-            //    SaveToXML(new List<HostingUnit>(), unitPath);
-            //}
-            //else
-            //    LoadData(unitPath);
+            if (!System.IO.File.Exists(unitPath))
+            {
+                SaveToXML(new List<HostingUnit>(), unitPath);
+            }
+            else
+                LoadData(unitPath);
 
             
         }
@@ -112,9 +112,9 @@ namespace DAL
                     case "GuestsReq.xml":
                         guestsReqFile = XElement.Load(guestsReqPath);
                         break;
-                    //case "snifim_dnld_he.xml":
-                    //    bankFile = XElement.Load(bankPath);
-                    //    break;
+                    case "snifim_dnld_he.xml":
+                        bankFile = XElement.Load(bankPath);
+                        break;
                     default:
                         throw new Exception("File upload problem");
                 }
@@ -217,21 +217,6 @@ namespace DAL
             var list = LoadFromXML<List<Order>>(ordersPath);
             list.Add(order);
             SaveToXML<List<Order>>(list, ordersPath);
-        }
-
-        public GuestRequest CheckGuestRequest(long key)
-        {
-            throw new NotImplementedException();
-        }
-
-        public HostingUnit CheckHostingUnit(long key)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Order CheckOrder(long key)
-        {
-            throw new NotImplementedException();
         }
 
         public void DeleteHost(Host host)
@@ -503,7 +488,30 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-
+        public void Clean()
+        {
+            Thread t = new Thread(DailyUpdate);
+            t.Start();
+        }
+        public void DailyUpdate()//
+        {
+            List<GuestRequest> oldRequests = new List<GuestRequest>();
+            try
+            {
+                if (guestsReqFile.IsEmpty)
+                    throw new Exception(" ");
+            }
+            catch
+            {
+                oldRequests = GetGuestRequestList();
+                oldRequests = oldRequests.GroupBy(x => ((DateTime.Now.Day - x.RegistrationDate.Day)) > 30);
+                foreach (var item in oldRequests)
+                {
+                    oldRequests.Remove(item);
+                }
+            }
+            Thread.Sleep(1440000);
+        }
         #region Bank
 
 
