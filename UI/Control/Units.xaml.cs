@@ -14,7 +14,7 @@ namespace UI.Control
     {
         Ibl bl;
         public List<HostingUnit> HostingUnitsList { get; set; }
-        private HostingUnit currentHostingUnit;
+        public HostingUnit currentHostingUnit;
 
         public Units()
         {
@@ -26,7 +26,7 @@ namespace UI.Control
 
             for (int i = 0; i < HostingUnitsList.Count ; i++)
             {
-               // currentHostingUnit = HostingUnitsList[i];
+                //currentHostingUnit = bl.GetHostingUnit(HostingUnitsList[i].HostingUnitKey);
                 RowDefinition row = new RowDefinition();
                 row.MinHeight = 120;
 
@@ -42,7 +42,7 @@ namespace UI.Control
 
         private void AddUnit_Click(object sender, RoutedEventArgs e)
         {
-            Window AddUnit = new Control.AddUnit(currentHostingUnit);
+            Window AddUnit = new Control.AddUnit();
             AddUnit.Show();
         }
     }

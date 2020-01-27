@@ -24,10 +24,10 @@ namespace UI.Control
     {
         Ibl bl;
         public HostingUnit CurrentHostingUnit { get; set; }
-        public AddUnit(HostingUnit hostingUnit)
+        public AddUnit()
         {
             bl = FactoryBL.GetFactory();
-            this.CurrentHostingUnit = hostingUnit;
+          //  this.CurrentHostingUnit = hostingUnit;
             this.DataContext = CurrentHostingUnit;
             MainGrid.DataContext = CurrentHostingUnit;
         }
