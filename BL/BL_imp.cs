@@ -28,14 +28,14 @@ namespace BL
                     FamilyName = "AA",
                     PhoneNumber = "0000000000",
                     MailAddress = "aaa@gmail.com",
-                    BankBranchDetails = new BankBranch
-                    {
-                        BankNumber = 1,
-                        BankName = "Leumi",
-                        BranchNumber = 111,
-                        BranchAddress = "aaaa aaaa",
-                        BranchCity = "Afula"
-                    },
+                    BankBranchDetails = new BankBranch(),
+                    //{
+                    //    BankNumber = 1,
+                    //    BankName = "Leumi",
+                    //    BranchNumber = 111,
+                    //    BranchAddress = "aaaa aaaa",
+                    //    BranchCity = "Afula"
+                    //},
                     BankAccountNumber = 111,
                     CollectionClearance = true,
 
@@ -47,14 +47,14 @@ namespace BL
                     FamilyName = "AA",
                     PhoneNumber = "0000000000",
                     MailAddress = "aaa@gmail.com",
-                    BankBranchDetails = new BankBranch
-                    {
-                        BankNumber = 1,
-                        BankName = "Leumi",
-                        BranchNumber = 111,
-                        BranchAddress = "aaaa aaaa",
-                        BranchCity = "Afula"
-                    },
+                    BankBranchDetails = new BankBranch(),
+                    //{
+                    //    BankNumber = 1,
+                    //    BankName =Enums.BankName.BankLeum,
+                    //    BranchNumber = 111,
+                    //    BranchAddress = "aaaa aaaa",
+                    //    BranchCity =Enums.SubArea.Afula,// "Afula"
+                    //},
                     BankAccountNumber = 111,
                     CollectionClearance = true,
 
@@ -66,14 +66,14 @@ namespace BL
                     FamilyName = "AA",
                     PhoneNumber = "0000000000",
                     MailAddress = "aaa@gmail.com",
-                    BankBranchDetails = new BankBranch
-                    {
-                        BankNumber = 1,
-                        BankName = "Leumi",
-                        BranchNumber = 111,
-                        BranchAddress = "aaaa aaaa",
-                        BranchCity = "Afula"
-                    },
+                    BankBranchDetails = new BankBranch(),
+                    //{
+                    //    BankNumber = 1,
+                    //    BankName = "Leumi",
+                    //    BranchNumber = 111,
+                    //    BranchAddress = "aaaa aaaa",
+                    //    BranchCity = "Afula"
+                    //},
                     BankAccountNumber = 111,
                     CollectionClearance = true,
 
@@ -85,14 +85,14 @@ namespace BL
                     FamilyName = "AA",
                     PhoneNumber = "0000000000",
                     MailAddress = "aaa@gmail.com",
-                    BankBranchDetails = new BankBranch
-                    {
-                        BankNumber = 1,
-                        BankName = "Leumi",
-                        BranchNumber = 111,
-                        BranchAddress = "aaaa aaaa",
-                        BranchCity = "Afula"
-                    },
+                    BankBranchDetails = new BankBranch(),
+                    //{
+                    //    BankNumber = 1,
+                    //    BankName = "Leumi",
+                    //    BranchNumber = 111,
+                    //    BranchAddress = "aaaa aaaa",
+                    //    BranchCity = "Afula"
+                    //},
                     BankAccountNumber = 111,
                     CollectionClearance = true,
 

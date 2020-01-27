@@ -22,13 +22,14 @@ namespace DAL
             target.Children = original.Children;
             target.ChildrensAttractions = original.ChildrensAttractions;
             target.EntryDate = original.EntryDate;
-            target.FamilyName = original.FamilyName;
+            target.Guest1 = original.Guest1;
+            // target.FamilyName = original.FamilyName;
             target.Garden = original.Garden;
             target.GuestRequestKey = original.GuestRequestKey;
             target.Jacuzzi = original.Jacuzzi;
-            target.MailAddress = original.MailAddress;
+           // target.MailAddress = original.MailAddress;
             target.Pool = original.Pool;
-            target.PrivateName = original.PrivateName;
+           // target.PrivateName = original.PrivateName;
             target.RegistrationDate = original.RegistrationDate;
             target.ReleaseDate = original.ReleaseDate;
             target.Status = original.Status;

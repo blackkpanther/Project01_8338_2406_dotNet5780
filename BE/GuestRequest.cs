@@ -5,7 +5,7 @@ namespace BE
     public class GuestRequest
     {
         private long guestRequestKey;
-       private Guest Guest { get; set; }
+        private Guest guest;
         //private string privateName;
         //private string familyName;
         //private string mailAddress;
@@ -27,26 +27,31 @@ namespace BE
 
         //properties:
 
+            public Guest Guest1
+        {
+            get { return guest; }
+            set { guest = value; }
+        }
         public long GuestRequestKey
         {
             get;
             set;
         }
-        public string PrivateName
-        {
-            get { return privateName; }
-            set { privateName = value; }
-        }
-        public string FamilyName
-        {
-            get { return familyName; }
-            set { familyName = value; }
-        }
-        public string MailAddress
-        {
-            get { return mailAddress; }
-            set { mailAddress = value; }
-        }
+        //public string PrivateName
+        //{
+        //    get { return privateName; }
+        //    set { privateName = value; }
+        //}
+        //public string FamilyName
+        //{
+        //    get { return familyName; }
+        //    set { familyName = value; }
+        //}
+        //public string MailAddress
+        //{
+        //    get { return mailAddress; }
+        //    set { mailAddress = value; }
+        //}
         public Enums.Status Status
         {
             get { return status; }
@@ -120,8 +125,8 @@ namespace BE
 
         public override string ToString()
         {
-            return " GuestRequestKey: " + GuestRequestKey + ", privateName: " + privateName
-            + ", FamilyName: " + FamilyName + ", MailAddress: " + MailAddress + ", Status: " + Status
+            return " GuestRequestKey: " + GuestRequestKey + /*", privateName: " + privateName
+            + ", FamilyName: " + FamilyName + ", MailAddress: " + MailAddress +*/ "Guest: " + Guest1.ToString()+ ", Status: " + Status
             + ",  RegistrationDate: " + RegistrationDate + ", EntryDate: " + EntryDate + ", ReleaseDate: "
             + ReleaseDate + ",  Area: " + Area + ",   SubArea: " + SubArea + ",  Type: " + Type
             + ",   Adults: " + Adults + ", Children: " + Children + ",    Pool: " + Pool + ",  Jacuzzi: "
