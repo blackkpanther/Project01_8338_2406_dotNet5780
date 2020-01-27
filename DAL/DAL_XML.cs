@@ -27,7 +27,7 @@ namespace DAL
         //string bankPath = @"BranchXML.xml";
         
         List<BankBranch> branches = new List<BankBranch>();
-        BackgroundWorker worker = new BackgroundWorker();
+        //BackgroundWorker worker = new BackgroundWorker();
 
 
 
@@ -184,84 +184,22 @@ namespace DAL
         //    branches = branches.GroupBy(x => x.BranchNumber).Select(y => y.FirstOrDefault()).ToList();
         //}
 
-        private void CreateFiles(XElement root, string s, string path)
-        {
-            root = new XElement(s);
-            root.Save(path);
-        }
+        //private void CreateFiles(XElement root, string s, string path)
+        //{
+        //    root = new XElement(s);
+        //    root.Save(path);
+        //}
 
         #endregion
-        public void AddGuestRequest(GuestRequest request)
-        {
-            var list = LoadFromXML<List<GuestRequest>>(guestsReqPath);
-            list.Add(request);
-            SaveToXML<List<GuestRequest>>(list, guestsReqPath);
-        }
+
+
+        #region Host
 
         public void AddHost(Host host)
         {
             var list = LoadFromXML<List<Host>>(hostPath);
             list.Add(host);
             SaveToXML<List<Host>>(list, hostPath);
-        }
-
-        public void AddHostingUnit(HostingUnit unit)
-        {
-            var list = LoadFromXML<List<HostingUnit>>(unitPath);
-            list.Add(unit);
-            //SaveToXML<List<Host>>(list, unitPath);
-        }
-
-        public void AddOrder(Order order)
-        {
-            var list = LoadFromXML<List<Order>>(ordersPath);
-            list.Add(order);
-            SaveToXML<List<Order>>(list, ordersPath);
-        }
-
-        public GuestRequest CheckGuestRequest(long key)
-        {
-            throw new NotImplementedException();
-        }
-
-        public HostingUnit CheckHostingUnit(long key)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Order CheckOrder(long key)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteHost(Host host)
-        {
-            var list = LoadFromXML<List<Host>>(hostPath);
-            list.Remove(host);
-            SaveToXML<List<Host>>(list, hostPath);
-        }
-
-        public void DeleteHostingUnit(HostingUnit unit)
-        {
-            var list = LoadFromXML<List<HostingUnit>>(unitPath);
-            list.Remove(unit);
-            SaveToXML<List<HostingUnit>>(list, unitPath);
-        }
-
-        //public List<BankBranch> GetBankBranchList()
-        //{
-        //    List<BankBranch> b = LoadFromXML<List<BankBranch>>(bankPath);/////////////////ADD THE PATH TO BankBranch FILE!!!!
-        //    if (b == null)
-        //        throw new Exception("This File is empty");
-        //    return b;
-        //}
-
-        public List<GuestRequest> GetGuestRequestList()
-        {
-            List<GuestRequest> gr = LoadFromXML<List<GuestRequest>>(guestsReqPath);
-            if (gr == null)
-                throw new Exception("This File is empty");
-            return gr;
         }
 
         public Host GetHost(long hostKey)
@@ -273,12 +211,11 @@ namespace DAL
             return host;
         }
 
-        public List<HostingUnit> GetHostingUnitList()
+        public void DeleteHost(Host host)
         {
-            List<HostingUnit> units = LoadFromXML<List<HostingUnit>>(unitPath);
-            if (units == null)
-                throw new Exception("This File is empty");
-            return units;
+            var list = LoadFromXML<List<Host>>(hostPath);
+            list.Remove(host);
+            SaveToXML<List<Host>>(list, hostPath);
         }
 
         public List<Host> GetHosts()
@@ -287,27 +224,6 @@ namespace DAL
             if (hosts == null)
                 throw new Exception("This File is empty");
             return hosts;
-        }
-
-
-        public List<Order> GetOrderList()
-        {
-            List<Order> orders = LoadFromXML<List<Order>>(ordersPath);
-            if (orders == null)
-                throw new Exception("This File is empty");
-            return orders;
-        }
-
-        public void UpdateGuestRequest(GuestRequest gRequest)
-        {
-            var list = LoadFromXML<List<GuestRequest>>(guestsReqPath);
-            GuestRequest upDate = (from gr in list where gr.GuestRequestKey == gRequest.GuestRequestKey select gr).FirstOrDefault();
-            if (upDate == null)
-                throw new Exception("The request you're trying to upDate doesn't exist");
-
-            list.Remove(upDate);//delete the old req
-            list.Add(gRequest);//insert the update req
-            SaveToXML<List<GuestRequest>>(list, guestsReqPath);
         }
 
         public void UpdateHost(Host host)
@@ -322,6 +238,40 @@ namespace DAL
             SaveToXML<List<Host>>(list, hostPath);
         }
 
+
+
+
+
+
+        #endregion
+
+
+        #region Unit
+
+        public void AddHostingUnit(HostingUnit unit)
+        {
+            var list = LoadFromXML<List<HostingUnit>>(unitPath);
+            list.Add(unit);
+            //SaveToXML<List<Host>>(list, unitPath);
+        }
+
+
+        public List<HostingUnit> GetHostingUnits()
+        {
+            List<HostingUnit> units = LoadFromXML<List<HostingUnit>>(unitPath);
+            if (units == null)
+                throw new Exception("This File is empty");
+            return units;
+        }
+
+
+        public void DeleteHostingUnit(HostingUnit unit)
+        {
+            var list = LoadFromXML<List<HostingUnit>>(unitPath);
+            list.Remove(unit);
+            SaveToXML<List<HostingUnit>>(list, unitPath);
+        }
+
         public void UpdateHostingUnit(HostingUnit unit)
         {
             var list = LoadFromXML<List<HostingUnit>>(unitPath);
@@ -332,6 +282,34 @@ namespace DAL
             list.Remove(upDate);//delete the old unit
             list.Add(unit);//insert the update unit
             SaveToXML<List<HostingUnit>>(list, unitPath);
+        }
+
+        public HostingUnit GetHostingUnit(long hostingUnitKey)
+        {
+            var list = LoadFromXML<List<HostingUnit>>(unitPath);
+            HostingUnit unit = (from u in list where u.HostingUnitKey == hostingUnitKey select u).FirstOrDefault();
+            if (unit == null)
+                throw new Exception("The unit you're trying to get doesn't exist");
+            return unit;
+        }
+
+        #endregion
+
+        #region Order
+
+        public void AddOrder(Order order)
+        {
+            var list = LoadFromXML<List<Order>>(ordersPath);
+            list.Add(order);
+            SaveToXML<List<Order>>(list, ordersPath);
+        }
+
+        public List<Order> GetOrderList()
+        {
+            List<Order> orders = LoadFromXML<List<Order>>(ordersPath);
+            if (orders == null)
+                throw new Exception("This File is empty");
+            return orders;
         }
 
         public void UpdateOrder(Order order)
@@ -345,6 +323,122 @@ namespace DAL
             list.Add(order);//insert the update order
             SaveToXML<List<Order>>(list, ordersPath);
         }
+
+        public void DeleteOrder(Order order)
+        {
+            var list = LoadFromXML<List<Order>>(ordersPath);
+            list.Remove(order);
+            SaveToXML<List<Order>>(list, ordersPath);
+        }
+
+        public Order GetOrder(long horderKey)
+        {
+            var list = LoadFromXML<List<Order>>(ordersPath);
+            Order order = (from o in list where o.OrderKey == horderKey select o).FirstOrDefault();
+            if (order == null)
+                throw new Exception("The unit you're trying to get doesn't exist");
+            return order;
+        }
+
+        #endregion
+
+        #region Guest
+
+        void Idal.AddGuest(Guest guest)
+        {
+            var list = LoadFromXML<List<Guest>>(guestPath);
+            list.Add(guest);
+            SaveToXML<List<Guest>>(list, guestPath);
+        }
+
+        void Idal.UpdateGuest(Guest guest)
+        {
+            var list = LoadFromXML<List<Guest>>(guestPath);
+            Guest upDate = (from g in list where g.GuestKey == guest.GuestKey select g).FirstOrDefault();
+            if (upDate == null)
+                throw new Exception("The order you're trying to upDate doesn't exist");
+
+            list.Remove(upDate);//delete the old order
+            list.Add(guest);//insert the update order
+            SaveToXML<List<Guest>>(list, guestPath);
+        }
+
+        void Idal.DeleteGuest(Guest guest)
+        {
+            var list = LoadFromXML<List<Guest>>(guestPath);
+            list.Remove(guest);
+            SaveToXML<List<Guest>>(list, guestPath);
+        }
+
+        List<Guest> Idal.GetGuests()
+        {
+            List<Guest> guests = LoadFromXML<List<Guest>>(guestPath);
+            if (guests == null)
+                throw new Exception("This File is empty");
+            return guests;
+        }
+
+        Guest Idal.GetGuest(long guestKey)
+        {
+            var list = LoadFromXML<List<Guest>>(guestPath);
+            Guest guest = (from g in list where g.GuestKey == guestKey select g).FirstOrDefault();
+            if (guest == null)
+                throw new Exception("The unit you're trying to get doesn't exist");
+            return guest;
+        }
+
+
+        #endregion
+
+        #region GuestReq
+
+        public void AddGuestRequest(GuestRequest request)
+        {
+            var list = LoadFromXML<List<GuestRequest>>(guestsReqPath);
+            list.Add(request);
+            SaveToXML<List<GuestRequest>>(list, guestsReqPath);
+        }
+
+        public List<GuestRequest> GetGuestRequestList()
+        {
+            List<GuestRequest> gr = LoadFromXML<List<GuestRequest>>(guestsReqPath);
+            if (gr == null)
+                throw new Exception("This File is empty");
+            return gr;
+        }
+
+        public void UpdateGuestRequest(GuestRequest gRequest)
+        {
+            var list = LoadFromXML<List<GuestRequest>>(guestsReqPath);
+            GuestRequest upDate = (from gr in list where gr.GuestRequestKey == gRequest.GuestRequestKey select gr).FirstOrDefault();
+            if (upDate == null)
+                throw new Exception("The request you're trying to upDate doesn't exist");
+
+            list.Remove(upDate);//delete the old req
+            list.Add(gRequest);//insert the update req
+            SaveToXML<List<GuestRequest>>(list, guestsReqPath);
+        }
+
+        public GuestRequest GetGuestRequest(long gustReqKey)
+        {
+            var list = LoadFromXML<List<GuestRequest>>(guestsReqPath);
+            GuestRequest gr = (from g in list where g.GuestRequestKey == gustReqKey select g).FirstOrDefault();
+            if (gr == null)
+                throw new Exception("The unit you're trying to get doesn't exist");
+            return gr;
+        }
+
+
+        #endregion
+
+
+        //public List<BankBranch> GetBankBranchList()
+        //{
+        //    List<BankBranch> b = LoadFromXML<List<BankBranch>>(bankPath);/////////////////ADD THE PATH TO BankBranch FILE!!!!
+        //    if (b == null)
+        //        throw new Exception("This File is empty");
+        //    return b;
+        //}
 
         public List<BankBranch> GetBankBranchList()
         {
@@ -378,137 +472,11 @@ namespace DAL
             };
         }
 
-        void Idal.AddGuest(Guest guest)
-        {
-            throw new NotImplementedException();
-        }
+       
 
-        void Idal.UpdateGuest(Guest guest)
-        {
-            throw new NotImplementedException();
-        }
+       
 
-        void Idal.DeleteGuest(Guest guest)
-        {
-            throw new NotImplementedException();
-        }
-
-        List<Guest> Idal.GetGuests()
-        {
-            throw new NotImplementedException();
-        }
-
-        Guest Idal.GetGuest(long guestKey)
-        {
-            throw new NotImplementedException();
-        }
-
-        void Idal.AddGuestRequest(GuestRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        void Idal.UpdateGuestRequest(GuestRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        List<GuestRequest> Idal.GetGuestRequestList()
-        {
-            throw new NotImplementedException();
-        }
-
-        GuestRequest Idal.GetGuestRequest(long gustReqKey)
-        {
-            throw new NotImplementedException();
-        }
-
-        void Idal.DeleteHost(Host host)
-        {
-            throw new NotImplementedException();
-        }
-
-        void Idal.UpdateHost(Host host)
-        {
-            throw new NotImplementedException();
-        }
-
-        void Idal.AddHost(Host host)
-        {
-            throw new NotImplementedException();
-        }
-
-        List<Host> Idal.GetHosts()
-        {
-            throw new NotImplementedException();
-        }
-
-        Host Idal.GetHost(long hostKey)
-        {
-            throw new NotImplementedException();
-        }
-
-        void Idal.AddHostingUnit(HostingUnit unit)
-        {
-            throw new NotImplementedException();
-        }
-
-        void Idal.UpdateHostingUnit(HostingUnit unit)
-        {
-            throw new NotImplementedException();
-        }
-
-        void Idal.DeleteHostingUnit(HostingUnit unit)
-        {
-            throw new NotImplementedException();
-        }
-
-        List<HostingUnit> Idal.GetHostingUnits()
-        {
-            throw new NotImplementedException();
-        }
-
-        HostingUnit Idal.GetHostingUnit(long hostingUnitKey)
-        {
-            throw new NotImplementedException();
-        }
-
-        void Idal.AddOrder(Order order)
-        {
-            throw new NotImplementedException();
-        }
-
-        void Idal.UpdateOrder(Order order)
-        {
-            throw new NotImplementedException();
-        }
-
-        void Idal.DeleteOrder(Order order)
-        {
-            throw new NotImplementedException();
-        }
-
-        List<Order> Idal.GetOrderList()
-        {
-            throw new NotImplementedException();
-        }
-
-        Order Idal.GetOrder(long horderKey)
-        {
-            throw new NotImplementedException();
-        }
-
-        List<BankBranch> Idal.GetBankBranchList()
-        {
-            throw new NotImplementedException();
-        }
-
-
-        #region Bank
-
-
-
-        #endregion
+        
     }
     //class DAL_XML
     //{
