@@ -37,6 +37,11 @@ namespace BE
             get;
             set;
         }
+        public Guest Guest
+        {
+            get;
+            set;
+        }
         //public string PrivateName
         //{
         //    get { return privateName; }
