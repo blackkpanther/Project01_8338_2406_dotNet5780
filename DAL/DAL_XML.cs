@@ -378,10 +378,135 @@ namespace DAL
             };
         }
 
+        void Idal.AddGuest(Guest guest)
+        {
+            throw new NotImplementedException();
+        }
+
+        void Idal.UpdateGuest(Guest guest)
+        {
+            throw new NotImplementedException();
+        }
+
+        void Idal.DeleteGuest(Guest guest)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<Guest> Idal.GetGuests()
+        {
+            throw new NotImplementedException();
+        }
+
+        Guest Idal.GetGuest(long guestKey)
+        {
+            throw new NotImplementedException();
+        }
+
+        void Idal.AddGuestRequest(GuestRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        void Idal.UpdateGuestRequest(GuestRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<GuestRequest> Idal.GetGuestRequestList()
+        {
+            throw new NotImplementedException();
+        }
+
+        GuestRequest Idal.GetGuestRequest(long gustReqKey)
+        {
+            throw new NotImplementedException();
+        }
+
+        void Idal.DeleteHost(Host host)
+        {
+            throw new NotImplementedException();
+        }
+
+        void Idal.UpdateHost(Host host)
+        {
+            throw new NotImplementedException();
+        }
+
+        void Idal.AddHost(Host host)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<Host> Idal.GetHosts()
+        {
+            throw new NotImplementedException();
+        }
+
+        Host Idal.GetHost(long hostKey)
+        {
+            throw new NotImplementedException();
+        }
+
+        void Idal.AddHostingUnit(HostingUnit unit)
+        {
+            throw new NotImplementedException();
+        }
+
+        void Idal.UpdateHostingUnit(HostingUnit unit)
+        {
+            throw new NotImplementedException();
+        }
+
+        void Idal.DeleteHostingUnit(HostingUnit unit)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<HostingUnit> Idal.GetHostingUnits()
+        {
+            throw new NotImplementedException();
+        }
+
+        HostingUnit Idal.GetHostingUnit(long hostingUnitKey)
+        {
+            throw new NotImplementedException();
+        }
+
+        void Idal.AddOrder(Order order)
+        {
+            throw new NotImplementedException();
+        }
+
+        void Idal.UpdateOrder(Order order)
+        {
+            throw new NotImplementedException();
+        }
+
+        void Idal.DeleteOrder(Order order)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<Order> Idal.GetOrderList()
+        {
+            throw new NotImplementedException();
+        }
+
+        Order Idal.GetOrder(long horderKey)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<BankBranch> Idal.GetBankBranchList()
+        {
+            throw new NotImplementedException();
+        }
+
 
         #region Bank
 
-        
+
 
         #endregion
     }

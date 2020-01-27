@@ -19,11 +19,18 @@ namespace BE
         private Enums.Option garden;
         private Enums.Option childrensAttractions;
         private long pricePerNight;// *
-        public List<string> Uris { get; set; }
+        public List<string> Uris{ get; set; }
         // private string uri;// "https://img.mako.co.il/2014/10/13/asnbsdnsn05_c.jpg",
         private Calendar Calendar;
-
+        //public List<string> Uris { get { return Uris; } set { Uris = value; } }
         //properties:
+
+        //public List<string> Uris
+        //{
+        //    get { return uris; }
+        //    set { uris = value; }
+
+        //}
 
         public long HostingUnitKey
         {
@@ -91,10 +98,10 @@ namespace BE
             set { childrensAttractions = value; }
         }
         public long PricePerNight
-            {
-            get{return pricePerNight;}
-            set{pricePerNight=value;}
-            }
+        {
+            get { return pricePerNight; }
+            set { pricePerNight = value; }
+        }
         /*public string Uri
 {
 get { return uri; }

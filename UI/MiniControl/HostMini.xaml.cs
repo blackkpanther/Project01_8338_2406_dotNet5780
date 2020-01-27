@@ -16,7 +16,7 @@ namespace UI.MiniControl
         {
             InitializeComponent();
             bl = FactoryBL.GetFactory();
-            this.CurrentHost = host;
+            CurrentHost = bl.GetHost(host.HostKey); //host;
 
             this.DataContext = CurrentHost;
             MainGrid.DataContext = CurrentHost;

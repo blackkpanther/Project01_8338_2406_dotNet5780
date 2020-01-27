@@ -36,10 +36,7 @@
                 <TextBlock Text=", "/>
                 <TextBlock Text="{Binding Path=Area}"/>
             </DockPanel>
-            <DockPanel>
-                <Label Content="type:"/>
-                <TextBlock Text="{Binding Path=Type}"/>
-            </DockPanel>
+            
             <DockPanel>
                 <Label Content="Max Adults:" MinWidth="50"/>
                 <TextBlock Text="{Binding Path=Adults}" MinWidth="50" />
@@ -53,18 +50,25 @@
                 <TextBlock Text="{Binding Path=Jacuzzi}" MinWidth="50"/>
             </DockPanel>
             <DockPanel>
-                <Label Content="garden:" MinWidth="50"/>
-                <TextBlock Text="{Binding Path=Garden}" MinWidth="50"/>
-                <Label Content="childrensAttractions:" MinWidth="50"/>
-                <TextBlock Text="{Binding Path=ChildrensAttractions}" MinWidth="50" />
+                <Grid Height="40">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="Update_unit" Content="Update unit" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8" Width="100" Height="20" Click="SelectionChangedUpdate"/>
+                    <Button x:Name="Delete_unit" Content="Delete unit" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8" Width="100" Height="20" Click="Delete_Click"/>
+                </Grid>
             </DockPanel>
+
 
         </StackPanel>
         <Grid x:Name="imageGride" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Width="126" Height="95" VerticalAlignment="Top"/>
         <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Label Content="pricePerNight" HorizontalAlignment="Center" MinWidth="0"/>
             <TextBlock Text="{Binding Path=PricePerNight}" HorizontalAlignment="Center"/>
+          
         </StackPanel>
+        
 
     </Grid>
 </UserControl>

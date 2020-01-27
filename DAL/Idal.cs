@@ -5,10 +5,19 @@ namespace DAL
 {
     public interface Idal
     {
+        #region Guest
+        void AddGuest(Guest guest);
+        void UpdateGuest(Guest guest);
+        void DeleteGuest(Guest guest);
+        List<Guest> GetGuests() ;
+        Guest GetGuest(long guestKey);
+        #endregion
+
         #region GuestRequest
         void AddGuestRequest(GuestRequest request);
         void UpdateGuestRequest(GuestRequest request);
-        GuestRequest CheckGuestRequest(long key);
+        List<GuestRequest> GetGuestRequestList();
+        GuestRequest GetGuestRequest(long gustReqKey);
         #endregion
 
         #region Host
@@ -18,23 +27,25 @@ namespace DAL
         List<Host> GetHosts();
         Host GetHost(long hostKey);
         #endregion
+
         #region HostingUnit
         void AddHostingUnit(HostingUnit unit);
         void UpdateHostingUnit(HostingUnit unit);
         void DeleteHostingUnit(HostingUnit unit);
-        HostingUnit CheckHostingUnit(long key);
+        List<HostingUnit> GetHostingUnits();
+        HostingUnit GetHostingUnit(long hostingUnitKey);
         #endregion
 
         #region Order
         void AddOrder(Order order);
         void UpdateOrder(Order order);
-        Order CheckOrder(long key);
+        void DeleteOrder(Order order);
+        List<Order> GetOrderList();
+        Order GetOrder(long horderKey);
         #endregion
 
-        #region Lists
-        List<HostingUnit> GetHostingUnitList();
-        List<GuestRequest> GetGuestRequestList();
-        List<Order> GetOrderList();
+        #region bank
+
         List<BankBranch> GetBankBranchList();
       
         #endregion

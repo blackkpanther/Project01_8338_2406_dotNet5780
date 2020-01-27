@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BE;
 using BL;
@@ -17,34 +18,27 @@ using BL;
 namespace UI.Control
 {
     /// <summary>
-    /// Interaction logic for AddHost.xaml
+    /// Interaction logic for UpdateUnit.xaml
     /// </summary>
-    public partial class AddHost : Window
+    public partial class UpdateUnit : Window
     {
         Ibl bl;
-        public Host CurrentHost { get; set; }
-
-        public AddHost()
+        public HostingUnit CurrentHostingUnit { get; set; }
+        public UpdateUnit(HostingUnit hostingUnit)
         {
             InitializeComponent();
             bl = FactoryBL.GetFactory();
-            //this.CurrentHost.BankBranchDetails = new BankBranch();
-            this.banks.ItemsSource = bl.GetBankBranchList();
-             this.banks.DisplayMemberPath = "BankName";
-           
-
-            this.DataContext = CurrentHost;
-            MainGrid.DataContext = CurrentHost;
+            this.CurrentHostingUnit = hostingUnit;
+            this.DataContext = CurrentHostingUnit;
+            MainGrid.DataContext = CurrentHostingUnit;
         }
-
-        private void AddHost_Click(object sender, RoutedEventArgs e)
+        private void Update_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                bl.AddHost(CurrentHost);
-                MessageBox.Show("add Success!", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                bl.UpdateHostingUnit(CurrentHostingUnit);
+                MessageBox.Show("UpDate Success!", "", MessageBoxButton.OK, MessageBoxImage.Information);
                 Close();
-
 
             }
             catch (Exception error_str)
@@ -52,15 +46,9 @@ namespace UI.Control
                 MessageBox.Show(error_str.Message, "UpDate Failed!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             Close();
-        }
-
-        private void banks_Selected(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

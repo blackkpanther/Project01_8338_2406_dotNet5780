@@ -1,9 +1,12 @@
-﻿using BE;
+﻿using BL;
+using BE;
 using System;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows;
+using System.Collections.Generic;
 
 namespace UI.MiniControl
 {
@@ -12,16 +15,25 @@ namespace UI.MiniControl
     /// </summary>
     public partial class UnitMini : UserControl
     {
+        Ibl bl;
         int imageIndex;
         Viewbox vbImage;
         Image MyImage;
         public HostingUnit CurrentUnit { get; set; }
-
+        List<string> currentUris = new List<string>
+                        {
+                           "https://q-ak.bstatic.com/images/hotel/max1024x768/194/194305766.jpg",
+                           "https://q-ak.bstatic.com/images/hotel/max1280x900/240/240310117.jpg",
+                           "https://q-ak.bstatic.com/images/hotel/max1280x900/193/193378835.jpg",
+                           "https://r-ak.bstatic.com/images/hotel/max1280x900/193/193379099.jpg"
+                        };
         public UnitMini(HostingUnit unit)
         {
             vbImage = new Viewbox();
             InitializeComponent();
-            this.CurrentUnit = unit;
+            bl = FactoryBL.GetFactory();
+            //this.CurrentUnit = unit;
+            CurrentUnit = bl.GetHostingUnit(unit.HostingUnitKey);
             this.DataContext = CurrentUnit;
             MainGrid.DataContext = CurrentUnit;
 
@@ -45,7 +57,7 @@ namespace UI.MiniControl
             Image dynamicImage = new Image();
             BitmapImage bitmap = new BitmapImage();
             bitmap.BeginInit();
-            bitmap.UriSource = new Uri(@CurrentUnit.Uris[imageIndex]);
+            bitmap.UriSource = new Uri(@currentUris[imageIndex]);
             bitmap.EndInit();
 
             //Set Image.Source
@@ -72,5 +84,20 @@ namespace UI.MiniControl
             MyImage = CreateViewImage();
             vbImage.Child = MyImage;
         }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            bl.DeleteHostingUnit(CurrentUnit);
+          
+        }
+
+        private void SelectionChangedUpdate(object sender, RoutedEventArgs e)
+        {
+            // Window UpdateHost = new Control.UpdateHost(CurrentHost);
+            // UpdateHost.Show
+            Window updateUnit = new Control.UpdateUnit(CurrentUnit);
+            updateUnit.Show();
+        }
+
     }
 }

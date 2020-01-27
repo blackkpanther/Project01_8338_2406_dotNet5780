@@ -2,10 +2,17 @@
 {
     public class Guest
     {
-        private string privateName;
+        private long guestKey;
         private string familyName;
+        private string privateName;
         private string mailAddress;
         private long bankAccountNumber;
+
+        public long GuestKey
+            {
+            get { return guestKey; }
+            set { guestKey = value; }
+        }
 
         public string PrivateName
         {
