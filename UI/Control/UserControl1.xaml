@@ -10,7 +10,7 @@
     <Grid >
 
         <Border>
-            <TextBlock Text="fhvbdkfb" FontSize="90" />
+            <TextBlock Text="Still working on it..." FontSize="90"  />
             
         </Border>
 

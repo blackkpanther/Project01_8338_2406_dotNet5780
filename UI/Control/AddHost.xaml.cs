@@ -22,7 +22,7 @@ namespace UI.Control
     public partial class AddHost : Window
     {
         Ibl bl;
-        BankBranch bank;
+        //BankBranch bank;
         public Host CurrentHost { get; set; }
 
         public AddHost()

@@ -63,7 +63,7 @@ namespace UI
                 
                    
                 case "AdminOrders":
-                    usc = new Control.test();
+                    usc = new Control.UserControl1();
                     GridMain.Children.Add(usc);
                     break;
                 case "AdminUnits":
@@ -75,15 +75,17 @@ namespace UI
                     GridMain.Children.Add(usc);
                     break;
                 case "AdminGuest":
-                    usc = new Control.Hosts();
+                    usc = new Control.UserControl1();
                     GridMain.Children.Add(usc);
                     break;
                 case "AddUnit":
-                    usc = new Control.Units();
-                    GridMain.Children.Add(usc);
+                    Window AddUnit = new Control.AddUnit();
+                    AddUnit.Show();
+                    //usc = new Control.AddUnit();
+                   // GridMain.Children.Add(usc);
                     break;
                 case "HostOrders":
-                    usc = new Control.test();
+                    usc = new Control.UserControl1();
                     GridMain.Children.Add(usc);
                     break;
                 case "HostSomething":
@@ -91,7 +93,7 @@ namespace UI
                     GridMain.Children.Add(usc);
                     break;
                 case "GuestReq":
-                    usc = new Control.GuestReq();
+                    usc = new Control.UserControl1();
                     GridMain.Children.Add(usc);
                     break;
                 case "GuestOrder":
