@@ -9,7 +9,7 @@
              d:DesignHeight="450" d:DesignWidth="800"  Style="{StaticResource ResourceKey=UserControlPageDefault}">
     <Grid>
         <Label Content="First Name:" Margin="39,93,296,633" ></Label>
-        <TextBox Text="hhhh"></TextBox>
+        <TextBox Text="Add GuestReq"></TextBox>
         <Label Content="Last Name:" Margin="39,127,282,599"></Label>
         <Label Content="Email Address:" Margin="39,161,267,565"></Label>
         <Label Content="Entry date:" Margin="39,195,296,531"></Label>
