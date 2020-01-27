@@ -14,7 +14,7 @@ namespace UI.Control
     {
         Ibl bl;
         public List<HostingUnit> HostingUnitsList { get; set; }
-       public HostingUnit currentHostingUnit { get; set; }
+        public HostingUnit currentHostingUnit;
 
         public Units()
         {
