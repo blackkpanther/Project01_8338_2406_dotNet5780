@@ -22,7 +22,7 @@ namespace UI.Control
     public partial class AddHost : Window
     {
         Ibl bl;
-        public Host CurrentHost { get; set; }
+        public Host CurrentHost = new Host();
 
         public AddHost()
         {
@@ -30,7 +30,7 @@ namespace UI.Control
             bl = FactoryBL.GetFactory();
             // this.CurrentHost.BankBranchDetails = new BankBranch();
             this.banks.ItemsSource = bl.GetBankBranchList();
-            this.banks.DisplayMemberPath = "BankName";
+            //this.banks.DisplayMemberPath = "BankName";
            
 
             this.DataContext = CurrentHost;

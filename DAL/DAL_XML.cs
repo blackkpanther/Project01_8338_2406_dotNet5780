@@ -24,7 +24,7 @@ namespace DAL
         string ordersPath = "Orders.xml";
         string unitPath = "Units.xml";
         string guestsReqPath = "GuestsReq.xml";
-        string bankPath = @"BranchXML.xml";
+        //string bankPath = @"BranchXML.xml";
         
         List<BankBranch> branches = new List<BankBranch>();
         BackgroundWorker worker = new BackgroundWorker();
@@ -61,12 +61,12 @@ namespace DAL
             else
                 LoadData(guestsReqPath);
 
-            if (!System.IO.File.Exists(unitPath))
-            {
-                SaveToXML(new List<HostingUnit>(), unitPath);
-            }
-            else
-                LoadData(unitPath);
+            //if (!System.IO.File.Exists(unitPath))
+            //{
+            //    SaveToXML(new List<HostingUnit>(), unitPath);
+            //}
+            //else
+            //    LoadData(unitPath);
 
             
         }
@@ -112,9 +112,9 @@ namespace DAL
                     case "GuestsReq.xml":
                         guestsReqFile = XElement.Load(guestsReqPath);
                         break;
-                    case "snifim_dnld_he.xml":
-                        bankFile = XElement.Load(bankPath);
-                        break;
+                    //case "snifim_dnld_he.xml":
+                    //    bankFile = XElement.Load(bankPath);
+                    //    break;
                     default:
                         throw new Exception("File upload problem");
                 }
