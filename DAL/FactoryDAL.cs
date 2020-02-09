@@ -1,19 +1,34 @@
-﻿namespace DAL
+﻿////namespace DAL
+////{
+////    public class FactoryDAL
+////    {
+////        static Idal instance = null;
+////        public static Idal GetFactory()
+////        {
+////            if (instance == null)
+////               // instance = new DAL_XML();
+////                instance = new Dal_imp();
+////            return instance;
+////        }
+////    }
+////}
+namespace DAL
 {
     public class FactoryDAL
+{
+    static Idal instance = null;
+        public static Idal GetFactory(string typeDAL)
     {
-
-        static Idal instance = null;
-
-        public static Idal GetFactory()
+        switch (typeDAL)
         {
-            if (instance == null)
+            case "List":
+                instance = new Dal_imp();
+                return instance;
+            case "XML":
                 instance = new DAL_XML();
-                //instance = new Dal_imp();
-            return instance;
+                return instance;
+            default: return null;
         }
-
-
-
     }
+}
 }

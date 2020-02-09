@@ -14,7 +14,7 @@ namespace BL
 
         public BL_imp()
         {
-            IDAL = DAL.FactoryDAL.GetFactory();
+            IDAL = DAL.FactoryDAL.GetFactory("XML");
             InitList();// בשביל לבדוק לאתחל רשימות משתמשים
         }
         void InitList() // פונקציית אתחול

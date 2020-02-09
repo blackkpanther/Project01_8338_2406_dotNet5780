@@ -60,11 +60,11 @@ namespace UI.Control
             Close();
         }
 
-        private void banks_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //bank = (BE.BankBranch)this.banks_SelectionChanged.SelectedItem;
-            //CurrentHost.BankAccountNumber = bank.BankNumber;
-            //this.DataContext = CurrentHost;
-        }
+        //private void banks_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    //bank = (BE.BankBranch)this.banks_SelectionChanged.SelectedItem;
+        //    //CurrentHost.BankAccountNumber = bank.BankNumber;
+        //    //this.DataContext = CurrentHost;
+        //}
     }
 }

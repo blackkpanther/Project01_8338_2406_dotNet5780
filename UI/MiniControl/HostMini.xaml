@@ -11,7 +11,17 @@
     <Grid x:Name="MainGrid" Width="360" HorizontalAlignment="Center">
         <ScrollViewer>
         <StackPanel >
-            <DockPanel>
+                <DockPanel>
+                    <Grid Height="20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="Update" Content="Update" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="6" Width="60" Height="15" Click="SelectionChangedUpdate"/>
+                        <Button x:Name="Delete" Content="Delete" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="6" Width="60" Height="15" Click="Delete_Click"/>
+                    </Grid>
+                </DockPanel>
+                <DockPanel>
                 <Label Content="privateName" />
                 <TextBlock Text="{Binding Path=PrivateName }" />
             </DockPanel>
@@ -43,16 +53,7 @@
                 <Label Content="numOfUnits"  />
                 <TextBlock Text="{Binding Path=NumOfUnits}"  />
             </DockPanel>
-                <DockPanel>
-                    <Grid Height="40">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Button x:Name="Update" Content="Update" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8" Width="100" Height="20" Click="SelectionChangedUpdate"/>
-                    <Button x:Name="Delete" Content="Delete" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8" Width="100" Height="20" Click="Delete_Click"/>
-                    </Grid>
-                </DockPanel>
+                
             </StackPanel>
         </ScrollViewer>
 
