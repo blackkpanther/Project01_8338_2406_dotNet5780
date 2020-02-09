@@ -12,7 +12,7 @@
 ////        }
 ////    }
 ////}
-namespace DAL
+namespace DAL//פונק' המחליפה עבודה בין הקבצים ל(xml)ע''מ לבדוק בעיות עם הקבצים- הפונק המקורית בהערה למעלה
 {
     public class FactoryDAL
 {
