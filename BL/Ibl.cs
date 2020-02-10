@@ -73,6 +73,7 @@ namespace BL
         int NumberOfDays(DateTime date1, DateTime date2);
         int NumberOfInvites(GuestRequest request);
         int NumberOfInvites(HostingUnit unit);
+       
         #endregion
 
     }

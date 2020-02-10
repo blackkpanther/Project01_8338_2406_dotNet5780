@@ -14,7 +14,8 @@ namespace BL
 
         public BL_imp()
         {
-            IDAL = DAL.FactoryDAL.GetFactory("XML");
+           // IDAL = DAL.FactoryDAL.GetFactory("XML");
+              IDAL = DAL.FactoryDAL.GetFactory("List");
             InitList();// בשביל לבדוק לאתחל רשימות משתמשים
         }
         void InitList() // פונקציית אתחול
@@ -23,8 +24,8 @@ namespace BL
             {
                 IDAL.AddHost(new Host
                 {
-                    HostKey = 10000001,
-                    PrivateName = "1Accccccc",
+                   // HostKey = 10000001,
+                    PrivateName = "first",
                     FamilyName = "AA",
                     PhoneNumber = "0000000000",
                     MailAddress = "aaa@gmail.com",
@@ -40,272 +41,277 @@ namespace BL
                     CollectionClearance = true,
 
                 });
-                IDAL.AddHost(new Host
-                {
-                    HostKey = 10000002,
-                    PrivateName = "2Accccccc",
-                    FamilyName = "AA",
-                    PhoneNumber = "0000000000",
-                    MailAddress = "aaa@gmail.com",
-                    BankBranchDetails = new BankBranch(),
-                    //{
-                    //    BankNumber = 1,
-                    //    BankName =Enums.BankName.BankLeum,
-                    //    BranchNumber = 111,
-                    //    BranchAddress = "aaaa aaaa",
-                    //    BranchCity =Enums.SubArea.Afula,// "Afula"
-                    //},
-                    BankAccountNumber = 111,
-                    CollectionClearance = true,
+                //IDAL.AddHost(new Host
+                //{
+                //  //  HostKey = 10000002,
+                //    PrivateName = "2Accccccc",
+                //    FamilyName = "AA",
+                //    PhoneNumber = "0000000000",
+                //    MailAddress = "aaa@gmail.com",
+                //    BankBranchDetails = new BankBranch(),
+                //    //{
+                //    //    BankNumber = 1,
+                //    //    BankName =Enums.BankName.BankLeum,
+                //    //    BranchNumber = 111,
+                //    //    BranchAddress = "aaaa aaaa",
+                //    //    BranchCity =Enums.SubArea.Afula,// "Afula"
+                //    //},
+                //    BankAccountNumber = 111,
+                //    CollectionClearance = true,
 
-                });
-                IDAL.AddHost(new Host
-                {
-                    HostKey = 10000003,
-                    PrivateName = "3Accccccc",
-                    FamilyName = "AA",
-                    PhoneNumber = "0000000000",
-                    MailAddress = "aaa@gmail.com",
-                    BankBranchDetails = new BankBranch(),
-                    //{
-                    //    BankNumber = 1,
-                    //    BankName = "Leumi",
-                    //    BranchNumber = 111,
-                    //    BranchAddress = "aaaa aaaa",
-                    //    BranchCity = "Afula"
-                    //},
-                    BankAccountNumber = 111,
-                    CollectionClearance = true,
+                //});
+                //IDAL.AddHost(new Host
+                //{
+                //    HostKey = 10000003,
+                //    PrivateName = "3Accccccc",
+                //    FamilyName = "AA",
+                //    PhoneNumber = "0000000000",
+                //    MailAddress = "aaa@gmail.com",
+                //    BankBranchDetails = new BankBranch(),
+                //    //{
+                //    //    BankNumber = 1,
+                //    //    BankName = "Leumi",
+                //    //    BranchNumber = 111,
+                //    //    BranchAddress = "aaaa aaaa",
+                //    //    BranchCity = "Afula"
+                //    //},
+                //    BankAccountNumber = 111,
+                //    CollectionClearance = true,
 
-                });
-                IDAL.AddHost(new Host
-                {
-                    HostKey = 10000004,
-                    PrivateName = "Accccccc",
-                    FamilyName = "AA",
-                    PhoneNumber = "0000000000",
-                    MailAddress = "aaa@gmail.com",
-                    BankBranchDetails = new BankBranch(),
-                    //{
-                    //    BankNumber = 1,
-                    //    BankName = "Leumi",
-                    //    BranchNumber = 111,
-                    //    BranchAddress = "aaaa aaaa",
-                    //    BranchCity = "Afula"
-                    //},
-                    BankAccountNumber = 111,
-                    CollectionClearance = true,
+                //});
+                //IDAL.AddHost(new Host
+                //{
+                //    HostKey = 10000004,
+                //    PrivateName = "Accccccc",
+                //    FamilyName = "AA",
+                //    PhoneNumber = "0000000000",
+                //    MailAddress = "aaa@gmail.com",
+                //    BankBranchDetails = new BankBranch(),
+                //    //{
+                //    //    BankNumber = 1,
+                //    //    BankName = "Leumi",
+                //    //    BranchNumber = 111,
+                //    //    BranchAddress = "aaaa aaaa",
+                //    //    BranchCity = "Afula"
+                //    //},
+                //    BankAccountNumber = 111,
+                //    CollectionClearance = true,
 
-                });
-                IDAL.AddHostingUnit(new HostingUnit
-                {
-                    HostingUnitKey = 100000001,
-                   UnitName="aa",
-                   Adults=3,
-                   Children=6,
-                   SubArea=Enums.SubArea.Afula,
-                   Area=Enums.Area.Center,
-                   Pool=Enums.Option.possible,
-                   Jacuzzi=Enums.Option.possible,
-                    Owner = new Host
-                    {
-                        HostKey = 10000001,
-                        PrivateName = "A",
-                        FamilyName = "AA",
-                        PhoneNumber = "0000000000",
-                        MailAddress = "aaa@gmail.com",
-                        BankBranchDetails = new BankBranch
-                        {
-                            BankNumber = 1,
-                            BankName = "Leumi",
-                            BranchNumber = 111,
-                            BranchAddress = "aaaa aaaa",
-                            BranchCity = "Afula"
-                        },
-                        BankAccountNumber = 111,
-                        CollectionClearance = true
-                    },
-                    PricePerNight = 300,
-                    Uris = new List<string>
-                        {
-                           "https://q-ak.bstatic.com/images/hotel/max1024x768/194/194305766.jpg",
-                           "https://q-ak.bstatic.com/images/hotel/max1280x900/240/240310117.jpg",
-                           "https://q-ak.bstatic.com/images/hotel/max1280x900/193/193378835.jpg",
-                           "https://r-ak.bstatic.com/images/hotel/max1280x900/193/193379099.jpg"
-                        }
-                });
-                IDAL.AddHostingUnit(new HostingUnit
-                {
-                    HostingUnitKey = 100000002,
-                    UnitName = "aa",
-                    Adults = 3,
-                    Children = 6,
-                    SubArea = Enums.SubArea.Afula,
-                    Area = Enums.Area.Center,
-                    Pool = Enums.Option.possible,
-                    Jacuzzi = Enums.Option.possible,
-                    Owner = new Host
-                    {
-                        HostKey = 10000001,
-                        PrivateName = "A",
-                        FamilyName = "AA",
-                        PhoneNumber = "0000000000",
-                        MailAddress = "aaa@gmail.com",
-                        BankBranchDetails = new BankBranch
-                        {
-                            BankNumber = 1,
-                            BankName = "Leumi",
-                            BranchNumber = 111,
-                            BranchAddress = "aaaa aaaa",
-                            BranchCity = "Afula"
-                        },
-                        BankAccountNumber = 111,
-                        CollectionClearance = true
-                    },
-                    PricePerNight = 300,
-                    Uris = new List<string>
-                        {
-                           "https://q-ak.bstatic.com/images/hotel/max1024x768/194/194305766.jpg",
-                           "https://q-ak.bstatic.com/images/hotel/max1280x900/240/240310117.jpg",
-                           "https://q-ak.bstatic.com/images/hotel/max1280x900/193/193378835.jpg",
-                           "https://r-ak.bstatic.com/images/hotel/max1280x900/193/193379099.jpg"
-                        }
-                });
-                IDAL.AddHostingUnit(new HostingUnit
-                {
-                    HostingUnitKey = 100000003,
-                    UnitName = "aa",
-                    Adults = 3,
-                    Children = 6,
-                    SubArea = Enums.SubArea.Afula,
-                    Area = Enums.Area.Center,
-                    Pool = Enums.Option.possible,
-                    Jacuzzi = Enums.Option.possible,
-                    Owner = new Host
-                    {
-                        HostKey = 10000001,
-                        PrivateName = "A",
-                        FamilyName = "AA",
-                        PhoneNumber = "0000000000",
-                        MailAddress = "aaa@gmail.com",
-                        BankBranchDetails = new BankBranch
-                        {
-                            BankNumber = 1,
-                            BankName = "Leumi",
-                            BranchNumber = 111,
-                            BranchAddress = "aaaa aaaa",
-                            BranchCity = "Afula"
-                        },
-                        BankAccountNumber = 111,
-                        CollectionClearance = true
-                    },
-                    PricePerNight = 300,
-                    Uris = new List<string>
-                        {
-                           "https://q-ak.bstatic.com/images/hotel/max1024x768/194/194305766.jpg",
-                           "https://q-ak.bstatic.com/images/hotel/max1280x900/240/240310117.jpg",
-                           "https://q-ak.bstatic.com/images/hotel/max1280x900/193/193378835.jpg",
-                           "https://r-ak.bstatic.com/images/hotel/max1280x900/193/193379099.jpg"
-                        }
-                });
-                IDAL.AddHostingUnit(new HostingUnit
-                {
-                    HostingUnitKey = 100000004,
-                    UnitName = "aa",
-                    Adults = 3,
-                    Children = 6,
-                    SubArea = Enums.SubArea.Afula,
-                    Area = Enums.Area.Center,
-                    Pool = Enums.Option.possible,
-                    Jacuzzi = Enums.Option.possible,
-                    Owner = new Host
-                    {
-                        HostKey = 10000001,
-                        PrivateName = "A",
-                        FamilyName = "AA",
-                        PhoneNumber = "0000000000",
-                        MailAddress = "aaa@gmail.com",
-                        BankBranchDetails = new BankBranch
-                        {
-                            BankNumber = 1,
-                            BankName = "Leumi",
-                            BranchNumber = 111,
-                            BranchAddress = "aaaa aaaa",
-                            BranchCity = "Afula"
-                        },
-                        BankAccountNumber = 111,
-                        CollectionClearance = true
-                    },
-                    PricePerNight = 300,
-                    Uris = new List<string>
-                        {
-                           "https://q-ak.bstatic.com/images/hotel/max1024x768/194/194305766.jpg",
-                           "https://q-ak.bstatic.com/images/hotel/max1280x900/240/240310117.jpg",
-                           "https://q-ak.bstatic.com/images/hotel/max1280x900/193/193378835.jpg",
-                           "https://r-ak.bstatic.com/images/hotel/max1280x900/193/193379099.jpg"
-                        }
-                });
-                IDAL.AddHostingUnit(new HostingUnit
-                {
-                    HostingUnitKey = 100000005,
-                    UnitName = "aa",
-                    Adults = 3,
-                    Children = 6,
-                    SubArea = Enums.SubArea.Afula,
-                    Area = Enums.Area.Center,
-                    Pool = Enums.Option.possible,
-                    Jacuzzi = Enums.Option.possible,
-                    Owner = new Host
-                    {
-                        HostKey = 10000001,
-                        PrivateName = "A",
-                        FamilyName = "AA",
-                        PhoneNumber = "0000000000",
-                        MailAddress = "aaa@gmail.com",
-                        BankBranchDetails = new BankBranch
-                        {
-                            BankNumber = 1,
-                            BankName = "Leumi",
-                            BranchNumber = 111,
-                            BranchAddress = "aaaa aaaa",
-                            BranchCity = "Afula"
-                        },
-                        BankAccountNumber = 111,
-                        CollectionClearance = true
-                    },
-                     PricePerNight = 300,
-                    Uris = new List<string>
-                        {
-                           "https://q-ak.bstatic.com/images/hotel/max1024x768/194/194305766.jpg",
-                           "https://q-ak.bstatic.com/images/hotel/max1280x900/240/240310117.jpg",
-                           "https://q-ak.bstatic.com/images/hotel/max1280x900/193/193378835.jpg",
-                           "https://r-ak.bstatic.com/images/hotel/max1280x900/193/193379099.jpg"
-                        }
-                });
+                //});
+                //IDAL.AddHostingUnit(new HostingUnit
+                //{
+                //    HostingUnitKey = 100000001,
+                //    UnitName = "aa",
+                //    Adults = 3,
+                //    Children = 6,
+                //    SubArea = Enums.SubArea.Afula,
+                //    Area = Enums.Area.Center,
+                //    Pool = Enums.OptionForUnit.Yes,
+                //    Jacuzzi = Enums.OptionForUnit.Yes,
+                //    Owner = new Host
+                //    {
+                //        HostKey = 10000001,
+                //        PrivateName = "A",
+                //        FamilyName = "AA",
+                //        PhoneNumber = "0000000000",
+                //        MailAddress = "aaa@gmail.com",
+                //        BankBranchDetails = new BankBranch
+                //        {
+                //            BankNumber = 1,
+                //            BankName = "Leumi",
+                //            BranchNumber = 111,
+                //            BranchAddress = "aaaa aaaa",
+                //            BranchCity = "Afula"
+                //        },
+                //        BankAccountNumber = 111,
+                //        CollectionClearance = true
+                //    },
+                //    PricePerNight = 300,
+                //    Uris = new List<string>
+                //        {
+                //           "https://q-ak.bstatic.com/images/hotel/max1024x768/194/194305766.jpg",
+                //           "https://q-ak.bstatic.com/images/hotel/max1280x900/240/240310117.jpg",
+                //           "https://q-ak.bstatic.com/images/hotel/max1280x900/193/193378835.jpg",
+                //           "https://r-ak.bstatic.com/images/hotel/max1280x900/193/193379099.jpg"
+                //        }
+                //});
+                //IDAL.AddHostingUnit(new HostingUnit
+                //{
+                //    HostingUnitKey = 100000002,
+                //    UnitName = "aa",
+                //    Adults = 3,
+                //    Children = 6,
+                //    SubArea = Enums.SubArea.Afula,
+                //    Area = Enums.Area.Center,
+                //    Pool = Enums.OptionForUnit.Yes,
+                //    Jacuzzi = Enums.OptionForUnit.Yes,
+                //    Owner = new Host
+                //    {
+                //        HostKey = 10000001,
+                //        PrivateName = "A",
+                //        FamilyName = "AA",
+                //        PhoneNumber = "0000000000",
+                //        MailAddress = "aaa@gmail.com",
+                //        BankBranchDetails = new BankBranch
+                //        {
+                //            BankNumber = 1,
+                //            BankName = "Leumi",
+                //            BranchNumber = 111,
+                //            BranchAddress = "aaaa aaaa",
+                //            BranchCity = "Afula"
+                //        },
+                //        BankAccountNumber = 111,
+                //        CollectionClearance = true
+                //    },
+                //    PricePerNight = 300,
+                //    Uris = new List<string>
+                //        {
+                //           "https://q-ak.bstatic.com/images/hotel/max1024x768/194/194305766.jpg",
+                //           "https://q-ak.bstatic.com/images/hotel/max1280x900/240/240310117.jpg",
+                //           "https://q-ak.bstatic.com/images/hotel/max1280x900/193/193378835.jpg",
+                //           "https://r-ak.bstatic.com/images/hotel/max1280x900/193/193379099.jpg"
+                //        }
+                //});
+                //IDAL.AddHostingUnit(new HostingUnit
+                //{
+                //    HostingUnitKey = 100000003,
+                //    UnitName = "aa",
+                //    Adults = 3,
+                //    Children = 6,
+                //    SubArea = Enums.SubArea.Afula,
+                //    Area = Enums.Area.Center,
+                //    Pool = Enums.OptionForUnit.Yes,
+                //    Jacuzzi = Enums.OptionForUnit.Yes,
+                //    Owner = new Host
+                //    {
+                //        HostKey = 10000001,
+                //        PrivateName = "A",
+                //        FamilyName = "AA",
+                //        PhoneNumber = "0000000000",
+                //        MailAddress = "aaa@gmail.com",
+                //        BankBranchDetails = new BankBranch
+                //        {
+                //            BankNumber = 1,
+                //            BankName = "Leumi",
+                //            BranchNumber = 111,
+                //            BranchAddress = "aaaa aaaa",
+                //            BranchCity = "Afula"
+                //        },
+                //        BankAccountNumber = 111,
+                //        CollectionClearance = true
+                //    },
+                //    PricePerNight = 300,
+                //    Uris = new List<string>
+                //        {
+                //           "https://q-ak.bstatic.com/images/hotel/max1024x768/194/194305766.jpg",
+                //           "https://q-ak.bstatic.com/images/hotel/max1280x900/240/240310117.jpg",
+                //           "https://q-ak.bstatic.com/images/hotel/max1280x900/193/193378835.jpg",
+                //           "https://r-ak.bstatic.com/images/hotel/max1280x900/193/193379099.jpg"
+                //        }
+                //});
+                //IDAL.AddHostingUnit(new HostingUnit
+                //{
+                //    HostingUnitKey = 100000004,
+                //    UnitName = "aa",
+                //    Adults = 3,
+                //    Children = 6,
+                //    SubArea = Enums.SubArea.Afula,
+                //    Area = Enums.Area.Center,
+                //    Pool = Enums.OptionForUnit.Yes,
+                //    Jacuzzi = Enums.OptionForUnit.Yes,
+                //    Owner = new Host
+                //    {
+                //        HostKey = 10000001,
+                //        PrivateName = "A",
+                //        FamilyName = "AA",
+                //        PhoneNumber = "0000000000",
+                //        MailAddress = "aaa@gmail.com",
+                //        BankBranchDetails = new BankBranch
+                //        {
+                //            BankNumber = 1,
+                //            BankName = "Leumi",
+                //            BranchNumber = 111,
+                //            BranchAddress = "aaaa aaaa",
+                //            BranchCity = "Afula"
+                //        },
+                //        BankAccountNumber = 111,
+                //        CollectionClearance = true
+                //    },
+                //    PricePerNight = 300,
+                //    Uris = new List<string>
+                //        {
+                //           "https://q-ak.bstatic.com/images/hotel/max1024x768/194/194305766.jpg",
+                //           "https://q-ak.bstatic.com/images/hotel/max1280x900/240/240310117.jpg",
+                //           "https://q-ak.bstatic.com/images/hotel/max1280x900/193/193378835.jpg",
+                //           "https://r-ak.bstatic.com/images/hotel/max1280x900/193/193379099.jpg"
+                //        }
+                //});
+                //IDAL.AddHostingUnit(new HostingUnit
+                //{
+                //    HostingUnitKey = 100000005,
+                //    UnitName = "aa",
+                //    Adults = 3,
+                //    Children = 6,
+                //    SubArea = Enums.SubArea.Afula,
+                //    Area = Enums.Area.Center,
+                //    Pool = Enums.OptionForUnit.Yes,
+                //    Jacuzzi = Enums.OptionForUnit.Yes,
+                //    Owner = new Host
+                //    {
+                //        HostKey = 10000001,
+                //        PrivateName = "A",
+                //        FamilyName = "AA",
+                //        PhoneNumber = "0000000000",
+                //        MailAddress = "aaa@gmail.com",
+                //        BankBranchDetails = new BankBranch
+                //        {
+                //            BankNumber = 1,
+                //            BankName = "Leumi",
+                //            BranchNumber = 111,
+                //            BranchAddress = "aaaa aaaa",
+                //            BranchCity = "Afula"
+                //        },
+                //        BankAccountNumber = 111,
+                //        CollectionClearance = true
+                //    },
+                //    PricePerNight = 300,
+                //    Uris = new List<string>
+                //        {
+                //           "https://q-ak.bstatic.com/images/hotel/max1024x768/194/194305766.jpg",
+                //           "https://q-ak.bstatic.com/images/hotel/max1280x900/240/240310117.jpg",
+                //           "https://q-ak.bstatic.com/images/hotel/max1280x900/193/193378835.jpg",
+                //           "https://r-ak.bstatic.com/images/hotel/max1280x900/193/193379099.jpg"
+                //        }
+                //});
 
 
             }
-            catch(Exception e)
+            catch (Exception e)
             {
+                throw new Exception("ERROR: InitList\n");
 
             }
-        
+
         }
 
         #region Guest
         void Ibl.AddGuest(Guest guest)
         {
-            if(IDAL.GetGuests()!=null)
+            if (IDAL.GetGuests() != null)
             {
                 foreach (Guest g in IDAL.GetGuests())
                     if (g.GuestKey == guest.GuestKey)
                         throw new Exception("ERROR: This key number is alrady exist.\n");
             }
-            guest.GuestKey = IDAL.GetGuests().Count + 1;
+            if (IDAL.GetGuests() == null)// the first guest
+                guest.GuestKey = Configuration.GetNewSerialGuestKey();
+            else
+                if (guest.GuestKey == 0)// new guest- not an update
+                guest.GuestKey = IDAL.GetGuests().LastOrDefault().GuestKey + 1;
             IDAL.AddGuest(guest);
         }
 
-         void Ibl.UpdateGuest(Guest guest)
+        void Ibl.UpdateGuest(Guest guest)
         {
             IDAL.UpdateGuest(guest);
         }
@@ -319,15 +325,15 @@ namespace BL
                         IDAL.DeleteGuest(guest);
             }
             throw new Exception("ERROR: This guest is not exist.\n");
-                       
+
         }
 
-         List<Guest> Ibl.GetGuests()
+        List<Guest> Ibl.GetGuests()
         {
-          return  IDAL.GetGuests();
+            return IDAL.GetGuests();
         }
 
-        public Guest GetGuest(long guestKey)
+        Guest Ibl.GetGuest(long guestKey)
         {
             if (IDAL.GetGuests() != null)
             {
@@ -336,7 +342,7 @@ namespace BL
                         return IDAL.GetGuest(guestKey);
             }
             throw new Exception("ERROR: This guest is not exist.\n");
-           
+
         }
         #endregion
         #region GustRequest
@@ -344,7 +350,11 @@ namespace BL
         {
             if (request.EntryDate >= request.ReleaseDate)
                 throw new Exception("Entry date has to be at least one day before release date");
-            request.GuestRequestKey = IDAL.GetGuestRequestList().Count + 1;
+            if (IDAL.GetGuestRequestList() == null)//the first req
+                request.GuestRequestKey = Configuration.GetNewSerialGuestRequestKey();
+            else
+                 if (request.GuestRequestKey == 0)// new req- not an update
+                request.GuestRequestKey = IDAL.GetGuestRequestList().LastOrDefault().GuestRequestKey + 1;
             IDAL.AddGuestRequest(request);
         }
         void Ibl.UpdateGuestRequest(GuestRequest request)
@@ -365,7 +375,7 @@ namespace BL
         #region Host
         void Ibl.DeleteHost(Host host)
         {
-            var temp= (from item in IDAL.GetHosts() where item.HostKey == host.HostKey select item).FirstOrDefault();
+            var temp = (from item in IDAL.GetHosts() where item.HostKey == host.HostKey select item).FirstOrDefault();
             if (temp != null)
             {
                 IDAL.DeleteHost(host);
@@ -381,7 +391,17 @@ namespace BL
                     if (h.HostKey == host.HostKey)
                         throw new Exception("ERROR: This host is alrady exist.\n");
             }
-            host.HostKey = IDAL.GetHosts().Count + 1;
+            if (IDAL.GetHosts() == null)//first host
+                host.HostKey = Configuration.GetNewSerialHostKey();
+            else
+               // if (host.HostKey !=1 )//new host- not an update
+                host.HostKey = IDAL.GetHosts().LastOrDefault().HostKey + 1;
+
+            int countUnits = 0;
+            foreach (HostingUnit h1 in IDAL.GetHostingUnits())
+                if (h1.Owner == host)
+                    countUnits += 1;
+            host.NumOfUnits = countUnits;
             IDAL.AddHost(host);
         }
         void Ibl.UpdateHost(Host host)
@@ -396,7 +416,7 @@ namespace BL
         }
         List<Host> Ibl.GetHosts()
         {
-           return IDAL.GetHosts();   
+            return IDAL.GetHosts();
         }
 
         Host Ibl.GetHost(long hostKey)
@@ -415,17 +435,22 @@ namespace BL
                     if (h.HostingUnitKey == unit.HostingUnitKey)
                         throw new Exception("ERROR: This unit is alrady exist.\n");
             }
-            unit.HostingUnitKey = IDAL.GetHostingUnits().Count + 1;
+            if (IDAL.GetHostingUnits() == null)// the first guest
+                unit.HostingUnitKey = Configuration.GetNewSerialHostingUnitKey();
+            else
+                if (unit.HostingUnitKey == 0)// new unit- not an update
+                unit.HostingUnitKey = IDAL.GetHostingUnits().LastOrDefault().HostingUnitKey + 1;
             IDAL.AddHostingUnit(unit);
+            IDAL.UpdateHost(unit.Owner);//update host for numOfUnits
         }
         void Ibl.DeleteHostingUnit(HostingUnit unit)
         {
-            foreach(Order item in IDAL.GetOrderList())
+            foreach (Order item in IDAL.GetOrderList())
             {
-                if(item.HostingUnitKey==unit.HostingUnitKey)
+                if (item.HostingUnitKey == unit.HostingUnitKey)
                     throw new Exception("Unable to delete hosting unit because of ongoing order");
             }
-             IDAL.DeleteHostingUnit(unit);
+            IDAL.DeleteHostingUnit(unit);
         }
         void Ibl.UpdateHostingUnit(HostingUnit unit)
         {
@@ -435,7 +460,7 @@ namespace BL
         {
             return IDAL.GetHostingUnits();
         }
-         HostingUnit Ibl.GetHostingUnit(long hostingUnitKey)
+        HostingUnit Ibl.GetHostingUnit(long hostingUnitKey)
         {
             return IDAL.GetHostingUnit(hostingUnitKey);
         }
@@ -445,17 +470,35 @@ namespace BL
         #region Order
         void Ibl.AddOrder(Order order)
         {
+
             HostingUnit u = IDAL.GetHostingUnit(order.HostingUnitKey);
+            if (u == null) throw new Exception("unit does not exist ");
             GuestRequest g = IDAL.GetGuestRequest(order.GuestRequestKey);
-            if (u.Diary[g.EntryDate.Day, g.EntryDate.Month] || u.Diary[g.ReleaseDate.Day, g.ReleaseDate.Month])
-                throw new Exception("Hosting unit already booked");
-            order.OrderKey = IDAL.GetOrderList().Count + 1;
+            if (g == null) throw new Exception("req does not exist ");
+           
+            if (!AvailableUnit(order))
+                throw new Exception(" Hosting unit already booked \n");
+
+            var numOfDays = (g.ReleaseDate- g.EntryDate ).TotalDays;
+            for (int i = 0; i < numOfDays; i++)
+            {
+                u.AllDates.Add(g.EntryDate.AddDays(i));
+            }
+
+            if (IDAL.GetOrderList() == null)// the first guest
+                order.OrderKey = Configuration.GetNewSerialOrderKey();
+            else
+                if (order.OrderKey == 0)// new guest- not an update
+                order.OrderKey = IDAL.GetOrderList().LastOrDefault().OrderKey + 1;
             IDAL.AddOrder(order);
         }
+
         void Ibl.UpdateOrder(Order order)
         {
+            
             HostingUnit u = IDAL.GetHostingUnit(order.HostingUnitKey);
             GuestRequest g = IDAL.GetGuestRequest(order.GuestRequestKey);
+            Order ogOrder = IDAL.GetOrder(order.OrderKey);
             if (!g.Signed)
                 throw new Exception("No standing order confirmation");//אין הרשאת חיוב
             if (order.Status == Enums.Status.Treated)
@@ -468,9 +511,16 @@ namespace BL
             if (order.Status == Enums.Status.Treated)
             {
                 order.Fee = order.Fee + 10 * (g.ReleaseDate.Day - g.EntryDate.Day);///הוספת עמלה של 10 ש"ח ללילה לתשלום הסופי
-                for (int j = g.EntryDate.Month; j <= g.ReleaseDate.Month; j++)
-                    for (int i = g.EntryDate.Day; i <= g.ReleaseDate.Day; i++)
-                        u.Diary[i, j] = true;
+               
+                var numOfDays = ((IDAL.GetGuestRequest(ogOrder.GuestRequestKey).ReleaseDate)- (IDAL.GetGuestRequest(ogOrder.GuestRequestKey).EntryDate)).TotalDays;
+                for (int i = 0; i < numOfDays; i++)//clear original dates 
+                    IDAL.GetHostingUnit(ogOrder.HostingUnitKey).AllDates.Remove(IDAL.GetGuestRequest(ogOrder.GuestRequestKey).EntryDate.AddDays(i));
+                if (!AvailableUnit(order))//if days not available book  original dates back and not updating order
+                {
+                    for (int i = 0; i < numOfDays; i++)
+                       IDAL.GetHostingUnit(ogOrder.HostingUnitKey).AllDates.Add(IDAL.GetGuestRequest(ogOrder.GuestRequestKey).EntryDate.AddDays(i));
+                    throw new Exception("Order new dates not available");
+                }
                 g.Status = Enums.Status.Treated;
                 IDAL.UpdateHostingUnit(u);//עדכון היומן
                 IDAL.UpdateGuestRequest(g);///עדכון סטטוס בקשת הלקוח
@@ -478,6 +528,16 @@ namespace BL
             }
             IDAL.UpdateOrder(order);
         }
+        void Ibl.DeleteOrder(Order order)
+        {
+            IDAL.DeleteOrder(order);
+        }
+
+        Order Ibl.GetOrder(long horderKey)
+        {
+           return IDAL.GetOrder(horderKey);
+        }
+
         List<Order> Ibl.GetOrderList()
         {
             return IDAL.GetOrderList();
@@ -489,12 +549,39 @@ namespace BL
         {
             return IDAL.GetBankBranchList();
         }
-                
-        
+
+        bool AvailableUnit(Order order)
+        {
+            HostingUnit u = IDAL.GetHostingUnit(order.HostingUnitKey);
+            GuestRequest g = IDAL.GetGuestRequest(order.GuestRequestKey);
+            bool flag = true;
+            var numOfDays = (g.ReleaseDate - g.EntryDate).TotalDays;
+            for (int i = 0; i < numOfDays; i++)
+                if (u.AllDates.Find(d => d == g.EntryDate.AddDays(i)) != null)
+                {
+                    flag = false;
+                    break;
+                }
+            return flag;
+        }
         List<HostingUnit> Ibl.AvailableHostingUnits(DateTime date, int n)
         {
-            List<HostingUnit> tempList = IDAL.GetHostingUnits();
-            return tempList.Where(u => u.Diary[date.Month, date.Day]).ToList();
+            List<HostingUnit> tempList = new List<HostingUnit>(); //IDAL.GetHostingUnits();
+            foreach (HostingUnit h in IDAL.GetHostingUnits())
+            {
+                bool flag = true;
+                for (int i = 0; i < n; i += 1)
+                {
+                    if (h.AllDates.Find(d => d == date.AddDays(i)) != null)
+                        flag = false;
+                    break;
+                }
+                if (flag)
+                    tempList.Add(h);
+            }
+            if (tempList == null)
+                throw new Exception("There are no available at these dates\n");
+            return tempList;
         }
         List<Order> Ibl.NumberOfOrders(int days)
         {
@@ -510,7 +597,7 @@ namespace BL
                 return tempList.AsEnumerable().Select(g => g.Clone());
             return tempList.Where(predicate).Select(g => g.Clone());
         }
-       IEnumerable<HostingUnit> Ibl.GetUnitsOfType(Func<BE.HostingUnit, bool> predicate = null)
+        IEnumerable<HostingUnit> Ibl.GetUnitsOfType(Func<BE.HostingUnit, bool> predicate = null)
         {
             IEnumerable<HostingUnit> tempList = IDAL.GetHostingUnits();
             if (predicate == null)
@@ -620,26 +707,11 @@ namespace BL
             return count;
         }
 
-       
-
-       
-
-        public void DeleteOrder(Order order)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Order GetOrder(long horderKey)
-        {
-            throw new NotImplementedException();
-        }
-
-
         #endregion
 
 
-       
+
     }
-  
+
 
 }

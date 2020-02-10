@@ -21,8 +21,6 @@ namespace UI.MiniControl
             this.DataContext = CurrentHost;
             MainGrid.DataContext = CurrentHost;
 
-
-
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)

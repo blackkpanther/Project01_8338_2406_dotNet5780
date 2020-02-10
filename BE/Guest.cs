@@ -1,15 +1,20 @@
-﻿namespace BE
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+namespace BE
 {
     public class Guest
     {
-        private long guestKey;
+        private long guestKey=0;
         private string familyName;
         private string privateName;
         private string mailAddress;
         private long bankAccountNumber;
 
         public long GuestKey
-            {
+        {
             get { return guestKey; }
             set { guestKey = value; }
         }

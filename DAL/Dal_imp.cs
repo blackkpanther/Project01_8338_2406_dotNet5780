@@ -140,7 +140,7 @@ namespace DAL
         #region Order
         void Idal.AddOrder(Order order)
         {
-                DataSource.OrderList.Add(order.Clone());
+            DataSource.OrderList.Add(order.Clone());
         }
 
         void Idal.UpdateOrder(Order order)

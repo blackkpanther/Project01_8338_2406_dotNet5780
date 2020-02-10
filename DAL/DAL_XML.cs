@@ -17,63 +17,81 @@ namespace DAL
 {
     class DAL_XML : Idal
     {
-
-        private XElement hostsFile, guestsFile, ordersFile, unitsFile, guestsReqFile, bankFile;
-        string hostPath = "Hosts.xml";
-        string guestPath = "Guests.xml";
-        string ordersPath = "Orders.xml";
-        string unitPath = "Units.xml";
-        string guestsReqPath = "GuestsReq.xml";
+        private XElement hostsFile, guestsFile, ordersFile, unitsFile, guestsReqFile,  configFile;//bankFile,
+        public const string hostPath = "Hosts.xml";
+        public const string guestPath = "Guests.xml";
+        public const string ordersPath = "Orders.xml";
+        public const string unitPath = "HostingUnit.xml";
+        public const string guestsReqPath = "GuestsReq.xml";
+        public const string configPath = "config.xml";
         //string bankPath = @"BranchXML.xml";
 
         List<BankBranch> branches = new List<BankBranch>();
+        public List<BankBranch> getBranches()
+        {
+            return branches;
+        }
         //BackgroundWorker worker = new BackgroundWorker();
-
-
+        //public long GuestRequestKey { get; set; }
+        //public long HostingUnitKey { get; set; }
+        //public long OrderKey { get; set; }
+        //public long HostKey { get; set; }
 
         public DAL_XML()
         {
-            if (!System.IO.File.Exists(hostPath))
+            try
             {
-                SaveToXML(new List<Host>(), hostPath);
+                if (!System.IO.File.Exists(hostPath))
+                {
+                    SaveToXML(new List<Host>(), hostPath);
+                }
+                else
+                    LoadData(hostPath);
+                if (!System.IO.File.Exists(guestPath))
+                {
+                    SaveToXML(new List<Guest>(), guestPath);
+                }
+                else
+                    LoadData(guestPath);
+                if (!System.IO.File.Exists(ordersPath))
+                {
+                    SaveToXML(new List<Order>(), ordersPath);
+                }
+                else
+                    LoadData(ordersPath);
+                if (!System.IO.File.Exists(guestsReqPath))
+                {
+                    SaveToXML(new List<GuestRequest>(), guestsReqPath);
+                }
+                else
+                    LoadData(guestsReqPath);
+                if (!System.IO.File.Exists(configPath))
+                {
+                    //SaveToXML(GuestRequestKey, configPath);
+                    //SaveToXML(HostingUnitKey, configPath);
+                    //SaveToXML(HostKey, configPath);
+                    //SaveToXML(OrderKey, configPath);
+                    SaveToXML(Configuration.GetNewSerialBankNumber(), configPath);
+                    SaveToXML(Configuration.GetNewSerialGuestRequestKey(), configPath);
+                    SaveToXML(Configuration.GetNewSerialGuestKey(), configPath);
+                    SaveToXML(Configuration.GetNewSerialHostKey(), configPath);
+                    SaveToXML(Configuration.GetNewSerialHostingUnitKey(), configPath);
+                    SaveToXML(Configuration.GetNewSerialOrderKey(), configPath);
+                    SaveToXML(Configuration.GetServiceCharge(), configPath);
+                }
+                else
+                    LoadData(configPath);
+                //if (!System.IO.File.Exists(unitPath))
+                //{
+                //    SaveToXML(new List<HostingUnit>(), unitPath);
+                //}
+                //else
+                //    LoadData(unitPath);
             }
-            else
-                LoadData(hostPath);
-
-            if (!System.IO.File.Exists(guestPath))
-            {
-                SaveToXML(new List<Guest>(), guestPath);
-            }
-            else
-                LoadData(guestPath);
-
-            if (!System.IO.File.Exists(ordersPath))
-            {
-                SaveToXML(new List<Order>(), ordersPath);
-            }
-            else
-                LoadData(ordersPath);
-
-            if (!System.IO.File.Exists(guestsReqPath))
-            {
-                SaveToXML(new List<GuestRequest>(), guestsReqPath);
-            }
-            else
-                LoadData(guestsReqPath);
-
-            //if (!System.IO.File.Exists(unitPath))
-            //{
-            //    SaveToXML(new List<HostingUnit>(), unitPath);
-            //}
-            //else
-            //    LoadData(unitPath);
-
+            catch { throw new Exception("LoadData problem"); }
 
         }
-
-
         #region XML
-
         public static void SaveToXML<T>(T source, string path)
         {
             FileStream file = new FileStream(path, FileMode.Create);
@@ -81,16 +99,24 @@ namespace DAL
             xmlSerializer.Serialize(file, source);
             file.Close();
         }
-
         public static T LoadFromXML<T>(string path)
         {
-            FileStream file = new FileStream(path, FileMode.Open);
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(T));
-            T result = (T)xmlSerializer.Deserialize(file);
-            file.Close();
-            return result;
+            
+            try
+            {
+                FileStream file = new FileStream(path, FileMode.Open);
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(T));
+                T result = (T)xmlSerializer.Deserialize(file);
+                file.Close();
+                return result;
+            }
+            catch
+            {
+                throw new Exception("File load problem");
+            }
+           
+           
         }
-
         private void LoadData(string path)
         {
             try
@@ -115,6 +141,9 @@ namespace DAL
                     //case "snifim_dnld_he.xml":
                     //    bankFile = XElement.Load(bankPath);
                     //    break;
+                    case "config.xml":
+                        configFile = XElement.Load(configPath);
+                        break;
                     default:
                         throw new Exception("File upload problem");
                 }
@@ -128,12 +157,11 @@ namespace DAL
             //worker.RunWorkerAsync();
 
         }
-
         //public void w_doWork(object sender, DoWorkEventArgs e)
         //{
         //    if (bankFile.IsEmpty)
         //    {
-        //        const string xmlLocalPath = @"atm.xml";
+        //        const string xmlLocalPath =bankPath;
         //        WebClient wc = new WebClient();
         //        try
         //        {
@@ -183,25 +211,14 @@ namespace DAL
         //    }
         //    branches = branches.GroupBy(x => x.BranchNumber).Select(y => y.FirstOrDefault()).ToList();
         //}
-
-        //private void CreateFiles(XElement root, string s, string path)
-        //{
-        //    root = new XElement(s);
-        //    root.Save(path);
-        //}
-
-        #endregion
-
-
+        #endregion 
         #region Host
-
         public void AddHost(Host host)
         {
             var list = LoadFromXML<List<Host>>(hostPath);
             list.Add(host);
             SaveToXML<List<Host>>(list, hostPath);
         }
-
         public Host GetHost(long hostKey)
         {
             var list = LoadFromXML<List<Host>>(hostPath);
@@ -210,14 +227,13 @@ namespace DAL
                 throw new Exception("The host you're trying to get doesn't exist");
             return host;
         }
-
         public void DeleteHost(Host host)
         {
-            var list = LoadFromXML<List<Host>>(hostPath);
+            List<Host> list1 = LoadFromXML<List<Host>>(hostPath);
+            List<Host> list = list1;
             list.Remove(host);
             SaveToXML<List<Host>>(list, hostPath);
         }
-
         public List<Host> GetHosts()
         {
             List<Host> hosts = LoadFromXML<List<Host>>(hostPath);
@@ -225,7 +241,6 @@ namespace DAL
                 throw new Exception("This File is empty");
             return hosts;
         }
-
         public void UpdateHost(Host host)
         {
             var list = LoadFromXML<List<Host>>(hostPath);
@@ -237,25 +252,14 @@ namespace DAL
             list.Add(host);//insert the update host
             SaveToXML<List<Host>>(list, hostPath);
         }
-
-
-
-
-
-
         #endregion
-
-
         #region Unit
-
         public void AddHostingUnit(HostingUnit unit)
         {
             var list = LoadFromXML<List<HostingUnit>>(unitPath);
             list.Add(unit);
             //SaveToXML<List<Host>>(list, unitPath);
         }
-
-
         public List<HostingUnit> GetHostingUnits()
         {
             List<HostingUnit> units = LoadFromXML<List<HostingUnit>>(unitPath);
@@ -263,15 +267,12 @@ namespace DAL
                 throw new Exception("This File is empty");
             return units;
         }
-
-
         public void DeleteHostingUnit(HostingUnit unit)
         {
             var list = LoadFromXML<List<HostingUnit>>(unitPath);
             list.Remove(unit);
             SaveToXML<List<HostingUnit>>(list, unitPath);
         }
-
         public void UpdateHostingUnit(HostingUnit unit)
         {
             var list = LoadFromXML<List<HostingUnit>>(unitPath);
@@ -283,7 +284,6 @@ namespace DAL
             list.Add(unit);//insert the update unit
             SaveToXML<List<HostingUnit>>(list, unitPath);
         }
-
         public HostingUnit GetHostingUnit(long hostingUnitKey)
         {
             var list = LoadFromXML<List<HostingUnit>>(unitPath);
@@ -292,18 +292,14 @@ namespace DAL
                 throw new Exception("The unit you're trying to get doesn't exist");
             return unit;
         }
-
         #endregion
-
         #region Order
-
         public void AddOrder(Order order)
         {
             var list = LoadFromXML<List<Order>>(ordersPath);
             list.Add(order);
             SaveToXML<List<Order>>(list, ordersPath);
         }
-
         public List<Order> GetOrderList()
         {
             List<Order> orders = LoadFromXML<List<Order>>(ordersPath);
@@ -311,7 +307,6 @@ namespace DAL
                 throw new Exception("This File is empty");
             return orders;
         }
-
         public void UpdateOrder(Order order)
         {
             var list = LoadFromXML<List<Order>>(ordersPath);
@@ -323,14 +318,12 @@ namespace DAL
             list.Add(order);//insert the update order
             SaveToXML<List<Order>>(list, ordersPath);
         }
-
         public void DeleteOrder(Order order)
         {
             var list = LoadFromXML<List<Order>>(ordersPath);
             list.Remove(order);
             SaveToXML<List<Order>>(list, ordersPath);
         }
-
         public Order GetOrder(long horderKey)
         {
             var list = LoadFromXML<List<Order>>(ordersPath);
@@ -339,18 +332,14 @@ namespace DAL
                 throw new Exception("The unit you're trying to get doesn't exist");
             return order;
         }
-
         #endregion
-
         #region Guest
-
         void Idal.AddGuest(Guest guest)
         {
             var list = LoadFromXML<List<Guest>>(guestPath);
             list.Add(guest);
             SaveToXML<List<Guest>>(list, guestPath);
         }
-
         void Idal.UpdateGuest(Guest guest)
         {
             var list = LoadFromXML<List<Guest>>(guestPath);
@@ -362,14 +351,12 @@ namespace DAL
             list.Add(guest);//insert the update order
             SaveToXML<List<Guest>>(list, guestPath);
         }
-
         void Idal.DeleteGuest(Guest guest)
         {
             var list = LoadFromXML<List<Guest>>(guestPath);
             list.Remove(guest);
             SaveToXML<List<Guest>>(list, guestPath);
         }
-
         List<Guest> Idal.GetGuests()
         {
             List<Guest> guests = LoadFromXML<List<Guest>>(guestPath);
@@ -377,7 +364,6 @@ namespace DAL
                 throw new Exception("This File is empty");
             return guests;
         }
-
         Guest Idal.GetGuest(long guestKey)
         {
             var list = LoadFromXML<List<Guest>>(guestPath);
@@ -386,19 +372,14 @@ namespace DAL
                 throw new Exception("The unit you're trying to get doesn't exist");
             return guest;
         }
-
-
         #endregion
-
         #region GuestReq
-
         public void AddGuestRequest(GuestRequest request)
         {
             var list = LoadFromXML<List<GuestRequest>>(guestsReqPath);
             list.Add(request);
             SaveToXML<List<GuestRequest>>(list, guestsReqPath);
         }
-
         public List<GuestRequest> GetGuestRequestList()
         {
             List<GuestRequest> gr = LoadFromXML<List<GuestRequest>>(guestsReqPath);
@@ -406,7 +387,6 @@ namespace DAL
                 throw new Exception("This File is empty");
             return gr;
         }
-
         public void UpdateGuestRequest(GuestRequest gRequest)
         {
             var list = LoadFromXML<List<GuestRequest>>(guestsReqPath);
@@ -418,7 +398,6 @@ namespace DAL
             list.Add(gRequest);//insert the update req
             SaveToXML<List<GuestRequest>>(list, guestsReqPath);
         }
-
         public GuestRequest GetGuestRequest(long gustReqKey)
         {
             var list = LoadFromXML<List<GuestRequest>>(guestsReqPath);
@@ -427,19 +406,7 @@ namespace DAL
                 throw new Exception("The unit you're trying to get doesn't exist");
             return gr;
         }
-
-
         #endregion
-
-
-        //public List<BankBranch> GetBankBranchList()
-        //{
-        //    List<BankBranch> b = LoadFromXML<List<BankBranch>>(bankPath);/////////////////ADD THE PATH TO BankBranch FILE!!!!
-        //    if (b == null)
-        //        throw new Exception("This File is empty");
-        //    return b;
-        //}
-
         public List<BankBranch> GetBankBranchList()
         {
             return new List<BankBranch>()
@@ -471,9 +438,6 @@ namespace DAL
                 }
             };
         }
-
-
-
         public void Clean()
         {
             Thread t = new Thread(DailyUpdate);

@@ -1,8 +1,14 @@
-﻿namespace BE
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+namespace BE
 {
     public class Host
     {
-        private long hostKey;
+        private long hostKey=0;
+       
         private string privateName;
         private string familyName;
         private string phoneNumber;
@@ -10,8 +16,7 @@
         private BankBranch bankBranchDetails;
         private int bankAccountNumber;
         private bool collectionClearance;
-        private int numOfUnits;//*
-
+        private int numOfUnits;
 
         //properties
         public long HostKey

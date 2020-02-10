@@ -1,12 +1,15 @@
 ﻿using System;
-
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 namespace BE
 {
     public class Order
     {
         private long hostingUnitKey;
         private long guestRequestKey;
-        private long orderKey;
+        private long orderKey=0;
         private Enums.Status status;
         private DateTime createDate;
         private DateTime orderDate;

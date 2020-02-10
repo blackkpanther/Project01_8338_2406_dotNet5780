@@ -22,6 +22,10 @@
                     </Grid>
                 </DockPanel>
                 <DockPanel>
+                    <Label Content="hostKey" />
+                    <TextBlock Text="{Binding Path=HostKey }" />
+                </DockPanel>
+                <DockPanel>
                 <Label Content="privateName" />
                 <TextBlock Text="{Binding Path=PrivateName }" />
             </DockPanel>
@@ -37,10 +41,10 @@
                 <Label Content="mailAddress"/>
                 <TextBlock Text="{Binding Path=MailAddress}"  />
             </DockPanel>
-            <DockPanel>
+            <!--DockPanel>
                 <Label Content="bankBranchDetails" />
                 <TextBlock Text="{Binding Path=BankBranchDetails}" />
-            </DockPanel>
+            </-->
             <DockPanel>
                 <Label Content="bankAccountNumber" />
                 <TextBlock Text="{Binding Path=BankAccountNumber}" />

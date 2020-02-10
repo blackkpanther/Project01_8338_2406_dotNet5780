@@ -1,27 +1,32 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Globalization;
 
 namespace BE
 {
     public class HostingUnit
     {
-        private long hostingUnitKey;
+        private long hostingUnitKey = 0;
         private Host owner;
         private string unitName;
-        private bool[,] diary;
+        //private bool[,] diary;
+        public List<DateTime> AllDates { get; set; }
         private Enums.SubArea subArea;// *
         private Enums.Area area;
         private Enums.Type type;
-        private int adults;
-        private int children;
-        private Enums.Option pool;
-        private Enums.Option jacuzzi;
-        private Enums.Option garden;
-        private Enums.Option childrensAttractions;
+        private int adults;//max number of adults 
+        private int children;//max num of children
+        private Enums.OptionForUnit pool;//
+        private Enums.OptionForUnit jacuzzi;
+        private Enums.OptionForUnit garden;
+        private Enums.OptionForUnit childrensAttractions;
         private long pricePerNight;// *
-        public List<string> Uris{ get; set; }
+        public List<string> Uris { get; set; }
         // private string uri;// "https://img.mako.co.il/2014/10/13/asnbsdnsn05_c.jpg",
-        private Calendar Calendar;
+        //private Calendar Calendar;
         //public List<string> Uris { get { return Uris; } set { Uris = value; } }
         //properties:
 
@@ -47,11 +52,11 @@ namespace BE
             get { return unitName; }
             set { unitName = value; }
         }
-        public bool[,] Diary
-        {
-            get { return diary; }
-            set { diary = value; }
-        }
+        //public bool[,] Diary
+        //{
+        //    get { return diary; }
+        //    set { diary = value; }
+        //}
         public Enums.SubArea SubArea
         {
             get { return subArea; }
@@ -77,22 +82,22 @@ namespace BE
             get { return children; }
             set { children = value; }
         }
-        public Enums.Option Pool
+        public Enums.OptionForUnit Pool
         {
             get { return pool; }
             set { pool = value; }
         }
-        public Enums.Option Jacuzzi
+        public Enums.OptionForUnit Jacuzzi
         {
             get { return jacuzzi; }
             set { jacuzzi = value; }
         }
-        public Enums.Option Garden
+        public Enums.OptionForUnit Garden
         {
             get { return garden; }
             set { garden = value; }
         }
-        public Enums.Option ChildrensAttractions
+        public Enums.OptionForUnit ChildrensAttractions
         {
             get { return childrensAttractions; }
             set { childrensAttractions = value; }
@@ -103,14 +108,14 @@ namespace BE
             set { pricePerNight = value; }
         }
         /*public string Uri
-{
-get { return uri; }
-set { uri = value; }
-}*/
+          {
+          get { return uri; }
+          set { uri = value; }
+          }*/
         //printing method
         public override string ToString()
         {
-            return "Hosting unit key: " + this.hostingUnitKey + " Owner: " + this.owner.PrivateName + " " + this.owner.FamilyName + " Hosting unit name: " + this.UnitName + " Diary: " + this.diary;
+            return "Hosting unit key: " + this.hostingUnitKey + " Owner: " + this.owner.PrivateName + " " + this.owner.FamilyName + " Hosting unit name: " + this.UnitName /*+ " Diary: " + this.diary*/;
         }
         public HostingUnit() { }
     }
