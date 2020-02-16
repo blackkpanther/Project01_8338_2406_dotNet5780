@@ -10,12 +10,12 @@ namespace BE
         public const int NumOfDaysInMonth = 31;
         public const int NumOfMonthsInYear = 12;
 
-        public static long serialGuestKey { get; set; } = 10000000;
+        public static long serialGuestKey { get; set; } = 9999999;
         public static int serialBankNumber { get; set; } = 10;
-        public static long serialGuestRequestKey { get; set; } = 10000000;
-        public static long serialHostKey { get; set; } = 10000000;
-        public static long serialHostingUnitKey { get; set; } = 10000000;
-        public static long serialOrderKey { get; set; } = 20000000;
+        public static long serialGuestRequestKey { get; set; } =9999999;
+        public static long serialHostKey { get; set; } = 9999999;
+        public static long serialHostingUnitKey { get; set; } = 9999999;
+        public static long serialOrderKey { get; set; } =1999999;
         public static double serviceCharge { get; set; } = 0.2;//עמלה
 
         public static int GetNewSerialBankNumber() { return serialBankNumber++; }

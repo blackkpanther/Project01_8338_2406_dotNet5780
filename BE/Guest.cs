@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace BE
 {
-    public class Guest
+    public class Guest 
     {
         private long guestKey=0;
         private string familyName;

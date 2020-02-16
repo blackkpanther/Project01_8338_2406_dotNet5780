@@ -18,7 +18,7 @@ namespace DAL
     class DAL_XML : Idal
     {
         private XElement hostsFile, guestsFile, ordersFile, unitsFile, guestsReqFile,  configFile;//bankFile,
-        public const string hostPath = "Hosts.xml";
+        public const string hostPath = "Hosts.xml";//רק הגדרת שם הקובץ-חייב להיות מחרוזת
         public const string guestPath = "Guests.xml";
         public const string ordersPath = "Orders.xml";
         public const string unitPath = "HostingUnit.xml";
@@ -26,10 +26,10 @@ namespace DAL
         public const string configPath = "config.xml";
         //string bankPath = @"BranchXML.xml";
 
-        List<BankBranch> branches = new List<BankBranch>();
+        List<BankBranch> branches = new List<BankBranch>();//למחוק אם עובד קבצי הבנק
         public List<BankBranch> getBranches()
         {
-            return branches;
+            return branches;//רשימה 
         }
         //BackgroundWorker worker = new BackgroundWorker();
         //public long GuestRequestKey { get; set; }
@@ -65,7 +65,7 @@ namespace DAL
                 }
                 else
                     LoadData(guestsReqPath);
-                if (!System.IO.File.Exists(configPath))
+                if (!System.IO.File.Exists(configPath))//כל קונפיג בליסט של אינט ולעשות פעם אחת שמירה לXML
                 {
                     //SaveToXML(GuestRequestKey, configPath);
                     //SaveToXML(HostingUnitKey, configPath);
@@ -81,6 +81,7 @@ namespace DAL
                 }
                 else
                     LoadData(configPath);
+                //לעשות ליחידות XELEMENT
                 //if (!System.IO.File.Exists(unitPath))
                 //{
                 //    SaveToXML(new List<HostingUnit>(), unitPath);
@@ -113,8 +114,7 @@ namespace DAL
             catch
             {
                 throw new Exception("File load problem");
-            }
-           
+            }       
            
         }
         private void LoadData(string path)
@@ -407,7 +407,7 @@ namespace DAL
             return gr;
         }
         #endregion
-        public List<BankBranch> GetBankBranchList()
+        public List<BankBranch> GetBankBranchList()//להחליף לפונק כמו GETHOST
         {
             return new List<BankBranch>()
             {
@@ -461,7 +461,7 @@ namespace DAL
                 if (guestsReqFile.IsEmpty)
                     throw new Exception("no old req");
             }
-            Thread.Sleep(1440000);
+            Thread.Sleep(1440000);//מחכה עד לעדכון הבא
         }
 
     }

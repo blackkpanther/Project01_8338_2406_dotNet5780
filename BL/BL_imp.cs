@@ -297,160 +297,276 @@ namespace BL
         #region Guest
         void Ibl.AddGuest(Guest guest)
         {
-            if (IDAL.GetGuests() != null)
+            try
             {
-                foreach (Guest g in IDAL.GetGuests())
-                    if (g.GuestKey == guest.GuestKey)
-                        throw new Exception("ERROR: This key number is alrady exist.\n");
+                if (IDAL.GetGuests() == null)//the first guest
+                    guest.GuestKey = Configuration.GetNewSerialGuestKey();
+                else
+                {
+                    if (guest.GuestKey == 0)//new key
+                        guest.GuestKey = IDAL.GetGuests().LastOrDefault().GuestKey + 1;
+
+                    if (IDAL.GetGuest(guest.GuestKey) != null)//key exist
+                        throw new Exception(String.Format("ERROR: Guest key number is alrady exist.\n key num:{0} ", guest.GuestKey));
+                }
+                IDAL.AddGuest(guest);
             }
-            if (IDAL.GetGuests() == null)// the first guest
-                guest.GuestKey = Configuration.GetNewSerialGuestKey();
-            else
-                if (guest.GuestKey == 0)// new guest- not an update
-                guest.GuestKey = IDAL.GetGuests().LastOrDefault().GuestKey + 1;
-            IDAL.AddGuest(guest);
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong \n bl add guest- key num:{0} ", guest.GuestKey));
+            }
+            
         }
 
         void Ibl.UpdateGuest(Guest guest)
         {
-            IDAL.UpdateGuest(guest);
+            try
+            {
+                if (IDAL.GetGuest(guest.GuestKey) != null)//check guest exist
+                    IDAL.UpdateGuest(guest);
+                else
+                    throw new Exception("The guest you try to update doesn't exsit/n");
+            }
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong \n bl update guest- key num:{0} ", guest.GuestKey));
+            }
+          
         }
 
         void Ibl.DeleteGuest(Guest guest)
         {
-            if (IDAL.GetGuests() != null)
+            try
             {
-                foreach (Guest g in IDAL.GetGuests())
-                    if (g.GuestKey == guest.GuestKey)
-                        IDAL.DeleteGuest(guest);
-            }
-            throw new Exception("ERROR: This guest is not exist.\n");
+               if (IDAL.GetGuest(guest.GuestKey)!=null)//check guest exist
+                    IDAL.DeleteGuest(guest);
 
+            }
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong \n bl delete guest- key num:{0} ", guest.GuestKey));
+
+            }
         }
 
         List<Guest> Ibl.GetGuests()
         {
-            return IDAL.GetGuests();
+            try
+            {
+                return IDAL.GetGuests();
+            }
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong \n bl get guest list "));
+            }
         }
 
         Guest Ibl.GetGuest(long guestKey)
         {
-            if (IDAL.GetGuests() != null)
+            try
             {
-                foreach (Guest g in IDAL.GetGuests())
-                    if (g.GuestKey == guestKey)
-                        return IDAL.GetGuest(guestKey);
+                if (IDAL.GetGuest(guestKey) != null)//check guest exist
+                    return IDAL.GetGuest(guestKey);
+                throw new Exception("ERROR: This guest is not exist.\n");
             }
-            throw new Exception("ERROR: This guest is not exist.\n");
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong \n bl get guest- key num:{0} ", guestKey));
 
+            }
         }
         #endregion
+
         #region GustRequest
         void Ibl.AddGuestRequest(GuestRequest request)
         {
-            if (request.EntryDate >= request.ReleaseDate)
-                throw new Exception("Entry date has to be at least one day before release date");
-            if (IDAL.GetGuestRequestList() == null)//the first req
-                request.GuestRequestKey = Configuration.GetNewSerialGuestRequestKey();
-            else
-                 if (request.GuestRequestKey == 0)// new req- not an update
-                request.GuestRequestKey = IDAL.GetGuestRequestList().LastOrDefault().GuestRequestKey + 1;
-            IDAL.AddGuestRequest(request);
+            try
+            {
+                if (request.EntryDate >= request.ReleaseDate)
+                    throw new Exception("Entry date has to be at least one day before release date");
+                if (IDAL.GetGuestRequestList() == null)//the first req
+                    request.GuestRequestKey = Configuration.GetNewSerialGuestRequestKey();
+                else
+                {
+                    if (request.GuestRequestKey == 0)// new key
+                        request.GuestRequestKey = IDAL.GetGuestRequestList().LastOrDefault().GuestRequestKey + 1;
+                    if (IDAL.GetGuestRequest(request.GuestRequestKey) != null)//key exist
+                   throw new Exception(String.Format("ERROR: Guest request key number is alrady exist.\n key num:{0} ", request.GuestRequestKey));
+                }
+                IDAL.AddGuestRequest(request);
+            }
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong \n bl add guest request- key num:{0} ", request.GuestRequestKey));
+            }
+           
         }
         void Ibl.UpdateGuestRequest(GuestRequest request)
         {
-            IDAL.UpdateGuestRequest(request);
+            try
+            {
+                if(IDAL.GetGuestRequest(request.GuestRequestKey)!=null)//check req exist
+                          IDAL.UpdateGuestRequest(request);
+                else
+                    throw new Exception("The req you try to update doesn't exsit/n");
+            }
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong \n bl update guest req- key num:{0} ", request.GuestRequestKey));
+            }  
         }
 
         List<GuestRequest> Ibl.GetGuestRequestList()
         {
-            return IDAL.GetGuestRequestList();
+            try
+            {
+                return IDAL.GetGuestRequestList();
+            }
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong \n bl get guest req list "));
+            }
         }
         GuestRequest Ibl.GetGuestRequest(long gustReqKey)
         {
-            return IDAL.GetGuestRequest(gustReqKey);
+            try
+            {
+                return IDAL.GetGuestRequest(gustReqKey);
+            }
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong \n bl get guest req- key num:{0} ", gustReqKey));
+            }
+           
         }
 
         #endregion
+       
         #region Host
         void Ibl.DeleteHost(Host host)
         {
-            var temp = (from item in IDAL.GetHosts() where item.HostKey == host.HostKey select item).FirstOrDefault();
-            if (temp != null)
+            try
             {
-                IDAL.DeleteHost(host);
+                if(IDAL.GetHost(host.HostKey)!=null)//check host exist
+                   IDAL.DeleteHost(host);
             }
-            else
-                throw new Exception("The host you try to delete doesn't exsit/n");
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong \n bl delete host- key num:{0} ", host.HostKey));
+            }
         }
         void Ibl.AddHost(Host host)
         {
-            if (IDAL.GetHosts() != null)
+            try
             {
-                foreach (Host h in IDAL.GetHosts())
-                    if (h.HostKey == host.HostKey)
+                if (IDAL.GetHosts() == null)//first host
+                    host.HostKey = Configuration.GetNewSerialHostKey();
+                else
+                {
+                    if(host.HostKey==0)
+                        host.HostKey = IDAL.GetHosts().LastOrDefault().HostKey + 1;
+                    if(IDAL.GetHost(host.HostKey)!=null)//key exist
                         throw new Exception("ERROR: This host is alrady exist.\n");
+                }
+                host.NumOfUnits = 0;              
+                IDAL.AddHost(host);
             }
-            if (IDAL.GetHosts() == null)//first host
-                host.HostKey = Configuration.GetNewSerialHostKey();
-            else
-               // if (host.HostKey !=1 )//new host- not an update
-                host.HostKey = IDAL.GetHosts().LastOrDefault().HostKey + 1;
-
-            int countUnits = 0;
-            foreach (HostingUnit h1 in IDAL.GetHostingUnits())
-                if (h1.Owner == host)
-                    countUnits += 1;
-            host.NumOfUnits = countUnits;
-            IDAL.AddHost(host);
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong \n bl add host- key num:{0} ", host.HostKey));
+            }
         }
         void Ibl.UpdateHost(Host host)
         {
-            var temp = (from item in IDAL.GetHosts() where item.HostKey == host.HostKey select item).FirstOrDefault();
-            if (temp != null)
+            try
             {
-                IDAL.UpdateHost(host);
+                if (IDAL.GetHost(host.HostKey)!=null)//check host exist
+                         IDAL.UpdateHost(host);
+                else
+
+                    throw new Exception("The host you try to update doesn't exsit/n");
             }
-            else
-                throw new Exception("The host you try to update doesn't exsit/n");
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong \n bl update host- key num:{0} ", host.HostKey));
+            }
+           
         }
         List<Host> Ibl.GetHosts()
         {
-            return IDAL.GetHosts();
-        }
+            try
+            {
+                return IDAL.GetHosts();
+            }
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong \n bl get host list "));
 
+            }
+
+        }
         Host Ibl.GetHost(long hostKey)
         {
-            return IDAL.GetHost(hostKey);
+            try
+            {
+                if (IDAL.GetHost(hostKey) != null)//check host exist
+                    return IDAL.GetHost(hostKey);
+                else
+                    throw new Exception("The host you try to update doesn't exsit/n");
+            }
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong \n bl get host- key num:{0} ", hostKey));
+            }
         }
-
         #endregion
 
         #region HostingUnit
         void Ibl.AddHostingUnit(HostingUnit unit)
         {
-            if (IDAL.GetHostingUnits() != null)
+            try 
             {
-                foreach (HostingUnit h in IDAL.GetHostingUnits())
-                    if (h.HostingUnitKey == unit.HostingUnitKey)
+                Host ownerUnit = unit.Owner;
+                if (IDAL.GetHostingUnits() == null)//first unit
+                    unit.HostingUnitKey = Configuration.GetNewSerialHostingUnitKey();
+                else
+                {
+                    if (unit.HostingUnitKey == 0)// new unit- new key and update host unit num
+                    {
+                        unit.HostingUnitKey = IDAL.GetHostingUnits().LastOrDefault().HostingUnitKey + 1;
+                        ownerUnit.NumOfUnits += 1;                       
+                    }
+                    if(IDAL.GetHostingUnit(unit.HostingUnitKey)!=null)//key exist
                         throw new Exception("ERROR: This unit is alrady exist.\n");
+                }            
+                IDAL.AddHostingUnit(unit);
+                IDAL.UpdateHost(ownerUnit);//after add unit //update host for numOfUnits
             }
-            if (IDAL.GetHostingUnits() == null)// the first guest
-                unit.HostingUnitKey = Configuration.GetNewSerialHostingUnitKey();
-            else
-                if (unit.HostingUnitKey == 0)// new unit- not an update
-                unit.HostingUnitKey = IDAL.GetHostingUnits().LastOrDefault().HostingUnitKey + 1;
-            IDAL.AddHostingUnit(unit);
-            IDAL.UpdateHost(unit.Owner);//update host for numOfUnits
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong \n bl add unit- key num:{0} ", unit.HostingUnitKey));
+            }
         }
         void Ibl.DeleteHostingUnit(HostingUnit unit)
         {
-            foreach (Order item in IDAL.GetOrderList())
+            try
             {
-                if (item.HostingUnitKey == unit.HostingUnitKey)
-                    throw new Exception("Unable to delete hosting unit because of ongoing order");
+                if (IDAL.GetHostingUnit(unit.HostingUnitKey) != null)//check unit exist
+                    if((from item in IDAL.GetOrderList() where   //check if the unit exist in open order //only futur orders:                    
+                                (item.HostingUnitKey==unit.HostingUnitKey) && ((item.OrderDate-DateTime.Now) > new TimeSpan()) 
+                         select item).FirstOrDefault() !=null )
+                        throw new Exception("Unable to delete hosting unit because of ongoing order");
+                else
+                    throw new Exception("Unable to delete hosting unit does not exist");
+                Host ownerUnit = unit.Owner;
+                IDAL.DeleteHostingUnit(unit);
+                ownerUnit.NumOfUnits -= 1;
+                IDAL.UpdateHost(ownerUnit);//after delete unit //update host for numOfUnits
             }
-            IDAL.DeleteHostingUnit(unit);
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong \n bl delete unit- key num:{0} ", unit.HostingUnitKey));
+            }
         }
         void Ibl.UpdateHostingUnit(HostingUnit unit)
         {
@@ -594,7 +710,7 @@ namespace BL
         {
             IEnumerable<GuestRequest> tempList = IDAL.GetGuestRequestList();
             if (predicate == null)
-                return tempList.AsEnumerable().Select(g => g.Clone());
+                return tempList.AsEnumerable().Select(g => g.Clone());//בודק רשימה ראשית לא ריקה
             return tempList.Where(predicate).Select(g => g.Clone());
         }
         IEnumerable<HostingUnit> Ibl.GetUnitsOfType(Func<BE.HostingUnit, bool> predicate = null)

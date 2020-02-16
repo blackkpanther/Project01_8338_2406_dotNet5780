@@ -4,6 +4,16 @@ namespace DAL
 {
     public static class Cloning
     {
+        public static Guest Clone(this Guest original)
+        {
+            Guest target = new Guest();
+            target.GuestKey = original.GuestKey;
+            target.PrivateName = original.PrivateName;
+            target.FamilyName = original.FamilyName;
+            target.MailAddress = original.MailAddress;
+            target.BankAccountNumber = original.BankAccountNumber;
+            return target;
+        }
         public static BankBranch Clone(this BankBranch original)
         {
             BankBranch target = new BankBranch();

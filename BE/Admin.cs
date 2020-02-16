@@ -8,5 +8,8 @@ namespace BE
     {
         public string adminPass { get; set; }
         public int Profits { get; set; }
+
+    
+
     }
 }

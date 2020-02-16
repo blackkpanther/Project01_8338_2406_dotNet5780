@@ -27,16 +27,39 @@ namespace DAL
         #region Guest
         void Idal.AddGuest(Guest guest)
         {
-            DataSource.GuestList.Add(guest);
+            try
+            {
+                DataSource.GuestList.Add(guest);
+            }
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong \n dal add guest- key num:{0} ", guest.GuestKey));
+            }
         }
         void Idal.UpdateGuest(Guest guest)
         {
-            DataSource.GuestList.Remove(guest);
-            DataSource.GuestList.Add(guest);
+            try
+            {
+                var oldGuest = (from item in DataSource.GuestList where item.GuestKey == guest.GuestKey select item).FirstOrDefault();
+                int tempIndex = DataSource.GuestList.IndexOf(oldGuest);
+                DataSource.GuestList.Remove(oldGuest);
+                DataSource.GuestList.Insert(tempIndex, guest);
+            }
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong \n dal update guest- key num:{0} ", guest.GuestKey));
+            }
         }
         void Idal.DeleteGuest(Guest guest)
         {
-            DataSource.GuestList.Remove(guest);
+            try
+            {
+                DataSource.GuestList.Remove(guest);
+            }
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong \n dal delete guest- key num:{0} ", guest.GuestKey));
+            }
         }
         List<Guest> Idal.GetGuests()
         {

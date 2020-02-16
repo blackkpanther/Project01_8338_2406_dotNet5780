@@ -10,7 +10,7 @@
 
         <Button Content="Search" Name="search" ClickMode="Press" Margin="234,-29,1,715" Width="225" Height="Auto" RenderTransformOrigin="0.936,0.543"/>
 
-        <DataGrid ItemsSource="{Binding}" HorizontalAlignment="Left" VerticalAlignment="Top" RowHeight="30" ColumnWidth="100" GridLinesVisibility="Vertical" HeadersVisibility="All" 
+        <DataGrid ItemsSource="{Binding  }" HorizontalAlignment="Left" VerticalAlignment="Top" RowHeight="30" ColumnWidth="100" GridLinesVisibility="Vertical" HeadersVisibility="Column" 
                   IsReadOnly="True" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" SelectionMode="Extended"
                  x:Name="OrderList" ScrollViewer.CanContentScroll="False" Width="460" Height="670" Margin="0,50,0,0">
             <DataGrid.RowStyle>
