@@ -9,7 +9,7 @@ namespace BE
 {
     public class GuestRequest
     {
-        private long guestRequestKey=0;
+        private long guestRequestKey = 0;
         //private Guest guest;
         private string privateName;
         private string familyName;

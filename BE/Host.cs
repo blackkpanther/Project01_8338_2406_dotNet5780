@@ -7,8 +7,7 @@ namespace BE
 {
     public class Host
     {
-        private long hostKey=0;
-       
+        private long hostKey;
         private string privateName;
         private string familyName;
         private string phoneNumber;
@@ -77,6 +76,6 @@ namespace BE
         {
             return "Host ID: " + this.hostKey + " Name: " + this.privateName + " " + this.familyName + " Phone no.: " + this.phoneNumber + " Email address: " + this.mailAddress + " Bank account information: " + this.bankBranchDetails.ToString() + " Collection clearance: " + this.collectionClearance;
         }
-        // public Host() { }
+       
     }
 }

@@ -14,8 +14,8 @@ namespace BL
 
         public BL_imp()
         {
-           // IDAL = DAL.FactoryDAL.GetFactory("XML");
-              IDAL = DAL.FactoryDAL.GetFactory("List");
+            IDAL = DAL.FactoryDAL.GetFactory("XML");
+            //  IDAL = DAL.FactoryDAL.GetFactory("List");
             InitList();// בשביל לבדוק לאתחל רשימות משתמשים
         }
         void InitList() // פונקציית אתחול
@@ -24,7 +24,6 @@ namespace BL
             {
                 IDAL.AddHost(new Host
                 {
-                   // HostKey = 10000001,
                     PrivateName = "first",
                     FamilyName = "AA",
                     PhoneNumber = "0000000000",
@@ -35,256 +34,173 @@ namespace BL
                     //    BankName = "Leumi",
                     //    BranchNumber = 111,
                     //    BranchAddress = "aaaa aaaa",
-                    //    BranchCity = "Afula"
+                    //   
                     //},
                     BankAccountNumber = 111,
                     CollectionClearance = true,
 
-                });
-                //IDAL.AddHost(new Host
-                //{
-                //  //  HostKey = 10000002,
-                //    PrivateName = "2Accccccc",
-                //    FamilyName = "AA",
-                //    PhoneNumber = "0000000000",
-                //    MailAddress = "aaa@gmail.com",
-                //    BankBranchDetails = new BankBranch(),
-                //    //{
-                //    //    BankNumber = 1,
-                //    //    BankName =Enums.BankName.BankLeum,
-                //    //    BranchNumber = 111,
-                //    //    BranchAddress = "aaaa aaaa",
-                //    //    BranchCity =Enums.SubArea.Afula,// "Afula"
-                //    //},
-                //    BankAccountNumber = 111,
-                //    CollectionClearance = true,
+                         });
+                IDAL.AddHost(new Host());
 
-                //});
-                //IDAL.AddHost(new Host
-                //{
-                //    HostKey = 10000003,
-                //    PrivateName = "3Accccccc",
-                //    FamilyName = "AA",
-                //    PhoneNumber = "0000000000",
-                //    MailAddress = "aaa@gmail.com",
-                //    BankBranchDetails = new BankBranch(),
-                //    //{
-                //    //    BankNumber = 1,
-                //    //    BankName = "Leumi",
-                //    //    BranchNumber = 111,
-                //    //    BranchAddress = "aaaa aaaa",
-                //    //    BranchCity = "Afula"
-                //    //},
-                //    BankAccountNumber = 111,
-                //    CollectionClearance = true,
+                    //        //IDAL.AddHost(new Host
+                    //        //{
+                    //        //    PrivateName = "2Accccccc",
+                    //        //    FamilyName = "AA",
+                    //        //    PhoneNumber = "0000000000",
+                    //        //    MailAddress = "aaa@gmail.com",
+                    //        //    BankBranchDetails = new BankBranch(),
+                    //        //    //{
+                    //        //    //    BankNumber = 1,
+                    //        //    //    BankName =Enums.BankName.BankLeum,
+                    //        //    //    BranchNumber = 111,
+                    //        //    //    BranchAddress = "aaaa aaaa",
+                    //        //    //    BranchCity =Enums.SubArea.Afula,// "Afula"
+                    //        //    //},
+                    //        //    BankAccountNumber = 111,
+                    //        //    CollectionClearance = true,
 
-                //});
-                //IDAL.AddHost(new Host
-                //{
-                //    HostKey = 10000004,
-                //    PrivateName = "Accccccc",
-                //    FamilyName = "AA",
-                //    PhoneNumber = "0000000000",
-                //    MailAddress = "aaa@gmail.com",
-                //    BankBranchDetails = new BankBranch(),
-                //    //{
-                //    //    BankNumber = 1,
-                //    //    BankName = "Leumi",
-                //    //    BranchNumber = 111,
-                //    //    BranchAddress = "aaaa aaaa",
-                //    //    BranchCity = "Afula"
-                //    //},
-                //    BankAccountNumber = 111,
-                //    CollectionClearance = true,
+                //        //});
+                //        //IDAL.AddHost(new Host
+                //        //{
+                //        //    PrivateName = "3Accccccc",
+                //        //    FamilyName = "AA",
+                //        //    PhoneNumber = "0000000000",
+                //        //    MailAddress = "aaa@gmail.com",
+                //        //    BankBranchDetails = new BankBranch(),
+                //        //    //{
+                //        //    //    BankNumber = 1,
+                //        //    //    BankName = "Leumi",
+                //        //    //    BranchNumber = 111,
+                //        //    //    BranchAddress = "aaaa aaaa",
+                //        //    //    BranchCity = "Afula"
+                //        //    //},
+                //        //    BankAccountNumber = 111,
+                //        //    CollectionClearance = true,
 
-                //});
-                //IDAL.AddHostingUnit(new HostingUnit
-                //{
-                //    HostingUnitKey = 100000001,
-                //    UnitName = "aa",
-                //    Adults = 3,
-                //    Children = 6,
-                //    SubArea = Enums.SubArea.Afula,
-                //    Area = Enums.Area.Center,
-                //    Pool = Enums.OptionForUnit.Yes,
-                //    Jacuzzi = Enums.OptionForUnit.Yes,
-                //    Owner = new Host
-                //    {
-                //        HostKey = 10000001,
-                //        PrivateName = "A",
-                //        FamilyName = "AA",
-                //        PhoneNumber = "0000000000",
-                //        MailAddress = "aaa@gmail.com",
-                //        BankBranchDetails = new BankBranch
-                //        {
-                //            BankNumber = 1,
-                //            BankName = "Leumi",
-                //            BranchNumber = 111,
-                //            BranchAddress = "aaaa aaaa",
-                //            BranchCity = "Afula"
-                //        },
-                //        BankAccountNumber = 111,
-                //        CollectionClearance = true
-                //    },
-                //    PricePerNight = 300,
-                //    Uris = new List<string>
-                //        {
-                //           "https://q-ak.bstatic.com/images/hotel/max1024x768/194/194305766.jpg",
-                //           "https://q-ak.bstatic.com/images/hotel/max1280x900/240/240310117.jpg",
-                //           "https://q-ak.bstatic.com/images/hotel/max1280x900/193/193378835.jpg",
-                //           "https://r-ak.bstatic.com/images/hotel/max1280x900/193/193379099.jpg"
-                //        }
-                //});
-                //IDAL.AddHostingUnit(new HostingUnit
-                //{
-                //    HostingUnitKey = 100000002,
-                //    UnitName = "aa",
-                //    Adults = 3,
-                //    Children = 6,
-                //    SubArea = Enums.SubArea.Afula,
-                //    Area = Enums.Area.Center,
-                //    Pool = Enums.OptionForUnit.Yes,
-                //    Jacuzzi = Enums.OptionForUnit.Yes,
-                //    Owner = new Host
-                //    {
-                //        HostKey = 10000001,
-                //        PrivateName = "A",
-                //        FamilyName = "AA",
-                //        PhoneNumber = "0000000000",
-                //        MailAddress = "aaa@gmail.com",
-                //        BankBranchDetails = new BankBranch
-                //        {
-                //            BankNumber = 1,
-                //            BankName = "Leumi",
-                //            BranchNumber = 111,
-                //            BranchAddress = "aaaa aaaa",
-                //            BranchCity = "Afula"
-                //        },
-                //        BankAccountNumber = 111,
-                //        CollectionClearance = true
-                //    },
-                //    PricePerNight = 300,
-                //    Uris = new List<string>
-                //        {
-                //           "https://q-ak.bstatic.com/images/hotel/max1024x768/194/194305766.jpg",
-                //           "https://q-ak.bstatic.com/images/hotel/max1280x900/240/240310117.jpg",
-                //           "https://q-ak.bstatic.com/images/hotel/max1280x900/193/193378835.jpg",
-                //           "https://r-ak.bstatic.com/images/hotel/max1280x900/193/193379099.jpg"
-                //        }
-                //});
-                //IDAL.AddHostingUnit(new HostingUnit
-                //{
-                //    HostingUnitKey = 100000003,
-                //    UnitName = "aa",
-                //    Adults = 3,
-                //    Children = 6,
-                //    SubArea = Enums.SubArea.Afula,
-                //    Area = Enums.Area.Center,
-                //    Pool = Enums.OptionForUnit.Yes,
-                //    Jacuzzi = Enums.OptionForUnit.Yes,
-                //    Owner = new Host
-                //    {
-                //        HostKey = 10000001,
-                //        PrivateName = "A",
-                //        FamilyName = "AA",
-                //        PhoneNumber = "0000000000",
-                //        MailAddress = "aaa@gmail.com",
-                //        BankBranchDetails = new BankBranch
-                //        {
-                //            BankNumber = 1,
-                //            BankName = "Leumi",
-                //            BranchNumber = 111,
-                //            BranchAddress = "aaaa aaaa",
-                //            BranchCity = "Afula"
-                //        },
-                //        BankAccountNumber = 111,
-                //        CollectionClearance = true
-                //    },
-                //    PricePerNight = 300,
-                //    Uris = new List<string>
-                //        {
-                //           "https://q-ak.bstatic.com/images/hotel/max1024x768/194/194305766.jpg",
-                //           "https://q-ak.bstatic.com/images/hotel/max1280x900/240/240310117.jpg",
-                //           "https://q-ak.bstatic.com/images/hotel/max1280x900/193/193378835.jpg",
-                //           "https://r-ak.bstatic.com/images/hotel/max1280x900/193/193379099.jpg"
-                //        }
-                //});
-                //IDAL.AddHostingUnit(new HostingUnit
-                //{
-                //    HostingUnitKey = 100000004,
-                //    UnitName = "aa",
-                //    Adults = 3,
-                //    Children = 6,
-                //    SubArea = Enums.SubArea.Afula,
-                //    Area = Enums.Area.Center,
-                //    Pool = Enums.OptionForUnit.Yes,
-                //    Jacuzzi = Enums.OptionForUnit.Yes,
-                //    Owner = new Host
-                //    {
-                //        HostKey = 10000001,
-                //        PrivateName = "A",
-                //        FamilyName = "AA",
-                //        PhoneNumber = "0000000000",
-                //        MailAddress = "aaa@gmail.com",
-                //        BankBranchDetails = new BankBranch
-                //        {
-                //            BankNumber = 1,
-                //            BankName = "Leumi",
-                //            BranchNumber = 111,
-                //            BranchAddress = "aaaa aaaa",
-                //            BranchCity = "Afula"
-                //        },
-                //        BankAccountNumber = 111,
-                //        CollectionClearance = true
-                //    },
-                //    PricePerNight = 300,
-                //    Uris = new List<string>
-                //        {
-                //           "https://q-ak.bstatic.com/images/hotel/max1024x768/194/194305766.jpg",
-                //           "https://q-ak.bstatic.com/images/hotel/max1280x900/240/240310117.jpg",
-                //           "https://q-ak.bstatic.com/images/hotel/max1280x900/193/193378835.jpg",
-                //           "https://r-ak.bstatic.com/images/hotel/max1280x900/193/193379099.jpg"
-                //        }
-                //});
-                //IDAL.AddHostingUnit(new HostingUnit
-                //{
-                //    HostingUnitKey = 100000005,
-                //    UnitName = "aa",
-                //    Adults = 3,
-                //    Children = 6,
-                //    SubArea = Enums.SubArea.Afula,
-                //    Area = Enums.Area.Center,
-                //    Pool = Enums.OptionForUnit.Yes,
-                //    Jacuzzi = Enums.OptionForUnit.Yes,
-                //    Owner = new Host
-                //    {
-                //        HostKey = 10000001,
-                //        PrivateName = "A",
-                //        FamilyName = "AA",
-                //        PhoneNumber = "0000000000",
-                //        MailAddress = "aaa@gmail.com",
-                //        BankBranchDetails = new BankBranch
-                //        {
-                //            BankNumber = 1,
-                //            BankName = "Leumi",
-                //            BranchNumber = 111,
-                //            BranchAddress = "aaaa aaaa",
-                //            BranchCity = "Afula"
-                //        },
-                //        BankAccountNumber = 111,
-                //        CollectionClearance = true
-                //    },
-                //    PricePerNight = 300,
-                //    Uris = new List<string>
-                //        {
-                //           "https://q-ak.bstatic.com/images/hotel/max1024x768/194/194305766.jpg",
-                //           "https://q-ak.bstatic.com/images/hotel/max1280x900/240/240310117.jpg",
-                //           "https://q-ak.bstatic.com/images/hotel/max1280x900/193/193378835.jpg",
-                //           "https://r-ak.bstatic.com/images/hotel/max1280x900/193/193379099.jpg"
-                //        }
-                //});
+                //        //});
+                //        //IDAL.AddHost(new Host
+                //        //{
+                //        //    PrivateName = "Accccccc",
+                //        //    FamilyName = "AA",
+                //        //    PhoneNumber = "0000000000",
+                //        //    MailAddress = "aaa@gmail.com",
+                //        //    BankBranchDetails = new BankBranch(),
+                //        //    //{
+                //        //    //    BankNumber = 1,
+                //        //    //    BankName = "Leumi",
+                //        //    //    BranchNumber = 111,
+                //        //    //    BranchAddress = "aaaa aaaa",
+                //        //    //    BranchCity = "Afula"
+                //        //    //},
+                //        //    BankAccountNumber = 111,
+                //        //    CollectionClearance = true,
 
-
+                //        //});
+                //        //IDAL.AddHostingUnit(new HostingUnit
+                //        //{
+                //        //    UnitName = "aa",
+                //        //    Adults = 3,
+                //        //    Children = 6,
+                //        //    SubArea = Enums.SubArea.Afula,
+                //        //    Area = Enums.Area.Center,
+                //        //    Pool = Enums.OptionForUnit.Yes,
+                //        //    Jacuzzi = Enums.OptionForUnit.Yes,
+                //        //    Owner = new Host
+                //        //    {
+                //        //        PrivateName = "A",
+                //        //        FamilyName = "AA",
+                //        //        PhoneNumber = "0000000000",
+                //        //        MailAddress = "aaa@gmail.com",
+                //        //        BankBranchDetails = new BankBranch
+                //        //        {
+                //        //            BankNumber = 1,
+                //        //            BankName = "Leumi",
+                //        //            BranchNumber = 111,
+                //        //            BranchAddress = "aaaa aaaa",
+                //        //            BranchCity = "Afula"
+                //        //        },
+                //        //        BankAccountNumber = 111,
+                //        //        CollectionClearance = true
+                //        //    },
+                //        //    PricePerNight = 300,
+                //        //    Uris = new List<string>
+                //        //        {
+                //        //           "https://q-ak.bstatic.com/images/hotel/max1024x768/194/194305766.jpg",
+                //        //           "https://q-ak.bstatic.com/images/hotel/max1280x900/240/240310117.jpg",
+                //        //           "https://q-ak.bstatic.com/images/hotel/max1280x900/193/193378835.jpg",
+                //        //           "https://r-ak.bstatic.com/images/hotel/max1280x900/193/193379099.jpg"
+                //        //        }
+                //        //});
+                //        //IDAL.AddHostingUnit(new HostingUnit
+                //        //{
+                //        //    UnitName = "aa",
+                //        //    Adults = 3,
+                //        //    Children = 6,
+                //        //    SubArea = Enums.SubArea.Afula,
+                //        //    Area = Enums.Area.Center,
+                //        //    Pool = Enums.OptionForUnit.Yes,
+                //        //    Jacuzzi = Enums.OptionForUnit.Yes,
+                //        //    Owner = new Host
+                //        //    {
+                //        //        PrivateName = "A",
+                //        //        FamilyName = "AA",
+                //        //        PhoneNumber = "0000000000",
+                //        //        MailAddress = "aaa@gmail.com",
+                //        //        BankBranchDetails = new BankBranch
+                //        //        {
+                //        //            BankNumber = 1,
+                //        //            BankName = "Leumi",
+                //        //            BranchNumber = 111,
+                //        //            BranchAddress = "aaaa aaaa",
+                //        //            BranchCity = "Afula"
+                //        //        },
+                //        //        BankAccountNumber = 111,
+                //        //        CollectionClearance = true
+                //        //    },
+                //        //    PricePerNight = 300,
+                //        //    Uris = new List<string>
+                //        //        {
+                //        //           "https://q-ak.bstatic.com/images/hotel/max1024x768/194/194305766.jpg",
+                //        //           "https://q-ak.bstatic.com/images/hotel/max1280x900/240/240310117.jpg",
+                //        //           "https://q-ak.bstatic.com/images/hotel/max1280x900/193/193378835.jpg",
+                //        //           "https://r-ak.bstatic.com/images/hotel/max1280x900/193/193379099.jpg"
+                //        //        }
+                //        //});
+                //        //IDAL.AddHostingUnit(new HostingUnit
+                //        //{
+                //        //    UnitName = "aa",
+                //        //    Adults = 3,
+                //        //    Children = 6,
+                //        //    SubArea = Enums.SubArea.Afula,
+                //        //    Area = Enums.Area.Center,
+                //        //    Pool = Enums.OptionForUnit.Yes,
+                //        //    Jacuzzi = Enums.OptionForUnit.Yes,
+                //        //    Owner = new Host
+                //        //    {
+                //        //        PrivateName = "A",
+                //        //        FamilyName = "AA",
+                //        //        PhoneNumber = "0000000000",
+                //        //        MailAddress = "aaa@gmail.com",
+                //        //        BankBranchDetails = new BankBranch
+                //        //        {
+                //        //            BankNumber = 1,
+                //        //            BankName = "Leumi",
+                //        //            BranchNumber = 111,
+                //        //            BranchAddress = "aaaa aaaa",
+                //        //            BranchCity = "Afula"
+                //        //        },
+                //        //        BankAccountNumber = 111,
+                //        //        CollectionClearance = true
+                //        //    },
+                //        //    PricePerNight = 300,
+                //        //    Uris = new List<string>
+                //        //        {
+                //        //           "https://q-ak.bstatic.com/images/hotel/max1024x768/194/194305766.jpg",
+                //        //           "https://q-ak.bstatic.com/images/hotel/max1280x900/240/240310117.jpg",
+                //        //           "https://q-ak.bstatic.com/images/hotel/max1280x900/193/193378835.jpg",
+                //        //           "https://r-ak.bstatic.com/images/hotel/max1280x900/193/193379099.jpg"
+                //        //        }
+                //        //});  
             }
             catch (Exception e)
             {
@@ -570,15 +486,45 @@ namespace BL
         }
         void Ibl.UpdateHostingUnit(HostingUnit unit)
         {
-            IDAL.UpdateHostingUnit(unit);
+            try
+            {
+                if (IDAL.GetHostingUnit(unit.HostingUnitKey) != null)//check unit exist
+                    IDAL.UpdateHostingUnit(unit);
+                else
+                    throw new Exception("The unit you try to update doesn't exsit/n");
+            }
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong \n bl update unit- key num:{0} ",unit.HostingUnitKey));
+            }
+
         }
         List<HostingUnit> Ibl.GetHostingUnits()
         {
-            return IDAL.GetHostingUnits();
+            try
+            {
+                return IDAL.GetHostingUnits();
+            }
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong "));
+
+            }
         }
         HostingUnit Ibl.GetHostingUnit(long hostingUnitKey)
         {
-            return IDAL.GetHostingUnit(hostingUnitKey);
+            try
+            {
+                if (IDAL.GetHostingUnit(hostingUnitKey) != null)//check unit exist
+                    return IDAL.GetHostingUnit(hostingUnitKey);
+                else
+                    throw new Exception("ERROR: This unit is not exist.\n");
+            }
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong "));
+            }
+         
         }
 
         #endregion

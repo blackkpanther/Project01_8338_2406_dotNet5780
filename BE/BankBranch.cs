@@ -22,6 +22,14 @@
 
             return ret;
         }
+        public BankBranch()//defult ctor
+        {
+            BankNumber = 1;
+            BankName = "Leumi";
+            BranchNumber = 111;
+            BranchAddress = "aaaa aaaa";
+            BranchCity = "Afula";
+        }
     }
 
     //public class BankBranch

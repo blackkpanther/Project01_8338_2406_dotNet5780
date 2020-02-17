@@ -67,17 +67,8 @@ namespace DAL
                     LoadData(guestsReqPath);
                 if (!System.IO.File.Exists(configPath))//כל קונפיג בליסט של אינט ולעשות פעם אחת שמירה לXML
                 {
-                    //SaveToXML(GuestRequestKey, configPath);
-                    //SaveToXML(HostingUnitKey, configPath);
-                    //SaveToXML(HostKey, configPath);
-                    //SaveToXML(OrderKey, configPath);
-                    SaveToXML(Configuration.GetNewSerialBankNumber(), configPath);
-                    SaveToXML(Configuration.GetNewSerialGuestRequestKey(), configPath);
-                    SaveToXML(Configuration.GetNewSerialGuestKey(), configPath);
-                    SaveToXML(Configuration.GetNewSerialHostKey(), configPath);
-                    SaveToXML(Configuration.GetNewSerialHostingUnitKey(), configPath);
-                    SaveToXML(Configuration.GetNewSerialOrderKey(), configPath);
-                    SaveToXML(Configuration.GetServiceCharge(), configPath);
+                    List<long> listConfig = new List<long> { 9999999, 10, 1999999, 2 };
+                     SaveToXML(listConfig /* { 9999999, 10, 1999999, 2 }*/, configPath);
                 }
                 else
                     LoadData(configPath);
@@ -211,13 +202,24 @@ namespace DAL
         //    }
         //    branches = branches.GroupBy(x => x.BranchNumber).Select(y => y.FirstOrDefault()).ToList();
         //}
-        #endregion 
+        #endregion
+        #region config
+          //  Configuration.
+        #endregion
         #region Host
         public void AddHost(Host host)
         {
-            var list = LoadFromXML<List<Host>>(hostPath);
-            list.Add(host);
-            SaveToXML<List<Host>>(list, hostPath);
+            try
+            {
+                var list = LoadFromXML<List<Host>>(hostPath);
+                list.Add(host);
+                SaveToXML<List<Host>>(list, hostPath);
+            }
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong \n dal add host- key num:{0} ", host.HostKey));
+            }
+            
         }
         public Host GetHost(long hostKey)
         {

@@ -21,7 +21,6 @@ namespace DAL
             allUnits = new List<HostingUnit>();
             allGusts = new List<Guest>();
             allOrders = new List<Order>();
-
         }
 
         #region Guest
@@ -63,18 +62,30 @@ namespace DAL
         }
         List<Guest> Idal.GetGuests()
         {
-            return DataSource.GuestList;
+            try
+            {
+                return DataSource.GuestList;
+            }
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong: \n dal get Guest list "));
+            }
+           
         }
         Guest Idal.GetGuest(long guestKey)
         {
-            var temp = (from item in DataSource.GuestList where item.GuestKey == guestKey select item).FirstOrDefault();
-            if (temp != null)
-                return temp;
-            else
-                throw new Exception("The guest you try to find doesn't exsit/n");
+            try
+            {
+                return (from item in DataSource.GuestList where item.GuestKey == guestKey select item).FirstOrDefault();
+            }
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong: \n dal get Guest list "));
+            }
         }
         #endregion
-        #region GuestRequest
+        //ללא תיקון
+        #region GuestRequest 
         void Idal.AddGuestRequest(GuestRequest request)
         {
              DataSource.GuestRequestList.Add(request.Clone());
@@ -98,72 +109,138 @@ namespace DAL
                 throw new Exception("The guestReq you try to find doesn't exsit/n");
         }
         #endregion
-
-
         #region Host
         void Idal.UpdateHost(Host host)
         {
-            DataSource.HostList.Remove((from item in DataSource.HostList where item.HostKey == host.HostKey select item).FirstOrDefault());
-            DataSource.HostList.Add(host);
+            try
+            {
+                var oldHost = (from item in DataSource.HostList where item.HostKey ==host.HostKey select item).FirstOrDefault();
+                int tempIndex = DataSource.HostList.IndexOf(oldHost);
+                DataSource.HostList.Remove(oldHost);
+                DataSource.HostList.Insert(tempIndex, host);
+            }
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong \n dal update host- key num:{0} ", host.HostKey));
+            }
+
         }
         void Idal.AddHost(Host host)
         {
-            DataSource.HostList.Add(host);
+            try
+            {
+                DataSource.HostList.Add(host);
+            }
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong \n dal add host- key num:{0} ", host.HostKey));
+            }
+          
 
         }
         void Idal.DeleteHost(Host host)
         {
-            DataSource.HostList.Remove(host);
-
+            try
+            {
+                DataSource.HostList.Remove(host);
+            }
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong \n dal delete guest- key num:{0} ", host.HostKey));
+            }
         }
         List<Host> Idal.GetHosts()
         {
-            return DataSource.HostList;
+            try
+            {
+                return DataSource.HostList;
+            }
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong: \n dal get host list "));
+
+            }
         }
         Host Idal.GetHost(long hostKey)
         {
+            try
+            {
+                return (from item in DataSource.HostList where item.HostKey == hostKey select item).FirstOrDefault();
+            }
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong: \n dal get Guest list "));
+            }
 
-            var temp = (from item in DataSource.HostList where item.HostKey == hostKey select item).FirstOrDefault();
-            if (temp != null)
-                return temp;
-            else
-                throw new Exception("The host you try to find doesn't exsit/n");
         }
 
         #endregion
         #region HostingUnit
         void Idal.AddHostingUnit(HostingUnit unit)
         {
-            DataSource.HostingUnitList.Add(unit.Clone());
+            try
+            {
+                DataSource.HostingUnitList.Add(unit);
+            }
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong \n dal add unit- key num:{0} ", unit.HostingUnitKey));
+            }
         }
 
         void Idal.UpdateHostingUnit(HostingUnit unit)
         {
-            DataSource.HostingUnitList.Remove((from item in DataSource.HostingUnitList where item.HostingUnitKey == unit.HostingUnitKey select item).FirstOrDefault());
-            DataSource.HostingUnitList.Add(unit);
+            try
+            {
+                var oldUnit = (from item in DataSource.HostingUnitList where item.HostingUnitKey == unit.HostingUnitKey select item).FirstOrDefault();
+                int tempIndex = DataSource.HostingUnitList.IndexOf(oldUnit);
+                DataSource.HostingUnitList.Remove(oldUnit);
+                DataSource.HostingUnitList.Insert(tempIndex, unit);
+            }
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong \n dal update unit- key num:{0} ", unit.HostingUnitKey));
+            }
         }
         void Idal.DeleteHostingUnit(HostingUnit unit)
         {
-            DataSource.HostingUnitList.Remove(unit);
+            try
+            {
+                DataSource.HostingUnitList.Remove(unit);
+            }
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong \n dal delete unit- key num:{0} ", unit.HostingUnitKey));
+            }
         }
-        List<HostingUnit> Idal.GetHostingUnits()
+            List<HostingUnit> Idal.GetHostingUnits()
         {
-            return DataSource.HostingUnitList;
+            try
+            {
+                return DataSource.HostingUnitList;
+            }
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong: \n dal get unit list "));
+            }
         }
         HostingUnit Idal.GetHostingUnit(long hostingUnitKey)
         {
-            var temp = (from item in DataSource.HostingUnitList where item.HostingUnitKey == hostingUnitKey select item).FirstOrDefault();
-            if (temp != null)
-                return temp;
-            else
-                throw new Exception("The unit you try to find doesn't exsit/n");
+            try
+            {
+                return (from item in DataSource.HostingUnitList where item.HostingUnitKey == hostingUnitKey select item).FirstOrDefault();
+            }
+            catch
+            {
+                throw new Exception(String.Format("ERROR: Something went wrong: \n dal get Guest "));
+            }
         }
         #endregion
 
         #region Order
         void Idal.AddOrder(Order order)
         {
-            DataSource.OrderList.Add(order.Clone());
+            DataSource.OrderList.Add(order);
         }
 
         void Idal.UpdateOrder(Order order)
@@ -182,12 +259,14 @@ namespace DAL
             return DataSource.OrderList;
         }
          Order Idal.GetOrder(long orderKey)
-        {
-            var temp = (from item in DataSource.OrderList where item.OrderKey == orderKey select item).FirstOrDefault();
-            if (temp != null)
-                return temp;
-            else
+        {try
+            {
+                return (from item in DataSource.OrderList where item.OrderKey == orderKey select item).FirstOrDefault();
+            }
+            catch
+            {
                 throw new Exception("The order you try to find doesn't exsit/n");
+            }
         }
         #endregion
 
@@ -204,3 +283,5 @@ namespace DAL
         
     }
 }
+
+
